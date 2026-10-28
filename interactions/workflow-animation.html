@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workflow Interaktive Skripte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout: links das Systembild (lokal oben, Internet unten), rechts Erklärung + wachsendes Skript; unten die Schritt-Leiste */
+  --paper:#EEF1F5;
+  --card:#FFFFFF;
+  --ink:#16202D;
+  --muted:#5A6576;
+  --line:#C5CEDA;
+  --accent:#C0122E;
+  --c-local:#2456A6;
+  --c-src:#0E7A72;
+  --c-int:#A8620A;
+  --c-ki:#6B3FB4;
+  --c-cloud:#2E3B50;
+  --c-out:#C0122E;
+  --zone-local:#E4EBF5;
+  --zone-cloud:#E6E8EE;
+  --display:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45;display:grid;grid-template-rows:auto 1fr auto;min-height:0}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--c-local);outline-offset:2px}
+
+/* Kopfzeile */
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px 10px;flex-wrap:wrap}
+.brand h1{font-family:var(--display);font-weight:700;font-size:1.45rem;margin:0;letter-spacing:.005em;text-wrap:balance}
+.brand p{margin:0;color:var(--muted);font-size:.86rem}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tbtn{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:6px 11px;font-size:.85rem;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.tbtn:hover{border-color:var(--ink)}
+.tbtn[aria-pressed="true"]{background:var(--c-ki);border-color:var(--c-ki);color:#fff}
+.tbtn kbd{font-family:var(--mono);font-size:.72rem;opacity:.65;border:1px solid currentColor;border-radius:4px;padding:0 4px}
+
+/* Bühne */
+main{display:grid;grid-template-columns:minmax(0,1.62fr) minmax(300px,1fr);gap:16px;padding:0 20px;min-height:0}
+.diagram{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;min-height:0;display:flex;align-items:center;justify-content:center;padding:8px}
+.diagram svg{width:100%;height:100%;max-height:100%;display:block}
+.side{display:flex;flex-direction:column;gap:12px;min-height:0;overflow:auto;padding-bottom:4px}
+
+/* SVG */
+svg text{font-family:var(--body);fill:var(--ink)}
+.zone rect{stroke:none}
+.zone text{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;fill:var(--muted)}
+.node{cursor:pointer;transition:opacity .45s ease}
+.node .box{fill:var(--card);stroke:var(--line);stroke-width:1.5;transition:stroke .3s,fill .3s}
+.node .halo{fill:none;stroke:var(--accent);stroke-width:2.5;opacity:0}
+.node .lbl{font-weight:600;font-size:14px}
+.node .sub{font-size:10.5px;fill:var(--muted)}
+.node .ptag{font-family:var(--mono);font-size:9.5px;fill:var(--muted);opacity:0}
+.node .chk{opacity:0;transition:opacity .3s}
+.node .chk circle{fill:#1F8A4C}
+.node .chk text{fill:#fff;font-size:11px;font-weight:700}
+.node:hover .box,.node:focus-visible .box{stroke:var(--ink)}
+.node:focus{outline:none}
+.node:focus-visible .box{stroke-width:2.5}
+.node.off{opacity:.13}
+.node.ghost{opacity:.5}
+.node.ghost .box{stroke-dasharray:5 4}
+.node.ghost .ptag{opacity:1}
+.node.done .chk{opacity:1}
+.node.new .halo{animation:halo 1.8s ease-out 3}
+.node.ping .box{stroke:var(--accent);stroke-width:2.5}
+.node.ping.quarto .box{fill:#FBE7EA}
+@keyframes halo{0%{opacity:.9;stroke-width:2.5}100%{opacity:0;stroke-width:9}}
+.rs-title{font-weight:600;font-size:14px}
+.rs-pane{fill:#F5F7FA;stroke:#E0E5EC}
+.rs-chip{font-family:var(--mono);font-size:9.2px;fill:var(--ink);transition:opacity .4s}
+.rs-code{font-family:var(--mono);font-size:9.6px;fill:var(--ink)}
+.rs-code .hl{fill:var(--c-src);font-weight:500}
+.rs-code .hl2{fill:var(--c-int);font-weight:500}
+.rs-muted{font-family:var(--mono);font-size:9.5px;fill:var(--muted)}
+.quarto .box{fill:#FFF5F6;stroke:#E6B8BF}
+.quarto text{font-size:11.5px;font-weight:600;fill:var(--accent)}
+.link path.ln{fill:none;stroke:var(--line);stroke-width:2;transition:stroke .3s,opacity .4s}
+.link.on path.ln{stroke:#8C97A8}
+.link.run path.ln{stroke:var(--ink);stroke-dasharray:4 5;animation:dash 1s linear infinite}
+.link.off{opacity:0}
+.link text{font-family:var(--mono);font-size:10px;fill:var(--muted)}
+.link.run text{fill:var(--ink)}
+.link.ki path.ln{stroke:var(--c-ki)}
+@keyframes dash{to{stroke-dashoffset:-9}}
+.dot{pointer-events:none}
+
+/* Erklärkarte */
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.eyebrow{font-family:var(--display);font-weight:600;font-size:.8rem;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin:0 0 4px}
+.card h2{font-family:var(--display);font-weight:700;font-size:1.32rem;line-height:1.2;margin:0 0 8px;text-wrap:balance}
+.card p{margin:0 0 8px;max-width:62ch}
+.card .analogy{border-left:3px solid var(--c-int);padding-left:10px;color:#3A4556}
+.card .analogy b{color:var(--c-int);font-weight:600}
+.card .etym{font-size:.83rem;color:var(--muted);font-style:italic;margin:0}
+.card .where{font-size:.83rem;color:var(--muted);margin:6px 0 0}
+.card a{color:var(--c-local)}
+
+/* Checkliste */
+.check h3,.browser-wrap h3{font-family:var(--display);font-weight:600;font-size:.95rem;margin:0 0 8px}
+.check ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.check li label{display:grid;grid-template-columns:22px 1fr auto;gap:8px;align-items:start;padding:7px 9px;border:1px solid var(--line);border-radius:9px;cursor:pointer;background:#FAFBFC}
+.check li input{width:17px;height:17px;margin:2px 0 0;accent-color:#1F8A4C}
+.check li .t{font-weight:500}
+.check li .n{display:block;font-size:.8rem;color:var(--muted)}
+.check li .p{font-family:var(--mono);font-size:.72rem;color:var(--muted);white-space:nowrap;padding-top:2px}
+.check li input:checked ~ .t{color:#1F6B3F}
+.check .row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;align-items:center}
+.check .row a{font-size:.85rem;color:var(--c-local)}
+
+/* Mock-Browser */
+.browser{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.bbar{display:flex;align-items:center;gap:8px;padding:7px 10px;background:#E9EDF2;border-bottom:1px solid var(--line)}
+.bbar .dots{display:flex;gap:4px}
+.bbar .dots i{width:9px;height:9px;border-radius:50%;background:#C3CAD4;display:block}
+.url{flex:1;font-family:var(--mono);font-size:.76rem;background:#fff;border-radius:6px;padding:3px 8px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.url.public{color:var(--ink)}
+.live{font-family:var(--mono);font-size:.68rem;font-weight:500;color:#fff;background:#1F8A4C;border-radius:20px;padding:2px 8px;display:none}
+.live.on{display:inline-block}
+.page{padding:12px 14px;font-size:.86rem;min-height:120px;transition:background .4s}
+.page .sitehead{font-family:var(--display);font-weight:600;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid #E3E7EC;padding-bottom:5px;margin-bottom:8px}
+.page.styled .sitehead{color:#fff;background:linear-gradient(90deg,var(--accent),#8E1B5E);border:0;margin:-12px -14px 10px;padding:7px 14px}
+.page h4{margin:0 0 4px;font-size:1rem}
+.page.styled h4{font-family:var(--display);color:var(--accent);font-size:1.08rem}
+.page p{margin:0 0 6px}
+.fig{display:flex;gap:8px;align-items:center;font-size:.76rem;color:var(--muted);margin:4px 0 6px}
+.fig span.ph{width:58px;height:34px;border-radius:5px;background:repeating-linear-gradient(45deg,#E4E8EE 0 6px,#F1F3F6 6px 12px);flex:none}
+.cite{background:#E0F1EF;color:#0B5F59;border-radius:4px;padding:0 3px;font-family:inherit}
+.cite.raw{font-family:var(--mono);font-size:.78rem;background:#F1F3F6;color:var(--muted)}
+.refs{border-top:1px solid #E3E7EC;margin-top:8px;padding-top:6px;font-size:.76rem}
+.refs b{display:block;font-size:.78rem;margin-bottom:2px}
+.refs a{color:var(--c-local);word-break:break-all}
+.widgets{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 4px}
+.wbox{border:1px dashed #D2A35E;border-radius:8px;padding:7px 8px;background:#FFFBF4;font-size:.76rem}
+.wbox .wl{font-family:var(--mono);font-size:.66rem;color:var(--c-int);display:block;margin-bottom:3px}
+.bars{display:flex;align-items:flex-end;gap:5px;height:48px;border-bottom:1px solid #CFC3B0;margin-top:2px}
+.bars div{flex:1;background:var(--c-int);border-radius:3px 3px 0 0;height:0;transition:height .9s cubic-bezier(.2,.8,.2,1);position:relative}
+.bars div span{position:absolute;top:-14px;left:0;right:0;text-align:center;font-size:.62rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.barlbl{display:flex;gap:5px;font-size:.6rem;color:var(--muted)}
+.barlbl span{flex:1;text-align:center}
+.qbtn{display:block;width:100%;text-align:left;border:1px solid #DCCBB0;background:#fff;border-radius:6px;padding:3px 6px;margin-top:4px;font-size:.74rem;cursor:pointer}
+.qbtn.ok{background:#E3F4EA;border-color:#1F8A4C}
+.qbtn.no{background:#FBE7EA;border-color:var(--accent)}
+.qfb{font-size:.7rem;color:var(--muted);min-height:1em;margin-top:3px}
+.tutor{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:.78rem;color:var(--c-ki);border:1px solid #CDBCEB;border-radius:20px;padding:3px 10px;text-decoration:none;background:#F6F2FC}
+.stamp{font-size:.7rem;color:var(--muted);margin-top:6px}
+.flash{animation:flash 1.4s ease-out}
+@keyframes flash{0%{background:#FFF0B3}100%{background:transparent}}
+.empty{color:var(--muted);font-style:italic}
+
+/* Fußleiste */
+footer{display:flex;align-items:center;gap:10px;padding:12px 20px 14px;flex-wrap:wrap}
+.nav{border:1px solid var(--line);background:var(--card);border-radius:9px;padding:8px 12px;cursor:pointer;font-weight:600}
+.nav:disabled{opacity:.35;cursor:default}
+.steps{display:flex;gap:6px;flex:1;flex-wrap:wrap}
+.step{flex:1;min-width:110px;border:1px solid var(--line);background:var(--card);border-radius:9px;padding:6px 10px;cursor:pointer;text-align:left;display:flex;gap:8px;align-items:center}
+.step .num{font-family:var(--mono);font-size:.8rem;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--paper);flex:none}
+.step .nm{font-size:.84rem;font-weight:500;line-height:1.15}
+.step .wp{display:block;font-size:.68rem;color:var(--muted);font-weight:400}
+.step[aria-current="step"]{border-color:var(--accent);box-shadow:inset 0 -3px 0 var(--accent)}
+.step[aria-current="step"] .num{background:var(--accent);color:#fff}
+.step.past .num{background:var(--ink);color:#fff}
+
+/* Detailkarte und Quiz */
+.pop{position:absolute;left:14px;bottom:14px;width:min(380px,calc(100% - 28px));background:var(--card);border:1px solid var(--ink);border-radius:12px;padding:14px 16px 12px;box-shadow:0 10px 30px rgba(22,32,45,.18);display:none;font-size:.88rem}
+.pop.open{display:block}
+.pop h3{font-family:var(--display);font-size:1.12rem;margin:0 0 6px;padding-right:26px}
+.pop dl{margin:0;display:grid;gap:5px}
+.pop dt{font-family:var(--display);font-weight:600;font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.pop dd{margin:0 0 2px}
+.pop .x{position:absolute;top:8px;right:8px;border:0;background:transparent;font-size:1.2rem;cursor:pointer;width:28px;height:28px;border-radius:6px}
+.pop .x:hover{background:var(--paper)}
+.overlay{position:fixed;inset:0;background:rgba(22,32,45,.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:10}
+.overlay.open{display:flex}
+.quiz{background:var(--card);border-radius:16px;padding:22px 24px;width:min(640px,100%);max-height:100%;overflow:auto}
+.quiz h2{font-family:var(--display);margin:0 0 4px;font-size:1.4rem}
+.quiz p{margin:0 0 12px;color:var(--muted)}
+.qgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px}
+.qcard{border:1.5px solid var(--line);background:#FAFBFC;border-radius:10px;padding:12px;text-align:left;cursor:pointer;font-weight:500;display:flex;gap:10px;align-items:center;min-height:62px}
+.qcard .qn{font-family:var(--mono);width:24px;height:24px;border-radius:50%;display:grid;place-items:center;border:1px dashed var(--line);flex:none;font-size:.8rem}
+.qcard.right{border-color:#1F8A4C;background:#EAF6EF;cursor:default}
+.qcard.right .qn{background:#1F8A4C;color:#fff;border:0}
+.qcard.wrong{animation:shake .4s;border-color:var(--accent)}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.qmsg{margin:12px 0 0;min-height:1.4em;font-weight:500}
+.qrow{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+
+@media (max-width:820px){
+  main{grid-template-columns:1fr}
+  .diagram{min-height:340px}
+  body{display:block}
+  .side{overflow:visible}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <h1>Vom Manuskript zur Website: der Workflow für interaktive Skripte</h1>
+    <p>Workshop „Interaktive Skripte mit KI erstellen“ · TH Köln · Prof. Dr. Roman Bartnik</p>
+  </div>
+  <div class="tools">
+    <button class="tbtn" id="kiBtn" aria-pressed="false" title="KI-Assistent ein- oder ausblenden (Taste K)">✦ KI-Schicht <kbd>K</kbd></button>
+    <button class="tbtn" id="quizBtn" title="Reihenfolge-Quiz öffnen (Taste Q)">Reihenfolge-Quiz <kbd>Q</kbd></button>
+    <button class="tbtn" id="playBtn" title="Animation anhalten oder fortsetzen (Leertaste)">⏸ Pause</button>
+    <button class="tbtn" id="fsBtn" title="Vollbild (Taste F)">⛶ Vollbild</button>
+  </div>
+</header>
+
+<main>
+  <section class="diagram" aria-label="Systembild des Workflows">
+    <svg id="svg" viewBox="0 0 800 600" role="img" aria-labelledby="svgTitle">
+      <title id="svgTitle">Werkzeuge und Datenflüsse: Zotero und Interaktionen liefern an RStudio mit Quarto, Quarto rendert in die lokale Vorschau, GitHub Desktop lädt zu GitHub hoch, GitHub Pages veröffentlicht für Studierende.</title>
+      <defs>
+        <symbol id="i-quote" viewBox="0 0 24 24"><path d="M4 18v-5c0-4 2-6.5 5.5-7.5l.8 1.8C8 8.2 7.3 9.6 7.2 11.5H10V18H4zm10 0v-5c0-4 2-6.5 5.5-7.5l.8 1.8C18 8.2 17.3 9.6 17.2 11.5H20V18h-6z" fill="currentColor"/></symbol>
+        <symbol id="i-code" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="8,6 2,12 8,18"/><polyline points="16,6 22,12 16,18"/><line x1="14" y1="4" x2="10" y2="20"/></g></symbol>
+        <symbol id="i-editor" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2.5" y="3.5" width="19" height="17" rx="2.5"/><line x1="2.5" y1="8" x2="21.5" y2="8"/><line x1="6" y1="12" x2="14" y2="12"/><line x1="6" y1="16" x2="17" y2="16"/></g></symbol>
+        <symbol id="i-gear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r="8" stroke-dasharray="3.2 2.1"/></g></symbol>
+        <symbol id="i-monitor" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2.5" y="4" width="19" height="13" rx="2"/><line x1="12" y1="17" x2="12" y2="21"/><line x1="8" y1="21" x2="16" y2="21"/></g></symbol>
+        <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2.5l2.1 7.4 7.4 2.1-7.4 2.1L12 21.5l-2.1-7.4L2.5 12l7.4-2.1z" fill="currentColor"/></symbol>
+        <symbol id="i-upload" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="7,9 12,4 17,9"/><line x1="12" y1="4" x2="12" y2="15"/><path d="M4 14v4.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5V14"/></g></symbol>
+        <symbol id="i-archive" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2.5" y="3.5" width="19" height="5" rx="1"/><path d="M4 8.5V19a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 20 19V8.5"/><line x1="10" y1="12.5" x2="14" y2="12.5"/></g></symbol>
+        <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></g></symbol>
+        <symbol id="i-people" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c.5-3.6 3-5.5 6-5.5s5.5 1.9 6 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14.6c2.4.2 4 1.9 4.5 4.9"/></g></symbol>
+        <filter id="glow" x="-1" y="-1" width="3" height="3"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <g class="zone"><rect x="10" y="10" width="780" height="382" rx="14" fill="var(--zone-local)"/><text x="26" y="36">Ihr Rechner · lokal</text></g>
+      <g class="zone"><rect x="10" y="406" width="780" height="184" rx="14" fill="var(--zone-cloud)"/><text x="26" y="432">Internet · GitHub</text></g>
+      <g id="links"></g>
+      <g id="nodes"></g>
+      <g id="dots"></g>
+    </svg>
+    <div class="pop" id="pop" role="dialog" aria-modal="false" aria-labelledby="popTitle">
+      <button class="x" id="popClose" aria-label="Details schließen">×</button>
+      <h3 id="popTitle"></h3>
+      <dl id="popBody"></dl>
+    </div>
+  </section>
+
+  <aside class="side">
+    <div class="card" id="explain" aria-live="polite"></div>
+    <div class="card check" id="checkPanel">
+      <h3>Installations-Checkliste: abhaken, und das Werkzeug leuchtet auf</h3>
+      <ul id="checklist"></ul>
+      <div class="row">
+        <button class="tbtn" id="installBtn">▶ Installation abspielen</button>
+        <button class="tbtn" id="resetBtn">Zurücksetzen</button>
+        <a href="https://th-koln-bartnik.github.io/Workshop-Interaktive-Skripte-Bartnik/appendix/quickstart.html" target="_blank" rel="noopener">Quick-Starter Guide öffnen ↗</a>
+      </div>
+    </div>
+    <div class="card browser-wrap" id="browserPanel">
+      <h3>So wächst Ihr Skript</h3>
+      <div class="browser">
+        <div class="bbar"><span class="dots"><i></i><i></i><i></i></span><span class="url" id="url">localhost:4321</span><span class="live" id="live">live</span></div>
+        <div class="page" id="page"></div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<footer>
+  <button class="nav" id="prev" aria-label="Vorheriger Schritt">←</button>
+  <nav class="steps" id="steps" aria-label="Schritte"></nav>
+  <button class="nav" id="next" aria-label="Nächster Schritt">→</button>
+</footer>
+
+<div class="overlay" id="quizOverlay" role="dialog" aria-modal="true" aria-labelledby="quizTitle">
+  <div class="quiz">
+    <h2 id="quizTitle">Reihenfolge-Check</h2>
+    <p>Eine Änderung im Skript soll bei den Studierenden ankommen. Klicken Sie die sechs Schritte in der richtigen Reihenfolge an.</p>
+    <div class="qgrid" id="qgrid"></div>
+    <div class="qmsg" id="qmsg" aria-live="polite"></div>
+    <div class="qrow"><button class="tbtn" id="qreset">Neu mischen</button><button class="tbtn" id="qclose">Schließen</button></div>
+  </div>
+</div>
+
+<script>
+(function(){
+const NS="http://www.w3.org/2000/svg";
+const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function el(tag, attrs, parent){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e;}
+
+/* ---------- Werkzeuge ---------- */
+const NODES = {
+  zotero:{x:20,y:60,w:160,h:74,label:"Zotero",sub:"+ Better BibTeX",icon:"quote",cat:"src",intro:2,ptag:"ab Phase 2"},
+  interactions:{x:20,y:170,w:160,h:74,label:"Interaktionen",sub:"interactions/ · data/",icon:"code",cat:"int",intro:3,ptag:"Vorlage"},
+  rstudio:{x:250,y:44,w:250,h:200,label:"RStudio",sub:"",icon:"editor",cat:"local",intro:1,ptag:"ab Phase 1"},
+  quarto:{x:258,y:208,w:234,h:28,label:"Quarto",cat:"out",intro:1},
+  vorschau:{x:590,y:60,w:190,h:74,label:"Lokale Vorschau",sub:"Browser · localhost",icon:"monitor",cat:"local",intro:1,ptag:"vorhanden"},
+  ki:{x:590,y:170,w:190,h:74,label:"KI-Assistent",sub:"Claude Desktop · Codex",icon:"spark",cat:"ki",intro:"opt",ptag:"optional"},
+  ghdesktop:{x:250,y:316,w:160,h:58,label:"GitHub Desktop",sub:"Commit · Push",icon:"upload",cat:"cloud",intro:4,ptag:"ab Phase 3"},
+  repo:{x:180,y:450,w:190,h:74,label:"GitHub",sub:"Repository (Archiv)",icon:"archive",cat:"cloud",intro:4,ptag:"ab Phase 3"},
+  pages:{x:420,y:450,w:150,h:74,label:"GitHub Pages",sub:"liefert die Website",icon:"globe",cat:"cloud",intro:4,ptag:"ab Phase 3"},
+  web:{x:620,y:450,w:160,h:74,label:"Studierende",sub:"Adresse: …github.io",icon:"people",cat:"out",intro:4,ptag:"vorhanden"}
+};
+const INFO = {
+  zotero:{t:"Zotero mit Better BibTeX",was:"Eine Literaturverwaltung. Sie sammelt Quellen mit allen bibliografischen Angaben, wie ein persönlicher Bibliothekskatalog.",wozu:"Die Erweiterung Better BibTeX exportiert die Sammlung als Datei references.bib und hält sie automatisch aktuell.",bild:"Karteikasten mit Signaturen: Im Text steht nur die Signatur, die vollständige Angabe holt Quarto aus dem Kasten.",datei:"references.bib, Zitierschlüssel wie lakens2022"},
+  interactions:{t:"Interaktionen und Daten",was:"Kleine, eigenständige Webseiten: Quiz, Spiel, Diagramm. Sie brauchen keinen Server im Hintergrund.",wozu:"Sie liegen im Ordner interactions/, Daten im Ordner data/. Ein iFrame setzt sie in ein Kapitel ein.",bild:"Ein iFrame ist ein Bilderrahmen an der Wand des Kapitels, in dem eine andere Webseite hängt.",datei:"quiz.html, daten.csv"},
+  rstudio:{t:"RStudio",was:"Die Werkbank: Editor, Dateiübersicht, Terminal und Konsole in einem Fenster. Gebaut für die Statistiksprache R, deshalb wird R mitinstalliert.",wozu:"Hier schreiben Sie Kapitel als .qmd-Dateien: normaler Text mit einfachen Formatzeichen (Markdown) und ein paar Regieanweisungen für Quarto.",bild:"Ein Schreibtisch, auf dem Manuskript, Karteikasten und Setzerei in Reichweite liegen.",datei:"kapitel.qmd, _quarto.yml (Inhaltsverzeichnis und Einstellungen)"},
+  quarto:{t:"Quarto",was:"Ein Satzprogramm. Es verwandelt .qmd-Dateien in eine fertige Website, auf Wunsch auch in PDF oder Folien.",wozu:"Rendern heißt setzen: Ein Klick auf Render erzeugt das Buch. Die Vorschau aktualisiert sich bei jedem Speichern.",bild:"Die Setzerei, die aus dem Manuskript ein gebundenes Buch macht.",datei:"Ordner mit fertigen HTML-Seiten (z. B. _book/)"},
+  vorschau:{t:"Lokale Vorschau",was:"Ihr gewohnter Webbrowser, der die gerenderte Seite von Ihrem eigenen Rechner anzeigt.",wozu:"„localhost“ bedeutet: Diese Adresse existiert nur auf Ihrem Rechner. Niemand sonst sieht die Seite.",bild:"Der Probedruck auf dem eigenen Schreibtisch, bevor das Buch in den Handel geht.",datei:"Adresse wie localhost:4321"},
+  ki:{t:"KI-Assistent (optional)",was:"Ein Sprachmodell, das Zugriff auf Ihren Projektordner bekommt (Claude Desktop, ChatGPT Codex) oder als Tutor im Browser berät (Custom GPT „Tutor – Interaktive Skripte“).",wozu:"Schreibt Entwürfe, baut Widgets, erklärt Fehlermeldungen. Sie prüfen jedes Ergebnis, bevor es ins Skript kommt.",bild:"Eine studentische Hilfskraft mit Büroschlüssel: schnell und fleißig, aber abzeichnen müssen Sie.",datei:"Optional. Der Workshop funktioniert auch ohne."},
+  ghdesktop:{t:"GitHub Desktop",was:"Ein Programm mit Schaltflächen für Git, das Versionsverwaltungssystem. Git merkt sich jede gespeicherte Fassung Ihres Projekts.",wozu:"Commit: ein Schnappschuss mit kurzer Notiz („Kapitel 2 ergänzt“). Push: die Schnappschüsse zu GitHub hochladen.",bild:"Der Speicherstand im Videospiel: Sie können jederzeit zu einem früheren Stand zurück.",datei:"Versionsgeschichte im versteckten Ordner .git"},
+  repo:{t:"GitHub",was:"Eine Plattform, die Git-Projekte im Internet aufbewahrt. Ein Projekt dort heißt Repository.",wozu:"Enthält das ganze Skript mit allen Fassungen. Kolleginnen und Studierende können Fehler melden oder Änderungen vorschlagen.",bild:"Ein Archiv mit Eingangsbuch: Jede Einlieferung wird mit Datum und Notiz verzeichnet. (Repositorium, lat. reponere: zurücklegen, aufbewahren.)",datei:"github.com/ihr-name/mein-skript"},
+  pages:{t:"GitHub Pages",was:"Ein kostenloser Dienst von GitHub, der die HTML-Dateien aus einem Repository als Website ausliefert.",wozu:"Nach jedem Push ist die neue Fassung kurz darauf online, ohne eigenen Server.",bild:"Ein Schaufenster am Archiv: Was eingeliefert wird, ist von der Straße aus zu sehen.",datei:"Einstellung im Repository unter Settings → Pages"},
+  web:{t:"Studierende",was:"Ihre Leserschaft, die das Skript über eine feste Adresse aufruft, am Laptop oder am Handy.",wozu:"Kein Login, kein Download. Links aus dem Lernmanagementsystem führen direkt ins richtige Kapitel.",bild:"Das Publikum vor dem Schaufenster.",datei:"ihr-name.github.io/mein-skript"}
+};
+const LINKS = {
+  zot:{d:"M180 97 L250 97",from:"zotero",to:"rstudio",lbl:".bib",lx:215,ly:89,cat:"src"},
+  int:{d:"M180 207 L250 207",from:"interactions",to:"rstudio",lbl:"iFrame",lx:215,ly:199,cat:"int"},
+  prev:{d:"M500 97 L590 97",from:"quarto",to:"vorschau",lbl:"HTML",lx:545,ly:89,cat:"out"},
+  ki:{d:"M590 207 L500 207",from:"ki",to:"rstudio",lbl:"Vorschlag",lx:545,ly:199,cat:"ki"},
+  commit:{d:"M330 244 L330 316",from:"rstudio",to:"ghdesktop",lbl:"Commit",lx:338,ly:284,cat:"cloud",anchor:"start"},
+  push:{d:"M330 374 L330 450",from:"ghdesktop",to:"repo",lbl:"Push",lx:338,ly:416,cat:"cloud",anchor:"start"},
+  pages:{d:"M370 487 L420 487",from:"repo",to:"pages",lbl:"Build",lx:395,ly:479,cat:"cloud"},
+  web:{d:"M570 487 L620 487",from:"pages",to:"web",lbl:"URL",lx:595,ly:479,cat:"out"}
+};
+
+/* ---------- Schritte ---------- */
+const STEPS = [
+  {short:"Werkzeugkasten",wp:"vor dem Workshop",eyebrow:"Schritt 0 · Vorbereitung zu Hause",
+   title:"Fünf Werkzeuge, jedes mit genau einer Aufgabe",
+   text:"Sie installieren die Werkzeuge einmal vorab. Im Workshop kommt jedes erst in der Phase dran, in der es gebraucht wird; pro Phase ist es höchstens ein neues.",
+   analogy:"Wie eine Küche vor dem Kochkurs: Herd, Messer und Töpfe stehen bereit, das Rezept folgt Schritt für Schritt.",
+   etym:"Installieren: mittellat. installare, jemanden in sein Chorgestühl (stallum) einsetzen.",
+   where:"Im Skript: Quick-Starter Guide", flows:[], links:[]},
+  {short:"Schreiben & Rendern",wp:"Phase 1",eyebrow:"Schritt 1 · Workshop-Phase 1 · neu: RStudio und Quarto",
+   title:"Aus einer Textdatei wird mit einem Klick eine Webseite",
+   text:"Sie schreiben in RStudio eine einfache Textdatei mit der Endung .qmd. Quarto setzt daraus eine fertige Webseite, die zunächst nur auf Ihrem Rechner im Browser erscheint.",
+   analogy:"Manuskript, Setzerei, Probedruck: Sie schreiben, Quarto setzt, der Browser zeigt den Probedruck.",
+   etym:"Rendern: über frz. rendre von lat. reddere, zurückgeben, wiedergeben.",
+   where:"Im Skript: Kapitel 2 und 3 (RStudio, Bilder, Tabellen, Verweise)", flows:["prev"], links:["prev"]},
+  {short:"Quellen",wp:"Phase 2",eyebrow:"Schritt 2 · Workshop-Phase 2 · neu: Zotero",
+   title:"Zotero liefert die Quellen, Quarto setzt Zitat und Literaturverzeichnis",
+   text:"Better BibTeX hält die Datei references.bib automatisch aktuell. Im Text steht nur ein Kurzschlüssel wie [@lakens2022]; beim Rendern wird daraus „(Lakens, 2022)“, und das Literaturverzeichnis entsteht von selbst.",
+   analogy:"Die Signatur im Bibliothekskatalog: Sie notieren nur die Nummer, das vollständige Buch holt jemand anderes aus dem Magazin.",
+   etym:"Bibliografie: griech. biblíon (Buch) und gráphein (schreiben).",
+   where:"Im Skript: Kapitel 4 (Quellen mit Zotero)", flows:["zot","prev"], links:["zot","prev"]},
+  {short:"Stil & Interaktion",wp:"Phase 3",eyebrow:"Schritt 3 · Workshop-Phase 3 · neu: Interaktionen",
+   title:"Stildatei und HTML-Bausteine machen aus dem Text ein Lernobjekt",
+   text:"Die Datei _brand.yml gibt dem Skript Farben und Schrift. Im Ordner interactions/ liegen kleine Webseiten wie Quiz oder Spiel; ein iFrame setzt sie wie ein Fenster ins Kapitel. Diagramme lesen ihre Werte aus data/, der KI-Tutor ist einen Klick entfernt.",
+   analogy:"Ein iFrame ist ein Bilderrahmen im Kapitel, in dem eine andere Webseite hängt und dort weiter funktioniert.",
+   etym:"Interaktion: lat. inter (zwischen) und agere (handeln).",
+   where:"Im Skript: Kapitel 5 bis 7 (Stil, Diagramme, iFrames und KI-Tutor)", flows:["int","prev"], links:["zot","int","prev"]},
+  {short:"Veröffentlichen",wp:"Phase 3",eyebrow:"Schritt 4 · Workshop-Phase 3 · neu: GitHub",
+   title:"Commit und Push bringen das Skript ins Netz",
+   text:"GitHub Desktop macht einen Commit, einen Schnappschuss des Projekts mit kurzer Notiz. Push lädt die Schnappschüsse in Ihr Repository auf GitHub. GitHub Pages stellt daraus eine öffentliche Website unter fester Adresse bereit.",
+   analogy:"Speicherstand im Spiel, Einlieferung ins Archiv, Schaufenster zur Straße.",
+   etym:"Publizieren: lat. publicare, öffentlich machen.",
+   where:"Im Skript: Kapitel 8 (Veröffentlichen mit GitHub und Pages)", flows:["commit","push","pages","web"], links:["zot","int","prev","commit","push","pages","web"]},
+  {short:"Der Kreislauf",wp:"ab jetzt",eyebrow:"Schritt 5 · Das Gesamtbild",
+   title:"Jede Änderung läuft denselben Kreis: schreiben, rendern, prüfen, hochladen",
+   text:"Im Semester wiederholen Sie diesen Kreis viele Male; eine Korrektur ist nach einer Minute online. Ein KI-Assistent kann im Projektordner mitschreiben und Fehler erklären. Inhalt und Quellen verantworten Sie selbst.",
+   analogy:"Eine Werkstatt mit Laufband: Jede Verbesserung fährt vom Schreibtisch bis ins Schaufenster.",
+   etym:"Zyklus: griech. kýklos, Kreis.",
+   where:"Im Skript: Anhang KI-Tutor und Reviewer-Prompt", flows:["relay"], links:["zot","int","prev","ki","commit","push","pages","web"]}
+];
+const CHECK = [
+  {id:"c-rs",nodes:["rstudio","quarto"],t:"R und RStudio",n:"Quarto ist in RStudio bereits enthalten",p:"Phase 1"},
+  {id:"c-tpl",nodes:["interactions"],t:"Vorlage vorlage-skript-v3.zip",n:"bringt Ordner, Beispielkapitel und Quiz-Widget mit",p:"Phase 1"},
+  {id:"c-zot",nodes:["zotero"],t:"Zotero mit Better BibTeX",n:"Erweiterung für die automatische .bib-Datei",p:"Phase 2"},
+  {id:"c-gh",nodes:["ghdesktop","repo","pages"],t:"GitHub-Konto und GitHub Desktop",n:"ein kostenloses Konto genügt",p:"Phase 3"},
+  {id:"c-ki",nodes:["ki"],t:"Claude Desktop oder ChatGPT Codex",n:"empfohlen, nicht verpflichtend",p:"optional"}
+];
+
+/* ---------- Zustand ---------- */
+let step = 0, kiOn = false, paused = false;
+const checked = new Set();
+
+/* ---------- SVG aufbauen ---------- */
+const gLinks=document.getElementById("links"), gNodes=document.getElementById("nodes"), gDots=document.getElementById("dots");
+const linkEls={}, pathEls={}, nodeEls={};
+for(const id in LINKS){
+  const L=LINKS[id];
+  const g=el("g",{class:"link off"+(id==="ki"?" ki":""),id:"l-"+id},gLinks);
+  pathEls[id]=el("path",{class:"ln",d:L.d},g);
+  const t=el("text",{x:L.lx,y:L.ly,"text-anchor":L.anchor||"middle"},g); t.textContent=L.lbl;
+  linkEls[id]=g;
+}
+function buildStd(id,n){
+  const g=el("g",{class:"node off",id:"n-"+id,tabindex:"0",role:"button","aria-label":n.label+": Details anzeigen"},gNodes);
+  el("rect",{class:"halo",x:n.x-5,y:n.y-5,width:n.w+10,height:n.h+10,rx:16},g);
+  el("rect",{class:"box",x:n.x,y:n.y,width:n.w,height:n.h,rx:12},g);
+  const cx=n.x+27, cy=n.y+n.h/2;
+  el("circle",{cx,cy,r:17,fill:"var(--c-"+n.cat+")","fill-opacity":".13"},g);
+  el("use",{href:"#i-"+n.icon,x:cx-11,y:cy-11,width:22,height:22,style:"color:var(--c-"+n.cat+")"},g);
+  const t=el("text",{x:n.x+52,y:cy-2,class:"lbl"},g); t.textContent=n.label;
+  const s=el("text",{x:n.x+52,y:cy+14,class:"sub"},g); s.textContent=n.sub;
+  addBadges(g,n);
+  return g;
+}
+function addBadges(g,n){
+  const c=el("g",{class:"chk"},g);
+  el("circle",{cx:n.x+n.w-4,cy:n.y+4,r:9},c);
+  const ct=el("text",{x:n.x+n.w-4,y:n.y+8,"text-anchor":"middle"},c); ct.textContent="✓";
+  if(n.ptag){const p=el("text",{x:n.x+4,y:n.y-6,class:"ptag"},g); p.textContent=n.ptag;}
+}
+for(const id in NODES){ if(id!=="rstudio" && id!=="quarto") nodeEls[id]=buildStd(id,NODES[id]); }
+/* RStudio als großes Fenster mit Dateien, Editor und Quarto-Leiste */
+(function(){
+  const n=NODES.rstudio;
+  const g=el("g",{class:"node off",id:"n-rstudio",tabindex:"0",role:"button","aria-label":"RStudio: Details anzeigen"},gNodes);
+  el("rect",{class:"halo",x:n.x-5,y:n.y-5,width:n.w+10,height:n.h+10,rx:16},g);
+  el("rect",{class:"box",x:n.x,y:n.y,width:n.w,height:n.h,rx:12},g);
+  el("use",{href:"#i-editor",x:n.x+10,y:n.y+7,width:18,height:18,style:"color:var(--c-local)"},g);
+  const t=el("text",{x:n.x+34,y:n.y+21,class:"rs-title"},g); t.textContent="RStudio";
+  const s=el("text",{x:n.x+96,y:n.y+21,class:"sub"},g); s.textContent="Projekt: mein-skript";
+  el("rect",{class:"rs-pane",x:n.x+8,y:n.y+32,width:84,height:124,rx:6},g);
+  el("rect",{class:"rs-pane",x:n.x+97,y:n.y+32,width:145,height:124,rx:6},g);
+  const files=el("g",{id:"rsFiles"},g);
+  const code=el("g",{id:"rsCode"},g);
+  addBadges(g,n);
+  nodeEls.rstudio=g;
+  const q=NODES.quarto;
+  const qg=el("g",{class:"node quarto off",id:"n-quarto",tabindex:"0",role:"button","aria-label":"Quarto: Details anzeigen"},gNodes);
+  el("rect",{class:"halo",x:q.x-4,y:q.y-4,width:q.w+8,height:q.h+8,rx:10},qg);
+  el("rect",{class:"box",x:q.x,y:q.y,width:q.w,height:q.h,rx:7},qg);
+  el("use",{href:"#i-gear",x:q.x+8,y:q.y+5,width:18,height:18,style:"color:var(--accent)"},qg);
+  const qt=el("text",{x:q.x+32,y:q.y+18},qg); qt.textContent="Quarto · Render ▶";
+  nodeEls.quarto=qg;
+})();
+function renderRStudio(){
+  const n=NODES.rstudio, files=document.getElementById("rsFiles"), code=document.getElementById("rsCode");
+  files.innerHTML=""; code.innerHTML="";
+  const list=[["kapitel.qmd",1],["_quarto.yml",1],["references.bib",2],["_brand.yml",3],["interactions/",3]];
+  let y=n.y+50;
+  const shown=list.filter(f=>step>=f[1] && step>0);
+  if(!shown.length){const m=el("text",{x:n.x+14,y,class:"rs-muted"},files); m.textContent="(leer)";}
+  shown.forEach(f=>{const t=el("text",{x:n.x+13,y,class:"rs-chip"},files); t.textContent=f[0]; y+=19;});
+  const lines=[];
+  if(step===0){lines.push([["Noch kein Kapitel.","m"]]);}
+  else{
+    lines.push([["---","m"]]);
+    lines.push([['title: "Kapitel 1"',""]]);
+    lines.push([["---","m"]]);
+    lines.push([["## Warum zweifeln?",""]]);
+    lines.push([["Wissenschaft prüft",""]]);
+    lines.push(step>=2?[["Aussagen ",""],["[@lakens2022]","hl"],[".",""]]:[["Aussagen.",""]]);
+    if(step>=3) lines.push([['<iframe src="quiz…">',"hl2"]]);
+  }
+  let cy=n.y+50;
+  lines.forEach(parts=>{
+    const t=el("text",{x:n.x+104,y:cy,class:"rs-code"},code);
+    parts.forEach(([txt,cls])=>{const s=el("tspan",cls==="m"?{style:"fill:var(--muted)"}:(cls?{class:cls}:{}),t); s.textContent=txt;});
+    cy+=15;
+  });
+}
+
+/* ---------- Zustände ---------- */
+function nodeState(id){
+  const n=NODES[id];
+  if(step===0){
+    if(id==="vorschau"||id==="web") return "on";
+    return [...checked].some(c=>CHECK.find(x=>x.id===c).nodes.includes(id)) ? "done" : "ghost";
+  }
+  if(id==="ki") return (kiOn||step===5) ? (step===5?"on":"on") : "off";
+  if(n.intro<=step) return (n.intro===step && step<5) ? "new" : "on";
+  return "off";
+}
+function applyNodes(){
+  for(const id in nodeEls){
+    const g=nodeEls[id], st=nodeState(id);
+    const keepQuarto = id==="quarto" ? " quarto" : "";
+    g.setAttribute("class","node"+keepQuarto+" "+st);
+  }
+}
+function visible(id){const s=nodeState(id);return s!=="off";}
+function applyLinks(){
+  const S=STEPS[step];
+  const running=new Set(S.flows.includes("relay")?["zot","int","ki","prev","commit","push","pages","web"]:S.flows);
+  if(kiOn && step>0) running.add("ki");
+  for(const id in LINKS){
+    const L=LINKS[id];
+    let cls="link"+(id==="ki"?" ki":"");
+    const show = step>0 && (S.links.includes(id) || (id==="ki"&&kiOn)) && visible(L.from) && visible(L.to);
+    if(!show) cls+=" off"; else if(running.has(id)) cls+=" run"; else cls+=" on";
+    linkEls[id].setAttribute("class",cls);
+  }
+  buildFlows(running);
+}
+
+/* ---------- Animierte Punkte ---------- */
+let flows=[];
+function buildFlows(running){
+  gDots.innerHTML=""; flows=[];
+  if(reduced) return;
+  const S=STEPS[step];
+  if(S.flows.includes("relay")){
+    const seq=[["zot",0],["int",0],["ki",0],["prev",1100],["commit",2300],["push",3300],["pages",4300],["web",5200]];
+    seq.forEach(([id,delay])=>addFlow(id,{delay,period:7000,dur:950}));
+  } else {
+    running.forEach(id=>{
+      const base={prev:{delay:900},zot:{delay:0},int:{delay:0},ki:{delay:300},commit:{delay:0},push:{delay:1000},pages:{delay:2000},web:{delay:2900}}[id]||{delay:0};
+      const period = ["commit","push","pages","web"].includes(id)?4200:2800;
+      addFlow(id,{delay:base.delay,period,dur:1000});
+      if(id==="ki") addFlow(id,{delay:1700,period:2800,dur:1000,reverse:true});
+    });
+  }
+}
+function addFlow(id,o){
+  const L=LINKS[id], p=pathEls[id];
+  const color = "var(--c-"+(o.reverse?"local":L.cat)+")";
+  const c=el("circle",{r:6,class:"dot",fill:color,filter:"url(#glow)",opacity:0},gDots);
+  flows.push(Object.assign({id,el:c,path:p,len:p.getTotalLength(),last:-1,from:o.reverse?L.to:L.from,to:o.reverse?L.from:L.to},o));
+}
+function ping(id){const g=nodeEls[id];if(!g)return;g.classList.add("ping");setTimeout(()=>g.classList.remove("ping"),450);}
+let elapsed=0, lastT=null;
+function frame(t){
+  if(lastT===null) lastT=t;
+  const dt=t-lastT; lastT=t;
+  if(!paused) elapsed+=dt;
+  for(const f of flows){
+    const local=elapsed-f.delay;
+    if(local<0){f.el.setAttribute("opacity",0);continue;}
+    const cyc=Math.floor(local/f.period), within=local%f.period, p=within/f.dur;
+    if(p>1){
+      f.el.setAttribute("opacity",0);
+      if(f.last!==cyc){f.last=cyc; ping(f.to); if(f.id==="prev"||f.id==="zot") onArrive(f.id);}
+      continue;
+    }
+    const d=f.reverse?1-p:p;
+    const pt=f.path.getPointAtLength(d*f.len);
+    f.el.setAttribute("cx",pt.x); f.el.setAttribute("cy",pt.y);
+    f.el.setAttribute("opacity", p<.12?p/.12 : p>.88?(1-p)/.12 : 1);
+  }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+function onArrive(id){ if(id==="prev"){ const pg=document.getElementById("page"); pg.classList.remove("flash"); void pg.offsetWidth; pg.classList.add("flash"); } }
+
+/* ---------- Erklärkarte ---------- */
+function renderExplain(){
+  const S=STEPS[step];
+  document.getElementById("explain").innerHTML =
+    `<p class="eyebrow">${S.eyebrow}</p><h2>${S.title}</h2><p>${S.text}</p>`+
+    `<p class="analogy"><b>Bild dafür:</b> ${S.analogy}</p><p class="etym">${S.etym}</p><p class="where">${S.where}</p>`;
+}
+
+/* ---------- Checkliste ---------- */
+const ul=document.getElementById("checklist");
+CHECK.forEach(c=>{
+  const li=document.createElement("li");
+  li.innerHTML=`<label for="${c.id}"><input type="checkbox" id="${c.id}"><span class="t">${c.t}<span class="n">${c.n}</span></span><span class="p">${c.p}</span></label>`;
+  ul.appendChild(li);
+  li.querySelector("input").addEventListener("change",e=>{ if(e.target.checked) checked.add(c.id); else checked.delete(c.id); applyNodes(); c.nodes.forEach(ping); });
+});
+let installTimer=null;
+document.getElementById("installBtn").addEventListener("click",()=>{
+  clearInterval(installTimer); let i=0;
+  installTimer=setInterval(()=>{
+    if(i>=CHECK.length){clearInterval(installTimer);return;}
+    const c=CHECK[i++], box=document.getElementById(c.id);
+    if(!box.checked){box.checked=true; box.dispatchEvent(new Event("change"));}
+  },650);
+});
+document.getElementById("resetBtn").addEventListener("click",()=>{
+  clearInterval(installTimer); checked.clear();
+  CHECK.forEach(c=>document.getElementById(c.id).checked=false); applyNodes();
+});
+
+/* ---------- Wachsendes Skript ---------- */
+function renderPage(){
+  const pg=document.getElementById("page"), url=document.getElementById("url"), live=document.getElementById("live");
+  const pub=step>=4;
+  url.textContent = pub ? "🔒 th-koln-bartnik.github.io/mein-skript/kapitel-1.html" : "localhost:4321/kapitel-1.html";
+  url.classList.toggle("public",pub); live.classList.toggle("on",pub);
+  pg.classList.toggle("styled",step>=3);
+  let h=`<div class="sitehead">${step>=3?"TH Köln · ":""}Skript Wissenschaftliches Arbeiten</div>`;
+  h+=`<h4>1 Wissenschaftliche Einstellung</h4>`;
+  const cite = step>=2 ? `<span class="cite">(Lakens, 2022)</span>` : `<span class="cite raw">[@lakens2022]</span>`;
+  h+=`<p>Wissenschaft prüft Behauptungen, bevor sie ihnen glaubt ${step>=2?cite:""}.</p>`;
+  h+=`<div class="fig"><span class="ph"></span><span>Abb. 1.1: Vom Zweifel zur Prüfung · Tab. 1.1 folgt</span></div>`;
+  if(step>=3){
+    h+=`<div class="widgets">
+      <div class="wbox"><span class="wl">data/umfrage.csv</span>Prüfen Sie Quellen?
+        <div class="bars" id="bars"><div><span>8</span></div><div><span>22</span></div><div><span>41</span></div><div><span>29</span></div></div>
+        <div class="barlbl"><span>nie</span><span>selten</span><span>oft</span><span>immer</span></div>
+        <span class="wl" style="margin-top:3px">Beispieldaten in %</span></div>
+      <div class="wbox"><span class="wl">interactions/quiz.html</span>Was macht Quarto?
+        <button class="qbtn" data-ok="0">Speichert meine Quellen</button>
+        <button class="qbtn" data-ok="1">Setzt .qmd zu einer Webseite</button>
+        <div class="qfb" id="qfb"></div></div>
+    </div>
+    <a class="tutor" href="https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte" target="_blank" rel="noopener">✦ KI-Tutor fragen ↗</a>`;
+  }
+  if(step>=2) h+=`<div class="refs"><b>Literatur</b>Lakens, D. (2022). <i>Improving your statistical inferences</i>. <a href="https://lakens.github.io/statistical_inferences/" target="_blank" rel="noopener">https://lakens.github.io/statistical_inferences/</a></div>`;
+  if(step===5) h+=`<div class="stamp">Zuletzt aktualisiert: gerade eben · Fassung 14 von 14</div>`;
+  pg.innerHTML=h;
+  if(step>=3){
+    const vals=[8,22,41,29];
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{document.querySelectorAll("#bars div").forEach((b,i)=>b.style.height=(vals[i]/41*100)+"%");}));
+    pg.querySelectorAll(".qbtn").forEach(b=>b.addEventListener("click",()=>{
+      const ok=b.dataset.ok==="1"; b.classList.add(ok?"ok":"no");
+      document.getElementById("qfb").textContent = ok ? "Richtig: Quarto ist die Setzerei." : "Nicht ganz: Quellen verwaltet Zotero.";
+    }));
+  }
+}
+
+/* ---------- Schritt-Leiste ---------- */
+const stepsNav=document.getElementById("steps");
+STEPS.forEach((S,i)=>{
+  const b=document.createElement("button"); b.className="step"; b.dataset.i=i;
+  b.innerHTML=`<span class="num">${i}</span><span class="nm">${S.short}<span class="wp">${S.wp}</span></span>`;
+  b.addEventListener("click",()=>go(i)); stepsNav.appendChild(b);
+});
+function go(i){
+  step=Math.max(0,Math.min(STEPS.length-1,i));
+  if(step===5 && !kiOn){kiOn=true;}
+  document.getElementById("kiBtn").setAttribute("aria-pressed",String(kiOn));
+  stepsNav.querySelectorAll(".step").forEach((b,j)=>{ if(j===step)b.setAttribute("aria-current","step"); else b.removeAttribute("aria-current"); b.classList.toggle("past",j<step);});
+  document.getElementById("prev").disabled = step===0;
+  document.getElementById("next").disabled = step===STEPS.length-1;
+  document.getElementById("checkPanel").style.display = step===0 ? "" : "none";
+  document.getElementById("browserPanel").style.display = step===0 ? "none" : "";
+  elapsed=0;
+  renderRStudio(); applyNodes(); applyLinks(); renderExplain(); renderPage(); closePop();
+  try{ if(location.hash!=="#schritt-"+step) history.replaceState(null,"","#schritt-"+step); }catch(e){}
+}
+document.getElementById("prev").addEventListener("click",()=>go(step-1));
+document.getElementById("next").addEventListener("click",()=>go(step+1));
+
+/* ---------- Detailkarte ---------- */
+const pop=document.getElementById("pop");
+function openPop(id){
+  const I=INFO[id]; if(!I) return;
+  document.getElementById("popTitle").textContent=I.t;
+  document.getElementById("popBody").innerHTML=`<dt>Was ist das?</dt><dd>${I.was}</dd><dt>Im Workflow</dt><dd>${I.wozu}</dd><dt>Bild dafür</dt><dd>${I.bild}</dd><dt>Datei oder Ergebnis</dt><dd>${I.datei}</dd>`;
+  pop.classList.add("open");
+}
+function closePop(){pop.classList.remove("open");}
+document.getElementById("popClose").addEventListener("click",closePop);
+for(const id in nodeEls){
+  const g=nodeEls[id];
+  g.addEventListener("click",e=>{e.stopPropagation();openPop(id);});
+  g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();e.stopPropagation();openPop(id);}});
+}
+
+/* ---------- Kopfzeilen-Knöpfe ---------- */
+function toggleKI(){ kiOn = step===5 ? true : !kiOn; document.getElementById("kiBtn").setAttribute("aria-pressed",String(kiOn)); applyNodes(); applyLinks(); }
+document.getElementById("kiBtn").addEventListener("click",toggleKI);
+const playBtn=document.getElementById("playBtn");
+function togglePlay(){ paused=!paused; playBtn.textContent = paused ? "▶ Weiter" : "⏸ Pause"; }
+playBtn.addEventListener("click",togglePlay);
+function toggleFS(){
+  try{
+    if(document.fullscreenElement) document.exitFullscreen();
+    else { const p=document.documentElement.requestFullscreen && document.documentElement.requestFullscreen(); if(p&&p.catch)p.catch(()=>{}); }
+  }catch(e){}
+}
+document.getElementById("fsBtn").addEventListener("click",toggleFS);
+
+/* ---------- Quiz ---------- */
+const ORDER=["Kapitel in kapitel.qmd schreiben","Mit Quarto rendern","In der lokalen Vorschau prüfen","Commit: Schnappschuss mit Notiz","Push: zu GitHub hochladen","GitHub Pages: neue Fassung ist live"];
+let qNext=0, qErr=0;
+const overlay=document.getElementById("quizOverlay"), qgrid=document.getElementById("qgrid"), qmsg=document.getElementById("qmsg");
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function buildQuiz(){
+  qNext=0; qErr=0; qmsg.textContent=""; qgrid.innerHTML="";
+  shuffle(ORDER.map((t,i)=>({t,i}))).forEach(o=>{
+    const b=document.createElement("button"); b.className="qcard"; b.innerHTML=`<span class="qn">?</span><span>${o.t}</span>`;
+    b.addEventListener("click",()=>{
+      if(b.classList.contains("right")) return;
+      if(o.i===qNext){ b.classList.add("right"); b.querySelector(".qn").textContent=qNext+1; qNext++;
+        if(qNext===ORDER.length) qmsg.textContent = qErr===0 ? "Fehlerfrei. Genau dieser Kreis läuft bei jeder Änderung." : `Geschafft, mit ${qErr} Fehlversuch${qErr>1?"en":""}. Der Kreis sitzt.`;
+        else qmsg.textContent="";
+      } else { qErr++; b.classList.remove("wrong"); void b.offsetWidth; b.classList.add("wrong"); qmsg.textContent = `Noch nicht. Gesucht ist Schritt ${qNext+1}.`; }
+    });
+    qgrid.appendChild(b);
+  });
+}
+function openQuiz(){ buildQuiz(); overlay.classList.add("open"); const f=qgrid.querySelector("button"); if(f)f.focus(); }
+function closeQuiz(){ overlay.classList.remove("open"); document.getElementById("quizBtn").focus(); }
+document.getElementById("quizBtn").addEventListener("click",openQuiz);
+document.getElementById("qclose").addEventListener("click",closeQuiz);
+document.getElementById("qreset").addEventListener("click",buildQuiz);
+overlay.addEventListener("click",e=>{if(e.target===overlay)closeQuiz();});
+
+/* ---------- Tastatur ---------- */
+document.addEventListener("keydown",e=>{
+  if(e.target.tagName==="INPUT" && e.target.type!=="checkbox") return;
+  if(overlay.classList.contains("open")){ if(e.key==="Escape") closeQuiz(); return; }
+  if(e.key==="ArrowRight"||e.key==="PageDown"){e.preventDefault();go(step+1);}
+  else if(e.key==="ArrowLeft"||e.key==="PageUp"){e.preventDefault();go(step-1);}
+  else if(e.key===" " && !(e.target.closest && e.target.closest("button,.node"))){e.preventDefault();togglePlay();}
+  else if(e.key==="k"||e.key==="K") toggleKI();
+  else if(e.key==="q"||e.key==="Q") openQuiz();
+  else if(e.key==="f"||e.key==="F") toggleFS();
+  else if(e.key==="Escape") closePop();
+  else if(/^[0-5]$/.test(e.key)) go(+e.key);
+});
+
+/* ---------- Start: Schritt aus der Adresse (#schritt-2) ---------- */
+function fromHash(){ const m=(location.hash||"").match(/^#schritt-([0-5])$/); return m?+m[1]:0; }
+window.addEventListener("hashchange",()=>{const s=fromHash(); if(s!==step) go(s);});
+go(fromHash());
+})();
+</script>
+</body>
+</html>
