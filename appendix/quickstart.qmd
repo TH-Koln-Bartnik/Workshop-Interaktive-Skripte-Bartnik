@@ -90,6 +90,16 @@ Wer lieber bei OpenAI bleibt, installiert die **Codex-App** (Windows und macOS) 
 Geben Sie nur Ordner frei, die nichts Sensibles enthalten: keine Prüfungsunterlagen mit Namen, keine Personalakten, keine Passwörter oder Zugangsschlüssel. Behandeln Sie die KI wie eine Hilfskraft mit Schreibrechten: enger Auftrag („Ändere nichts außer …", „Lösche keine Dateien"), danach Ergebnis prüfen, dann erst übernehmen. Commits und Veröffentlichung machen Sie selbst über GitHub Desktop; so bleibt jede Fassung wiederherstellbar.
 :::
 
+### Optional: Netlify als zweiter Weg ins Netz
+
+Netlify ist wie GitHub Pages ein Dienst, der fertige Webseiten öffentlich ins Netz stellt. Der Unterschied liegt im Weg dorthin: Bei GitHub Pages geht jede Veröffentlichung durch das Versionsarchiv, bei Netlify kann man einen fertigen Ordner einfach per Drag-and-drop auf die Seite [Netlify Drop](https://app.netlify.com/drop){target="_blank"} ziehen, und Sekunden später hat er eine Adresse. Mehrere Beispiele aus der [Galerie](../parts/galerie.qmd), darunter die Vokabel-App und beide Beispiele von Ethan Mollick, liegen auf Netlify.
+
+**Was dafür spricht.** Der Weg ist kurz und braucht kein Git: Wer mit Claude oder Codex eine einzelne HTML-Datei gebaut hat, etwa ein Quiz, eine Simulation oder einen kleinen Rechner, hat sie in einer Minute online und kann den Link an Studierende geben oder per iFrame ins Skript einbetten. Der Inhalt muss dafür nicht in einem öffentlichen Repository liegen; bei GitHub Pages ist ein öffentliches Repository im kostenlosen Konto Voraussetzung. Quarto kann ganze Skripte auch direkt mit `quarto publish netlify` hochladen ([Posit, o. J.](https://quarto.org/docs/publishing/netlify.html){target="_blank"}).
+
+**Was dagegen spricht.** Der kostenlose Tarif rechnet seit 2025 in Guthabenpunkten: 300 pro Monat als harte Grenze, ohne Nachkaufmöglichkeit; jede Veröffentlichung kostet 15 Punkte, jedes Gigabyte ausgelieferter Daten 20 ([Netlify, o. J.](https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-credit-based-plans/credit-based-pricing-plans/){target="_blank"}). Das reicht für höchstens 20 Veröffentlichungen im Monat, und auch nur, wenn kaum jemand die Seiten aufruft. Für ein Skript, das man im Semester laufend nachbessert, oder für ein Lern-Video mit 15 MB vor einer großen Gruppe wird das knapp. GitHub Pages kennt dagegen nur weiche Grenzen (1 GB Seitengröße, rund 100 GB Datenverkehr im Monat) ([GitHub, o. J.](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits){target="_blank"}). Hinzu kommt: Ohne Git gibt es keine Versionsgeschichte, ein versehentlich überschriebener Stand ist weg. Und Netlify vergibt zufällige Adressen wie `inspiring-dieffenbachia-600068.netlify.app`, die man erst umbenennen muss, bevor man sie auf eine Folie schreibt.
+
+**Empfehlung für den Workshop.** Das Skript selbst veröffentlichen wir über GitHub Pages: versioniert, ohne Kontingent, mit einer Adresse, die Ihren Namen trägt. Netlify lohnt sich als Ergänzung für einzelne, fertige Lernanwendungen, die selten geändert werden und schnell einen Link brauchen. Wer das ausprobieren möchte, legt unter <https://app.netlify.com/signup> ein kostenloses Konto an; nötig ist es für den Workshop nicht.
+
 ## Generalprobe: Ihr erstes Quarto-Buch
 
 Wenn alle Werkzeuge installiert sind, prüft eine kurze Generalprobe, ob sie zusammenspielen.
@@ -127,4 +137,10 @@ Notieren Sie, an welchem Schritt es hängt, und machen Sie einen Screenshot der 
 
 Anthropic. (o. J.). *Install Claude Desktop*. Claude Help Center. Abgerufen am 28. Oktober 2026, von <https://support.claude.com/en/articles/10065433>
 
+GitHub. (o. J.). *GitHub Pages limits*. GitHub Docs. Abgerufen am 28. Oktober 2026, von <https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits>
+
+Netlify. (o. J.). *Credit-based pricing plans*. Netlify Docs. Abgerufen am 28. Oktober 2026, von <https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-credit-based-plans/credit-based-pricing-plans/>
+
 OpenAI. (o. J.). *Codex quickstart*. OpenAI Developers. Abgerufen am 28. Oktober 2026, von <https://developers.openai.com/codex/quickstart>
+
+Posit. (o. J.). *Netlify*. Quarto. Abgerufen am 28. Oktober 2026, von <https://quarto.org/docs/publishing/netlify.html>
