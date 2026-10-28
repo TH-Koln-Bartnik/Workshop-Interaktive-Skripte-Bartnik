@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Quick-Starter Guide – Interaktive Skripte mit KI erstellen</title>
+<title>Quick-Start Guide – Interaktive Skripte mit KI erstellen</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -65,8 +71,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../appendix/troubleshooting.html" rel="next">
-<link href="../parts/06-slides-optional.html" rel="prev">
+<link href="../parts/galerie.html" rel="next">
+<link href="../index.html" rel="prev">
 <link href="../images/th-koeln-logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -74,10 +80,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6317282ee51c604cf7febe74a2c0ba34.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -119,7 +129,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/quickstart.html">Quick-Starter und Anhänge</a></li><li class="breadcrumb-item"><a href="../appendix/quickstart.html"><span class="chapter-title">Quick-Starter Guide</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/quickstart.html"><span class="chapter-title">Quick-Start Guide</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -134,7 +144,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Interaktive Skripte mit KI erstellen</a> 
@@ -172,118 +183,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Willkommen</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Phase 1 — RStudio + KI-Tutor (lokal)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../parts/01-didaktik.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1 — Warum interaktiv?</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../parts/02-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2 — RStudio + erstes Skript (lokal)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../parts/03b-bilder-tabellen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3 — Bilder, Tabellen und Verweise</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Phase 2 — Zotero hinzu (immer noch lokal)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../parts/03a-uebersicht.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4 — Quellen mit Zotero</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Phase 3 — Kür plus Veröffentlichung</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../parts/03c-style.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">5 — TH-Köln-Stil einbauen</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../parts/04-charts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">6 — Interaktive Diagramme</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../parts/05-iframes-tutor.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7 — iFrames, Spiele und KI-Tutor</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../parts/08-github-pages.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8 — Veröffentlichen mit GitHub und Pages</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../parts/06-slides-optional.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9 — Slides mit Quarto (optional)</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Quick-Starter und Anhänge</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../appendix/quickstart.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Quick-Starter Guide</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../appendix/troubleshooting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Trouble-Shooting</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../appendix/tutor-prompt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">KI-Tutor: Link und System-Prompt</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../appendix/reviewer-prompt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reviewer-Prompt: KI als kritische Erstleserin</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../literatur.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Literatur</span></a>
+  <a href="../appendix/quickstart.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Quick-Start Guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/galerie.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Galerie</span></a>
   </div>
 </li>
     </ul>
@@ -296,43 +203,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Inhalt</h2>
    
   <ul>
-  <li><a href="#checkliste-gestaffelt-nach-workshop-phase" id="toc-checkliste-gestaffelt-nach-workshop-phase" class="nav-link active" data-scroll-target="#checkliste-gestaffelt-nach-workshop-phase">Checkliste — gestaffelt nach Workshop-Phase</a>
+  <li><a href="#die-werkstatt-im-überblick" id="toc-die-werkstatt-im-überblick" class="nav-link active" data-scroll-target="#die-werkstatt-im-überblick">Die Werkstatt im Überblick</a></li>
+  <li><a href="#checkliste" id="toc-checkliste" class="nav-link" data-scroll-target="#checkliste">Checkliste</a></li>
+  <li><a href="#schritt-für-schritt" id="toc-schritt-für-schritt" class="nav-link" data-scroll-target="#schritt-für-schritt">Schritt für Schritt</a>
   <ul class="collapse">
-  <li><a href="#phase-1-vor-dem-workshop-installieren-pflicht-für-0900-uhr" id="toc-phase-1-vor-dem-workshop-installieren-pflicht-für-0900-uhr" class="nav-link" data-scroll-target="#phase-1-vor-dem-workshop-installieren-pflicht-für-0900-uhr">Phase 1 — vor dem Workshop installieren (Pflicht für 09:00 Uhr)</a></li>
-  <li><a href="#phase-2-vor-dem-frühen-nachmittag-für-kap.-4-zotero" id="toc-phase-2-vor-dem-frühen-nachmittag-für-kap.-4-zotero" class="nav-link" data-scroll-target="#phase-2-vor-dem-frühen-nachmittag-für-kap.-4-zotero">Phase 2 — vor dem frühen Nachmittag (für Kap. 4 — Zotero)</a></li>
-  <li><a href="#phase-3-nachmittag-für-kap.-5-th-köln-stil-bis-kap.-8-github-pages" id="toc-phase-3-nachmittag-für-kap.-5-th-köln-stil-bis-kap.-8-github-pages" class="nav-link" data-scroll-target="#phase-3-nachmittag-für-kap.-5-th-köln-stil-bis-kap.-8-github-pages">Phase 3 — Nachmittag (für Kap. 5 — TH-Köln-Stil bis Kap. 8 — GitHub Pages)</a></li>
+  <li><a href="#r-und-rstudio" id="toc-r-und-rstudio" class="nav-link" data-scroll-target="#r-und-rstudio">1. R und RStudio</a></li>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">2. Quarto</a></li>
+  <li><a href="#zotero-und-better-bibtex" id="toc-zotero-und-better-bibtex" class="nav-link" data-scroll-target="#zotero-und-better-bibtex">3. Zotero und Better BibTeX</a></li>
+  <li><a href="#github-konto-und-github-desktop" id="toc-github-konto-und-github-desktop" class="nav-link" data-scroll-target="#github-konto-und-github-desktop">4. GitHub-Konto und GitHub Desktop</a></li>
+  <li><a href="#claude-desktop-empfohlen" id="toc-claude-desktop-empfohlen" class="nav-link" data-scroll-target="#claude-desktop-empfohlen">5. Claude Desktop (empfohlen)</a></li>
   </ul></li>
-  <li><a href="#rstudio-cockpit-auf-einen-blick" id="toc-rstudio-cockpit-auf-einen-blick" class="nav-link" data-scroll-target="#rstudio-cockpit-auf-einen-blick">RStudio-Cockpit auf einen Blick</a></li>
-  <li><a href="#schritt-für-schritt-ihr-erstes-skript" id="toc-schritt-für-schritt-ihr-erstes-skript" class="nav-link" data-scroll-target="#schritt-für-schritt-ihr-erstes-skript">Schritt-für-Schritt: Ihr erstes Skript</a>
-  <ul class="collapse">
-  <li><a href="#phase-1-lokal-arbeiten" id="toc-phase-1-lokal-arbeiten" class="nav-link" data-scroll-target="#phase-1-lokal-arbeiten">Phase 1 — lokal arbeiten</a></li>
-  <li><a href="#phase-3-veröffentlichen" id="toc-phase-3-veröffentlichen" class="nav-link" data-scroll-target="#phase-3-veröffentlichen">Phase 3 — veröffentlichen</a></li>
-  </ul></li>
-  <li><a href="#agentische-ki-als-co-pilot" id="toc-agentische-ki-als-co-pilot" class="nav-link" data-scroll-target="#agentische-ki-als-co-pilot">Agentische KI als Co-Pilot</a>
-  <ul class="collapse">
-  <li><a href="#schritt-für-schritt-beispiel-mit-claude-cowork" id="toc-schritt-für-schritt-beispiel-mit-claude-cowork" class="nav-link" data-scroll-target="#schritt-für-schritt-beispiel-mit-claude-cowork">Schritt-für-Schritt — Beispiel mit Claude Cowork</a></li>
-  <li><a href="#drei-prüfschritte-vor-jedem-commit" id="toc-drei-prüfschritte-vor-jedem-commit" class="nav-link" data-scroll-target="#drei-prüfschritte-vor-jedem-commit">Drei Prüfschritte vor jedem Commit</a></li>
-  <li><a href="#typische-problemfelder" id="toc-typische-problemfelder" class="nav-link" data-scroll-target="#typische-problemfelder">Typische Problemfelder</a></li>
-  <li><a href="#sicherheits-praxis" id="toc-sicherheits-praxis" class="nav-link" data-scroll-target="#sicherheits-praxis">Sicherheits-Praxis</a></li>
-  </ul></li>
-  <li><a href="#skripte-in-ilu-oder-moodle-einbinden-optional" id="toc-skripte-in-ilu-oder-moodle-einbinden-optional" class="nav-link" data-scroll-target="#skripte-in-ilu-oder-moodle-einbinden-optional">Skripte in ILU oder Moodle einbinden (optional)</a>
-  <ul class="collapse">
-  <li><a href="#weg-1-einfacher-link-in-der-lernplattform" id="toc-weg-1-einfacher-link-in-der-lernplattform" class="nav-link" data-scroll-target="#weg-1-einfacher-link-in-der-lernplattform">Weg 1 — Einfacher Link in der Lernplattform</a></li>
-  <li><a href="#weg-2-iframe-einbettung-skript-erscheint-im-kurs-container" id="toc-weg-2-iframe-einbettung-skript-erscheint-im-kurs-container" class="nav-link" data-scroll-target="#weg-2-iframe-einbettung-skript-erscheint-im-kurs-container">Weg 2 — iFrame-Einbettung (Skript erscheint im Kurs-Container)</a></li>
-  <li><a href="#pflicht-vorab-check-drei-punkte" id="toc-pflicht-vorab-check-drei-punkte" class="nav-link" data-scroll-target="#pflicht-vorab-check-drei-punkte">Pflicht-Vorab-Check (drei Punkte)</a></li>
-  <li><a href="#typische-problemfelder-1" id="toc-typische-problemfelder-1" class="nav-link" data-scroll-target="#typische-problemfelder-1">Typische Problemfelder</a></li>
-  </ul></li>
-  <li><a href="#was-als-nächstes" id="toc-was-als-nächstes" class="nav-link" data-scroll-target="#was-als-nächstes">Was als Nächstes?</a></li>
+  <li><a href="#generalprobe-ihr-erstes-quarto-buch" id="toc-generalprobe-ihr-erstes-quarto-buch" class="nav-link" data-scroll-target="#generalprobe-ihr-erstes-quarto-buch">Generalprobe: Ihr erstes Quarto-Buch</a></li>
+  <li><a href="#mitbringen" id="toc-mitbringen" class="nav-link" data-scroll-target="#mitbringen">Was Sie in den Workshop mitbringen</a></li>
+  <li><a href="#wenn-etwas-hakt" id="toc-wenn-etwas-hakt" class="nav-link" data-scroll-target="#wenn-etwas-hakt">Wenn etwas hakt</a></li>
+  <li><a href="#quellen" id="toc-quellen" class="nav-link" data-scroll-target="#quellen">Quellen</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/edit/main/appendix/quickstart.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/quickstart.html">Quick-Starter und Anhänge</a></li><li class="breadcrumb-item"><a href="../appendix/quickstart.html"><span class="chapter-title">Quick-Starter Guide</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Quick-Starter Guide</span></h1>
-<p class="subtitle lead">Von Null auf erstem Skript live im Netz — alles aus RStudio</p>
+<h1 class="title"><span class="chapter-title">Quick-Start Guide</span></h1>
+<p class="subtitle lead">Zu Hause installieren, einmal testen, vorbereitet in den Workshop kommen</p>
 </div>
 
 
@@ -349,426 +243,218 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="was-dieser-anhang-leistet" class="level4 lernziel-box">
-<h4 class="anchored" data-anchor-id="was-dieser-anhang-leistet">Was dieser Anhang leistet</h4>
-<p>Eine <strong>Schritt-für-Schritt-Anleitung für komplette Anfänger</strong>, parallel zum Workshop nutzbar. <strong>RStudio ist Ihr einziges Editor-Programm</strong> — Terminal, Files-Pane, Build-Pane und Console liegen alle dort. Daneben brauchen Sie nur einen Browser-Tab mit dem KI-Tutor und (für Phase 3) GitHub Desktop.</p>
+<section id="was-sie-bis-zum-präsenz-workshop-erledigen" class="level4 lernziel-box">
+<h4 class="anchored" data-anchor-id="was-sie-bis-zum-präsenz-workshop-erledigen">Was Sie bis zum Präsenz-Workshop erledigen</h4>
+<p>Sie installieren in den nächsten Tagen sechs Werkzeuge, testen jedes einmal kurz und packen Ihr Rohmaterial zusammen. Planen Sie dafür ein ruhiges Zeitfenster mit stabiler Internetverbindung ein. Wer am Workshop-Tag mit einem fertig eingerichteten Laptop kommt, verbringt den Tag mit Schreiben und Gestalten statt mit Installationsdialogen.</p>
 </section>
-<section id="checkliste-gestaffelt-nach-workshop-phase" class="level2">
-<h2 class="anchored" data-anchor-id="checkliste-gestaffelt-nach-workshop-phase">Checkliste — gestaffelt nach Workshop-Phase</h2>
-<p>Sie müssen <strong>nicht alle Werkzeuge auf einmal</strong> installieren. Der Workshop ist in drei Phasen gegliedert; jede Phase bringt ein neues Tool-Set dazu. Wer die Phase-1-Tools vor dem Workshop hat, kann sofort starten — Phase 2 und 3 lassen sich in der Mittagspause oder im laufenden Workshop nachholen.</p>
-<section id="phase-1-vor-dem-workshop-installieren-pflicht-für-0900-uhr" class="level3">
-<h3 class="anchored" data-anchor-id="phase-1-vor-dem-workshop-installieren-pflicht-für-0900-uhr">Phase 1 — vor dem Workshop installieren (Pflicht für 09:00 Uhr)</h3>
-<p>Das Minimal-Set für den Vormittag. Ohne diese vier Werkzeuge kommen Sie morgens nicht in die Schreib-Render-Schleife.</p>
+<section id="die-werkstatt-im-überblick" class="level2">
+<h2 class="anchored" data-anchor-id="die-werkstatt-im-überblick">Die Werkstatt im Überblick</h2>
+<p>Ein Online-Skript entsteht wie ein Buch in einer kleinen Werkstatt. <strong>RStudio</strong> ist die Werkbank, an der Sie schreiben. <strong>Quarto</strong> ist die Druckerei, die aus Ihren Textdateien eine fertige Webseite setzt. <strong>Zotero</strong> ist der Bibliothekskatalog, aus dem die Zitate und die Literaturliste automatisch kommen. <strong>GitHub</strong> ist Archiv und Schaufenster zugleich: Es bewahrt jede Fassung Ihres Skripts auf und stellt die aktuelle ins Netz. <strong>Claude Desktop</strong> schließlich ist die studentische Hilfskraft, die direkt in Ihrem Projektordner mitarbeitet, wenn Sie ihr einen präzisen Auftrag geben.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><em>Quarto</em> kommt aus der Buchdruckerei: Ein Bogen, der zweimal gefaltet wird, ergibt vier Blätter, lateinisch <em>in quarto</em> („in Vierteln”, von <em>quartus</em>, der Vierte). Der Name verspricht, was das Werkzeug tut: aus Rohtext ein gesetztes Buch machen.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="checkliste" class="level2">
+<h2 class="anchored" data-anchor-id="checkliste">Checkliste</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th></th>
-<th>Schritt</th>
-<th>Wo?</th>
+<th>Werkzeug</th>
+<th>Wofür</th>
+<th>Download</th>
+<th>Läuft, wenn …</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>☐</td>
-<td>Quarto installieren</td>
-<td><a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a></td>
-</tr>
-<tr class="even">
-<td>☐</td>
-<td>R installieren</td>
+<td><strong>R</strong></td>
+<td>Rechenmaschine im Hintergrund, die RStudio braucht</td>
 <td><a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a></td>
+<td>die Installation ohne Fehlermeldung durchläuft</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>☐</td>
-<td>RStudio Desktop (kostenlos)</td>
+<td><strong>RStudio Desktop</strong></td>
+<td>Werkbank: Editor, Dateien, Vorschau in einem Fenster</td>
 <td><a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></td>
+<td>RStudio startet und unten links die Console zeigt</td>
+</tr>
+<tr class="odd">
+<td>☐</td>
+<td><strong>Quarto</strong></td>
+<td>Druckerei: macht aus <code>.qmd</code>-Dateien eine Webseite</td>
+<td><a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a></td>
+<td>im RStudio-Terminal <code>quarto --version</code> eine Versionsnummer liefert</td>
 </tr>
 <tr class="even">
 <td>☐</td>
-<td>ChatGPT-Konto und Tutor-Link testen</td>
-<td><a href="https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte" class="uri">https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte</a></td>
+<td><strong>Zotero</strong> + <strong>Better BibTeX</strong></td>
+<td>Literaturverwaltung, Zitate per Kürzel</td>
+<td><a href="https://www.zotero.org/download/" class="uri">https://www.zotero.org/download/</a> und <a href="https://retorque.re/zotero-better-bibtex/installation/" class="uri">https://retorque.re/zotero-better-bibtex/installation/</a></td>
+<td>in Zotero unter <em>Werkzeuge → Plugins</em> „Better BibTeX” erscheint</td>
+</tr>
+<tr class="odd">
+<td>☐</td>
+<td><strong>GitHub-Konto</strong> + <strong>GitHub Desktop</strong></td>
+<td>Versionsarchiv und Veröffentlichung</td>
+<td><a href="https://github.com/signup" class="uri">https://github.com/signup</a> und <a href="https://desktop.github.com/" class="uri">https://desktop.github.com/</a></td>
+<td>Sie in GitHub Desktop mit Ihrem Konto angemeldet sind</td>
+</tr>
+<tr class="even">
+<td>☐</td>
+<td><strong>Claude Desktop</strong> (empfohlen)</td>
+<td>agentische KI, die in Ihrem Projektordner mitarbeitet</td>
+<td><a href="https://claude.com/download" class="uri">https://claude.com/download</a></td>
+<td>im Cowork-Bereich ein Testordner verbunden ist</td>
 </tr>
 </tbody>
 </table>
-<p>Mit dieser Ausrüstung absolvieren Sie Phase 1 (Kap. 1 bis 3).</p>
-</section>
-<section id="phase-2-vor-dem-frühen-nachmittag-für-kap.-4-zotero" class="level3">
-<h3 class="anchored" data-anchor-id="phase-2-vor-dem-frühen-nachmittag-für-kap.-4-zotero">Phase 2 — vor dem frühen Nachmittag (für Kap. 4 — Zotero)</h3>
-<p>Wenn Sie die Phase-1-Tools schon haben, installieren Sie diese vor dem Workshop oder spätestens in der Mittagspause.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th>Schritt</th>
-<th>Wo?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>☐</td>
-<td>Zotero installieren</td>
-<td><a href="https://www.zotero.org/download/" class="uri">https://www.zotero.org/download/</a></td>
-</tr>
-<tr class="even">
-<td>☐</td>
-<td>Better BibTeX Plugin</td>
-<td><a href="https://retorque.re/zotero-better-bibtex/" class="uri">https://retorque.re/zotero-better-bibtex/</a></td>
-</tr>
-</tbody>
-</table>
-<p>Damit funktioniert Kap. 4.</p>
-</section>
-<section id="phase-3-nachmittag-für-kap.-5-th-köln-stil-bis-kap.-8-github-pages" class="level3">
-<h3 class="anchored" data-anchor-id="phase-3-nachmittag-für-kap.-5-th-köln-stil-bis-kap.-8-github-pages">Phase 3 — Nachmittag (für Kap. 5 — TH-Köln-Stil bis Kap. 8 — GitHub Pages)</h3>
-<p>Diese beiden Schritte stehen erst zum Tagesende an. Wer mag, installiert sie schon vorher; nötig ist es erst nachmittags.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th>Schritt</th>
-<th>Wo?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>☐</td>
-<td>GitHub-Konto erstellen</td>
-<td><a href="https://github.com/signup" class="uri">https://github.com/signup</a></td>
-</tr>
-<tr class="even">
-<td>☐</td>
-<td>GitHub Desktop installieren</td>
-<td><a href="https://desktop.github.com/" class="uri">https://desktop.github.com/</a></td>
-</tr>
-</tbody>
-</table>
-<p>Damit funktioniert Kap. 8.</p>
-</section>
-</section>
-<section id="rstudio-cockpit-auf-einen-blick" class="level2">
-<h2 class="anchored" data-anchor-id="rstudio-cockpit-auf-einen-blick">RStudio-Cockpit auf einen Blick</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Bereich</th>
-<th>Position</th>
-<th>Wofür im Workshop?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Editor</strong></td>
-<td>oben links</td>
-<td><code>.qmd</code>-Dateien schreiben</td>
-</tr>
-<tr class="even">
-<td><strong>Console</strong></td>
-<td>unten links, Tab 1</td>
-<td>R-Pakete installieren (<code>install.packages(...)</code>)</td>
-</tr>
-<tr class="odd">
-<td><strong>Terminal</strong></td>
-<td>unten links, Tab 2</td>
-<td><code>quarto render</code>, <code>quarto preview</code></td>
-</tr>
-<tr class="even">
-<td><strong>Files</strong></td>
-<td>unten rechts, Tab 1</td>
-<td>Ordner und Dateien anlegen, Dateien öffnen</td>
-</tr>
-<tr class="odd">
-<td><strong>Build</strong></td>
-<td>oben rechts, Tab 5</td>
-<td>Knopf „Render Book” als Klick-Alternative</td>
-</tr>
-</tbody>
-</table>
-<p>Drei Shortcuts, die Sie sich merken sollten: <strong>Strg+Shift+K</strong> rendert die aktuelle Datei, <strong>Strg+Shift+B</strong> rendert das ganze Buch, <strong>Alt+Shift+R</strong> öffnet einen neuen Terminal-Tab.</p>
-</section>
-<section id="schritt-für-schritt-ihr-erstes-skript" class="level2">
-<h2 class="anchored" data-anchor-id="schritt-für-schritt-ihr-erstes-skript">Schritt-für-Schritt: Ihr erstes Skript</h2>
-<p>Die Schritte 1 bis 6 entsprechen Phase 1 (lokales Skript), Schritte 7 bis 9 Phase 3 (Veröffentlichung). Phase 2 (Zotero) ist nicht in diesem Quickstart, weil sie ein eigenes Kapitel im Skript hat.</p>
-<section id="phase-1-lokal-arbeiten" class="level3">
-<h3 class="anchored" data-anchor-id="phase-1-lokal-arbeiten">Phase 1 — lokal arbeiten</h3>
-<section id="neues-quarto-buch-anlegen" class="level4">
-<h4 class="anchored" data-anchor-id="neues-quarto-buch-anlegen">1. Neues Quarto-Buch anlegen</h4>
-<p>In RStudio: <strong>File → New Project → New Directory → Quarto Book → Create Project</strong>.</p>
-</section>
-<section id="erste-vorschau" class="level4">
-<h4 class="anchored" data-anchor-id="erste-vorschau">2. Erste Vorschau</h4>
-<p>Im <strong>Terminal-Tab</strong> (unten links, neben Console):</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Browser öffnet sich. Sie sehen die Beispielinhalte. <strong>Strg+C</strong> im Terminal beendet den Preview-Server.</p>
-</section>
-<section id="quarto.yml-minimal-anpassen" class="level4">
-<h4 class="anchored" data-anchor-id="quarto.yml-minimal-anpassen">3. <code>_quarto.yml</code> minimal anpassen</h4>
-<p>Im <strong>Editor</strong> öffnen Sie <code>_quarto.yml</code> und ersetzen den Inhalt durch:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> book</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">book</span><span class="kw">:</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Mein erstes Skript"</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">chapters</span><span class="kw">:</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> index.qmd</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> intro.qmd</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><code>output-dir: docs</code> ist wichtig — GitHub Pages erwartet das später.</p>
-</section>
-<section id="ordner-für-bilder-daten-und-widgets-anlegen" class="level4">
-<h4 class="anchored" data-anchor-id="ordner-für-bilder-daten-und-widgets-anlegen">4. Ordner für Bilder, Daten und Widgets anlegen</h4>
-<p>Im <strong>Files-Pane</strong> (unten rechts) klicken Sie auf <strong>New Folder</strong> und legen nacheinander an: <code>images/</code>, <code>interactions/</code>, <code>include/</code>, <code>data/</code>. So wissen Sie immer, wo etwas hingehört.</p>
-</section>
-<section id="erstes-kapitel-schreiben" class="level4">
-<h4 class="anchored" data-anchor-id="erstes-kapitel-schreiben">5. Erstes Kapitel schreiben</h4>
-<p>Öffnen Sie <code>index.qmd</code> im Editor, ersetzen Sie den Beispielinhalt durch:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Willkommen</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Mein erstes Skript zum Thema <span class="co">[</span><span class="ot">Strang A/B/C</span><span class="co">]</span>.</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Was ich hier behandle</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Punkt 1</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Punkt 2</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Punkt 3</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="rendern" class="level4">
-<h4 class="anchored" data-anchor-id="rendern">6. Rendern</h4>
-<p>Im Terminal:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Oder Knopf <strong>Build → Render Book</strong> klicken. Im <code>docs/</code>-Ordner liegt jetzt die fertige Webseite.</p>
-</section>
-</section>
-<section id="phase-3-veröffentlichen" class="level3">
-<h3 class="anchored" data-anchor-id="phase-3-veröffentlichen">Phase 3 — veröffentlichen</h3>
-<section id="github-desktop-repo-anlegen" class="level4">
-<h4 class="anchored" data-anchor-id="github-desktop-repo-anlegen">7. GitHub Desktop: Repo anlegen</h4>
-<p>GitHub Desktop → <strong>File → Add Local Repository</strong> → Projektordner wählen → <strong>Create a repository</strong> zustimmen → Name: <code>mein-erstes-skript</code> → <strong>Publish repository</strong> (Public).</p>
-</section>
-<section id="github-pages-aktivieren" class="level4">
-<h4 class="anchored" data-anchor-id="github-pages-aktivieren">8. GitHub Pages aktivieren</h4>
-<p>Auf <a href="https://github.com" class="uri">https://github.com</a> im Repo: <strong>Settings → Pages → Source: Deploy from a branch → Branch: main, Folder: /docs → Save</strong>.</p>
-<p>Nach 1–2 Minuten ist Ihr Skript unter <code>https://IHR-USERNAME.github.io/mein-erstes-skript/</code> live.</p>
-</section>
-<section id="erste-änderung-publizieren" class="level4">
-<h4 class="anchored" data-anchor-id="erste-änderung-publizieren">9. Erste Änderung publizieren</h4>
-<p>Bearbeiten Sie <code>index.qmd</code>, rendern Sie lokal (Terminal: <code>quarto render</code> oder Knopf), in GitHub Desktop <strong>Commit → Push origin</strong>. Webseite aktualisiert sich automatisch in 30–60 Sekunden.</p>
-</section>
-</section>
-</section>
-<section id="agentische-ki-als-co-pilot" class="level2">
-<h2 class="anchored" data-anchor-id="agentische-ki-als-co-pilot">Agentische KI als Co-Pilot</h2>
-<p>Der KI-Tutor im Browser-Tab ist <strong>konversationell</strong> — er antwortet auf Fragen, schreibt Code-Schnipsel zum Kopieren. <strong>Agentische KI</strong> geht einen Schritt weiter: Sie hat selbst Zugriff auf Ihre Dateien, kann lesen, schreiben, rendern, Fehler korrigieren — wie ein Praktikant, der direkt in Ihrem Projektordner sitzt. Bekannte Werkzeuge: <strong>Claude Cowork</strong> (Anthropic), <strong>GPT Codex / Codex CLI</strong> (OpenAI), <strong>Cursor</strong>, <strong>Aider</strong>.</p>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
+<p>Installieren Sie in dieser Reihenfolge: R vor RStudio, weil RStudio beim ersten Start nach R sucht.</p>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
-<p><strong>Wofür sich das lohnt.</strong> Wiederkehrende Routinen (alle Kapitel auf eine neue Vorlage migrieren, Bibliographie aufräumen, Cross-Refs konsistent prüfen, Tippfehler in 30 Dateien gleichzeitig finden), die mit copy/paste oder manueller Edit-Schleife zäh würden.</p>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warnung</span>Dienstrechner ohne Administratorrechte
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>Auf verwalteten Hochschulrechnern dürfen Sie oft keine Software selbst installieren. Klären Sie das frühzeitig mit Ihrer IT (an der TH Köln häufig über das Softwarecenter lösbar) oder bringen Sie ein privates Gerät mit, auf dem Sie installieren dürfen.</p>
 </div>
-<section id="schritt-für-schritt-beispiel-mit-claude-cowork" class="level3">
-<h3 class="anchored" data-anchor-id="schritt-für-schritt-beispiel-mit-claude-cowork">Schritt-für-Schritt — Beispiel mit Claude Cowork</h3>
-<ol type="1">
-<li><p><strong>Installieren und starten</strong>: <a href="https://claude.ai/download" class="uri">https://claude.ai/download</a> herunterladen, anmelden, Cowork-Modus aktivieren.</p></li>
-<li><p><strong>Projektordner verbinden</strong>: In Cowork unten links <strong>„Folder verbinden”</strong> → Ihren Quarto-Projektordner wählen. Cowork sieht jetzt alle Dateien.</p></li>
-<li><p><strong>Auftrag formulieren</strong> — präzise, mit Erfolgskriterium:</p>
+</div>
+</section>
+<section id="schritt-für-schritt" class="level2">
+<h2 class="anchored" data-anchor-id="schritt-für-schritt">Schritt für Schritt</h2>
+<section id="r-und-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="r-und-rstudio">1. R und RStudio</h3>
+<p>R ist eine Programmiersprache für Statistik; Sie werden sie im Workshop kaum direkt benutzen, aber RStudio braucht sie als Motor. Auf <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a> wählen Sie Ihr Betriebssystem (unter Windows: <em>Download R for Windows → base</em>) und installieren mit den Voreinstellungen. Danach laden Sie RStudio Desktop von <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a> und installieren es ebenso.</p>
+<p><strong>Test:</strong> RStudio öffnen. Links unten sehen Sie die <em>Console</em> mit einer Begrüßung von R. Daneben liegt der Reiter <em>Terminal</em>, das Textfenster, in dem man dem Computer Befehle eintippt.</p>
+</section>
+<section id="quarto" class="level3">
+<h3 class="anchored" data-anchor-id="quarto">2. Quarto</h3>
+<p>RStudio bringt bereits eine Quarto-Version mit. Die eigenständige Installation von <a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a> sorgt dafür, dass der Befehl <code>quarto</code> auch im Terminal funktioniert, was im Workshop die Arbeit vereinfacht.</p>
+<p><strong>Test:</strong> In RStudio den Reiter <em>Terminal</em> öffnen und eingeben:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Erscheint eine Versionsnummer, ist die Druckerei betriebsbereit.</p>
+</section>
+<section id="zotero-und-better-bibtex" class="level3">
+<h3 class="anchored" data-anchor-id="zotero-und-better-bibtex">3. Zotero und Better BibTeX</h3>
+<p>Zotero sammelt Ihre Literatur; Better BibTeX vergibt jedem Titel ein stabiles Kürzel (etwa <code>mayer2021</code>), über das Quarto später zitiert. Installieren Sie Zotero von <a href="https://www.zotero.org/download/" class="uri">https://www.zotero.org/download/</a>. Laden Sie dann die Better-BibTeX-Datei (Endung <code>.xpi</code>) von der <a href="https://retorque.re/zotero-better-bibtex/installation/">Installationsseite</a> herunter und spielen Sie sie in Zotero über <em>Werkzeuge → Plugins →</em> Zahnrad <em>→ Plugin aus Datei installieren</em> ein.</p>
+<p><strong>Test:</strong> Zotero neu starten. Unter <em>Werkzeuge → Plugins</em> steht „Better BibTeX”. Legen Sie schon jetzt eine Sammlung mit fünf bis zehn Titeln zum Thema Ihres Skripts an (siehe <a href="#mitbringen">Mitbringen</a>).</p>
+</section>
+<section id="github-konto-und-github-desktop" class="level3">
+<h3 class="anchored" data-anchor-id="github-konto-und-github-desktop">4. GitHub-Konto und GitHub Desktop</h3>
+<p>GitHub ist ein Archiv für Projektordner, das jede gespeicherte Fassung aufhebt, und zugleich ein kostenloser Webspace (<em>GitHub Pages</em>), auf dem Ihr Skript öffentlich erreichbar wird. GitHub Desktop ist das Programm, mit dem Sie das ohne Befehlszeile bedienen.</p>
+<p>Legen Sie auf <a href="https://github.com/signup" class="uri">https://github.com/signup</a> ein Konto an. Wählen Sie einen Benutzernamen, den Sie gern in einer Webadresse sehen: Er wird Teil der Adresse Ihres Skripts (<code>https://IHR-NAME.github.io/...</code>). GitHub verlangt in der Regel eine Zwei-Faktor-Anmeldung; halten Sie dafür Ihr Smartphone bereit. Installieren Sie anschließend GitHub Desktop von <a href="https://desktop.github.com/" class="uri">https://desktop.github.com/</a> und melden Sie sich dort mit dem neuen Konto an.</p>
+<p><strong>Test:</strong> GitHub Desktop zeigt oben links Ihren Benutzernamen.</p>
+</section>
+<section id="claude-desktop-empfohlen" class="level3">
+<h3 class="anchored" data-anchor-id="claude-desktop-empfohlen">5. Claude Desktop (empfohlen)</h3>
+<p>Der Chat im Browser beantwortet Fragen und liefert Text zum Kopieren. <strong>Agentische KI</strong> geht einen Schritt weiter: Sie liest und schreibt selbst Dateien in einem Ordner, den Sie freigeben, rendert, findet Fehler und korrigiert sie. Das gleicht einer Hilfskraft, die an Ihrem Schreibtisch sitzt, statt Ihnen Zettel durch die Tür zu reichen. Für den Workshop empfehle ich <strong>Claude Desktop</strong> mit dem Bereich <strong>Cowork</strong>: Er arbeitet ohne Befehlszeile, zeigt vor jedem Schritt seinen Plan und wartet auf Ihre Freigabe.</p>
+<p>Laden Sie die App von <a href="https://claude.com/download" class="uri">https://claude.com/download</a> (Windows und macOS), installieren Sie sie und melden Sie sich an. Chat ist in allen Tarifen nutzbar; <strong>Cowork setzt einen bezahlten Tarif voraus</strong> (Pro oder höher, auch Team und Enterprise) (<a href="https://support.claude.com/en/articles/10065433" target="_blank">Anthropic, o. J.</a>).</p>
+<p><strong>Test:</strong> Legen Sie einen leeren Ordner <code>cowork-test</code> an. In Claude Desktop oben auf <em>Cowork</em> wechseln, den Ordner verbinden und einen harmlosen Auftrag geben, etwa:</p>
 <blockquote class="blockquote">
-<p>„Lies alle .qmd-Dateien unter <code>parts/</code> und prüfe, ob jedes Kapitel mit <code># Literatur {.unnumbered}</code> und <code>::: {#refs}</code> endet. Wenn nicht, füge die Sektion ergänzend ein. Render danach und zeige mir die Diff.”</p>
-</blockquote></li>
-<li><p><strong>Diff prüfen</strong>: Cowork zeigt geänderte Dateien. Lesen Sie die Änderungen, <strong>bevor</strong> Sie committen.</p></li>
-<li><p><strong>Lokal rendern und prüfen</strong>: <code>quarto render</code> im Terminal (oder Build-Pane). Im Browser stichprobenartig zwei Kapitel kontrollieren.</p></li>
-<li><p><strong>In GitHub Desktop committen</strong>: Commit-Nachricht erwähnt explizit „mit Hilfe von [Tool]” für Nachvollziehbarkeit. Push.</p></li>
-</ol>
-</section>
-<section id="drei-prüfschritte-vor-jedem-commit" class="level3">
-<h3 class="anchored" data-anchor-id="drei-prüfschritte-vor-jedem-commit">Drei Prüfschritte vor jedem Commit</h3>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
+<p>„Lege in diesem Ordner eine Datei <code>notizen.md</code> an und schreibe drei Ideen hinein, welche interaktiven Elemente in einem Skript zu meinem Fach sinnvoll wären.”</p>
+</blockquote>
+<p>Erscheint die Datei im Ordner, ist alles bereit.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Alternative: ChatGPT Codex
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Wer lieber bei OpenAI bleibt, installiert die <strong>Codex-App</strong> (Windows und macOS) von <a href="https://developers.openai.com/codex/app" class="uri">https://developers.openai.com/codex/app</a>; unter Windows läuft der Download über den Microsoft Store. Codex ist in allen ChatGPT-Tarifen enthalten. Nach der Anmeldung wählen Sie einen Projektordner und den Modus <em>Local</em>, damit Codex auf Ihrem Rechner arbeitet (<a href="https://developers.openai.com/codex/quickstart" target="_blank">OpenAI, o. J.</a>). Codex ist stärker auf Programmierende zugeschnitten; für Lehrende ohne IT-Hintergrund ist Cowork der sanftere Einstieg.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warnung</span>Sicherheitsregeln für agentische KI
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Geben Sie nur Ordner frei, die nichts Sensibles enthalten: keine Prüfungsunterlagen mit Namen, keine Personalakten, keine Passwörter oder Zugangsschlüssel. Behandeln Sie die KI wie eine Hilfskraft mit Schreibrechten: enger Auftrag („Ändere nichts außer …“, „Lösche keine Dateien”), danach Ergebnis prüfen, dann erst übernehmen. Commits und Veröffentlichung machen Sie selbst über GitHub Desktop; so bleibt jede Fassung wiederherstellbar.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="generalprobe-ihr-erstes-quarto-buch" class="level2">
+<h2 class="anchored" data-anchor-id="generalprobe-ihr-erstes-quarto-buch">Generalprobe: Ihr erstes Quarto-Buch</h2>
+<p>Wenn alle Werkzeuge installiert sind, prüft eine kurze Generalprobe, ob sie zusammenspielen.</p>
 <ol type="1">
-<li><strong>Diff lesen</strong>: Welche Dateien wurden tatsächlich geändert? Stimmt die Anzahl mit dem Auftrag überein?</li>
-<li><strong>Lokal rendern</strong>: Bricht der Render durch? Erscheinen neue Warnungen?</li>
-<li><strong>Stichprobe im Browser</strong>: Mindestens zwei zufällig gewählte Stellen visuell prüfen.</li>
+<li>In RStudio: <strong>File → New Project → New Directory → Quarto Book → Create Project</strong>.</li>
+<li>Im Reiter <em>Terminal</em> eingeben: <code>quarto preview</code></li>
+<li>Ein Browserfenster öffnet sich mit einem Beispielbuch. <strong>Strg+C</strong> im Terminal beendet die Vorschau.</li>
 </ol>
-</div>
-</div>
-</div>
+<p>Sehen Sie das Beispielbuch im Browser, ist Ihre Werkstatt einsatzbereit. Den Ordner dürfen Sie behalten oder löschen; im Workshop starten wir mit einer eigenen Vorlage.</p>
 </section>
-<section id="typische-problemfelder" class="level3">
-<h3 class="anchored" data-anchor-id="typische-problemfelder">Typische Problemfelder</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Problem</th>
-<th>Symptom</th>
-<th>Was hilft</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Halluzinierte Syntax</strong></td>
-<td>Quarto bricht ab mit „unknown directive”</td>
-<td>Quarto-Doku als Referenz im Prompt mitgeben: „Nutze nur Syntax aus <a href="https://quarto.org/docs/" class="uri">https://quarto.org/docs/</a>”</td>
-</tr>
-<tr class="even">
-<td><strong>Über-Edit</strong></td>
-<td>KI ändert Dinge, die Sie nicht wollten (Stil, Wortwahl, Reihenfolge)</td>
-<td>Auftrag eng formulieren: „Ändere NICHTS außer …“. Nach jedem Lauf Diff prüfen</td>
-</tr>
-<tr class="odd">
-<td><strong>Cloud-Sync-Konflikt</strong></td>
-<td>Datei „gesperrt”, Schreibvorgänge halb übernommen, Truncation</td>
-<td>Tresor / OneDrive während der KI-Sitzung pausieren; lokalen Pfad ohne Cloud-Sync nutzen</td>
-</tr>
-<tr class="even">
-<td><strong>Dateilösch-Versuch</strong></td>
-<td>KI schlägt vor, „aufzuräumen” und löscht etwas Wichtiges</td>
-<td>Vor Auftragsstart explizit untersagen: „Lösche keine Dateien, verschiebe nichts ohne Rückfrage”</td>
-</tr>
-<tr class="odd">
-<td><strong>Endlosschleife</strong></td>
-<td>KI rendert, Fehler, korrigiert, rendert, Fehler, …</td>
-<td>Nach drei erfolglosen Versuchen abbrechen, Fehlermeldung mitschneiden, manuell nachsehen</td>
-</tr>
-<tr class="even">
-<td><strong>Git-Wirrwarr</strong></td>
-<td>Branch-Wechsel, ungewollte Commits</td>
-<td>KI nicht direkt committen lassen; Commits ausschließlich über GitHub Desktop machen</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="sicherheits-praxis" class="level3">
-<h3 class="anchored" data-anchor-id="sicherheits-praxis">Sicherheits-Praxis</h3>
-<p>Behandeln Sie agentische KI wie einen Praktikant mit Schreibrechten: präzise Aufträge, sofortige Diff-Prüfung, kleine Iterationen statt großer Brocken. Nutzen Sie Git als Sicherheitsnetz — alles, was committet ist, ist wiederherstellbar.</p>
-<div class="callout callout-style-simple callout-warning">
-<div class="callout-body d-flex">
+<section id="mitbringen" class="level2">
+<h2 class="anchored" data-anchor-id="mitbringen">Was Sie in den Workshop mitbringen</h2>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
-<p><strong>Niemals API-Schlüssel oder Passwörter</strong> in Prompts oder im Projektordner ablegen. Wenn die KI versehentlich <code>secrets.txt</code> liest, landet der Inhalt in der Konversation.</p>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Technik
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Laptop mit Netzteil, alle sechs Häkchen der Checkliste gesetzt</li>
+<li>Zugangsdaten: GitHub (plus Smartphone für die Zwei-Faktor-Anmeldung), Claude oder ChatGPT, Zotero-Konto falls vorhanden</li>
+<li>Kopfhörer, falls Sie Video- und Audiobeispiele anhören möchten</li>
+</ul>
 </div>
-</section>
-</section>
-<section id="skripte-in-ilu-oder-moodle-einbinden-optional" class="level2">
-<h2 class="anchored" data-anchor-id="skripte-in-ilu-oder-moodle-einbinden-optional">Skripte in ILU oder Moodle einbinden (optional)</h2>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
-<p><strong>Optional — nur wenn Sie das Skript zusätzlich zur GitHub-Pages-Veröffentlichung in der Lernplattform Ihrer Hochschule sichtbar machen wollen.</strong> Für die meisten Workshop-Teilnehmenden reicht der Pages-Link in einer Kurs-Mitteilung; die Einbettung lohnt sich erst, wenn Studierende das Skript direkt im Kurs-Container statt im neuen Tab erleben sollen.</p>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Rohmaterial für Ihr Skript
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Einen Textbaustein</strong>: ein bis zwei Seiten aus einer Lehrveranstaltung, die Sie online stellen möchten (Word, PDF oder Markdown; Text, den Sie veröffentlichen dürfen)</li>
+<li><strong>Zwei bis drei Bilder</strong> (eigene Fotos, Grafiken oder Abbildungen mit klarer Lizenz) und <strong>eine Tabelle</strong></li>
+<li><strong>Fünf bis zehn Literaturangaben</strong> in einer Zotero-Sammlung</li>
+<li><strong>Eine Idee für eine Interaktion</strong>: Was sollen Studierende an Ihrer Stelle <em>tun</em> statt nur lesen? Ein Quiz, ein Zuordnungsspiel, eine Animation, ein kleiner Rechner? Die <a href="../parts/galerie.html">Galerie</a> liefert Anregungen.</li>
+</ul>
 </div>
-<p>Zwei Wege, beide funktionieren:</p>
-<section id="weg-1-einfacher-link-in-der-lernplattform" class="level3">
-<h3 class="anchored" data-anchor-id="weg-1-einfacher-link-in-der-lernplattform">Weg 1 — Einfacher Link in der Lernplattform</h3>
-<p>Der robusteste, datenschutzfreundliche Weg. In ILU oder Moodle ein <strong>Material vom Typ „Webseiten-Link”</strong> anlegen, URL der GitHub Pages eintragen, fertig. Studierende klicken → Skript öffnet sich im neuen Tab. Vorteil: keine technischen Konflikte, keine Abhängigkeit von der Plattform-Konfiguration.</p>
+</div>
+<p>Wer kein eigenes Material mitbringt, arbeitet mit einem vorbereiteten Beispielthema zum wissenschaftlichen Arbeiten. Die technischen Schritte sind identisch.</p>
 </section>
-<section id="weg-2-iframe-einbettung-skript-erscheint-im-kurs-container" class="level3">
-<h3 class="anchored" data-anchor-id="weg-2-iframe-einbettung-skript-erscheint-im-kurs-container">Weg 2 — iFrame-Einbettung (Skript erscheint im Kurs-Container)</h3>
-<p><strong>ILU (ILIAS-basiert) bei der TH Köln:</strong></p>
-<ol type="1">
-<li><p>In Ihrem Kurs eine neue <strong>Seite</strong> oder ein <strong>Lernmodul HTML</strong> anlegen.</p></li>
-<li><p>Im Editor den <strong>Quellcode-Modus</strong> öffnen (Symbol <code>&lt;/&gt;</code>).</p></li>
-<li><p>Iframe-Code einfügen:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">iframe</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://IHR-USERNAME.github.io/IHR-REPO/"</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ot">        width</span><span class="op">=</span><span class="st">"100%"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"900"</span><span class="ot"> frameborder</span><span class="op">=</span><span class="st">"0"</span><span class="dt">&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">iframe</span><span class="dt">&gt;</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Speichern, im Kurs prüfen.</p></li>
-</ol>
-<div class="callout callout-style-simple callout-warning">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Sicherheits-Restriktionen.</strong> ILIAS-Installationen können iframe / HTML / JavaScript zentral deaktivieren — falls die Einbettung leer bleibt oder eine Sicherheitswarnung erscheint, wenden Sie sich an das <strong>DLE-Team Ihrer Fakultät</strong> oder die <a href="https://www.th-koeln.de/hochschule/lehr-lern-plattformen_115864.php">Digital-Teaching-Experts der TH Köln</a>.</p>
-</div>
-</div>
-</div>
-<p><strong>Moodle:</strong></p>
-<ol type="1">
-<li>Im Kurs <strong>„Material oder Aktivität anlegen”</strong> → <strong>„Textseite”</strong> wählen.</li>
-<li>Im Texteditor das Symbol <code>&lt;/&gt;</code> für <strong>Quellcode</strong> anklicken.</li>
-<li>Denselben iFrame-Code wie oben einfügen.</li>
-<li>Speichern und im Kurs prüfen.</li>
-</ol>
+<section id="wenn-etwas-hakt" class="level2">
+<h2 class="anchored" data-anchor-id="wenn-etwas-hakt">Wenn etwas hakt</h2>
+<p>Notieren Sie, an welchem Schritt es hängt, und machen Sie einen Screenshot der Fehlermeldung. Viele Probleme löst der <a href="https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte" target="_blank">KI-Tutor</a>, wenn Sie ihm Betriebssystem, Schritt und Fehlermeldung nennen. Was offen bleibt, klären wir in der ersten halben Stunde des Workshops gemeinsam.</p>
 </section>
-<section id="pflicht-vorab-check-drei-punkte" class="level3">
-<h3 class="anchored" data-anchor-id="pflicht-vorab-check-drei-punkte">Pflicht-Vorab-Check (drei Punkte)</h3>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<ol type="1">
-<li><strong>GitHub Pages funktioniert öffentlich</strong> — testen Sie die URL in einem Inkognito-Fenster, ohne Hochschul-Login.</li>
-<li><strong>iFrame-Höhe stimmt</strong> — <code>height="900"</code> als Startwert; bei Bedarf auf <code>style="height: 90vh"</code> für 90 % der Bildschirmhöhe wechseln.</li>
-<li><strong>Embed-Erlaubnis prüfen</strong> — die Live-URL einmal in einem Test-iFrame außerhalb von ILU/Moodle testen (z. B. <a href="https://www.iframe-generator.com" class="uri">https://www.iframe-generator.com</a>). Wenn die Vorschau leer bleibt, blockt die Plattform iFrames.</li>
-</ol>
-</div>
-</div>
-</div>
-</section>
-<section id="typische-problemfelder-1" class="level3">
-<h3 class="anchored" data-anchor-id="typische-problemfelder-1">Typische Problemfelder</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Problem</th>
-<th>Was tun?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>iFrame leer oder Sicherheitswarnung</strong></td>
-<td>DLE-Team fragen, ob iframes in der Hochschul-ILIAS-Installation erlaubt sind</td>
-</tr>
-<tr class="even">
-<td><strong>Skript wird gespiegelt — Updates kommen nicht durch</strong></td>
-<td>iFrame zeigt live von GitHub Pages; nach <code>git push</code> 30–60 Sekunden warten und im ILU-Browser-Cache <strong>Strg+F5</strong> drücken</td>
-</tr>
-<tr class="odd">
-<td><strong>Studierende sehen nur einen Login-Prompt</strong></td>
-<td>Pages-URL ist privat (Repository auf privat) — auf <strong>Public</strong> umstellen oder Pages-Privatsphäre-Modus konfigurieren</td>
-</tr>
-<tr class="even">
-<td><strong>Mobile Darstellung kaputt</strong></td>
-<td>iFrame-Höhe in Prozent statt Pixel: <code>style="width:100%; height:80vh"</code></td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="was-als-nächstes" class="level2">
-<h2 class="anchored" data-anchor-id="was-als-nächstes">Was als Nächstes?</h2>
-<p>Springen Sie zurück in <a href="../parts/02-setup.html">Kapitel 2 — RStudio + erstes Skript</a> für die Schreib-Render-Routine, dann zu <a href="../parts/03b-bilder-tabellen.html">Kapitel 3 — Bilder, Tabellen, Verweise</a>. Zotero kommt in <a href="../parts/03a-uebersicht.html">Kapitel 4</a>, TH-Köln-Stil in <a href="../parts/03c-style.html">Kapitel 5</a>, GitHub und Pages am Tagesende in <a href="../parts/08-github-pages.html">Kapitel 8</a>.</p>
+<section id="quellen" class="level2">
+<h2 class="anchored" data-anchor-id="quellen">Quellen</h2>
+<p>Anthropic. (o. J.). <em>Install Claude Desktop</em>. Claude Help Center. Abgerufen am 28. Oktober 2026, von <a href="https://support.claude.com/en/articles/10065433" class="uri">https://support.claude.com/en/articles/10065433</a></p>
+<p>OpenAI. (o. J.). <em>Codex quickstart</em>. OpenAI Developers. Abgerufen am 28. Oktober 2026, von <a href="https://developers.openai.com/codex/quickstart" class="uri">https://developers.openai.com/codex/quickstart</a></p>
 
 
 </section>
@@ -825,13 +511,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -1180,13 +867,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../parts/06-slides-optional.html" class="pagination-link" aria-label="9 — Slides mit Quarto (optional)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">9 — Slides mit Quarto (optional)</span></span>
+      <a href="../index.html" class="pagination-link" aria-label="Willkommen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Willkommen</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../appendix/troubleshooting.html" class="pagination-link" aria-label="Trouble-Shooting">
-        <span class="nav-page-text"><span class="chapter-title">Trouble-Shooting</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../parts/galerie.html" class="pagination-link" aria-label="Galerie">
+        <span class="nav-page-text"><span class="chapter-title">Galerie</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

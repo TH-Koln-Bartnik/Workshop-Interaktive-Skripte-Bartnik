@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Reviewer-Prompt: KI als kritische Erstleserin – Interaktive Skripte mit KI erstellen</title>
+<title>Galerie – Interaktive Skripte mit KI erstellen</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -20,7 +26,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +56,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../literatur.html" rel="next">
-<link href="../appendix/tutor-prompt.html" rel="prev">
+<link href="../appendix/quickstart.html" rel="prev">
 <link href="../images/th-koeln-logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -39,10 +64,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6317282ee51c604cf7febe74a2c0ba34.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -84,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/quickstart.html">Quick-Starter und Anhänge</a></li><li class="breadcrumb-item"><a href="../appendix/reviewer-prompt.html"><span class="chapter-title">Reviewer-Prompt: KI als kritische Erstleserin</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/galerie.html"><span class="chapter-title">Galerie</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -99,7 +128,8 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Interaktive Skripte mit KI erstellen</a> 
@@ -137,118 +167,14 @@ ul.task-list li input[type="checkbox"] {
   <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Willkommen</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Phase 1 — RStudio + KI-Tutor (lokal)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../parts/01-didaktik.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1 — Warum interaktiv?</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../parts/02-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2 — RStudio + erstes Skript (lokal)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../parts/03b-bilder-tabellen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3 — Bilder, Tabellen und Verweise</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Phase 2 — Zotero hinzu (immer noch lokal)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../parts/03a-uebersicht.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4 — Quellen mit Zotero</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Phase 3 — Kür plus Veröffentlichung</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../parts/03c-style.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">5 — TH-Köln-Stil einbauen</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../parts/04-charts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">6 — Interaktive Diagramme</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../parts/05-iframes-tutor.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7 — iFrames, Spiele und KI-Tutor</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../parts/08-github-pages.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8 — Veröffentlichen mit GitHub und Pages</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../parts/06-slides-optional.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9 — Slides mit Quarto (optional)</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Quick-Starter und Anhänge</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../appendix/quickstart.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quick-Starter Guide</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../appendix/troubleshooting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Trouble-Shooting</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../appendix/tutor-prompt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">KI-Tutor: Link und System-Prompt</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../appendix/reviewer-prompt.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Reviewer-Prompt: KI als kritische Erstleserin</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../literatur.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Literatur</span></a>
+  <a href="../appendix/quickstart.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quick-Start Guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/galerie.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Galerie</span></a>
   </div>
 </li>
     </ul>
@@ -261,19 +187,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Inhalt</h2>
    
   <ul>
-  <li><a href="#wann-sie-diesen-prompt-nutzen" id="toc-wann-sie-diesen-prompt-nutzen" class="nav-link active" data-scroll-target="#wann-sie-diesen-prompt-nutzen">Wann Sie diesen Prompt nutzen</a></li>
-  <li><a href="#der-prompt-zum-kopieren" id="toc-der-prompt-zum-kopieren" class="nav-link" data-scroll-target="#der-prompt-zum-kopieren">Der Prompt zum Kopieren</a></li>
-  <li><a href="#hinweise-zum-einsatz" id="toc-hinweise-zum-einsatz" class="nav-link" data-scroll-target="#hinweise-zum-einsatz">Hinweise zum Einsatz</a></li>
+  <li><a href="#begriffe-raten-was-ist-ein-token-was-ein-agent" id="toc-begriffe-raten-was-ist-ein-token-was-ein-agent" class="nav-link active" data-scroll-target="#begriffe-raten-was-ist-ein-token-was-ein-agent">1. Begriffe raten: Was ist ein Token, was ein Agent?</a></li>
+  <li><a href="#prozessanimation-was-kostet-eine-wasserflasche-wirklich" id="toc-prozessanimation-was-kostet-eine-wasserflasche-wirklich" class="nav-link" data-scroll-target="#prozessanimation-was-kostet-eine-wasserflasche-wirklich">2. Prozessanimation: Was kostet eine Wasserflasche wirklich?</a></li>
+  <li><a href="#fall-teaser-backhaus-kaya" id="toc-fall-teaser-backhaus-kaya" class="nav-link" data-scroll-target="#fall-teaser-backhaus-kaya">3. Fall-Teaser: Backhaus Kaya</a></li>
+  <li><a href="#colab-arbeitsblatt-mias-umzugstag-als-modell" id="toc-colab-arbeitsblatt-mias-umzugstag-als-modell" class="nav-link" data-scroll-target="#colab-arbeitsblatt-mias-umzugstag-als-modell">4. Colab-Arbeitsblatt: Mias Umzugstag als Modell</a></li>
+  <li><a href="#lern-song-every-forecast-is-wrong" id="toc-lern-song-every-forecast-is-wrong" class="nav-link" data-scroll-target="#lern-song-every-forecast-is-wrong">5. Lern-Song: Every Forecast Is Wrong</a></li>
+  <li><a href="#vokabel-app-wörter-sammeln" id="toc-vokabel-app-wörter-sammeln" class="nav-link" data-scroll-target="#vokabel-app-wörter-sammeln">6. Vokabel-App: Wörter sammeln</a></li>
+  <li><a href="#zwei-beispiele-von-ethan-mollick" id="toc-zwei-beispiele-von-ethan-mollick" class="nav-link" data-scroll-target="#zwei-beispiele-von-ethan-mollick">Zwei Beispiele von Ethan Mollick</a></li>
+  <li><a href="#ihr-beispiel-vom-workshop-tag" id="toc-ihr-beispiel-vom-workshop-tag" class="nav-link" data-scroll-target="#ihr-beispiel-vom-workshop-tag">9. Ihr Beispiel vom Workshop-Tag</a></li>
+  <li><a href="#quellen" id="toc-quellen" class="nav-link" data-scroll-target="#quellen">Quellen</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/edit/main/appendix/reviewer-prompt.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/edit/main/parts/galerie.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/quickstart.html">Quick-Starter und Anhänge</a></li><li class="breadcrumb-item"><a href="../appendix/reviewer-prompt.html"><span class="chapter-title">Reviewer-Prompt: KI als kritische Erstleserin</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Reviewer-Prompt: KI als kritische Erstleserin</span></h1>
-<p class="subtitle lead">Ein Prompt, mit dem Ihre KI Ihr Skript wie ein Kollege prüft</p>
+<h1 class="title"><span class="chapter-title">Galerie</span></h1>
+<p class="subtitle lead">Was KI-gestützte Lernmedien in einem Skript leisten können</p>
 </div>
 
 
@@ -290,89 +222,135 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="was-dieser-anhang-leistet" class="level4 lernziel-box">
-<h4 class="anchored" data-anchor-id="was-dieser-anhang-leistet">Was dieser Anhang leistet</h4>
-<p>Hier finden Sie einen <strong>kopierfertigen Prompt</strong>, mit dem Sie Ihrer KI (ChatGPT, Claude, AcademicCloud) ein Stück Ihres Skripts oder Ihren ganzen Kapitelentwurf zur Prüfung geben können — <em>nicht</em> als Korrekturleser für Tippfehler, sondern als <strong>Erstleserin in der Rolle der Zielgruppe</strong>, die Stolperstellen findet, bevor Ihre Lernenden darüber stolpern.</p>
+<div class="th-color-bar">
+
+</div>
+<p>Alle Beispiele auf dieser Seite sind mit generativer KI entstanden. Die ersten sechs stammen aus meiner eigenen Lehre und laufen in gewöhnlichen Online-Skripten: als eingebettetes Spiel, als Animation, als Video oder als Link in ein Rechenblatt. Zwei Beispiele von Ethan Mollick zeigen, was jenseits davon schon geht. Zusammen zeigen sie die Spannweite dessen, was Sie im Workshop für Ihr eigenes Fach bauen können. Schauen Sie bei jedem Beispiel weniger auf die Technik als auf die Frage, was die Lernenden <em>tun</em>, während sie es benutzen.</p>
+<section id="begriffe-raten-was-ist-ein-token-was-ein-agent" class="level2">
+<h2 class="anchored" data-anchor-id="begriffe-raten-was-ist-ein-token-was-ein-agent">1. Begriffe raten: Was ist ein Token, was ein Agent?</h2>
+<p>Ein Zuordnungsspiel aus dem Skript <a href="https://th-koln-bartnik.github.io/genai4teaching/" target="_blank">„KI als Hilfe zum Lehren und Lernen”</a>: Begriffe aus der Welt der Sprachmodelle werden den passenden Definitionen zugeordnet, auf Wunsch im Level <em>Fortgeschritten</em> mit Agenten-Begriffen und einer Diagnose-Runde zu typischen Problemen. Wer rät und danach die Auflösung sieht, ruft Wissen ab, statt es nur wiederzuerkennen, und behält es dadurch länger <span class="citation" data-cites="roediger2006">(<a href="galerie.html#ref-roediger2006" role="doc-biblioref">Roediger &amp; Karpicke, 2006</a>)</span>.</p>
+<iframe src="https://th-koln-bartnik.github.io/genai4teaching/interactions/llm-game-standalone.html" width="100%" height="700px" frameborder="0" loading="lazy" title="Lernspiel: Welche Definition ist korrekt?">
+</iframe>
+<p><a href="https://th-koln-bartnik.github.io/genai4teaching/interactions/llm-game-standalone.html" target="_blank">Spiel im eigenen Fenster öffnen →</a></p>
 </section>
-<section id="wann-sie-diesen-prompt-nutzen" class="level2">
-<h2 class="anchored" data-anchor-id="wann-sie-diesen-prompt-nutzen">Wann Sie diesen Prompt nutzen</h2>
-<p>Wenn Sie ein Kapitel fertig geschrieben haben und prüfen wollen, ob die Logik trägt: Sind die Schritte vollständig? Setzt das Kapitel etwas voraus, das es noch nicht erklärt hat? Wirkt der Tonfall konsistent? Greifen Sie nach dem Inhalt vor, ohne zu verspielen? Greift eine Anweisung auf ein Werkzeug zu, das Sie noch nicht installiert haben? All das sieht ein Lektorat-Tool nicht — ein Mensch, der das Kapitel als erstes liest, schon. Dieser Prompt simuliert genau diesen Menschen.</p>
+<section id="prozessanimation-was-kostet-eine-wasserflasche-wirklich" class="level2">
+<h2 class="anchored" data-anchor-id="prozessanimation-was-kostet-eine-wasserflasche-wirklich">2. Prozessanimation: Was kostet eine Wasserflasche wirklich?</h2>
+<p>Aus dem Modul <em>Sustainable Supply Chain Management</em>. Wasser, Plastik und Etikett kosten zusammen rund 0,50 $, die Flasche kostet 1,50 $. Bevor Sie auf <em>Play</em> drücken: Was bezahlt den anderen Dollar? Die Animation lässt die Flasche durch ihre Lieferkette laufen und füllt dabei ein Kostenbuch. Die Reihenfolge <em>erst vorhersagen, dann beobachten</em> macht aus dem Zuschauen eine Prüfung der eigenen Vermutung; mit <em>Step</em> und der Geschwindigkeitswahl steuern die Lernenden das Tempo selbst, was Animationen nach Mayer <span class="citation" data-cites="mayer2021">(<a href="galerie.html#ref-mayer2021" role="doc-biblioref">2021</a>)</span> erst lernwirksam macht.</p>
+<iframe src="https://th-koln-bartnik.github.io/sscm-2026-student/widgets/01_water_bottle_widget.html" width="100%" height="840px" frameborder="0" loading="lazy" title="Animation: Lieferkette einer Wasserflasche">
+</iframe>
+<p><a href="https://th-koln-bartnik.github.io/sscm-2026-student/widgets/01_water_bottle_widget.html" target="_blank">Animation im eigenen Fenster öffnen →</a></p>
 </section>
-<section id="der-prompt-zum-kopieren" class="level2">
-<h2 class="anchored" data-anchor-id="der-prompt-zum-kopieren">Der Prompt zum Kopieren</h2>
-<p>Kopieren Sie den ganzen Block in Ihren Tutor (oder einen Custom GPT), fügen Sie unten Ihren Kapiteltext oder Skript-Auszug ein.</p>
-<pre><code>Sie sind eine erfahrene Hochschullehrende mit zwanzig Jahren Lehrerfahrung,
-aber **null Vorkenntnis in IT, R, Quarto, Markdown oder GitHub**. Sie haben
-sich an einem Samstagvormittag dafür entschieden, das Skript einer Kollegin
-auf den Workshop-Tag von 09:00 bis 16:00 hin auszuprobieren. Sie sitzen vor
-Ihrem Laptop, haben Quarto, RStudio und einen KI-Tutor-Tab offen. Sie lesen
-das untenstehende Kapitel **in der Rolle einer Lernenden**, die genau weiß,
-was sie didaktisch will, aber bei jeder technischen Anweisung in Wirklichkeit
-"OK, was klicke ich jetzt?" denkt.
-
-Ihre Aufgabe: das Kapitel mit fünf Linsen lesen und stolpernde Stellen
-markieren — nicht reparieren, nur markieren. Pro Linse eine kurze Liste,
-mit Zeilennummer (oder Zitat) und Schwere [hoch/mittel/niedrig].
-
-LINSE 1 — PHASEN-KONSISTENZ
-Welche Werkzeuge setzt das Kapitel als bekannt voraus? Stehen sie in der
-Reihenfolge, dass sie schon eingeführt sind? Ein Beispiel für einen Fehler:
-"jetzt pushen Sie" steht in einem Kapitel, das vor dem GitHub-Kapitel kommt.
-
-LINSE 2 — QUOTIER-DRIFT
-Jedes Mal, wenn der Lauftext etwas in Anführungszeichen, Code-Format oder
-Fettschrift zitiert (eine Überschrift, ein Knopf-Label, eine Datei),
-prüfen Sie: Stimmt das Zitat noch genau mit dem Original überein, falls
-Sie das andernorts geändert haben?
-
-LINSE 3 — ANWEISUNGS-VOLLSTÄNDIGKEIT
-Spielen Sie jeden "Mach mit"-Block oder Schritt-für-Schritt-Block im Kopf
-durch, als säßen Sie selbst davor. An welcher Stelle würden Sie stocken?
-Wo fehlt eine Vorbedingung? Wo zeigt ein Pfad ins Leere? Wo wird
-vorausgesetzt, dass eine Datei existiert, die das Skript nicht angelegt
-hat?
-
-LINSE 4 — BEGRIFFS-KONSISTENZ
-Sammeln Sie den zentralen Wortschatz dieses Kapitels. Heißt der Knopf
-"Render Book" oder "Render"? Heißt es "Skript" oder "Script", "Strang"
-oder "Track", "Reaktivierung" oder "End-Test"? Markieren Sie jede
-Inkonsistenz innerhalb des Kapitels.
-
-LINSE 5 — SPRACHLICHE POLITUR
-Doppelte Wörter, Bandwurmsätze, Hedges ("eigentlich", "vielleicht",
-"sozusagen"), Metakommentar ("In diesem Abschnitt werden wir besprechen,
-…"), inkonsistente Anrede (Sie vs. du), Anführungszeichen-Stil (deutsch
-„…" vs. englisch "…"). Drei bis fünf Treffer reichen.
-
-OUTPUT-FORMAT
-Pro Linse einen Block mit dieser Struktur:
-
-   ### Linse N — [Name]
-   - Zeile/Zitat — [Schwere] — Beschreibung
-   - …
-
-Wenn eine Linse leer bleibt, schreiben Sie das ausdrücklich:
-"Linse N — keine Funde." Das ist informativ.
-
-GRENZEN
-- Schreiben Sie keine Korrekturvorschläge — nur Befunde.
-- Erfinden Sie keine Probleme: wenn Sie unsicher sind, sagen Sie das.
-- Beurteilen Sie nicht den fachlichen Inhalt (das ist nicht Ihre Rolle).
-  Ihre Aufgabe ist die Erstleserinnen-Perspektive, nicht die
-  Fachgutachterin.
-- Maximal 25 Befunde insgesamt — wenn mehr da sind, priorisieren Sie
-  hoch und mittel.
-
-Hier kommt das Kapitel:
-
-[Hier Ihren Kapiteltext oder Skript-Auszug einfügen]</code></pre>
+<section id="fall-teaser-backhaus-kaya" class="level2">
+<h2 class="anchored" data-anchor-id="fall-teaser-backhaus-kaya">3. Fall-Teaser: Backhaus Kaya</h2>
+<p>Fünf Sekunden, eine Bäckerin allein in ihrer Backstube bei Nacht. Der Teaser eröffnet eine Fallstudie, die sich über mehrere Wochen durch das SSCM-Modul zieht: Prozessstrategie, CO₂-Bilanz, Qualität, Prognose, jedes Mal am selben Betrieb. Geschichten mit einer Hauptfigur und einem Konflikt bleiben besser im Gedächtnis als die gleiche Information in Listenform <span class="citation" data-cites="willingham2009">(<a href="galerie.html#ref-willingham2009" role="doc-biblioref">Willingham, 2009</a>)</span>; das kurze Video gibt der Figur ein Gesicht, bevor die Zahlen kommen.</p>
+<figure class="figure">
+  <video controls="" playsinline="" preload="metadata" width="100%" poster="https://th-koln-bartnik.github.io/sscm-2026-student/videos/week02_kaya_teaser_poster.webp" aria-label="Teaser: eine Bäckerin allein in ihrer Backstube bei Nacht">
+    <source src="https://th-koln-bartnik.github.io/sscm-2026-student/videos/week02_kaya_teaser.mp4" type="video/mp4">
+    <a href="https://th-koln-bartnik.github.io/sscm-2026-student/videos/week02_kaya_teaser.mp4">Teaser ansehen (MP4, 5 s)</a>
+  </video>
+  <figcaption>Teaser zur Fallstudie „Backhaus Kaya" (SSCM, Woche 2). Betrieb und Personen sind fiktiv.</figcaption>
+</figure>
 </section>
-<section id="hinweise-zum-einsatz" class="level2">
-<h2 class="anchored" data-anchor-id="hinweise-zum-einsatz">Hinweise zum Einsatz</h2>
-<p><strong>Vor dem Hinschicken</strong> kurz selbst entscheiden, was <em>nicht</em> zum Auftrag gehört: Wenn Sie wissen, dass ein Begriff im Skript bewusst doppelt verwendet wird (etwa „Plot” für sowohl die Plotly-Funktion als auch die Observable-Funktion), schreiben Sie das oben in den Prompt rein. Sonst bekommen Sie einen Fund, den Sie schon kennen.</p>
-<p><strong>Nach der Antwort</strong> lesen Sie die Befunde nicht als Befehle, sondern als Stolperstellen-Hinweise. Manche werden Sie verwerfen („das ist Absicht”), andere überraschen Sie. Die mittlere Schwere ist erfahrungsgemäß die ergiebigste — die hohen sehen Sie meistens selbst, die niedrigen sind oft Geschmackssache.</p>
-<p><strong>Wiederholen Sie den Pass</strong> mit demselben Prompt nach jedem größeren Edit. Eine KI-Reviewerin ist billig genug, dass das nichts kostet.</p>
-<p><strong>Variation:</strong> Wenn Sie nur eine Linse brauchen — etwa weil Sie gerade Phasen umstrukturiert haben und nur Linse 1 prüfen wollen — kürzen Sie den Prompt entsprechend. Die Aufmerksamkeit wird dadurch schärfer.</p>
+<section id="colab-arbeitsblatt-mias-umzugstag-als-modell" class="level2">
+<h2 class="anchored" data-anchor-id="colab-arbeitsblatt-mias-umzugstag-als-modell">4. Colab-Arbeitsblatt: Mias Umzugstag als Modell</h2>
+<p>Google Colab ist ein Dokument im Browser, in dem Text und kleine Programmstücke abwechseln; Studierende brauchen nur ein Google-Konto, keine Installation. Im Arbeitsblatt aus Woche 1 rechnen die Studierenden einen Umzug erst von Hand und bauen dieselbe Rechnung dann als kleines Modell nach. Danach beantwortet das Modell in Sekunden Fragen, die von Hand je eine Stunde kosten würden: <em>größerer Transporter? ein vierter Helfer?</em> Wer selbst etwas erzeugt, statt fertige Lösungen zu lesen, lernt nachhaltiger <span class="citation" data-cites="fiorella2016">(<a href="galerie.html#ref-fiorella2016" role="doc-biblioref">Fiorella &amp; Mayer, 2016</a>)</span>.</p>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Arbeitsblatt ausprobieren
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://colab.research.google.com/github/TH-Koln-Bartnik/sscm-2026-student/blob/main/week01/04_week01_moving_day_build.ipynb" target="_blank"><strong>In Google Colab öffnen →</strong></a></p>
+<p>Colab öffnet eine Kopie nur für Sie; Sie können nichts kaputt machen. Zellen führen Sie mit dem Play-Knopf links daneben aus.</p>
+</div>
+</div>
+</section>
+<section id="lern-song-every-forecast-is-wrong" class="level2">
+<h2 class="anchored" data-anchor-id="lern-song-every-forecast-is-wrong">5. Lern-Song: Every Forecast Is Wrong</h2>
+<p>Ein animiertes Song-Video aus dem heutigen SSCM-Termin: Ein Campus-Café zählt seine Kaffeebecher, fünf Prognoseverfahren treten gegeneinander an (naiv, gleitender Durchschnitt, exponentielle Glättung, Wochentagsindex, Wochentagsindex mit Trend), und die Refrains vergleichen ihre Fehler mit MAD und MAPE. In drei Instrumentalpausen erscheint eine Rechnung; wer dort anhält und mitrechnet, bevor die nächste Zeile kommt, macht aus dem Zuhören eine Abrufübung <span class="citation" data-cites="roediger2006">(<a href="galerie.html#ref-roediger2006" role="doc-biblioref">Roediger &amp; Karpicke, 2006</a>)</span>. Untertitel lassen sich über <em>CC</em> im Player einschalten.</p>
+<figure class="figure">
+  <video controls="" playsinline="" preload="metadata" width="100%" crossorigin="anonymous" poster="https://th-koln-bartnik.github.io/sscm-2026-student/videos/week05_every_forecast_is_wrong_poster.webp" aria-label="Animiertes Song-Video: Tagesabsätze eines Campus-Cafés als Punkte; Prognoseverfahren als Linien, ihre Fehler gemessen mit MAD und MAPE">
+    <source src="https://th-koln-bartnik.github.io/sscm-2026-student/videos/week05_every_forecast_is_wrong.mp4" type="video/mp4">
+    <track kind="subtitles" srclang="en" label="English (lyrics)" src="https://th-koln-bartnik.github.io/sscm-2026-student/videos/week05_every_forecast_is_wrong.vtt">
+    <a href="https://th-koln-bartnik.github.io/sscm-2026-student/videos/week05_every_forecast_is_wrong.mp4">Video ansehen (MP4, 5:15)</a>
+  </video>
+  <figcaption>Liedtext, Beispieldaten und Animationscode: Claude Opus 5.5 · Musik: Suno · Café und Zahlen sind fiktiv · geprüft von Roman Bartnik</figcaption>
+</figure>
+</section>
+<section id="vokabel-app-wörter-sammeln" class="level2">
+<h2 class="anchored" data-anchor-id="vokabel-app-wörter-sammeln">6. Vokabel-App: Wörter sammeln</h2>
+<p>Ein Französisch-Trainer zum Lehrwerk <em>À plus!</em> (Unités 1–5, knapp 400 Wörter mit je zwei Beispielsätzen), gebaut mit Codex. Geübt wird in mehreren Richtungen: Deutsch→Französisch tippen, Französisch→Deutsch, Lautschrift→Schreibweise und ganze Sätze übersetzen. Ein Wort gilt erst als „gesammelt”, wenn es in jeder Richtung beim ersten Versuch sitzt; wer zweimal danebenliegt, findet es auf einer persönlichen Fehlerliste wieder. Das Prinzip ist dasselbe wie beim Begriffe-Raten oben: abrufen statt wiederlesen <span class="citation" data-cites="roediger2006">(<a href="galerie.html#ref-roediger2006" role="doc-biblioref">Roediger &amp; Karpicke, 2006</a>)</span>. Ein Fach braucht dafür keine Programmierkenntnisse, sondern eine saubere Wortliste und eine klare Vorstellung davon, wann etwas als gelernt gilt.</p>
+<iframe src="https://inspiring-dieffenbachia-600068.netlify.app/" width="100%" height="760px" frameborder="0" loading="lazy" title="Vokabel-App: À plus! · Wörter sammeln">
+</iframe>
+<p><a href="https://inspiring-dieffenbachia-600068.netlify.app/" target="_blank">App im eigenen Fenster öffnen →</a></p>
+</section>
+<section id="zwei-beispiele-von-ethan-mollick" class="level2">
+<h2 class="anchored" data-anchor-id="zwei-beispiele-von-ethan-mollick">Zwei Beispiele von Ethan Mollick</h2>
+<p>Ethan Mollick (Wharton School) testet neue Modelle gern an Aufgaben, die vor kurzem noch ein ganzes Team gebraucht hätten. Die beiden folgenden Beispiele sind keine Lehrmaterialien im engeren Sinn, zeigen aber, wohin die Werkzeuge gerade gehen, die wir im Workshop nutzen. Beide laufen am besten im eigenen Browserfenster, auf einem Rechner mit Tastatur.</p>
+<div class="benchmark-grid">
+<section id="umberto-ecos-bibliothek-in-3d" class="level3 benchmark-card">
+<h3 class="anchored" data-anchor-id="umberto-ecos-bibliothek-in-3d">7. Umberto Ecos Bibliothek in 3D</h3>
+<p>Mollick bat Claude, alle verfügbaren Bilder, Filme und Katalogeinträge zu Ecos Mailänder Bibliothek mit rund 33.000 Bänden auszuwerten und sie samt Standort der Bücher dreidimensional zu rekonstruieren <span class="citation" data-cites="mercosur2026eco">(<a href="galerie.html#ref-mercosur2026eco" role="doc-biblioref">Prensa Mercosur, 2026</a>)</span>. Man geht durch die Räume, klickt Bücher an, färbt die Regale nach Sprache, Jahrhundert oder Fachgebiet und folgt Führungen in Ecos eigenen Worten. Didaktisch bemerkenswert: Jedes Buch trägt eine Angabe, wie sicher seine Zuordnung ist. Die Rekonstruktion legt ihre eigene Unsicherheit offen.</p>
+<p><a href="https://eco-library-map.netlify.app/#room=corridoio&amp;mode=walk" target="_blank">Bibliothek betreten →</a></p>
+</section>
+<section id="zork-als-3d-spiel" class="level3 benchmark-card">
+<h3 class="anchored" data-anchor-id="zork-als-3d-spiel">8. Zork als 3D-Spiel</h3>
+<p><em>Zork I</em> ist ein reines Text-Abenteuer von 1977: Man tippt „go north” und liest, was passiert. Mollick ließ ein aktuelles OpenAI-Modell daraus ein begehbares 3D-Spiel im Browser machen, das Handlung und Rätsel des Originals behält <span class="citation" data-cites="digg2026zork">(<a href="galerie.html#ref-digg2026zork" role="doc-biblioref">Digg, 2026</a>)</span>. Das Beispiel zeigt, wie viel Übersetzungsarbeit zwischen Medien ein Modell inzwischen selbständig leistet, einschließlich vieler Gestaltungsentscheidungen, die früher ein Mensch hätte treffen müssen.</p>
+<p><a href="https://zork-underground-empire.netlify.app/" target="_blank">Spiel starten →</a></p>
+</section>
+</div>
+</section>
+<section id="ihr-beispiel-vom-workshop-tag" class="level2">
+<h2 class="anchored" data-anchor-id="ihr-beispiel-vom-workshop-tag">9. Ihr Beispiel vom Workshop-Tag</h2>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Platzhalter
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Hier erscheint nach dem Präsenz-Workshop, was die Teilnehmenden gebaut haben: Links auf die veröffentlichten Skripte und eine Auswahl der schönsten Interaktionen.</p>
+</div>
+</div>
+</section>
+<section id="quellen" class="level2">
+<h2 class="anchored" data-anchor-id="quellen">Quellen</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-digg2026zork" class="csl-entry" role="listitem">
+Digg. (2026). <em>Mollick shares <span>GPT-6</span> astra
+<span>3D</span> zork adaptation</em>. Digg. <a href="https://digg.com/ai/78skzg9j">https://digg.com/ai/78skzg9j</a>
+</div>
+<div id="ref-fiorella2016" class="csl-entry" role="listitem">
+Fiorella, L., &amp; Mayer, R. E. (2016). Eight ways to promote
+generative learning. <em>Educational Psychology Review</em>,
+<em>28</em>(4), 717–741. <a href="https://doi.org/10.1007/s10648-015-9348-9">https://doi.org/10.1007/s10648-015-9348-9</a>
+</div>
+<div id="ref-mayer2021" class="csl-entry" role="listitem">
+Mayer, R. E. (2021). <em>Multimedia learning</em> (3rd ed.). Cambridge
+University Press. <a href="https://doi.org/10.1017/9781316941355">https://doi.org/10.1017/9781316941355</a>
+</div>
+<div id="ref-mercosur2026eco" class="csl-entry" role="listitem">
+Prensa Mercosur. (2026). <em>La biblioteca de umberto eco: Un recorrido
+virtual gratuito</em>. Prensa Mercosur. <a href="https://prensamercosur.org/2026/10/08/la-biblioteca-de-umberto-eco-un-recorrido-virtual-gratuito/">https://prensamercosur.org/2026/10/08/la-biblioteca-de-umberto-eco-un-recorrido-virtual-gratuito/</a>
+</div>
+<div id="ref-roediger2006" class="csl-entry" role="listitem">
+Roediger, H. L., &amp; Karpicke, J. D. (2006). Test-enhanced learning:
+Taking memory tests improves long-term retention. <em>Psychological
+Science</em>, <em>17</em>(3), 249–255. <a href="https://doi.org/10.1111/j.1467-9280.2006.01693.x">https://doi.org/10.1111/j.1467-9280.2006.01693.x</a>
+</div>
+<div id="ref-willingham2009" class="csl-entry" role="listitem">
+Willingham, D. T. (2009). <em>Why don’t students like school? A
+cognitive scientist answers questions about how the mind works and what
+it means for the classroom</em>. Jossey-Bass.
+</div>
+</div>
 
 
 </section>
@@ -429,13 +407,14 @@ Hier kommt das Kapitel:
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -784,14 +763,11 @@ Hier kommt das Kapitel:
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../appendix/tutor-prompt.html" class="pagination-link" aria-label="KI-Tutor: Link und System-Prompt">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">KI-Tutor: Link und System-Prompt</span></span>
+      <a href="../appendix/quickstart.html" class="pagination-link" aria-label="Quick-Start Guide">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Quick-Start Guide</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../literatur.html" class="pagination-link" aria-label="Literatur">
-        <span class="nav-page-text"><span class="chapter-title">Literatur</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -802,7 +778,7 @@ Hier kommt das Kapitel:
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/edit/main/appendix/reviewer-prompt.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/edit/main/parts/galerie.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Erstellt mit <a href="https://quarto.org">Quarto</a></p>
 </div>

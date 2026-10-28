@@ -1,0 +1,256 @@
+---
+title: "Quick-Starter Guide"
+subtitle: "Von Null auf erstem Skript live im Netz — alles aus RStudio"
+---
+
+::: {.lernziel-box}
+#### Was dieser Anhang leistet
+Eine **Schritt-für-Schritt-Anleitung für komplette Anfänger**, parallel zum Workshop nutzbar. **RStudio ist Ihr einziges Editor-Programm** — Terminal, Files-Pane, Build-Pane und Console liegen alle dort. Daneben brauchen Sie nur einen Browser-Tab mit dem KI-Tutor und (für Phase 3) GitHub Desktop.
+:::
+
+## Checkliste — gestaffelt nach Workshop-Phase
+
+Sie müssen **nicht alle Werkzeuge auf einmal** installieren. Der Workshop ist in drei Phasen gegliedert; jede Phase bringt ein neues Tool-Set dazu. Wer die Phase-1-Tools vor dem Workshop hat, kann sofort starten — Phase 2 und 3 lassen sich in der Mittagspause oder im laufenden Workshop nachholen.
+
+### Phase 1 — vor dem Workshop installieren (Pflicht für 09:00 Uhr)
+
+Das Minimal-Set für den Vormittag. Ohne diese vier Werkzeuge kommen Sie morgens nicht in die Schreib-Render-Schleife.
+
+| | Schritt | Wo? |
+|---|---|---|
+| ☐ | Quarto installieren | <https://quarto.org/docs/get-started/> |
+| ☐ | R installieren | <https://cran.r-project.org/> |
+| ☐ | RStudio Desktop (kostenlos) | <https://posit.co/download/rstudio-desktop/> |
+| ☐ | ChatGPT-Konto und Tutor-Link testen | <https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte> |
+
+Mit dieser Ausrüstung absolvieren Sie Phase 1 (Kap. 1 bis 3).
+
+### Phase 2 — vor dem frühen Nachmittag (für Kap. 4 — Zotero)
+
+Wenn Sie die Phase-1-Tools schon haben, installieren Sie diese vor dem Workshop oder spätestens in der Mittagspause.
+
+| | Schritt | Wo? |
+|---|---|---|
+| ☐ | Zotero installieren | <https://www.zotero.org/download/> |
+| ☐ | Better BibTeX Plugin | <https://retorque.re/zotero-better-bibtex/> |
+
+Damit funktioniert Kap. 4.
+
+### Phase 3 — Nachmittag (für Kap. 5 — TH-Köln-Stil bis Kap. 8 — GitHub Pages)
+
+Diese beiden Schritte stehen erst zum Tagesende an. Wer mag, installiert sie schon vorher; nötig ist es erst nachmittags.
+
+| | Schritt | Wo? |
+|---|---|---|
+| ☐ | GitHub-Konto erstellen | <https://github.com/signup> |
+| ☐ | GitHub Desktop installieren | <https://desktop.github.com/> |
+
+Damit funktioniert Kap. 8.
+
+## RStudio-Cockpit auf einen Blick
+
+| Bereich | Position | Wofür im Workshop? |
+|---|---|---|
+| **Editor** | oben links | `.qmd`-Dateien schreiben |
+| **Console** | unten links, Tab 1 | R-Pakete installieren (`install.packages(...)`) |
+| **Terminal** | unten links, Tab 2 | `quarto render`, `quarto preview` |
+| **Files** | unten rechts, Tab 1 | Ordner und Dateien anlegen, Dateien öffnen |
+| **Build** | oben rechts, Tab 5 | Knopf „Render Book" als Klick-Alternative |
+
+Drei Shortcuts, die Sie sich merken sollten: **Strg+Shift+K** rendert die aktuelle Datei, **Strg+Shift+B** rendert das ganze Buch, **Alt+Shift+R** öffnet einen neuen Terminal-Tab.
+
+## Schritt-für-Schritt: Ihr erstes Skript
+
+Die Schritte 1 bis 6 entsprechen Phase 1 (lokales Skript), Schritte 7 bis 9 Phase 3 (Veröffentlichung). Phase 2 (Zotero) ist nicht in diesem Quickstart, weil sie ein eigenes Kapitel im Skript hat.
+
+### Phase 1 — lokal arbeiten
+
+#### 1. Neues Quarto-Buch anlegen
+
+In RStudio: **File → New Project → New Directory → Quarto Book → Create Project**.
+
+#### 2. Erste Vorschau
+
+Im **Terminal-Tab** (unten links, neben Console):
+
+```bash
+quarto preview
+```
+
+Browser öffnet sich. Sie sehen die Beispielinhalte. **Strg+C** im Terminal beendet den Preview-Server.
+
+#### 3. `_quarto.yml` minimal anpassen
+
+Im **Editor** öffnen Sie `_quarto.yml` und ersetzen den Inhalt durch:
+
+```yaml
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Mein erstes Skript"
+  chapters:
+    - index.qmd
+    - intro.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+```
+
+`output-dir: docs` ist wichtig — GitHub Pages erwartet das später.
+
+#### 4. Ordner für Bilder, Daten und Widgets anlegen
+
+Im **Files-Pane** (unten rechts) klicken Sie auf **New Folder** und legen nacheinander an: `images/`, `interactions/`, `include/`, `data/`. So wissen Sie immer, wo etwas hingehört.
+
+#### 5. Erstes Kapitel schreiben
+
+Öffnen Sie `index.qmd` im Editor, ersetzen Sie den Beispielinhalt durch:
+
+```markdown
+# Willkommen
+
+Mein erstes Skript zum Thema [Strang A/B/C].
+
+## Was ich hier behandle
+
+- Punkt 1
+- Punkt 2
+- Punkt 3
+```
+
+#### 6. Rendern
+
+Im Terminal:
+
+```bash
+quarto render
+```
+
+Oder Knopf **Build → Render Book** klicken. Im `docs/`-Ordner liegt jetzt die fertige Webseite.
+
+### Phase 3 — veröffentlichen
+
+#### 7. GitHub Desktop: Repo anlegen
+
+GitHub Desktop → **File → Add Local Repository** → Projektordner wählen → **Create a repository** zustimmen → Name: `mein-erstes-skript` → **Publish repository** (Public).
+
+#### 8. GitHub Pages aktivieren
+
+Auf <https://github.com> im Repo: **Settings → Pages → Source: Deploy from a branch → Branch: main, Folder: /docs → Save**.
+
+Nach 1–2 Minuten ist Ihr Skript unter `https://IHR-USERNAME.github.io/mein-erstes-skript/` live.
+
+#### 9. Erste Änderung publizieren
+
+Bearbeiten Sie `index.qmd`, rendern Sie lokal (Terminal: `quarto render` oder Knopf), in GitHub Desktop **Commit → Push origin**. Webseite aktualisiert sich automatisch in 30–60 Sekunden.
+
+## Agentische KI als Co-Pilot
+
+Der KI-Tutor im Browser-Tab ist **konversationell** — er antwortet auf Fragen, schreibt Code-Schnipsel zum Kopieren. **Agentische KI** geht einen Schritt weiter: Sie hat selbst Zugriff auf Ihre Dateien, kann lesen, schreiben, rendern, Fehler korrigieren — wie ein Praktikant, der direkt in Ihrem Projektordner sitzt. Bekannte Werkzeuge: **Claude Cowork** (Anthropic), **GPT Codex / Codex CLI** (OpenAI), **Cursor**, **Aider**.
+
+::: {.callout-note}
+**Wofür sich das lohnt.** Wiederkehrende Routinen (alle Kapitel auf eine neue Vorlage migrieren, Bibliographie aufräumen, Cross-Refs konsistent prüfen, Tippfehler in 30 Dateien gleichzeitig finden), die mit copy/paste oder manueller Edit-Schleife zäh würden.
+:::
+
+### Schritt-für-Schritt — Beispiel mit Claude Cowork
+
+1. **Installieren und starten**: <https://claude.ai/download> herunterladen, anmelden, Cowork-Modus aktivieren.
+2. **Projektordner verbinden**: In Cowork unten links **„Folder verbinden"** → Ihren Quarto-Projektordner wählen. Cowork sieht jetzt alle Dateien.
+3. **Auftrag formulieren** — präzise, mit Erfolgskriterium:
+
+   > „Lies alle .qmd-Dateien unter `parts/` und prüfe, ob jedes Kapitel mit `# Literatur {.unnumbered}` und `::: {#refs}` endet. Wenn nicht, füge die Sektion ergänzend ein. Render danach und zeige mir die Diff."
+
+4. **Diff prüfen**: Cowork zeigt geänderte Dateien. Lesen Sie die Änderungen, **bevor** Sie committen.
+5. **Lokal rendern und prüfen**: `quarto render` im Terminal (oder Build-Pane). Im Browser stichprobenartig zwei Kapitel kontrollieren.
+6. **In GitHub Desktop committen**: Commit-Nachricht erwähnt explizit „mit Hilfe von [Tool]" für Nachvollziehbarkeit. Push.
+
+### Drei Prüfschritte vor jedem Commit
+
+::: {.callout-tip}
+1. **Diff lesen**: Welche Dateien wurden tatsächlich geändert? Stimmt die Anzahl mit dem Auftrag überein?
+2. **Lokal rendern**: Bricht der Render durch? Erscheinen neue Warnungen?
+3. **Stichprobe im Browser**: Mindestens zwei zufällig gewählte Stellen visuell prüfen.
+:::
+
+### Typische Problemfelder
+
+| Problem | Symptom | Was hilft |
+|---|---|---|
+| **Halluzinierte Syntax** | Quarto bricht ab mit „unknown directive" | Quarto-Doku als Referenz im Prompt mitgeben: „Nutze nur Syntax aus <https://quarto.org/docs/>" |
+| **Über-Edit** | KI ändert Dinge, die Sie nicht wollten (Stil, Wortwahl, Reihenfolge) | Auftrag eng formulieren: „Ändere NICHTS außer …". Nach jedem Lauf Diff prüfen |
+| **Cloud-Sync-Konflikt** | Datei „gesperrt", Schreibvorgänge halb übernommen, Truncation | Tresor / OneDrive während der KI-Sitzung pausieren; lokalen Pfad ohne Cloud-Sync nutzen |
+| **Dateilösch-Versuch** | KI schlägt vor, „aufzuräumen" und löscht etwas Wichtiges | Vor Auftragsstart explizit untersagen: „Lösche keine Dateien, verschiebe nichts ohne Rückfrage" |
+| **Endlosschleife** | KI rendert, Fehler, korrigiert, rendert, Fehler, … | Nach drei erfolglosen Versuchen abbrechen, Fehlermeldung mitschneiden, manuell nachsehen |
+| **Git-Wirrwarr** | Branch-Wechsel, ungewollte Commits | KI nicht direkt committen lassen; Commits ausschließlich über GitHub Desktop machen |
+
+### Sicherheits-Praxis
+
+Behandeln Sie agentische KI wie einen Praktikant mit Schreibrechten: präzise Aufträge, sofortige Diff-Prüfung, kleine Iterationen statt großer Brocken. Nutzen Sie Git als Sicherheitsnetz — alles, was committet ist, ist wiederherstellbar.
+
+::: {.callout-warning}
+**Niemals API-Schlüssel oder Passwörter** in Prompts oder im Projektordner ablegen. Wenn die KI versehentlich `secrets.txt` liest, landet der Inhalt in der Konversation.
+:::
+
+## Skripte in ILU oder Moodle einbinden (optional)
+
+::: {.callout-note}
+**Optional — nur wenn Sie das Skript zusätzlich zur GitHub-Pages-Veröffentlichung in der Lernplattform Ihrer Hochschule sichtbar machen wollen.** Für die meisten Workshop-Teilnehmenden reicht der Pages-Link in einer Kurs-Mitteilung; die Einbettung lohnt sich erst, wenn Studierende das Skript direkt im Kurs-Container statt im neuen Tab erleben sollen.
+:::
+
+Zwei Wege, beide funktionieren:
+
+### Weg 1 — Einfacher Link in der Lernplattform
+
+Der robusteste, datenschutzfreundliche Weg. In ILU oder Moodle ein **Material vom Typ „Webseiten-Link"** anlegen, URL der GitHub Pages eintragen, fertig. Studierende klicken → Skript öffnet sich im neuen Tab. Vorteil: keine technischen Konflikte, keine Abhängigkeit von der Plattform-Konfiguration.
+
+### Weg 2 — iFrame-Einbettung (Skript erscheint im Kurs-Container)
+
+**ILU (ILIAS-basiert) bei der TH Köln:**
+
+1. In Ihrem Kurs eine neue **Seite** oder ein **Lernmodul HTML** anlegen.
+2. Im Editor den **Quellcode-Modus** öffnen (Symbol `</>`).
+3. Iframe-Code einfügen:
+
+   ```html
+   <iframe src="https://IHR-USERNAME.github.io/IHR-REPO/"
+           width="100%" height="900" frameborder="0">
+   </iframe>
+   ```
+
+4. Speichern, im Kurs prüfen.
+
+::: {.callout-warning}
+**Sicherheits-Restriktionen.** ILIAS-Installationen können iframe / HTML / JavaScript zentral deaktivieren — falls die Einbettung leer bleibt oder eine Sicherheitswarnung erscheint, wenden Sie sich an das **DLE-Team Ihrer Fakultät** oder die [Digital-Teaching-Experts der TH Köln](https://www.th-koeln.de/hochschule/lehr-lern-plattformen_115864.php).
+:::
+
+**Moodle:**
+
+1. Im Kurs **„Material oder Aktivität anlegen"** → **„Textseite"** wählen.
+2. Im Texteditor das Symbol `</>` für **Quellcode** anklicken.
+3. Denselben iFrame-Code wie oben einfügen.
+4. Speichern und im Kurs prüfen.
+
+### Pflicht-Vorab-Check (drei Punkte)
+
+::: {.callout-tip}
+1. **GitHub Pages funktioniert öffentlich** — testen Sie die URL in einem Inkognito-Fenster, ohne Hochschul-Login.
+2. **iFrame-Höhe stimmt** — `height="900"` als Startwert; bei Bedarf auf `style="height: 90vh"` für 90 % der Bildschirmhöhe wechseln.
+3. **Embed-Erlaubnis prüfen** — die Live-URL einmal in einem Test-iFrame außerhalb von ILU/Moodle testen (z. B. <https://www.iframe-generator.com>). Wenn die Vorschau leer bleibt, blockt die Plattform iFrames.
+:::
+
+### Typische Problemfelder
+
+| Problem | Was tun? |
+|---|---|
+| **iFrame leer oder Sicherheitswarnung** | DLE-Team fragen, ob iframes in der Hochschul-ILIAS-Installation erlaubt sind |
+| **Skript wird gespiegelt — Updates kommen nicht durch** | iFrame zeigt live von GitHub Pages; nach `git push` 30–60 Sekunden warten und im ILU-Browser-Cache **Strg+F5** drücken |
+| **Studierende sehen nur einen Login-Prompt** | Pages-URL ist privat (Repository auf privat) — auf **Public** umstellen oder Pages-Privatsphäre-Modus konfigurieren |
+| **Mobile Darstellung kaputt** | iFrame-Höhe in Prozent statt Pixel: `style="width:100%; height:80vh"` |
+
+## Was als Nächstes?
+
+Springen Sie zurück in [Kapitel 2 — RStudio + erstes Skript](../parts/02-setup.qmd) für die Schreib-Render-Routine, dann zu [Kapitel 3 — Bilder, Tabellen, Verweise](../parts/03b-bilder-tabellen.qmd). Zotero kommt in [Kapitel 4](../parts/03a-uebersicht.qmd), TH-Köln-Stil in [Kapitel 5](../parts/03c-style.qmd), GitHub und Pages am Tagesende in [Kapitel 8](../parts/08-github-pages.qmd).

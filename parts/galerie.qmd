@@ -1,0 +1,121 @@
+---
+title: "Galerie"
+subtitle: "Was KI-gestützte Lernmedien in einem Skript leisten können"
+---
+
+::: th-color-bar
+:::
+
+Alle Beispiele auf dieser Seite sind mit generativer KI entstanden. Die ersten sechs stammen aus meiner eigenen Lehre und laufen in gewöhnlichen Online-Skripten: als eingebettetes Spiel, als Animation, als Video oder als Link in ein Rechenblatt. Zwei Beispiele von Ethan Mollick zeigen, was jenseits davon schon geht. Zusammen zeigen sie die Spannweite dessen, was Sie im Workshop für Ihr eigenes Fach bauen können. Schauen Sie bei jedem Beispiel weniger auf die Technik als auf die Frage, was die Lernenden *tun*, während sie es benutzen.
+
+## 1. Begriffe raten: Was ist ein Token, was ein Agent?
+
+Ein Zuordnungsspiel aus dem Skript [„KI als Hilfe zum Lehren und Lernen"](https://th-koln-bartnik.github.io/genai4teaching/){target="_blank"}: Begriffe aus der Welt der Sprachmodelle werden den passenden Definitionen zugeordnet, auf Wunsch im Level *Fortgeschritten* mit Agenten-Begriffen und einer Diagnose-Runde zu typischen Problemen. Wer rät und danach die Auflösung sieht, ruft Wissen ab, statt es nur wiederzuerkennen, und behält es dadurch länger [@roediger2006].
+
+::: {.content-visible when-format="html"}
+<iframe src="https://th-koln-bartnik.github.io/genai4teaching/interactions/llm-game-standalone.html" width="100%" height="700px" frameborder="0" loading="lazy" title="Lernspiel: Welche Definition ist korrekt?"></iframe>
+:::
+
+[Spiel im eigenen Fenster öffnen →](https://th-koln-bartnik.github.io/genai4teaching/interactions/llm-game-standalone.html){target="_blank"}
+
+## 2. Prozessanimation: Was kostet eine Wasserflasche wirklich?
+
+Aus dem Modul *Sustainable Supply Chain Management*. Wasser, Plastik und Etikett kosten zusammen rund 0,50 $, die Flasche kostet 1,50 $. Bevor Sie auf *Play* drücken: Was bezahlt den anderen Dollar? Die Animation lässt die Flasche durch ihre Lieferkette laufen und füllt dabei ein Kostenbuch. Die Reihenfolge *erst vorhersagen, dann beobachten* macht aus dem Zuschauen eine Prüfung der eigenen Vermutung; mit *Step* und der Geschwindigkeitswahl steuern die Lernenden das Tempo selbst, was Animationen nach Mayer [-@mayer2021] erst lernwirksam macht.
+
+::: {.content-visible when-format="html"}
+<iframe src="https://th-koln-bartnik.github.io/sscm-2026-student/widgets/01_water_bottle_widget.html" width="100%" height="840px" frameborder="0" loading="lazy" title="Animation: Lieferkette einer Wasserflasche"></iframe>
+:::
+
+[Animation im eigenen Fenster öffnen →](https://th-koln-bartnik.github.io/sscm-2026-student/widgets/01_water_bottle_widget.html){target="_blank"}
+
+## 3. Fall-Teaser: Backhaus Kaya
+
+Fünf Sekunden, eine Bäckerin allein in ihrer Backstube bei Nacht. Der Teaser eröffnet eine Fallstudie, die sich über mehrere Wochen durch das SSCM-Modul zieht: Prozessstrategie, CO₂-Bilanz, Qualität, Prognose, jedes Mal am selben Betrieb. Geschichten mit einer Hauptfigur und einem Konflikt bleiben besser im Gedächtnis als die gleiche Information in Listenform [@willingham2009]; das kurze Video gibt der Figur ein Gesicht, bevor die Zahlen kommen.
+
+::: {.content-visible when-format="html"}
+```{=html}
+<figure>
+  <video controls playsinline preload="metadata" width="100%"
+         poster="https://th-koln-bartnik.github.io/sscm-2026-student/videos/week02_kaya_teaser_poster.webp"
+         aria-label="Teaser: eine Bäckerin allein in ihrer Backstube bei Nacht">
+    <source src="https://th-koln-bartnik.github.io/sscm-2026-student/videos/week02_kaya_teaser.mp4" type="video/mp4">
+    <a href="https://th-koln-bartnik.github.io/sscm-2026-student/videos/week02_kaya_teaser.mp4">Teaser ansehen (MP4, 5 s)</a>
+  </video>
+  <figcaption>Teaser zur Fallstudie „Backhaus Kaya" (SSCM, Woche 2). Betrieb und Personen sind fiktiv.</figcaption>
+</figure>
+```
+:::
+
+## 4. Colab-Arbeitsblatt: Mias Umzugstag als Modell
+
+Google Colab ist ein Dokument im Browser, in dem Text und kleine Programmstücke abwechseln; Studierende brauchen nur ein Google-Konto, keine Installation. Im Arbeitsblatt aus Woche 1 rechnen die Studierenden einen Umzug erst von Hand und bauen dieselbe Rechnung dann als kleines Modell nach. Danach beantwortet das Modell in Sekunden Fragen, die von Hand je eine Stunde kosten würden: *größerer Transporter? ein vierter Helfer?* Wer selbst etwas erzeugt, statt fertige Lösungen zu lesen, lernt nachhaltiger [@fiorella2016].
+
+::: {.callout-tip}
+## Arbeitsblatt ausprobieren
+[**In Google Colab öffnen →**](https://colab.research.google.com/github/TH-Koln-Bartnik/sscm-2026-student/blob/main/week01/04_week01_moving_day_build.ipynb){target="_blank"}
+
+Colab öffnet eine Kopie nur für Sie; Sie können nichts kaputt machen. Zellen führen Sie mit dem Play-Knopf links daneben aus.
+:::
+
+## 5. Lern-Song: Every Forecast Is Wrong
+
+Ein animiertes Song-Video aus dem heutigen SSCM-Termin: Ein Campus-Café zählt seine Kaffeebecher, fünf Prognoseverfahren treten gegeneinander an (naiv, gleitender Durchschnitt, exponentielle Glättung, Wochentagsindex, Wochentagsindex mit Trend), und die Refrains vergleichen ihre Fehler mit MAD und MAPE. In drei Instrumentalpausen erscheint eine Rechnung; wer dort anhält und mitrechnet, bevor die nächste Zeile kommt, macht aus dem Zuhören eine Abrufübung [@roediger2006]. Untertitel lassen sich über *CC* im Player einschalten.
+
+::: {.content-visible when-format="html"}
+```{=html}
+<figure>
+  <video controls playsinline preload="metadata" width="100%" crossorigin="anonymous"
+         poster="https://th-koln-bartnik.github.io/sscm-2026-student/videos/week05_every_forecast_is_wrong_poster.webp"
+         aria-label="Animiertes Song-Video: Tagesabsätze eines Campus-Cafés als Punkte; Prognoseverfahren als Linien, ihre Fehler gemessen mit MAD und MAPE">
+    <source src="https://th-koln-bartnik.github.io/sscm-2026-student/videos/week05_every_forecast_is_wrong.mp4" type="video/mp4">
+    <track kind="subtitles" srclang="en" label="English (lyrics)" src="https://th-koln-bartnik.github.io/sscm-2026-student/videos/week05_every_forecast_is_wrong.vtt">
+    <a href="https://th-koln-bartnik.github.io/sscm-2026-student/videos/week05_every_forecast_is_wrong.mp4">Video ansehen (MP4, 5:15)</a>
+  </video>
+  <figcaption>Liedtext, Beispieldaten und Animationscode: Claude Opus 5.5 · Musik: Suno · Café und Zahlen sind fiktiv · geprüft von Roman Bartnik</figcaption>
+</figure>
+```
+:::
+
+## 6. Vokabel-App: Wörter sammeln
+
+Ein Französisch-Trainer zum Lehrwerk *À plus!* (Unités 1–5, knapp 400 Wörter mit je zwei Beispielsätzen), gebaut mit Codex. Geübt wird in mehreren Richtungen: Deutsch→Französisch tippen, Französisch→Deutsch, Lautschrift→Schreibweise und ganze Sätze übersetzen. Ein Wort gilt erst als „gesammelt", wenn es in jeder Richtung beim ersten Versuch sitzt; wer zweimal danebenliegt, findet es auf einer persönlichen Fehlerliste wieder. Das Prinzip ist dasselbe wie beim Begriffe-Raten oben: abrufen statt wiederlesen [@roediger2006]. Ein Fach braucht dafür keine Programmierkenntnisse, sondern eine saubere Wortliste und eine klare Vorstellung davon, wann etwas als gelernt gilt.
+
+::: {.content-visible when-format="html"}
+<iframe src="https://inspiring-dieffenbachia-600068.netlify.app/" width="100%" height="760px" frameborder="0" loading="lazy" title="Vokabel-App: À plus! · Wörter sammeln"></iframe>
+:::
+
+[App im eigenen Fenster öffnen →](https://inspiring-dieffenbachia-600068.netlify.app/){target="_blank"}
+
+## Zwei Beispiele von Ethan Mollick
+
+Ethan Mollick (Wharton School) testet neue Modelle gern an Aufgaben, die vor kurzem noch ein ganzes Team gebraucht hätten. Die beiden folgenden Beispiele sind keine Lehrmaterialien im engeren Sinn, zeigen aber, wohin die Werkzeuge gerade gehen, die wir im Workshop nutzen. Beide laufen am besten im eigenen Browserfenster, auf einem Rechner mit Tastatur.
+
+:::::: benchmark-grid
+::: benchmark-card
+### 7. Umberto Ecos Bibliothek in 3D
+
+Mollick bat Claude, alle verfügbaren Bilder, Filme und Katalogeinträge zu Ecos Mailänder Bibliothek mit rund 33.000 Bänden auszuwerten und sie samt Standort der Bücher dreidimensional zu rekonstruieren [@mercosur2026eco]. Man geht durch die Räume, klickt Bücher an, färbt die Regale nach Sprache, Jahrhundert oder Fachgebiet und folgt Führungen in Ecos eigenen Worten. Didaktisch bemerkenswert: Jedes Buch trägt eine Angabe, wie sicher seine Zuordnung ist. Die Rekonstruktion legt ihre eigene Unsicherheit offen.
+
+[Bibliothek betreten →](https://eco-library-map.netlify.app/#room=corridoio&mode=walk){target="_blank"}
+:::
+
+::: benchmark-card
+### 8. Zork als 3D-Spiel
+
+*Zork I* ist ein reines Text-Abenteuer von 1977: Man tippt „go north" und liest, was passiert. Mollick ließ ein aktuelles OpenAI-Modell daraus ein begehbares 3D-Spiel im Browser machen, das Handlung und Rätsel des Originals behält [@digg2026zork]. Das Beispiel zeigt, wie viel Übersetzungsarbeit zwischen Medien ein Modell inzwischen selbständig leistet, einschließlich vieler Gestaltungsentscheidungen, die früher ein Mensch hätte treffen müssen.
+
+[Spiel starten →](https://zork-underground-empire.netlify.app/){target="_blank"}
+:::
+::::::
+
+## 9. Ihr Beispiel vom Workshop-Tag
+
+::: {.callout-note}
+## Platzhalter
+Hier erscheint nach dem Präsenz-Workshop, was die Teilnehmenden gebaut haben: Links auf die veröffentlichten Skripte und eine Auswahl der schönsten Interaktionen.
+:::
+
+## Quellen
+
+::: {#refs}
+:::

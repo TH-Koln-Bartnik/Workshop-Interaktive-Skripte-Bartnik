@@ -1,0 +1,96 @@
+project:
+  type: book
+  output-dir: docs
+  resources:
+    - "interactions/*"
+    - "images/*"
+    - "data/*"
+    - "slides/*"
+    - "downloads/*"
+
+book:
+  title: "Interaktive Skripte mit KI erstellen"
+  subtitle: "Skript zum Workshop am 11.05.2026, TH Köln"
+  author: "Prof. Dr. Roman Bartnik"
+  date: "2026-05-11"
+  date-format: "DD.MM.YYYY"
+  search: true
+  repo-url: "https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik"
+  repo-actions: [edit, issue]
+  downloads: []
+  sharing: [twitter, linkedin]
+  page-navigation: true
+  back-to-top-navigation: true
+  sidebar:
+    style: docked
+    background: light
+    collapse-level: 2
+    logo: images/th-koeln-logo.png
+  chapters:
+    - index.qmd
+    - part: "Phase 1 — RStudio + KI-Tutor (lokal)"
+      chapters:
+        - parts/01-didaktik.qmd
+        - parts/02-setup.qmd
+        - parts/03b-bilder-tabellen.qmd
+    - part: "Phase 2 — Zotero hinzu (immer noch lokal)"
+      chapters:
+        - parts/03a-uebersicht.qmd
+    - part: "Phase 3 — Kür plus Veröffentlichung"
+      chapters:
+        - parts/03c-style.qmd
+        - parts/04-charts.qmd
+        - parts/05-iframes-tutor.qmd
+        - parts/08-github-pages.qmd
+        - parts/06-slides-optional.qmd
+    - part: "Quick-Starter und Anhänge"
+      chapters:
+        - appendix/quickstart.qmd
+        - appendix/troubleshooting.qmd
+        - appendix/tutor-prompt.qmd
+        - appendix/reviewer-prompt.qmd
+    - literatur.qmd
+  page-footer:
+    left: "© 2026 Roman Bartnik · CC BY-SA 4.0"
+    right: "Erstellt mit [Quarto](https://quarto.org)"
+
+bibliography: references.bib
+csl: https://www.zotero.org/styles/apa
+
+# Erlaubt HTML-Widgets (Plotly, Observable) auch in Nicht-HTML-Formaten (PDF):
+# sie werden im PDF einfach weggelassen (statische Hinweis-Blöcke springen ein
+# über content-visible: when-format="pdf" in den betroffenen Kapiteln).
+prefer-html: true
+
+format:
+  html:
+    theme:
+      - cosmo
+      - styles.scss
+    toc: true
+    toc-depth: 3
+    toc-title: "Inhalt"
+    code-copy: true
+    code-overflow: wrap
+    link-external-newwindow: true
+    fig-cap-location: bottom
+    callout-appearance: simple
+    callout-icon: true
+    smooth-scroll: true
+    anchor-sections: true
+    number-sections: false
+    df-print: paged
+    citations-hover: true
+    footnotes-hover: true
+    link-citations: true
+    citation-location: document
+    reference-location: document
+
+# PDF-Format ist absichtlich nicht definiert.
+# Plotly/Observable im selben Skript erzeugen einen knitr-Konflikt im PDF-Pfad
+# (auch mit prefer-html: true), der kurzfristig nicht
+# zuverlässig zu lösen ist. PDF wird nach dem Workshop sauber nachgezogen,
+# z.B. durch Auslagerung der interaktiven Kapitel in HTML-only-Dateien
+# und Generierung eines separaten Druck-PDFs aus den restlichen Kapiteln.
+
+lang: de

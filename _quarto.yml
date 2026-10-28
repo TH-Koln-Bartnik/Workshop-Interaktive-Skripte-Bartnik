@@ -1,6 +1,14 @@
 project:
   type: book
   output-dir: docs
+  # Stand 28.10.2026 (Online-Auftakt): nur Startseite, Quick-Start und Galerie
+  # werden gerendert. Die übrigen Kapitel bleiben im Repo und werden vor dem
+  # Präsenz-Workshop aktualisiert und wieder freigeschaltet (siehe unten).
+  # Die Fassung vom Mai 2026 liegt unter _archiv/.
+  render:
+    - index.qmd
+    - appendix/quickstart.qmd
+    - parts/galerie.qmd
   resources:
     - "interactions/*"
     - "images/*"
@@ -10,9 +18,9 @@ project:
 
 book:
   title: "Interaktive Skripte mit KI erstellen"
-  subtitle: "Skript zum Workshop am 11.05.2026, TH Köln"
+  subtitle: "Skript zum Workshop, TH Köln — Online-Auftakt am 28.10.2026"
   author: "Prof. Dr. Roman Bartnik"
-  date: "2026-05-11"
+  date: "2026-10-28"
   date-format: "DD.MM.YYYY"
   search: true
   repo-url: "https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik"
@@ -28,28 +36,33 @@ book:
     logo: images/th-koeln-logo.png
   chapters:
     - index.qmd
-    - part: "Phase 1 — RStudio + KI-Tutor (lokal)"
-      chapters:
-        - parts/01-didaktik.qmd
-        - parts/02-setup.qmd
-        - parts/03b-bilder-tabellen.qmd
-    - part: "Phase 2 — Zotero hinzu (immer noch lokal)"
-      chapters:
-        - parts/03a-uebersicht.qmd
-    - part: "Phase 3 — Kür plus Veröffentlichung"
-      chapters:
-        - parts/03c-style.qmd
-        - parts/04-charts.qmd
-        - parts/05-iframes-tutor.qmd
-        - parts/08-github-pages.qmd
-        - parts/06-slides-optional.qmd
-    - part: "Quick-Starter und Anhänge"
-      chapters:
-        - appendix/quickstart.qmd
-        - appendix/troubleshooting.qmd
-        - appendix/tutor-prompt.qmd
-        - appendix/reviewer-prompt.qmd
-    - literatur.qmd
+    - appendix/quickstart.qmd
+    - parts/galerie.qmd
+    # --- vorübergehend ausgeblendet (Update vor dem Präsenz-Workshop) ---
+    # Zum Freischalten: Zeilen wieder einkommentieren und die Dateien
+    # zusätzlich oben unter project: render: eintragen.
+    # - part: "Phase 1 — RStudio + KI-Tutor (lokal)"
+    #   chapters:
+    #     - parts/01-didaktik.qmd
+    #     - parts/02-setup.qmd
+    #     - parts/03b-bilder-tabellen.qmd
+    # - part: "Phase 2 — Zotero hinzu (immer noch lokal)"
+    #   chapters:
+    #     - parts/03a-uebersicht.qmd
+    # - part: "Phase 3 — Kür plus Veröffentlichung"
+    #   chapters:
+    #     - parts/03c-style.qmd
+    #     - parts/04-charts.qmd
+    #     - parts/05-iframes-tutor.qmd
+    #     - parts/08-github-pages.qmd
+    #     - parts/06-slides-optional.qmd
+    # - part: "Quick-Starter und Anhänge"
+    #   chapters:
+    #     - appendix/quickstart.qmd
+    #     - appendix/troubleshooting.qmd
+    #     - appendix/tutor-prompt.qmd
+    #     - appendix/reviewer-prompt.qmd
+    # - literatur.qmd
   page-footer:
     left: "© 2026 Roman Bartnik · CC BY-SA 4.0"
     right: "Erstellt mit [Quarto](https://quarto.org)"

@@ -1,256 +1,130 @@
 ---
-title: "Quick-Starter Guide"
-subtitle: "Von Null auf erstem Skript live im Netz — alles aus RStudio"
+title: "Quick-Start Guide"
+subtitle: "Zu Hause installieren, einmal testen, vorbereitet in den Workshop kommen"
 ---
 
 ::: {.lernziel-box}
-#### Was dieser Anhang leistet
-Eine **Schritt-für-Schritt-Anleitung für komplette Anfänger**, parallel zum Workshop nutzbar. **RStudio ist Ihr einziges Editor-Programm** — Terminal, Files-Pane, Build-Pane und Console liegen alle dort. Daneben brauchen Sie nur einen Browser-Tab mit dem KI-Tutor und (für Phase 3) GitHub Desktop.
+#### Was Sie bis zum Präsenz-Workshop erledigen
+Sie installieren in den nächsten Tagen sechs Werkzeuge, testen jedes einmal kurz und packen Ihr Rohmaterial zusammen. Planen Sie dafür ein ruhiges Zeitfenster mit stabiler Internetverbindung ein. Wer am Workshop-Tag mit einem fertig eingerichteten Laptop kommt, verbringt den Tag mit Schreiben und Gestalten statt mit Installationsdialogen.
 :::
 
-## Checkliste — gestaffelt nach Workshop-Phase
+## Die Werkstatt im Überblick
 
-Sie müssen **nicht alle Werkzeuge auf einmal** installieren. Der Workshop ist in drei Phasen gegliedert; jede Phase bringt ein neues Tool-Set dazu. Wer die Phase-1-Tools vor dem Workshop hat, kann sofort starten — Phase 2 und 3 lassen sich in der Mittagspause oder im laufenden Workshop nachholen.
+Ein Online-Skript entsteht wie ein Buch in einer kleinen Werkstatt. **RStudio** ist die Werkbank, an der Sie schreiben. **Quarto** ist die Druckerei, die aus Ihren Textdateien eine fertige Webseite setzt. **Zotero** ist der Bibliothekskatalog, aus dem die Zitate und die Literaturliste automatisch kommen. **GitHub** ist Archiv und Schaufenster zugleich: Es bewahrt jede Fassung Ihres Skripts auf und stellt die aktuelle ins Netz. **Claude Desktop** schließlich ist die studentische Hilfskraft, die direkt in Ihrem Projektordner mitarbeitet, wenn Sie ihr einen präzisen Auftrag geben.
 
-### Phase 1 — vor dem Workshop installieren (Pflicht für 09:00 Uhr)
-
-Das Minimal-Set für den Vormittag. Ohne diese vier Werkzeuge kommen Sie morgens nicht in die Schreib-Render-Schleife.
-
-| | Schritt | Wo? |
-|---|---|---|
-| ☐ | Quarto installieren | <https://quarto.org/docs/get-started/> |
-| ☐ | R installieren | <https://cran.r-project.org/> |
-| ☐ | RStudio Desktop (kostenlos) | <https://posit.co/download/rstudio-desktop/> |
-| ☐ | ChatGPT-Konto und Tutor-Link testen | <https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte> |
-
-Mit dieser Ausrüstung absolvieren Sie Phase 1 (Kap. 1 bis 3).
-
-### Phase 2 — vor dem frühen Nachmittag (für Kap. 4 — Zotero)
-
-Wenn Sie die Phase-1-Tools schon haben, installieren Sie diese vor dem Workshop oder spätestens in der Mittagspause.
-
-| | Schritt | Wo? |
-|---|---|---|
-| ☐ | Zotero installieren | <https://www.zotero.org/download/> |
-| ☐ | Better BibTeX Plugin | <https://retorque.re/zotero-better-bibtex/> |
-
-Damit funktioniert Kap. 4.
-
-### Phase 3 — Nachmittag (für Kap. 5 — TH-Köln-Stil bis Kap. 8 — GitHub Pages)
-
-Diese beiden Schritte stehen erst zum Tagesende an. Wer mag, installiert sie schon vorher; nötig ist es erst nachmittags.
-
-| | Schritt | Wo? |
-|---|---|---|
-| ☐ | GitHub-Konto erstellen | <https://github.com/signup> |
-| ☐ | GitHub Desktop installieren | <https://desktop.github.com/> |
-
-Damit funktioniert Kap. 8.
-
-## RStudio-Cockpit auf einen Blick
-
-| Bereich | Position | Wofür im Workshop? |
-|---|---|---|
-| **Editor** | oben links | `.qmd`-Dateien schreiben |
-| **Console** | unten links, Tab 1 | R-Pakete installieren (`install.packages(...)`) |
-| **Terminal** | unten links, Tab 2 | `quarto render`, `quarto preview` |
-| **Files** | unten rechts, Tab 1 | Ordner und Dateien anlegen, Dateien öffnen |
-| **Build** | oben rechts, Tab 5 | Knopf „Render Book" als Klick-Alternative |
-
-Drei Shortcuts, die Sie sich merken sollten: **Strg+Shift+K** rendert die aktuelle Datei, **Strg+Shift+B** rendert das ganze Buch, **Alt+Shift+R** öffnet einen neuen Terminal-Tab.
-
-## Schritt-für-Schritt: Ihr erstes Skript
-
-Die Schritte 1 bis 6 entsprechen Phase 1 (lokales Skript), Schritte 7 bis 9 Phase 3 (Veröffentlichung). Phase 2 (Zotero) ist nicht in diesem Quickstart, weil sie ein eigenes Kapitel im Skript hat.
-
-### Phase 1 — lokal arbeiten
-
-#### 1. Neues Quarto-Buch anlegen
-
-In RStudio: **File → New Project → New Directory → Quarto Book → Create Project**.
-
-#### 2. Erste Vorschau
-
-Im **Terminal-Tab** (unten links, neben Console):
-
-```bash
-quarto preview
-```
-
-Browser öffnet sich. Sie sehen die Beispielinhalte. **Strg+C** im Terminal beendet den Preview-Server.
-
-#### 3. `_quarto.yml` minimal anpassen
-
-Im **Editor** öffnen Sie `_quarto.yml` und ersetzen den Inhalt durch:
-
-```yaml
-project:
-  type: book
-  output-dir: docs
-
-book:
-  title: "Mein erstes Skript"
-  chapters:
-    - index.qmd
-    - intro.qmd
-
-format:
-  html:
-    theme: cosmo
-    toc: true
-```
-
-`output-dir: docs` ist wichtig — GitHub Pages erwartet das später.
-
-#### 4. Ordner für Bilder, Daten und Widgets anlegen
-
-Im **Files-Pane** (unten rechts) klicken Sie auf **New Folder** und legen nacheinander an: `images/`, `interactions/`, `include/`, `data/`. So wissen Sie immer, wo etwas hingehört.
-
-#### 5. Erstes Kapitel schreiben
-
-Öffnen Sie `index.qmd` im Editor, ersetzen Sie den Beispielinhalt durch:
-
-```markdown
-# Willkommen
-
-Mein erstes Skript zum Thema [Strang A/B/C].
-
-## Was ich hier behandle
-
-- Punkt 1
-- Punkt 2
-- Punkt 3
-```
-
-#### 6. Rendern
-
-Im Terminal:
-
-```bash
-quarto render
-```
-
-Oder Knopf **Build → Render Book** klicken. Im `docs/`-Ordner liegt jetzt die fertige Webseite.
-
-### Phase 3 — veröffentlichen
-
-#### 7. GitHub Desktop: Repo anlegen
-
-GitHub Desktop → **File → Add Local Repository** → Projektordner wählen → **Create a repository** zustimmen → Name: `mein-erstes-skript` → **Publish repository** (Public).
-
-#### 8. GitHub Pages aktivieren
-
-Auf <https://github.com> im Repo: **Settings → Pages → Source: Deploy from a branch → Branch: main, Folder: /docs → Save**.
-
-Nach 1–2 Minuten ist Ihr Skript unter `https://IHR-USERNAME.github.io/mein-erstes-skript/` live.
-
-#### 9. Erste Änderung publizieren
-
-Bearbeiten Sie `index.qmd`, rendern Sie lokal (Terminal: `quarto render` oder Knopf), in GitHub Desktop **Commit → Push origin**. Webseite aktualisiert sich automatisch in 30–60 Sekunden.
-
-## Agentische KI als Co-Pilot
-
-Der KI-Tutor im Browser-Tab ist **konversationell** — er antwortet auf Fragen, schreibt Code-Schnipsel zum Kopieren. **Agentische KI** geht einen Schritt weiter: Sie hat selbst Zugriff auf Ihre Dateien, kann lesen, schreiben, rendern, Fehler korrigieren — wie ein Praktikant, der direkt in Ihrem Projektordner sitzt. Bekannte Werkzeuge: **Claude Cowork** (Anthropic), **GPT Codex / Codex CLI** (OpenAI), **Cursor**, **Aider**.
-
-::: {.callout-note}
-**Wofür sich das lohnt.** Wiederkehrende Routinen (alle Kapitel auf eine neue Vorlage migrieren, Bibliographie aufräumen, Cross-Refs konsistent prüfen, Tippfehler in 30 Dateien gleichzeitig finden), die mit copy/paste oder manueller Edit-Schleife zäh würden.
+::: {.callout-note appearance="minimal"}
+*Quarto* kommt aus der Buchdruckerei: Ein Bogen, der zweimal gefaltet wird, ergibt vier Blätter, lateinisch *in quarto* („in Vierteln", von *quartus*, der Vierte). Der Name verspricht, was das Werkzeug tut: aus Rohtext ein gesetztes Buch machen.
 :::
 
-### Schritt-für-Schritt — Beispiel mit Claude Cowork
+## Checkliste
 
-1. **Installieren und starten**: <https://claude.ai/download> herunterladen, anmelden, Cowork-Modus aktivieren.
-2. **Projektordner verbinden**: In Cowork unten links **„Folder verbinden"** → Ihren Quarto-Projektordner wählen. Cowork sieht jetzt alle Dateien.
-3. **Auftrag formulieren** — präzise, mit Erfolgskriterium:
+| | Werkzeug | Wofür | Download | Läuft, wenn … |
+|---|---|---|---|---|
+| ☐ | **R** | Rechenmaschine im Hintergrund, die RStudio braucht | <https://cran.r-project.org/> | die Installation ohne Fehlermeldung durchläuft |
+| ☐ | **RStudio Desktop** | Werkbank: Editor, Dateien, Vorschau in einem Fenster | <https://posit.co/download/rstudio-desktop/> | RStudio startet und unten links die Console zeigt |
+| ☐ | **Quarto** | Druckerei: macht aus `.qmd`-Dateien eine Webseite | <https://quarto.org/docs/get-started/> | im RStudio-Terminal `quarto --version` eine Versionsnummer liefert |
+| ☐ | **Zotero** + **Better BibTeX** | Literaturverwaltung, Zitate per Kürzel | <https://www.zotero.org/download/> und <https://retorque.re/zotero-better-bibtex/installation/> | in Zotero unter *Werkzeuge → Plugins* „Better BibTeX" erscheint |
+| ☐ | **GitHub-Konto** + **GitHub Desktop** | Versionsarchiv und Veröffentlichung | <https://github.com/signup> und <https://desktop.github.com/> | Sie in GitHub Desktop mit Ihrem Konto angemeldet sind |
+| ☐ | **Claude Desktop** (empfohlen) | agentische KI, die in Ihrem Projektordner mitarbeitet | <https://claude.com/download> | im Cowork-Bereich ein Testordner verbunden ist |
 
-   > „Lies alle .qmd-Dateien unter `parts/` und prüfe, ob jedes Kapitel mit `# Literatur {.unnumbered}` und `::: {#refs}` endet. Wenn nicht, füge die Sektion ergänzend ein. Render danach und zeige mir die Diff."
-
-4. **Diff prüfen**: Cowork zeigt geänderte Dateien. Lesen Sie die Änderungen, **bevor** Sie committen.
-5. **Lokal rendern und prüfen**: `quarto render` im Terminal (oder Build-Pane). Im Browser stichprobenartig zwei Kapitel kontrollieren.
-6. **In GitHub Desktop committen**: Commit-Nachricht erwähnt explizit „mit Hilfe von [Tool]" für Nachvollziehbarkeit. Push.
-
-### Drei Prüfschritte vor jedem Commit
-
-::: {.callout-tip}
-1. **Diff lesen**: Welche Dateien wurden tatsächlich geändert? Stimmt die Anzahl mit dem Auftrag überein?
-2. **Lokal rendern**: Bricht der Render durch? Erscheinen neue Warnungen?
-3. **Stichprobe im Browser**: Mindestens zwei zufällig gewählte Stellen visuell prüfen.
-:::
-
-### Typische Problemfelder
-
-| Problem | Symptom | Was hilft |
-|---|---|---|
-| **Halluzinierte Syntax** | Quarto bricht ab mit „unknown directive" | Quarto-Doku als Referenz im Prompt mitgeben: „Nutze nur Syntax aus <https://quarto.org/docs/>" |
-| **Über-Edit** | KI ändert Dinge, die Sie nicht wollten (Stil, Wortwahl, Reihenfolge) | Auftrag eng formulieren: „Ändere NICHTS außer …". Nach jedem Lauf Diff prüfen |
-| **Cloud-Sync-Konflikt** | Datei „gesperrt", Schreibvorgänge halb übernommen, Truncation | Tresor / OneDrive während der KI-Sitzung pausieren; lokalen Pfad ohne Cloud-Sync nutzen |
-| **Dateilösch-Versuch** | KI schlägt vor, „aufzuräumen" und löscht etwas Wichtiges | Vor Auftragsstart explizit untersagen: „Lösche keine Dateien, verschiebe nichts ohne Rückfrage" |
-| **Endlosschleife** | KI rendert, Fehler, korrigiert, rendert, Fehler, … | Nach drei erfolglosen Versuchen abbrechen, Fehlermeldung mitschneiden, manuell nachsehen |
-| **Git-Wirrwarr** | Branch-Wechsel, ungewollte Commits | KI nicht direkt committen lassen; Commits ausschließlich über GitHub Desktop machen |
-
-### Sicherheits-Praxis
-
-Behandeln Sie agentische KI wie einen Praktikant mit Schreibrechten: präzise Aufträge, sofortige Diff-Prüfung, kleine Iterationen statt großer Brocken. Nutzen Sie Git als Sicherheitsnetz — alles, was committet ist, ist wiederherstellbar.
+Installieren Sie in dieser Reihenfolge: R vor RStudio, weil RStudio beim ersten Start nach R sucht.
 
 ::: {.callout-warning}
-**Niemals API-Schlüssel oder Passwörter** in Prompts oder im Projektordner ablegen. Wenn die KI versehentlich `secrets.txt` liest, landet der Inhalt in der Konversation.
+## Dienstrechner ohne Administratorrechte
+Auf verwalteten Hochschulrechnern dürfen Sie oft keine Software selbst installieren. Klären Sie das frühzeitig mit Ihrer IT (an der TH Köln häufig über das Softwarecenter lösbar) oder bringen Sie ein privates Gerät mit, auf dem Sie installieren dürfen.
 :::
 
-## Skripte in ILU oder Moodle einbinden (optional)
+## Schritt für Schritt
 
-::: {.callout-note}
-**Optional — nur wenn Sie das Skript zusätzlich zur GitHub-Pages-Veröffentlichung in der Lernplattform Ihrer Hochschule sichtbar machen wollen.** Für die meisten Workshop-Teilnehmenden reicht der Pages-Link in einer Kurs-Mitteilung; die Einbettung lohnt sich erst, wenn Studierende das Skript direkt im Kurs-Container statt im neuen Tab erleben sollen.
+### 1. R und RStudio
+
+R ist eine Programmiersprache für Statistik; Sie werden sie im Workshop kaum direkt benutzen, aber RStudio braucht sie als Motor. Auf <https://cran.r-project.org/> wählen Sie Ihr Betriebssystem (unter Windows: *Download R for Windows → base*) und installieren mit den Voreinstellungen. Danach laden Sie RStudio Desktop von <https://posit.co/download/rstudio-desktop/> und installieren es ebenso.
+
+**Test:** RStudio öffnen. Links unten sehen Sie die *Console* mit einer Begrüßung von R. Daneben liegt der Reiter *Terminal*, das Textfenster, in dem man dem Computer Befehle eintippt.
+
+### 2. Quarto
+
+RStudio bringt bereits eine Quarto-Version mit. Die eigenständige Installation von <https://quarto.org/docs/get-started/> sorgt dafür, dass der Befehl `quarto` auch im Terminal funktioniert, was im Workshop die Arbeit vereinfacht.
+
+**Test:** In RStudio den Reiter *Terminal* öffnen und eingeben:
+
+```bash
+quarto --version
+```
+
+Erscheint eine Versionsnummer, ist die Druckerei betriebsbereit.
+
+### 3. Zotero und Better BibTeX
+
+Zotero sammelt Ihre Literatur; Better BibTeX vergibt jedem Titel ein stabiles Kürzel (etwa `mayer2021`), über das Quarto später zitiert. Installieren Sie Zotero von <https://www.zotero.org/download/>. Laden Sie dann die Better-BibTeX-Datei (Endung `.xpi`) von der [Installationsseite](https://retorque.re/zotero-better-bibtex/installation/) herunter und spielen Sie sie in Zotero über *Werkzeuge → Plugins →* Zahnrad *→ Plugin aus Datei installieren* ein.
+
+**Test:** Zotero neu starten. Unter *Werkzeuge → Plugins* steht „Better BibTeX". Legen Sie schon jetzt eine Sammlung mit fünf bis zehn Titeln zum Thema Ihres Skripts an (siehe [Mitbringen](#mitbringen)).
+
+### 4. GitHub-Konto und GitHub Desktop
+
+GitHub ist ein Archiv für Projektordner, das jede gespeicherte Fassung aufhebt, und zugleich ein kostenloser Webspace (*GitHub Pages*), auf dem Ihr Skript öffentlich erreichbar wird. GitHub Desktop ist das Programm, mit dem Sie das ohne Befehlszeile bedienen.
+
+Legen Sie auf <https://github.com/signup> ein Konto an. Wählen Sie einen Benutzernamen, den Sie gern in einer Webadresse sehen: Er wird Teil der Adresse Ihres Skripts (`https://IHR-NAME.github.io/...`). GitHub verlangt in der Regel eine Zwei-Faktor-Anmeldung; halten Sie dafür Ihr Smartphone bereit. Installieren Sie anschließend GitHub Desktop von <https://desktop.github.com/> und melden Sie sich dort mit dem neuen Konto an.
+
+**Test:** GitHub Desktop zeigt oben links Ihren Benutzernamen.
+
+### 5. Claude Desktop (empfohlen)
+
+Der Chat im Browser beantwortet Fragen und liefert Text zum Kopieren. **Agentische KI** geht einen Schritt weiter: Sie liest und schreibt selbst Dateien in einem Ordner, den Sie freigeben, rendert, findet Fehler und korrigiert sie. Das gleicht einer Hilfskraft, die an Ihrem Schreibtisch sitzt, statt Ihnen Zettel durch die Tür zu reichen. Für den Workshop empfehle ich **Claude Desktop** mit dem Bereich **Cowork**: Er arbeitet ohne Befehlszeile, zeigt vor jedem Schritt seinen Plan und wartet auf Ihre Freigabe.
+
+Laden Sie die App von <https://claude.com/download> (Windows und macOS), installieren Sie sie und melden Sie sich an. Chat ist in allen Tarifen nutzbar; **Cowork setzt einen bezahlten Tarif voraus** (Pro oder höher, auch Team und Enterprise) ([Anthropic, o. J.](https://support.claude.com/en/articles/10065433){target="_blank"}).
+
+**Test:** Legen Sie einen leeren Ordner `cowork-test` an. In Claude Desktop oben auf *Cowork* wechseln, den Ordner verbinden und einen harmlosen Auftrag geben, etwa:
+
+> „Lege in diesem Ordner eine Datei `notizen.md` an und schreibe drei Ideen hinein, welche interaktiven Elemente in einem Skript zu meinem Fach sinnvoll wären."
+
+Erscheint die Datei im Ordner, ist alles bereit.
+
+::: {.callout-note collapse="true"}
+## Alternative: ChatGPT Codex
+Wer lieber bei OpenAI bleibt, installiert die **Codex-App** (Windows und macOS) von <https://developers.openai.com/codex/app>; unter Windows läuft der Download über den Microsoft Store. Codex ist in allen ChatGPT-Tarifen enthalten. Nach der Anmeldung wählen Sie einen Projektordner und den Modus *Local*, damit Codex auf Ihrem Rechner arbeitet ([OpenAI, o. J.](https://developers.openai.com/codex/quickstart){target="_blank"}). Codex ist stärker auf Programmierende zugeschnitten; für Lehrende ohne IT-Hintergrund ist Cowork der sanftere Einstieg.
 :::
-
-Zwei Wege, beide funktionieren:
-
-### Weg 1 — Einfacher Link in der Lernplattform
-
-Der robusteste, datenschutzfreundliche Weg. In ILU oder Moodle ein **Material vom Typ „Webseiten-Link"** anlegen, URL der GitHub Pages eintragen, fertig. Studierende klicken → Skript öffnet sich im neuen Tab. Vorteil: keine technischen Konflikte, keine Abhängigkeit von der Plattform-Konfiguration.
-
-### Weg 2 — iFrame-Einbettung (Skript erscheint im Kurs-Container)
-
-**ILU (ILIAS-basiert) bei der TH Köln:**
-
-1. In Ihrem Kurs eine neue **Seite** oder ein **Lernmodul HTML** anlegen.
-2. Im Editor den **Quellcode-Modus** öffnen (Symbol `</>`).
-3. Iframe-Code einfügen:
-
-   ```html
-   <iframe src="https://IHR-USERNAME.github.io/IHR-REPO/"
-           width="100%" height="900" frameborder="0">
-   </iframe>
-   ```
-
-4. Speichern, im Kurs prüfen.
 
 ::: {.callout-warning}
-**Sicherheits-Restriktionen.** ILIAS-Installationen können iframe / HTML / JavaScript zentral deaktivieren — falls die Einbettung leer bleibt oder eine Sicherheitswarnung erscheint, wenden Sie sich an das **DLE-Team Ihrer Fakultät** oder die [Digital-Teaching-Experts der TH Köln](https://www.th-koeln.de/hochschule/lehr-lern-plattformen_115864.php).
+## Sicherheitsregeln für agentische KI
+Geben Sie nur Ordner frei, die nichts Sensibles enthalten: keine Prüfungsunterlagen mit Namen, keine Personalakten, keine Passwörter oder Zugangsschlüssel. Behandeln Sie die KI wie eine Hilfskraft mit Schreibrechten: enger Auftrag („Ändere nichts außer …", „Lösche keine Dateien"), danach Ergebnis prüfen, dann erst übernehmen. Commits und Veröffentlichung machen Sie selbst über GitHub Desktop; so bleibt jede Fassung wiederherstellbar.
 :::
 
-**Moodle:**
+## Generalprobe: Ihr erstes Quarto-Buch
 
-1. Im Kurs **„Material oder Aktivität anlegen"** → **„Textseite"** wählen.
-2. Im Texteditor das Symbol `</>` für **Quellcode** anklicken.
-3. Denselben iFrame-Code wie oben einfügen.
-4. Speichern und im Kurs prüfen.
+Wenn alle Werkzeuge installiert sind, prüft eine kurze Generalprobe, ob sie zusammenspielen.
 
-### Pflicht-Vorab-Check (drei Punkte)
+1. In RStudio: **File → New Project → New Directory → Quarto Book → Create Project**.
+2. Im Reiter *Terminal* eingeben: `quarto preview`
+3. Ein Browserfenster öffnet sich mit einem Beispielbuch. **Strg+C** im Terminal beendet die Vorschau.
+
+Sehen Sie das Beispielbuch im Browser, ist Ihre Werkstatt einsatzbereit. Den Ordner dürfen Sie behalten oder löschen; im Workshop starten wir mit einer eigenen Vorlage.
+
+## Was Sie in den Workshop mitbringen {#mitbringen}
 
 ::: {.callout-tip}
-1. **GitHub Pages funktioniert öffentlich** — testen Sie die URL in einem Inkognito-Fenster, ohne Hochschul-Login.
-2. **iFrame-Höhe stimmt** — `height="900"` als Startwert; bei Bedarf auf `style="height: 90vh"` für 90 % der Bildschirmhöhe wechseln.
-3. **Embed-Erlaubnis prüfen** — die Live-URL einmal in einem Test-iFrame außerhalb von ILU/Moodle testen (z. B. <https://www.iframe-generator.com>). Wenn die Vorschau leer bleibt, blockt die Plattform iFrames.
+## Technik
+- Laptop mit Netzteil, alle sechs Häkchen der Checkliste gesetzt
+- Zugangsdaten: GitHub (plus Smartphone für die Zwei-Faktor-Anmeldung), Claude oder ChatGPT, Zotero-Konto falls vorhanden
+- Kopfhörer, falls Sie Video- und Audiobeispiele anhören möchten
 :::
 
-### Typische Problemfelder
+::: {.callout-tip}
+## Rohmaterial für Ihr Skript
+- **Einen Textbaustein**: ein bis zwei Seiten aus einer Lehrveranstaltung, die Sie online stellen möchten (Word, PDF oder Markdown; Text, den Sie veröffentlichen dürfen)
+- **Zwei bis drei Bilder** (eigene Fotos, Grafiken oder Abbildungen mit klarer Lizenz) und **eine Tabelle**
+- **Fünf bis zehn Literaturangaben** in einer Zotero-Sammlung
+- **Eine Idee für eine Interaktion**: Was sollen Studierende an Ihrer Stelle *tun* statt nur lesen? Ein Quiz, ein Zuordnungsspiel, eine Animation, ein kleiner Rechner? Die [Galerie](../parts/galerie.qmd) liefert Anregungen.
+:::
 
-| Problem | Was tun? |
-|---|---|
-| **iFrame leer oder Sicherheitswarnung** | DLE-Team fragen, ob iframes in der Hochschul-ILIAS-Installation erlaubt sind |
-| **Skript wird gespiegelt — Updates kommen nicht durch** | iFrame zeigt live von GitHub Pages; nach `git push` 30–60 Sekunden warten und im ILU-Browser-Cache **Strg+F5** drücken |
-| **Studierende sehen nur einen Login-Prompt** | Pages-URL ist privat (Repository auf privat) — auf **Public** umstellen oder Pages-Privatsphäre-Modus konfigurieren |
-| **Mobile Darstellung kaputt** | iFrame-Höhe in Prozent statt Pixel: `style="width:100%; height:80vh"` |
+Wer kein eigenes Material mitbringt, arbeitet mit einem vorbereiteten Beispielthema zum wissenschaftlichen Arbeiten. Die technischen Schritte sind identisch.
 
-## Was als Nächstes?
+## Wenn etwas hakt
 
-Springen Sie zurück in [Kapitel 2 — RStudio + erstes Skript](../parts/02-setup.qmd) für die Schreib-Render-Routine, dann zu [Kapitel 3 — Bilder, Tabellen, Verweise](../parts/03b-bilder-tabellen.qmd). Zotero kommt in [Kapitel 4](../parts/03a-uebersicht.qmd), TH-Köln-Stil in [Kapitel 5](../parts/03c-style.qmd), GitHub und Pages am Tagesende in [Kapitel 8](../parts/08-github-pages.qmd).
+Notieren Sie, an welchem Schritt es hängt, und machen Sie einen Screenshot der Fehlermeldung. Viele Probleme löst der [KI-Tutor](https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte){target="_blank"}, wenn Sie ihm Betriebssystem, Schritt und Fehlermeldung nennen. Was offen bleibt, klären wir in der ersten halben Stunde des Workshops gemeinsam.
+
+## Quellen
+
+Anthropic. (o. J.). *Install Claude Desktop*. Claude Help Center. Abgerufen am 28. Oktober 2026, von <https://support.claude.com/en/articles/10065433>
+
+OpenAI. (o. J.). *Codex quickstart*. OpenAI Developers. Abgerufen am 28. Oktober 2026, von <https://developers.openai.com/codex/quickstart>
