@@ -88,13 +88,13 @@ Ein Französisch-Trainer zum Lehrwerk *À plus!* (Unités 1–5, knapp 400 Wört
 
 ## Zwei Beispiele von Ethan Mollick
 
-Ethan Mollick (Wharton School) testet neue Modelle gern an Aufgaben, die vor kurzem noch ein ganzes Team gebraucht hätten. Die beiden folgenden Beispiele sind keine Lehrmaterialien im engeren Sinn, zeigen aber, wohin die Werkzeuge gerade gehen, die wir im Workshop nutzen. Beide laufen am besten im eigenen Browserfenster, auf einem Rechner mit Tastatur.
+Ethan Mollick (Wharton School) nutzt beide Beispiele in seinem Beitrag *The Overhang*, um eine Lücke zu beschreiben: Die aktuellen Modelle können weit mehr, als die meisten Menschen ihnen abverlangen, und beide Projekte hätten früher Wochen menschlicher Arbeit gekostet [@mollick2026overhang]. Den größten Nutzen ziehen nach seiner Beobachtung diejenigen, die eigenes Fachwissen, Urteilsvermögen und Eigeninitiative mitbringen; genau das bringen Lehrende mit. Die Beispiele sind keine Lehrmaterialien im engeren Sinn, zeigen aber, wohin die Werkzeuge gerade gehen, die wir im Workshop nutzen. Beide laufen am besten im eigenen Browserfenster, auf einem Rechner mit Tastatur.
 
 :::::: benchmark-grid
 ::: benchmark-card
 ### 7. Umberto Ecos Bibliothek in 3D
 
-Mollick bat Claude, alle verfügbaren Bilder, Filme und Katalogeinträge zu Ecos Mailänder Bibliothek mit rund 33.000 Bänden auszuwerten und sie samt Standort der Bücher dreidimensional zu rekonstruieren [@mercosur2026eco]. Man geht durch die Räume, klickt Bücher an, färbt die Regale nach Sprache, Jahrhundert oder Fachgebiet und folgt Führungen in Ecos eigenen Worten. Didaktisch bemerkenswert: Jedes Buch trägt eine Angabe, wie sicher seine Zuordnung ist. Die Rekonstruktion legt ihre eigene Unsicherheit offen.
+Ohne Grundriss rekonstruierte Claude Fable 5.1 Ecos Mailänder Bibliothek aus rund einem Dutzend Filmen, den Regalfotos der Stiftung und zwei Bibliothekskatalogen. Das Modell las Buchrücken Bild für Bild, identifizierte etwa 5.000 Bücher und verteilte sie auf die Regalplätze [@mollick2026overhang]. Man geht durch die Räume, klickt Bücher an, färbt die Regale nach Sprache, Jahrhundert oder Fachgebiet und folgt Führungen in Ecos eigenen Worten. Didaktisch bemerkenswert: Jedes Buch trägt eine Angabe, wie sicher seine Zuordnung ist. Die Rekonstruktion legt ihre eigene Unsicherheit offen.
 
 [Bibliothek betreten →](https://eco-library-map.netlify.app/#room=corridoio&mode=walk){target="_blank"}
 :::
@@ -102,7 +102,7 @@ Mollick bat Claude, alle verfügbaren Bilder, Filme und Katalogeinträge zu Ecos
 ::: benchmark-card
 ### 8. Zork als 3D-Spiel
 
-*Zork I* ist ein reines Text-Abenteuer von 1977: Man tippt „go north" und liest, was passiert. Mollick ließ ein aktuelles OpenAI-Modell daraus ein begehbares 3D-Spiel im Browser machen, das Handlung und Rätsel des Originals behält [@digg2026zork]. Das Beispiel zeigt, wie viel Übersetzungsarbeit zwischen Medien ein Modell inzwischen selbständig leistet, einschließlich vieler Gestaltungsentscheidungen, die früher ein Mensch hätte treffen müssen.
+*Zork I* ist ein reines Text-Abenteuer von 1977: Man tippt „go north" und liest, was passiert. Mollick ließ GPT-6 Astra daraus ein begehbares 3D-Spiel im Browser machen [@mollick2026overhang]. Weil das Original keine einzige Grafik hat, musste das Modell die ganze Bildwelt selbst entwerfen und Textszenen wie den Kampf mit dem Troll in Action-Sequenzen übersetzen. Das Beispiel zeigt, wie viel Übersetzungsarbeit zwischen Medien ein Modell inzwischen selbständig leistet, einschließlich vieler Gestaltungsentscheidungen, die früher ein Mensch hätte treffen müssen.
 
 [Spiel starten →](https://zork-underground-empire.netlify.app/){target="_blank"}
 :::

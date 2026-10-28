@@ -212,7 +212,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#zotero-und-better-bibtex" id="toc-zotero-und-better-bibtex" class="nav-link" data-scroll-target="#zotero-und-better-bibtex">3. Zotero und Better BibTeX</a></li>
   <li><a href="#github-konto-und-github-desktop" id="toc-github-konto-und-github-desktop" class="nav-link" data-scroll-target="#github-konto-und-github-desktop">4. GitHub-Konto und GitHub Desktop</a></li>
   <li><a href="#claude-desktop-empfohlen" id="toc-claude-desktop-empfohlen" class="nav-link" data-scroll-target="#claude-desktop-empfohlen">5. Claude Desktop (empfohlen)</a></li>
-  <li><a href="#optional-netlify-als-zweiter-weg-ins-netz" id="toc-optional-netlify-als-zweiter-weg-ins-netz" class="nav-link" data-scroll-target="#optional-netlify-als-zweiter-weg-ins-netz">Optional: Netlify als zweiter Weg ins Netz</a></li>
   </ul></li>
   <li><a href="#generalprobe-ihr-erstes-quarto-buch" id="toc-generalprobe-ihr-erstes-quarto-buch" class="nav-link" data-scroll-target="#generalprobe-ihr-erstes-quarto-buch">Generalprobe: Ihr erstes Quarto-Buch</a></li>
   <li><a href="#mitbringen" id="toc-mitbringen" class="nav-link" data-scroll-target="#mitbringen">Was Sie in den Workshop mitbringen</a></li>
@@ -398,13 +397,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="optional-netlify-als-zweiter-weg-ins-netz" class="level3">
-<h3 class="anchored" data-anchor-id="optional-netlify-als-zweiter-weg-ins-netz">Optional: Netlify als zweiter Weg ins Netz</h3>
-<p>Netlify ist wie GitHub Pages ein Dienst, der fertige Webseiten öffentlich ins Netz stellt. Der Unterschied liegt im Weg dorthin: Bei GitHub Pages geht jede Veröffentlichung durch das Versionsarchiv, bei Netlify kann man einen fertigen Ordner einfach per Drag-and-drop auf die Seite <a href="https://app.netlify.com/drop" target="_blank">Netlify Drop</a> ziehen, und Sekunden später hat er eine Adresse. Mehrere Beispiele aus der <a href="../parts/galerie.html">Galerie</a>, darunter die Vokabel-App und beide Beispiele von Ethan Mollick, liegen auf Netlify.</p>
-<p><strong>Was dafür spricht.</strong> Der Weg ist kurz und braucht kein Git: Wer mit Claude oder Codex eine einzelne HTML-Datei gebaut hat, etwa ein Quiz, eine Simulation oder einen kleinen Rechner, hat sie in einer Minute online und kann den Link an Studierende geben oder per iFrame ins Skript einbetten. Der Inhalt muss dafür nicht in einem öffentlichen Repository liegen; bei GitHub Pages ist ein öffentliches Repository im kostenlosen Konto Voraussetzung. Quarto kann ganze Skripte auch direkt mit <code>quarto publish netlify</code> hochladen (<a href="https://quarto.org/docs/publishing/netlify.html" target="_blank">Posit, o. J.</a>).</p>
-<p><strong>Was dagegen spricht.</strong> Der kostenlose Tarif rechnet seit 2025 in Guthabenpunkten: 300 pro Monat als harte Grenze, ohne Nachkaufmöglichkeit; jede Veröffentlichung kostet 15 Punkte, jedes Gigabyte ausgelieferter Daten 20 (<a href="https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-credit-based-plans/credit-based-pricing-plans/" target="_blank">Netlify, o. J.</a>). Das reicht für höchstens 20 Veröffentlichungen im Monat, und auch nur, wenn kaum jemand die Seiten aufruft. Für ein Skript, das man im Semester laufend nachbessert, oder für ein Lern-Video mit 15 MB vor einer großen Gruppe wird das knapp. GitHub Pages kennt dagegen nur weiche Grenzen (1 GB Seitengröße, rund 100 GB Datenverkehr im Monat) (<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits" target="_blank">GitHub, o. J.</a>). Hinzu kommt: Ohne Git gibt es keine Versionsgeschichte, ein versehentlich überschriebener Stand ist weg. Und Netlify vergibt zufällige Adressen wie <code>inspiring-dieffenbachia-600068.netlify.app</code>, die man erst umbenennen muss, bevor man sie auf eine Folie schreibt.</p>
-<p><strong>Empfehlung für den Workshop.</strong> Das Skript selbst veröffentlichen wir über GitHub Pages: versioniert, ohne Kontingent, mit einer Adresse, die Ihren Namen trägt. Netlify lohnt sich als Ergänzung für einzelne, fertige Lernanwendungen, die selten geändert werden und schnell einen Link brauchen. Wer das ausprobieren möchte, legt unter <a href="https://app.netlify.com/signup" class="uri">https://app.netlify.com/signup</a> ein kostenloses Konto an; nötig ist es für den Workshop nicht.</p>
-</section>
 </section>
 <section id="generalprobe-ihr-erstes-quarto-buch" class="level2">
 <h2 class="anchored" data-anchor-id="generalprobe-ihr-erstes-quarto-buch">Generalprobe: Ihr erstes Quarto-Buch</h2>
@@ -462,10 +454,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="quellen" class="level2">
 <h2 class="anchored" data-anchor-id="quellen">Quellen</h2>
 <p>Anthropic. (o. J.). <em>Install Claude Desktop</em>. Claude Help Center. Abgerufen am 28. Oktober 2026, von <a href="https://support.claude.com/en/articles/10065433" class="uri">https://support.claude.com/en/articles/10065433</a></p>
-<p>GitHub. (o. J.). <em>GitHub Pages limits</em>. GitHub Docs. Abgerufen am 28. Oktober 2026, von <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits" class="uri">https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits</a></p>
-<p>Netlify. (o. J.). <em>Credit-based pricing plans</em>. Netlify Docs. Abgerufen am 28. Oktober 2026, von <a href="https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-credit-based-plans/credit-based-pricing-plans/" class="uri">https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-credit-based-plans/credit-based-pricing-plans/</a></p>
 <p>OpenAI. (o. J.). <em>Codex quickstart</em>. OpenAI Developers. Abgerufen am 28. Oktober 2026, von <a href="https://developers.openai.com/codex/quickstart" class="uri">https://developers.openai.com/codex/quickstart</a></p>
-<p>Posit. (o. J.). <em>Netlify</em>. Quarto. Abgerufen am 28. Oktober 2026, von <a href="https://quarto.org/docs/publishing/netlify.html" class="uri">https://quarto.org/docs/publishing/netlify.html</a></p>
 
 
 </section>
