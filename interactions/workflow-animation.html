@@ -296,10 +296,10 @@ function el(tag, attrs, parent){const e=document.createElementNS(NS,tag);for(con
 /* ---------- Werkzeuge ---------- */
 const NODES = {
   zotero:{x:20,y:60,w:160,h:74,label:"Zotero",sub:"+ Better BibTeX",icon:"quote",cat:"src",intro:2,ptag:"ab Phase 2"},
-  interactions:{x:20,y:170,w:160,h:74,label:"Interaktionen",sub:"interactions/ · data/",icon:"code",cat:"int",intro:3,ptag:"Vorlage"},
+  interactions:{x:20,y:170,w:160,h:74,label:"Interaktionen",sub:"interactions/ · data/",icon:"code",cat:"int",intro:3,ptag:"im Workshop"},
   rstudio:{x:250,y:44,w:250,h:200,label:"RStudio",sub:"",icon:"editor",cat:"local",intro:1,ptag:"ab Phase 1"},
   quarto:{x:258,y:208,w:234,h:28,label:"Quarto",cat:"out",intro:1},
-  vorschau:{x:590,y:60,w:190,h:74,label:"Lokale Vorschau",sub:"Browser · localhost",icon:"monitor",cat:"local",intro:1,ptag:"vorhanden"},
+  vorschau:{x:590,y:60,w:190,h:74,label:"Lokale Vorschau",sub:"Browser · localhost",icon:"monitor",cat:"local",intro:1,ptag:"Generalprobe"},
   ki:{x:590,y:170,w:190,h:74,label:"KI-Assistent",sub:"Claude Desktop · Codex",icon:"spark",cat:"ki",intro:"opt",ptag:"optional"},
   ghdesktop:{x:250,y:316,w:160,h:58,label:"GitHub Desktop",sub:"Commit · Push",icon:"upload",cat:"cloud",intro:4,ptag:"ab Phase 3"},
   repo:{x:180,y:450,w:190,h:74,label:"GitHub",sub:"Repository (Archiv)",icon:"archive",cat:"cloud",intro:4,ptag:"ab Phase 3"},
@@ -370,7 +370,7 @@ const STEPS = [
 ];
 const CHECK = [
   {id:"c-rs",nodes:["rstudio","quarto"],t:"R und RStudio",n:"Quarto ist in RStudio bereits enthalten",p:"Phase 1"},
-  {id:"c-tpl",nodes:["interactions"],t:"Vorlage vorlage-skript-v3.zip",n:"bringt Ordner, Beispielkapitel und Quiz-Widget mit",p:"Phase 1"},
+  {id:"c-tpl",nodes:["vorschau"],t:"Generalprobe: erstes Quarto-Buch",n:"New Project → Quarto Book, dann quarto preview im Terminal",p:"Phase 1"},
   {id:"c-zot",nodes:["zotero"],t:"Zotero mit Better BibTeX",n:"Erweiterung für die automatische .bib-Datei",p:"Phase 2"},
   {id:"c-gh",nodes:["ghdesktop","repo","pages"],t:"GitHub-Konto und GitHub Desktop",n:"ein kostenloses Konto genügt",p:"Phase 3"},
   {id:"c-ki",nodes:["ki"],t:"Claude Desktop oder ChatGPT Codex",n:"empfohlen, nicht verpflichtend",p:"optional"}
@@ -463,7 +463,7 @@ function renderRStudio(){
 function nodeState(id){
   const n=NODES[id];
   if(step===0){
-    if(id==="vorschau"||id==="web") return "on";
+    if(id==="web") return "on";
     return [...checked].some(c=>CHECK.find(x=>x.id===c).nodes.includes(id)) ? "done" : "ghost";
   }
   if(id==="ki") return (kiOn||step===5) ? (step===5?"on":"on") : "off";
