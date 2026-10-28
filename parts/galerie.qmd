@@ -18,19 +18,19 @@ Ein Zuordnungsspiel aus dem Skript [„KI als Hilfe zum Lehren und Lernen"](http
 
 [Spiel im eigenen Fenster öffnen →](https://th-koln-bartnik.github.io/genai4teaching/interactions/llm-game-standalone.html){target="_blank"}
 
-## 2. Prozessanimation: Was kostet eine Wasserflasche wirklich?
+## 2. Interaktive Prozesslinie: Wo ist der Engpass?
 
-Aus dem Modul *Sustainable Supply Chain Management*. Wasser, Plastik und Etikett kosten zusammen rund 0,50 $, die Flasche kostet 1,50 $. Bevor Sie auf *Play* drücken: Was bezahlt den anderen Dollar? Die Animation lässt die Flasche durch ihre Lieferkette laufen und füllt dabei ein Kostenbuch. Die Reihenfolge *erst vorhersagen, dann beobachten* macht aus dem Zuschauen eine Prüfung der eigenen Vermutung; mit *Step* und der Geschwindigkeitswahl steuern die Lernenden das Tempo selbst, was Animationen nach Mayer [-@mayer2021] erst lernwirksam macht.
+Aus dem Modul *Sustainable Supply Chain Management*. Vier Freunde wollen 24 Pizzen backen, haben aber nur einen Ofen; in der zweiten Variante läuft die Brötchenlinie der Bäckerei Kaya aus dem Fall unten durch die Nacht. Die Lernenden verändern Schritte, Personal, Nachfrage und Auftragsgröße und sehen sofort, wie sich Kapazität, Engpasszeit und Durchlaufzeit verschieben. Drei Aufgaben lenken das Ausprobieren, etwa: Welche Änderung bringt *nichts* für die Ausbringung pro Stunde? Beweisen Sie es. Wer ein Modell selbst verändert und das Ergebnis vorher begründet, lernt aktiver als beim Lesen einer fertigen Rechnung [@fiorella2016]; die Formeln stehen unter dem Widget, damit niemand im Probieren stecken bleibt.
 
 ::: {.content-visible when-format="html"}
-<iframe src="https://th-koln-bartnik.github.io/sscm-2026-student/widgets/01_water_bottle_widget.html" width="100%" height="840px" frameborder="0" loading="lazy" title="Animation: Lieferkette einer Wasserflasche"></iframe>
+<iframe src="https://th-koln-bartnik.github.io/sscm-2026-student/widgets/02_line_widget.html" width="100%" height="900px" frameborder="0" loading="lazy" title="Interaktive Prozesslinie: den Engpass finden"></iframe>
 :::
 
-[Animation im eigenen Fenster öffnen →](https://th-koln-bartnik.github.io/sscm-2026-student/widgets/01_water_bottle_widget.html){target="_blank"}
+[Widget im eigenen Fenster öffnen →](https://th-koln-bartnik.github.io/sscm-2026-student/widgets/02_line_widget.html){target="_blank"}
 
 ## 3. Fall-Teaser: Backhaus Kaya
 
-Fünf Sekunden, eine Bäckerin allein in ihrer Backstube bei Nacht. Der Teaser eröffnet eine Fallstudie, die sich über mehrere Wochen durch das SSCM-Modul zieht: Prozessstrategie, CO₂-Bilanz, Qualität, Prognose, jedes Mal am selben Betrieb. Geschichten mit einer Hauptfigur und einem Konflikt bleiben besser im Gedächtnis als die gleiche Information in Listenform [@willingham2009]; das kurze Video gibt der Figur ein Gesicht, bevor die Zahlen kommen.
+Fünf Sekunden, eine Bäckerin allein in ihrer Backstube bei Nacht. Der Teaser eröffnet die Fallstudie zur Bäckerei aus Beispiel 2, die sich über mehrere Wochen durch das SSCM-Modul zieht: Prozessstrategie, CO₂-Bilanz, Qualität, Prognose, jedes Mal am selben Betrieb. Geschichten mit einer Hauptfigur und einem Konflikt bleiben besser im Gedächtnis als die gleiche Information in Listenform [@willingham2009]; das kurze Video gibt der Figur ein Gesicht, bevor die Zahlen kommen.
 
 ::: {.content-visible when-format="html"}
 ```{=html}

@@ -22,7 +22,7 @@ Was Sie bis zum Workshop installieren und einmal ausprobieren, und was Sie zum P
 ::: benchmark-card
 ### Galerie
 
-Was mit KI-Unterstützung möglich wird: ein Begriffsspiel, eine Prozessanimation, ein Fall-Teaser, ein Colab-Arbeitsblatt, ein Lern-Song, eine Vokabel-App und zwei Beispiele von Ethan Mollick.
+Was mit KI-Unterstützung möglich wird: ein Begriffsspiel, eine interaktive Prozesslinie, ein Fall-Teaser, ein Colab-Arbeitsblatt, ein Lern-Song, eine Vokabel-App und zwei Beispiele von Ethan Mollick.
 
 [Zur Galerie →](parts/galerie.qmd)
 :::
