@@ -6,6 +6,14 @@ subtitle: "Online-Auftakt am 28.10.2026"
 ::: th-color-bar
 :::
 
+::: lernziel-box
+#### Ziele des heutigen Inputs
+
+1.  **Installationen und Hilfsmittel klären:** Welche Werkzeuge Sie in den nächsten Tagen einrichten, wie Sie prüfen, ob sie laufen, und wo Sie Hilfe bekommen.
+2.  **Vorbereitung abstimmen:** Was Sie zum Präsenz-Workshop mitbringen, damit der Tag dem Bauen gehört.
+3.  **Beispiele zeigen:** Was KI-gestützte Anwendungen in einem Online-Skript leisten können, vom Begriffsspiel bis zum Lern-Song.
+:::
+
 Im Präsenz-Workshop bauen Sie Ihr eigenes interaktives Online-Skript: lokal in RStudio geschrieben, mit Quarto in eine Webseite verwandelt, mit Zotero zitiert, mit KI angereichert und über GitHub Pages veröffentlicht. Damit der Workshop-Tag dem Bauen gehört und nicht dem Installieren, richten Sie die Werkzeuge in den nächsten Tagen zu Hause ein.
 
 Dieses Skript wächst mit dem Workshop. Heute enthält es zwei Bereiche, die übrigen Kapitel werden bis zum Präsenztermin aktualisiert und dann freigeschaltet.
