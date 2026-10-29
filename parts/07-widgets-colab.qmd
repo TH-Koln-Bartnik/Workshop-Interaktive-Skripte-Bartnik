@@ -1,0 +1,176 @@
+---
+title: "8 — Widgets und Colab"
+---
+
+::: {.lernziel-box}
+#### Was Sie nach diesem Kapitel können
+
+- erklären, was ein **Widget** und was ein **Colab-Arbeitsblatt** ist und wann welches passt,
+- sich von der KI ein **eigenes Widget** für Ihr Fach bauen lassen, es prüfen und als iFrame einbinden,
+- ein Colab-Arbeitsblatt über das **„Open in Colab“-Badge** direkt aus GitHub öffnen und verlinken,
+- den Unterschied zwischen **Build- und Solved-Fassung** eines Arbeitsblatts benennen.
+:::
+
+## Worum es im Kern geht
+
+Ein Diagramm aus Kapitel 6 zeigt ein Ergebnis. Ein Widget lässt die Lernenden das Ergebnis selbst herstellen: Sie verschieben einen Regler und sehen sofort, was sich ändert. Ein Widget ist eine Mini-Webseite in einer einzigen Datei, die offline und auf dem Handy läuft, wie ein Taschenrechner, der für genau eine Aufgabe gebaut ist. Ein Colab-Arbeitsblatt geht einen Schritt weiter: Dort bauen die Lernenden die Rechnung selbst, Zeile für Zeile, und ein Prüfkästchen sagt ihnen, ob sie stimmt.
+
+Beide Formate wirken nur, wenn die Lernenden vorher denken. Wer erst eine Vermutung aufschreibt und dann den Regler bewegt, vergleicht Erwartung und Ergebnis und lernt aus der Abweichung; wer nur herumspielt, sieht bunte Kurven [@fiorella2016]. Bauen Sie deshalb jede Interaktion nach demselben Ablauf: **Vorhersagen → Beobachten → Erklären → Übertragen.**
+
+| | Widget | Colab-Arbeitsblatt |
+|---|---|---|
+| **Was die Lernenden tun** | Stellschrauben drehen, Wirkung sehen | Rechnung selbst programmieren, Ergebnis prüfen |
+| **Voraussetzung bei Lernenden** | nur ein Browser | Browser und Google-Konto |
+| **Aufwand für Sie** | eine HTML-Datei, von der KI gebaut | ein Notebook mit Lücken, von der KI gebaut |
+| **Passt, wenn …** | ein Zusammenhang „begriffen“ werden soll | ein Verfahren „gekonnt“ werden soll |
+
+::: {.callout-note}
+## Woher die Namen kommen — Eselsbrücken zum Merken
+
+**Widget** taucht zum ersten Mal 1924 im Broadway-Stück *Beggar on Horseback* von George S. Kaufman und Marc Connelly auf: Ein Industrieller stellt dort „Widgets“ her, ein absichtlich unbestimmtes Produkt. Das Oxford English Dictionary nennt die Herkunft unsicher, vielleicht eine Verballhornung von *gadget* [@grammarphobia2021]. Seit den 1990er-Jahren heißen so kleine Programme, die genau eine einfache Aufgabe erledigen. Der Name passt: Ein Widget ist ein Ding für einen Zweck.
+
+**Colab** ist die Kurzform von *Colaboratory*, einem Kofferwort aus *collaboration* und *laboratory*. Beide Teile stammen vom lateinischen *laborare*, „arbeiten, sich mühen“: *collaborare* heißt „mitarbeiten“, das *laboratorium* ist der Arbeitsraum. Ein gemeinsames Labor im Browser.
+
+**Notebook** ist das Format, in dem Colab-Dateien gespeichert sind (Endung `.ipynb`). Es stammt aus dem Projekt *Jupyter*, dessen Name auf die drei Sprachen Julia, Python und R anspielt und zugleich auf Galileis Notizbücher, in denen er die Monde des Jupiter festhielt [@jupyterwiki]. Text, Rechnung und Beobachtung auf einer Seite: genau das ist die Idee.
+:::
+
+## Live-Beispiel — die Prozesslinie aus dem SSCM-Kurs
+
+Das Widget stammt aus dem Modul *Sustainable Supply Chain Management*. Vier Freunde backen 24 Pizzen mit einem Ofen; in der zweiten Variante läuft die Brötchenlinie einer Bäckerei durch die Nacht. Probieren Sie es aus, bevor Sie weiterlesen, und beantworten Sie dabei eine Frage: *Welche Änderung bringt nichts für die Ausbringung pro Stunde?*
+
+::: {.content-visible when-format="html"}
+<iframe src="https://th-koln-bartnik.github.io/sscm-2026-student/widgets/02_line_widget.html" width="100%" height="900px" frameborder="0" loading="lazy" title="Interaktive Prozesslinie: den Engpass finden"></iframe>
+:::
+
+[Widget im eigenen Fenster öffnen →](https://th-koln-bartnik.github.io/sscm-2026-student/widgets/02_line_widget.html){target="_blank"}
+
+**Woraus das Widget besteht.** Fünf Bauteile wiederholen sich in jedem guten Widget. Wenn Sie die KI um ein eigenes bitten, nennen Sie alle fünf.
+
+| Bauteil | Im Beispiel | Wozu |
+|---|---|---|
+| **Eingaben** | Schritte, Personal, Nachfrage, Auftragsgröße | die Stellschrauben, an denen die Lernenden drehen |
+| **Rechenkern** | Kapazität je Schritt, Engpass = kleinste Kapazität | das Modell, das hinter der Oberfläche rechnet |
+| **Ausgabe** | Kennzahlen und Balken, Engpass farbig markiert | macht die Wirkung sofort sichtbar |
+| **Aufgaben** | drei Fragen über dem Widget | lenken das Ausprobieren auf das Lernziel |
+| **Formeln** | stehen unter dem Widget | damit niemand im Probieren stecken bleibt |
+
+## Mach mit (Teil A) — ein eigenes Widget bauen lassen
+
+Sie brauchen dafür keine Zeile Code zu schreiben. Sie beschreiben, was das Widget tun soll, die KI baut die Datei, und Sie prüfen, ob die Rechnung stimmt.
+
+**Schritt 1 — Zusammenhang wählen.** Suchen Sie eine Größe, die von zwei oder drei Stellschrauben abhängt. Für die drei Stränge:
+
+| Strang | Zusammenhang | Stellschrauben |
+|---|---|---|
+| **A — Wissenschaftliche Einstellung** | Messen heißt streuen: Je mehr Messungen, desto enger liegt der Mittelwert am wahren Wert. | Anzahl Messungen, Messfehler |
+| **B — Recherche und Quellenqualität** | Zwanzig Tests auf Rauschen: Wer oft genug testet, findet zufällig einen „Effekt“. | Anzahl Tests, Signifikanzniveau |
+| **C — Transparent schreiben** | Die abgeschnittene y-Achse: Derselbe Unterschied wirkt riesig oder winzig. | Startwert der y-Achse, Datenpaar |
+
+**Schritt 2 — Auftrag an die KI.** Öffnen Sie Claude Desktop (Cowork, mit Ihrem Skriptordner verbunden) oder Codex. Im Browser-Chat geht es auch; dann kopieren Sie den Code in eine neue Datei. Passen Sie die eckigen Klammern an:
+
+> Baue ein Lern-Widget als **eine einzige HTML-Datei** `interactions/[name].html`, ohne externe Bibliotheken, damit es offline und auf dem Handy läuft.
+> **Thema:** [Zusammenhang aus Schritt 1]. **Zielgruppe:** [Studierende im ersten Semester, Fach …].
+> **Eingaben:** [Stellschraube 1 mit Bereich], [Stellschraube 2 mit Bereich] als Schieberegler mit sichtbarem Wert.
+> **Rechenkern:** [Formel oder Regel in Worten]. **Ausgabe:** eine Kennzahl groß, darunter ein einfaches Diagramm.
+> **Ablauf:** Oben steht eine Vorhersagefrage mit Eingabefeld („Was erwarten Sie, wenn …?“). Erst nach der Eingabe werden die Regler aktiv. Danach drei kurze Aufgaben, unten die Formeln.
+> **Gestaltung:** schlicht, TH-Köln-Rot `#c81e0f` als Akzentfarbe, deutsche Beschriftung, gut lesbar auf 360 px Breite.
+> Erkläre mir danach in drei Sätzen, wie der Rechenkern funktioniert, und nenne mir zwei Eingabewerte mit dem Ergebnis, das ich von Hand nachrechnen kann.
+
+Ein so entstandenes Beispiel für Strang B finden Sie hier: [Widget „Zwanzig Tests auf Rauschen“ öffnen →](../interactions/widget-mehrfachtests.html){target="_blank"}
+
+**Schritt 3 — Prüfen, bevor Sie es zeigen.** Eine KI schreibt flüssigen Code, auch wenn die Rechnung falsch ist. Nehmen Sie die zwei Wertepaare, die sie Ihnen genannt hat, und rechnen Sie eines von Hand oder im Taschenrechner nach. Stimmt es nicht, schreiben Sie der KI die beiden Zahlen zurück. Ziehen Sie anschließend das Browserfenster ganz schmal: So sieht das Widget ungefähr auf dem Handy aus.
+
+**Schritt 4 — Einbinden.** Wie in Kapitel 7, nur mit Ihrem Dateinamen:
+
+```html
+<iframe src="../interactions/[name].html" width="100%" height="820"
+        frameborder="0" loading="lazy" title="[Kurzbeschreibung]"
+        style="border: 1px solid #e6e6ea;"></iframe>
+
+[Widget im eigenen Fenster öffnen →](../interactions/[name].html){target="_blank"}
+```
+
+Der Link darunter hilft allen, die auf dem Handy lesen: Dort ist ein Widget im eigenen Fenster bequemer als im Rahmen.
+
+::: {.callout-tip}
+## Variieren Sie
+
+1. **Fehler einbauen lassen:** Bitten Sie die KI um eine zweite Fassung, in der der Rechenkern einen typischen Denkfehler Ihrer Studierenden enthält. Lassen Sie die Lernenden herausfinden, welche Fassung falsch rechnet.
+2. **Fremdes Widget statt eigenes:** Für Physik und Mathematik gibt es fertige Simulationen, etwa von PhET (University of Colorado Boulder), die sich per iFrame einbinden lassen. Prüfen Sie die Nutzungsbedingungen und nennen Sie die Quelle.
+3. **Vom Widget zur Prüfungsfrage:** Formulieren Sie eine Aufgabe, die nur lösen kann, wer das Widget verstanden hat, ohne es zu benutzen.
+:::
+
+## Colab: Arbeitsblätter, in denen gerechnet wird {#colab}
+
+Google Colab ist ein Dokument im Browser, in dem Textabschnitte und kleine Programmstücke abwechseln. Die Programmstücke heißen *Zellen*; ein Klick auf den Play-Knopf daneben führt sie aus, und das Ergebnis erscheint direkt darunter. Die Studierenden installieren nichts, sie brauchen nur ein Google-Konto. Ein gut gebautes Arbeitsblatt gleicht einem Lückentext mit eingebauter Lösungskontrolle.
+
+**Build und Solved.** Jedes Arbeitsblatt gibt es in zwei Fassungen. Die *Build*-Fassung bekommen die Studierenden: Erklärungen, Lücken (`...  # TODO`) und nach jeder Lücke eine Prüfzelle, die mit ✅ oder ❌ antwortet. Die *Solved*-Fassung mit allen Lücken gefüllt behalten Sie; wie Sie sie sicher vom öffentlichen Material trennen, zeigt Kapitel 12. Eine Prüfzelle kann so einfach sein:
+
+```python
+def pruefe(name, ergebnis, erwartet, toleranz=0.01, tipp=""):
+    """Vergleicht das Ergebnis mit der Handrechnung."""
+    ok = abs(float(ergebnis) - float(erwartet)) <= toleranz
+    print(("✅ " if ok else "❌ ") + f"{name}: Sie haben {ergebnis}, erwartet {erwartet}"
+          + ("" if ok else f"  Tipp: {tipp}"))
+
+pruefe("Gesamtarbeit in Personenminuten", gesamt, 1185, tipp="Spalte 'work' addieren")
+```
+
+**Das Badge.** Liegt ein Notebook in einem öffentlichen GitHub-Repository, öffnet ein einziger Link es in Colab. Das Badge ist der rot-gelbe Knopf, den Sie davor setzen; die Adresse folgt immer demselben Muster:
+
+```markdown
+[![In Colab öffnen](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BENUTZERNAME/REPOSITORY/blob/main/ORDNER/DATEI.ipynb)
+```
+
+Sie ersetzen also nur `github.com` durch `colab.research.google.com/github` und behalten den Rest der GitHub-Adresse. Groß- und Kleinschreibung zählen.
+
+## Mach mit (Teil B) — ein Arbeitsblatt öffnen und eines entwerfen lassen
+
+**Schritt 1 — Ein fertiges Arbeitsblatt ansehen.** Öffnen Sie das Arbeitsblatt „Mias Umzugstag als Modell“ aus dem SSCM-Kurs:
+
+[![In Colab öffnen](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TH-Koln-Bartnik/sscm-2026-student/blob/main/week01/04_week01_moving_day_build.ipynb){target="_blank"}
+
+Führen Sie *Step 0* aus und schauen Sie sich den Rhythmus an: Erklärung, Lücke, Prüfzelle. Colab öffnet eine Kopie nur für Sie; an der Datei auf GitHub ändern Sie nichts.
+
+**Schritt 2 — Ein eigenes Arbeitsblatt entwerfen lassen.** Nehmen Sie den Zusammenhang Ihres Widgets aus Teil A und geben Sie der KI diesen Auftrag:
+
+> Erstelle ein Colab-Notebook für [Zielgruppe] zum Thema [Zusammenhang], in zwei Dateien: `[name]_build.ipynb` mit Lücken (`...  # TODO`) und `[name]_solved.ipynb` mit Lösung. Aufbau: eine Einleitungszelle mit dem Ziel in einem Satz, dann drei Schritte. Jeder Schritt hat eine Erklärung in einfacher Sprache, eine Codezelle mit genau einer Lücke und eine Prüfzelle, die mit ✅ oder ❌ und einem Tipp antwortet. Nutze nur `pandas`, `numpy` und `matplotlib`. Führe die Solved-Fassung einmal aus und bestätige mir, dass alle Prüfzellen ✅ zeigen.
+
+**Schritt 3 — Testen und verlinken.** In Colab über *Datei → Notebook hochladen* die Build-Fassung öffnen und wie eine Studentin durcharbeiten. Den Badge-Link setzen Sie, sobald das Notebook auf GitHub liegt (Kapitel 9). Die Solved-Fassung gehört nicht in ein öffentliches Repository.
+
+::: {.callout-important}
+## Datenschutz und Alternative
+Colab setzt ein Google-Konto voraus und verarbeitet die Daten bei Google. Machen Sie die Nutzung freiwillig oder bieten Sie einen Weg ohne Konto an: das Widget aus Teil A, oder die Quarto-Erweiterung [quarto-live](https://r-wasm.github.io/quarto-live/){target="_blank"}, mit der R- und Python-Übungen direkt im Browser Ihres Skripts laufen, ganz ohne Anmeldung.
+:::
+
+::: {.callout-warning}
+## Was, wenn …
+
+- **Das Widget ist im Rahmen abgeschnitten?** → `height` im iFrame erhöhen, bis unten nichts mehr fehlt, oder auf den Link „im eigenen Fenster“ verweisen.
+- **Das Widget bleibt offline leer?** → Es lädt vermutlich eine Bibliothek aus dem Internet nach. Bitten Sie die KI: „Ersetze alle externen Bibliotheken durch eigenen Code in derselben Datei.“
+- **Der Colab-Link meldet „Notebook not found“?** → Repository öffentlich? Pfad, Branch (`main`) und Groß-/Kleinschreibung mit der GitHub-Adresse vergleichen.
+- **Änderungen in Colab sind am nächsten Tag weg?** → Colab hält nur eine vorläufige Kopie. *Datei → Kopie in Drive speichern* sichert sie.
+- **Eine Prüfzelle zeigt ❌, obwohl die Lösung stimmt?** → Toleranz zu klein oder Datentyp falsch (Text statt Zahl). Der KI die Fehlermeldung zeigen.
+:::
+
+## Tutor
+
+::: {.callout-tip}
+## Tutor öffnen
+[Tutor „Interaktive Skripte“ →](https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte){target="_blank"}
+
+Vorschlag-Prompt für dieses Kapitel:
+
+> Ich unterrichte [Fach] und möchte einen Zusammenhang als Widget oder Colab-Arbeitsblatt umsetzen: [Zusammenhang in einem Satz]. Hilf mir zu entscheiden, welches Format besser passt, und formuliere eine Vorhersagefrage, die meine Studierenden beantworten sollen, bevor sie etwas ausprobieren. Erkläre mir anschließend in einfachen Worten, wie ich prüfe, ob die Rechnung im Ergebnis stimmt.
+:::
+
+## Reaktivierung: Aktiv auslaufen lassen
+
+Fünf Behauptungen zu Widgets und Colab. Entscheiden Sie zuerst selbst, dann lesen Sie die Begründung.
+
+<iframe src="../interactions/wahr-falsch-kap08.html" width="100%" height="900" frameborder="0" loading="lazy" title="Wahr oder falsch: Widgets und Colab" style="border: 1px solid #e6e6ea;"></iframe>
+
+# Literatur {.unnumbered}
+
+::: {#refs}
+:::

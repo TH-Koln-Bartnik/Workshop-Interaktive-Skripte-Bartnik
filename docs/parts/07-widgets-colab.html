@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8 — Widgets und Colab – Interaktive Skripte mit KI erstellen</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../parts/08-github-pages.html" rel="next">
+<link href="../parts/05-iframes-tutor.html" rel="prev">
+<link href="../images/th-koeln-logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/03c-style.html">Phase 3 — Stil, Interaktion, Veröffentlichung</a></li><li class="breadcrumb-item"><a href="../parts/07-widgets-colab.html"><span class="chapter-title">8 — Widgets und Colab</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Interaktive Skripte mit KI erstellen</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Willkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Teil 0 — Vorbereitung zu Hause</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/00-vorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">0 — Quick-Start: Vorbereitung zu Hause</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/galerie.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Galerie</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 1 — Schreiben und Rendern (lokal)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/01-didaktik.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1 — Warum interaktiv?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/02-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2 — RStudio + erstes Skript (lokal)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/03b-bilder-tabellen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3 — Bilder, Tabellen und Verweise</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 2 — Quellen mit Zotero</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/03a-uebersicht.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4 — Quellen mit Zotero</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 3 — Stil, Interaktion, Veröffentlichung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/03c-style.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">5 — TH-Köln-Stil einbauen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/04-charts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">6 — Interaktive Diagramme</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/05-iframes-tutor.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7 — iFrames, Spiele und KI-Tutor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/07-widgets-colab.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">8 — Widgets und Colab</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/08-github-pages.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9 — Veröffentlichen mit GitHub und Pages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/06-slides-optional.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10 — Slides mit Quarto (optional)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Kür — nach dem Workshop</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/11-kurs-mit-agent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">11 — Einen Kurs mit einem KI-Agenten bauen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/12-oeffentlich-intern.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">12 — Öffentlich und intern trennen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Anhänge</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/troubleshooting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Trouble-Shooting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/tutor-prompt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">KI-Tutor: Link und System-Prompt</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/reviewer-prompt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reviewer-Prompt: KI als kritische Erstleserin</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../literatur.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Literatur</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhalt</h2>
+   
+  <ul>
+  <li><a href="#worum-es-im-kern-geht" id="toc-worum-es-im-kern-geht" class="nav-link active" data-scroll-target="#worum-es-im-kern-geht">Worum es im Kern geht</a></li>
+  <li><a href="#live-beispiel-die-prozesslinie-aus-dem-sscm-kurs" id="toc-live-beispiel-die-prozesslinie-aus-dem-sscm-kurs" class="nav-link" data-scroll-target="#live-beispiel-die-prozesslinie-aus-dem-sscm-kurs">Live-Beispiel — die Prozesslinie aus dem SSCM-Kurs</a></li>
+  <li><a href="#mach-mit-teil-a-ein-eigenes-widget-bauen-lassen" id="toc-mach-mit-teil-a-ein-eigenes-widget-bauen-lassen" class="nav-link" data-scroll-target="#mach-mit-teil-a-ein-eigenes-widget-bauen-lassen">Mach mit (Teil A) — ein eigenes Widget bauen lassen</a></li>
+  <li><a href="#colab" id="toc-colab" class="nav-link" data-scroll-target="#colab">Colab: Arbeitsblätter, in denen gerechnet wird</a></li>
+  <li><a href="#mach-mit-teil-b-ein-arbeitsblatt-öffnen-und-eines-entwerfen-lassen" id="toc-mach-mit-teil-b-ein-arbeitsblatt-öffnen-und-eines-entwerfen-lassen" class="nav-link" data-scroll-target="#mach-mit-teil-b-ein-arbeitsblatt-öffnen-und-eines-entwerfen-lassen">Mach mit (Teil B) — ein Arbeitsblatt öffnen und eines entwerfen lassen</a></li>
+  <li><a href="#tutor" id="toc-tutor" class="nav-link" data-scroll-target="#tutor">Tutor</a></li>
+  <li><a href="#reaktivierung-aktiv-auslaufen-lassen" id="toc-reaktivierung-aktiv-auslaufen-lassen" class="nav-link" data-scroll-target="#reaktivierung-aktiv-auslaufen-lassen">Reaktivierung: Aktiv auslaufen lassen</a></li>
+  <li><a href="#literatur" id="toc-literatur" class="nav-link" data-scroll-target="#literatur">Literatur</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/edit/main/parts/07-widgets-colab.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/03c-style.html">Phase 3 — Stil, Interaktion, Veröffentlichung</a></li><li class="breadcrumb-item"><a href="../parts/07-widgets-colab.html"><span class="chapter-title">8 — Widgets und Colab</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">8 — Widgets und Colab</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="was-sie-nach-diesem-kapitel-können" class="level4 lernziel-box">
+<h4 class="anchored" data-anchor-id="was-sie-nach-diesem-kapitel-können">Was Sie nach diesem Kapitel können</h4>
+<ul>
+<li>erklären, was ein <strong>Widget</strong> und was ein <strong>Colab-Arbeitsblatt</strong> ist und wann welches passt,</li>
+<li>sich von der KI ein <strong>eigenes Widget</strong> für Ihr Fach bauen lassen, es prüfen und als iFrame einbinden,</li>
+<li>ein Colab-Arbeitsblatt über das <strong>„Open in Colab“-Badge</strong> direkt aus GitHub öffnen und verlinken,</li>
+<li>den Unterschied zwischen <strong>Build- und Solved-Fassung</strong> eines Arbeitsblatts benennen.</li>
+</ul>
+</section>
+<section id="worum-es-im-kern-geht" class="level2">
+<h2 class="anchored" data-anchor-id="worum-es-im-kern-geht">Worum es im Kern geht</h2>
+<p>Ein Diagramm aus Kapitel 6 zeigt ein Ergebnis. Ein Widget lässt die Lernenden das Ergebnis selbst herstellen: Sie verschieben einen Regler und sehen sofort, was sich ändert. Ein Widget ist eine Mini-Webseite in einer einzigen Datei, die offline und auf dem Handy läuft, wie ein Taschenrechner, der für genau eine Aufgabe gebaut ist. Ein Colab-Arbeitsblatt geht einen Schritt weiter: Dort bauen die Lernenden die Rechnung selbst, Zeile für Zeile, und ein Prüfkästchen sagt ihnen, ob sie stimmt.</p>
+<p>Beide Formate wirken nur, wenn die Lernenden vorher denken. Wer erst eine Vermutung aufschreibt und dann den Regler bewegt, vergleicht Erwartung und Ergebnis und lernt aus der Abweichung; wer nur herumspielt, sieht bunte Kurven <span class="citation" data-cites="fiorella2016">(<a href="../index.html#ref-fiorella2016" role="doc-biblioref">Fiorella &amp; Mayer, 2016</a>)</span>. Bauen Sie deshalb jede Interaktion nach demselben Ablauf: <strong>Vorhersagen → Beobachten → Erklären → Übertragen.</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Widget</th>
+<th>Colab-Arbeitsblatt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Was die Lernenden tun</strong></td>
+<td>Stellschrauben drehen, Wirkung sehen</td>
+<td>Rechnung selbst programmieren, Ergebnis prüfen</td>
+</tr>
+<tr class="even">
+<td><strong>Voraussetzung bei Lernenden</strong></td>
+<td>nur ein Browser</td>
+<td>Browser und Google-Konto</td>
+</tr>
+<tr class="odd">
+<td><strong>Aufwand für Sie</strong></td>
+<td>eine HTML-Datei, von der KI gebaut</td>
+<td>ein Notebook mit Lücken, von der KI gebaut</td>
+</tr>
+<tr class="even">
+<td><strong>Passt, wenn …</strong></td>
+<td>ein Zusammenhang „begriffen“ werden soll</td>
+<td>ein Verfahren „gekonnt“ werden soll</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Woher die Namen kommen — Eselsbrücken zum Merken
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Widget</strong> taucht zum ersten Mal 1924 im Broadway-Stück <em>Beggar on Horseback</em> von George S. Kaufman und Marc Connelly auf: Ein Industrieller stellt dort „Widgets“ her, ein absichtlich unbestimmtes Produkt. Das Oxford English Dictionary nennt die Herkunft unsicher, vielleicht eine Verballhornung von <em>gadget</em> <span class="citation" data-cites="grammarphobia2021">(<a href="../index.html#ref-grammarphobia2021" role="doc-biblioref">Grammarphobia, 2021</a>)</span>. Seit den 1990er-Jahren heißen so kleine Programme, die genau eine einfache Aufgabe erledigen. Der Name passt: Ein Widget ist ein Ding für einen Zweck.</p>
+<p><strong>Colab</strong> ist die Kurzform von <em>Colaboratory</em>, einem Kofferwort aus <em>collaboration</em> und <em>laboratory</em>. Beide Teile stammen vom lateinischen <em>laborare</em>, „arbeiten, sich mühen“: <em>collaborare</em> heißt „mitarbeiten“, das <em>laboratorium</em> ist der Arbeitsraum. Ein gemeinsames Labor im Browser.</p>
+<p><strong>Notebook</strong> ist das Format, in dem Colab-Dateien gespeichert sind (Endung <code>.ipynb</code>). Es stammt aus dem Projekt <em>Jupyter</em>, dessen Name auf die drei Sprachen Julia, Python und R anspielt und zugleich auf Galileis Notizbücher, in denen er die Monde des Jupiter festhielt <span class="citation" data-cites="jupyterwiki">(<a href="../index.html#ref-jupyterwiki" role="doc-biblioref">Wikipedia, 2026</a>)</span>. Text, Rechnung und Beobachtung auf einer Seite: genau das ist die Idee.</p>
+</div>
+</div>
+</section>
+<section id="live-beispiel-die-prozesslinie-aus-dem-sscm-kurs" class="level2">
+<h2 class="anchored" data-anchor-id="live-beispiel-die-prozesslinie-aus-dem-sscm-kurs">Live-Beispiel — die Prozesslinie aus dem SSCM-Kurs</h2>
+<p>Das Widget stammt aus dem Modul <em>Sustainable Supply Chain Management</em>. Vier Freunde backen 24 Pizzen mit einem Ofen; in der zweiten Variante läuft die Brötchenlinie einer Bäckerei durch die Nacht. Probieren Sie es aus, bevor Sie weiterlesen, und beantworten Sie dabei eine Frage: <em>Welche Änderung bringt nichts für die Ausbringung pro Stunde?</em></p>
+<iframe src="https://th-koln-bartnik.github.io/sscm-2026-student/widgets/02_line_widget.html" width="100%" height="900px" frameborder="0" loading="lazy" title="Interaktive Prozesslinie: den Engpass finden">
+</iframe>
+<p><a href="https://th-koln-bartnik.github.io/sscm-2026-student/widgets/02_line_widget.html" target="_blank">Widget im eigenen Fenster öffnen →</a></p>
+<p><strong>Woraus das Widget besteht.</strong> Fünf Bauteile wiederholen sich in jedem guten Widget. Wenn Sie die KI um ein eigenes bitten, nennen Sie alle fünf.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bauteil</th>
+<th>Im Beispiel</th>
+<th>Wozu</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Eingaben</strong></td>
+<td>Schritte, Personal, Nachfrage, Auftragsgröße</td>
+<td>die Stellschrauben, an denen die Lernenden drehen</td>
+</tr>
+<tr class="even">
+<td><strong>Rechenkern</strong></td>
+<td>Kapazität je Schritt, Engpass = kleinste Kapazität</td>
+<td>das Modell, das hinter der Oberfläche rechnet</td>
+</tr>
+<tr class="odd">
+<td><strong>Ausgabe</strong></td>
+<td>Kennzahlen und Balken, Engpass farbig markiert</td>
+<td>macht die Wirkung sofort sichtbar</td>
+</tr>
+<tr class="even">
+<td><strong>Aufgaben</strong></td>
+<td>drei Fragen über dem Widget</td>
+<td>lenken das Ausprobieren auf das Lernziel</td>
+</tr>
+<tr class="odd">
+<td><strong>Formeln</strong></td>
+<td>stehen unter dem Widget</td>
+<td>damit niemand im Probieren stecken bleibt</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mach-mit-teil-a-ein-eigenes-widget-bauen-lassen" class="level2">
+<h2 class="anchored" data-anchor-id="mach-mit-teil-a-ein-eigenes-widget-bauen-lassen">Mach mit (Teil A) — ein eigenes Widget bauen lassen</h2>
+<p>Sie brauchen dafür keine Zeile Code zu schreiben. Sie beschreiben, was das Widget tun soll, die KI baut die Datei, und Sie prüfen, ob die Rechnung stimmt.</p>
+<p><strong>Schritt 1 — Zusammenhang wählen.</strong> Suchen Sie eine Größe, die von zwei oder drei Stellschrauben abhängt. Für die drei Stränge:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Strang</th>
+<th>Zusammenhang</th>
+<th>Stellschrauben</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>A — Wissenschaftliche Einstellung</strong></td>
+<td>Messen heißt streuen: Je mehr Messungen, desto enger liegt der Mittelwert am wahren Wert.</td>
+<td>Anzahl Messungen, Messfehler</td>
+</tr>
+<tr class="even">
+<td><strong>B — Recherche und Quellenqualität</strong></td>
+<td>Zwanzig Tests auf Rauschen: Wer oft genug testet, findet zufällig einen „Effekt“.</td>
+<td>Anzahl Tests, Signifikanzniveau</td>
+</tr>
+<tr class="odd">
+<td><strong>C — Transparent schreiben</strong></td>
+<td>Die abgeschnittene y-Achse: Derselbe Unterschied wirkt riesig oder winzig.</td>
+<td>Startwert der y-Achse, Datenpaar</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Schritt 2 — Auftrag an die KI.</strong> Öffnen Sie Claude Desktop (Cowork, mit Ihrem Skriptordner verbunden) oder Codex. Im Browser-Chat geht es auch; dann kopieren Sie den Code in eine neue Datei. Passen Sie die eckigen Klammern an:</p>
+<blockquote class="blockquote">
+<p>Baue ein Lern-Widget als <strong>eine einzige HTML-Datei</strong> <code>interactions/[name].html</code>, ohne externe Bibliotheken, damit es offline und auf dem Handy läuft. <strong>Thema:</strong> [Zusammenhang aus Schritt 1]. <strong>Zielgruppe:</strong> [Studierende im ersten Semester, Fach …]. <strong>Eingaben:</strong> [Stellschraube 1 mit Bereich], [Stellschraube 2 mit Bereich] als Schieberegler mit sichtbarem Wert. <strong>Rechenkern:</strong> [Formel oder Regel in Worten]. <strong>Ausgabe:</strong> eine Kennzahl groß, darunter ein einfaches Diagramm. <strong>Ablauf:</strong> Oben steht eine Vorhersagefrage mit Eingabefeld („Was erwarten Sie, wenn …?“). Erst nach der Eingabe werden die Regler aktiv. Danach drei kurze Aufgaben, unten die Formeln. <strong>Gestaltung:</strong> schlicht, TH-Köln-Rot <code>#c81e0f</code> als Akzentfarbe, deutsche Beschriftung, gut lesbar auf 360 px Breite. Erkläre mir danach in drei Sätzen, wie der Rechenkern funktioniert, und nenne mir zwei Eingabewerte mit dem Ergebnis, das ich von Hand nachrechnen kann.</p>
+</blockquote>
+<p>Ein so entstandenes Beispiel für Strang B finden Sie hier: <a href="../interactions/widget-mehrfachtests.html" target="_blank">Widget „Zwanzig Tests auf Rauschen“ öffnen →</a></p>
+<p><strong>Schritt 3 — Prüfen, bevor Sie es zeigen.</strong> Eine KI schreibt flüssigen Code, auch wenn die Rechnung falsch ist. Nehmen Sie die zwei Wertepaare, die sie Ihnen genannt hat, und rechnen Sie eines von Hand oder im Taschenrechner nach. Stimmt es nicht, schreiben Sie der KI die beiden Zahlen zurück. Ziehen Sie anschließend das Browserfenster ganz schmal: So sieht das Widget ungefähr auf dem Handy aus.</p>
+<p><strong>Schritt 4 — Einbinden.</strong> Wie in Kapitel 7, nur mit Ihrem Dateinamen:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">iframe</span><span class="ot"> src</span><span class="op">=</span><span class="st">"../interactions/[name].html"</span><span class="ot"> width</span><span class="op">=</span><span class="st">"100%"</span><span class="ot"> height</span><span class="op">=</span><span class="st">"820"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ot">        frameborder</span><span class="op">=</span><span class="st">"0"</span><span class="ot"> loading</span><span class="op">=</span><span class="st">"lazy"</span><span class="ot"> title</span><span class="op">=</span><span class="st">"[Kurzbeschreibung]"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ot">        style</span><span class="op">=</span><span class="st">"border: 1px solid #e6e6ea;"</span><span class="dt">&gt;&lt;/</span><span class="kw">iframe</span><span class="dt">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>[Widget im eigenen Fenster öffnen →](../interactions/[name].html){target="_blank"}</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Der Link darunter hilft allen, die auf dem Handy lesen: Dort ist ein Widget im eigenen Fenster bequemer als im Rahmen.</p>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Variieren Sie
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Fehler einbauen lassen:</strong> Bitten Sie die KI um eine zweite Fassung, in der der Rechenkern einen typischen Denkfehler Ihrer Studierenden enthält. Lassen Sie die Lernenden herausfinden, welche Fassung falsch rechnet.</li>
+<li><strong>Fremdes Widget statt eigenes:</strong> Für Physik und Mathematik gibt es fertige Simulationen, etwa von PhET (University of Colorado Boulder), die sich per iFrame einbinden lassen. Prüfen Sie die Nutzungsbedingungen und nennen Sie die Quelle.</li>
+<li><strong>Vom Widget zur Prüfungsfrage:</strong> Formulieren Sie eine Aufgabe, die nur lösen kann, wer das Widget verstanden hat, ohne es zu benutzen.</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="colab" class="level2">
+<h2 class="anchored" data-anchor-id="colab">Colab: Arbeitsblätter, in denen gerechnet wird</h2>
+<p>Google Colab ist ein Dokument im Browser, in dem Textabschnitte und kleine Programmstücke abwechseln. Die Programmstücke heißen <em>Zellen</em>; ein Klick auf den Play-Knopf daneben führt sie aus, und das Ergebnis erscheint direkt darunter. Die Studierenden installieren nichts, sie brauchen nur ein Google-Konto. Ein gut gebautes Arbeitsblatt gleicht einem Lückentext mit eingebauter Lösungskontrolle.</p>
+<p><strong>Build und Solved.</strong> Jedes Arbeitsblatt gibt es in zwei Fassungen. Die <em>Build</em>-Fassung bekommen die Studierenden: Erklärungen, Lücken (<code>...  # TODO</code>) und nach jeder Lücke eine Prüfzelle, die mit ✅ oder ❌ antwortet. Die <em>Solved</em>-Fassung mit allen Lücken gefüllt behalten Sie; wie Sie sie sicher vom öffentlichen Material trennen, zeigt Kapitel 12. Eine Prüfzelle kann so einfach sein:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pruefe(name, ergebnis, erwartet, toleranz<span class="op">=</span><span class="fl">0.01</span>, tipp<span class="op">=</span><span class="st">""</span>):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Vergleicht das Ergebnis mit der Handrechnung."""</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    ok <span class="op">=</span> <span class="bu">abs</span>(<span class="bu">float</span>(ergebnis) <span class="op">-</span> <span class="bu">float</span>(erwartet)) <span class="op">&lt;=</span> toleranz</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>((<span class="st">"✅ "</span> <span class="cf">if</span> ok <span class="cf">else</span> <span class="st">"❌ "</span>) <span class="op">+</span> <span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">: Sie haben </span><span class="sc">{</span>ergebnis<span class="sc">}</span><span class="ss">, erwartet </span><span class="sc">{</span>erwartet<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>          <span class="op">+</span> (<span class="st">""</span> <span class="cf">if</span> ok <span class="cf">else</span> <span class="ss">f"  Tipp: </span><span class="sc">{</span>tipp<span class="sc">}</span><span class="ss">"</span>))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>pruefe(<span class="st">"Gesamtarbeit in Personenminuten"</span>, gesamt, <span class="dv">1185</span>, tipp<span class="op">=</span><span class="st">"Spalte 'work' addieren"</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Das Badge.</strong> Liegt ein Notebook in einem öffentlichen GitHub-Repository, öffnet ein einziger Link es in Colab. Das Badge ist der rot-gelbe Knopf, den Sie davor setzen; die Adresse folgt immer demselben Muster:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![In Colab öffnen](https://colab.research.google.com/assets/colab-badge.svg)</span><span class="co">](https://colab.research.google.com/github/BENUTZERNAME/REPOSITORY/blob/main/ORDNER/DATEI.ipynb)</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Sie ersetzen also nur <code>github.com</code> durch <code>colab.research.google.com/github</code> und behalten den Rest der GitHub-Adresse. Groß- und Kleinschreibung zählen.</p>
+</section>
+<section id="mach-mit-teil-b-ein-arbeitsblatt-öffnen-und-eines-entwerfen-lassen" class="level2">
+<h2 class="anchored" data-anchor-id="mach-mit-teil-b-ein-arbeitsblatt-öffnen-und-eines-entwerfen-lassen">Mach mit (Teil B) — ein Arbeitsblatt öffnen und eines entwerfen lassen</h2>
+<p><strong>Schritt 1 — Ein fertiges Arbeitsblatt ansehen.</strong> Öffnen Sie das Arbeitsblatt „Mias Umzugstag als Modell“ aus dem SSCM-Kurs:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://colab.research.google.com/github/TH-Koln-Bartnik/sscm-2026-student/blob/main/week01/04_week01_moving_day_build.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" class="img-fluid figure-img"></a></p>
+<figcaption>In Colab öffnen</figcaption>
+</figure>
+</div>
+<p>Führen Sie <em>Step 0</em> aus und schauen Sie sich den Rhythmus an: Erklärung, Lücke, Prüfzelle. Colab öffnet eine Kopie nur für Sie; an der Datei auf GitHub ändern Sie nichts.</p>
+<p><strong>Schritt 2 — Ein eigenes Arbeitsblatt entwerfen lassen.</strong> Nehmen Sie den Zusammenhang Ihres Widgets aus Teil A und geben Sie der KI diesen Auftrag:</p>
+<blockquote class="blockquote">
+<p>Erstelle ein Colab-Notebook für [Zielgruppe] zum Thema [Zusammenhang], in zwei Dateien: <code>[name]_build.ipynb</code> mit Lücken (<code>...  # TODO</code>) und <code>[name]_solved.ipynb</code> mit Lösung. Aufbau: eine Einleitungszelle mit dem Ziel in einem Satz, dann drei Schritte. Jeder Schritt hat eine Erklärung in einfacher Sprache, eine Codezelle mit genau einer Lücke und eine Prüfzelle, die mit ✅ oder ❌ und einem Tipp antwortet. Nutze nur <code>pandas</code>, <code>numpy</code> und <code>matplotlib</code>. Führe die Solved-Fassung einmal aus und bestätige mir, dass alle Prüfzellen ✅ zeigen.</p>
+</blockquote>
+<p><strong>Schritt 3 — Testen und verlinken.</strong> In Colab über <em>Datei → Notebook hochladen</em> die Build-Fassung öffnen und wie eine Studentin durcharbeiten. Den Badge-Link setzen Sie, sobald das Notebook auf GitHub liegt (Kapitel 9). Die Solved-Fassung gehört nicht in ein öffentliches Repository.</p>
+<div class="callout callout-style-simple callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Wichtig</span>Datenschutz und Alternative
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Colab setzt ein Google-Konto voraus und verarbeitet die Daten bei Google. Machen Sie die Nutzung freiwillig oder bieten Sie einen Weg ohne Konto an: das Widget aus Teil A, oder die Quarto-Erweiterung <a href="https://r-wasm.github.io/quarto-live/" target="_blank">quarto-live</a>, mit der R- und Python-Übungen direkt im Browser Ihres Skripts laufen, ganz ohne Anmeldung.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warnung</span>Was, wenn …
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Das Widget ist im Rahmen abgeschnitten?</strong> → <code>height</code> im iFrame erhöhen, bis unten nichts mehr fehlt, oder auf den Link „im eigenen Fenster“ verweisen.</li>
+<li><strong>Das Widget bleibt offline leer?</strong> → Es lädt vermutlich eine Bibliothek aus dem Internet nach. Bitten Sie die KI: „Ersetze alle externen Bibliotheken durch eigenen Code in derselben Datei.“</li>
+<li><strong>Der Colab-Link meldet „Notebook not found“?</strong> → Repository öffentlich? Pfad, Branch (<code>main</code>) und Groß-/Kleinschreibung mit der GitHub-Adresse vergleichen.</li>
+<li><strong>Änderungen in Colab sind am nächsten Tag weg?</strong> → Colab hält nur eine vorläufige Kopie. <em>Datei → Kopie in Drive speichern</em> sichert sie.</li>
+<li><strong>Eine Prüfzelle zeigt ❌, obwohl die Lösung stimmt?</strong> → Toleranz zu klein oder Datentyp falsch (Text statt Zahl). Der KI die Fehlermeldung zeigen.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="tutor" class="level2">
+<h2 class="anchored" data-anchor-id="tutor">Tutor</h2>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Tutor öffnen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte" target="_blank">Tutor „Interaktive Skripte“ →</a></p>
+<p>Vorschlag-Prompt für dieses Kapitel:</p>
+<blockquote class="blockquote">
+<p>Ich unterrichte [Fach] und möchte einen Zusammenhang als Widget oder Colab-Arbeitsblatt umsetzen: [Zusammenhang in einem Satz]. Hilf mir zu entscheiden, welches Format besser passt, und formuliere eine Vorhersagefrage, die meine Studierenden beantworten sollen, bevor sie etwas ausprobieren. Erkläre mir anschließend in einfachen Worten, wie ich prüfe, ob die Rechnung im Ergebnis stimmt.</p>
+</blockquote>
+</div>
+</div>
+</section>
+<section id="reaktivierung-aktiv-auslaufen-lassen" class="level2">
+<h2 class="anchored" data-anchor-id="reaktivierung-aktiv-auslaufen-lassen">Reaktivierung: Aktiv auslaufen lassen</h2>
+<p>Fünf Behauptungen zu Widgets und Colab. Entscheiden Sie zuerst selbst, dann lesen Sie die Begründung.</p>
+<iframe src="../interactions/wahr-falsch-kap08.html" width="100%" height="900" frameborder="0" loading="lazy" title="Wahr oder falsch: Widgets und Colab" style="border: 1px solid #e6e6ea;">
+</iframe>
+</section>
+<section id="literatur" class="level1 unnumbered">
+<h1 class="unnumbered">Literatur</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-fiorella2016" class="csl-entry" role="listitem">
+Fiorella, L., &amp; Mayer, R. E. (2016). Eight Ways to Promote Generative Learning. <em>Educational Psychology Review</em>, <em>28</em>(4), 717–741. <a href="https://doi.org/10.1007/s10648-015-9348-9">https://doi.org/10.1007/s10648-015-9348-9</a>
+</div>
+<div id="ref-grammarphobia2021" class="csl-entry" role="listitem">
+Grammarphobia. (2021). <em>How did an app come to be referred to as a widget?</em> The Grammarphobia Blog. <a href="https://www.grammarphobia.com/blog/2021/06/widget.html">https://www.grammarphobia.com/blog/2021/06/widget.html</a>
+</div>
+<div id="ref-jupyterwiki" class="csl-entry" role="listitem">
+Wikipedia. (2026). <em>Project Jupyter</em>. Wikipedia, The Free Encyclopedia. <a href="https://en.wikipedia.org/wiki/Project_Jupyter">https://en.wikipedia.org/wiki/Project_Jupyter</a>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../parts/05-iframes-tutor.html" class="pagination-link" aria-label="7 — iFrames, Spiele und KI-Tutor">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">7 — iFrames, Spiele und KI-Tutor</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../parts/08-github-pages.html" class="pagination-link" aria-label="9 — Veröffentlichen mit GitHub und Pages">
+        <span class="nav-page-text"><span class="chapter-title">9 — Veröffentlichen mit GitHub und Pages</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Roman Bartnik · CC BY-SA 4.0</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/edit/main/parts/07-widgets-colab.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Erstellt mit <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

@@ -60,7 +60,7 @@ Drei Beispiele, drei Prinzipien, fünf Minuten. Ziehen Sie jedes Beispiel auf da
 
 1. **Eigenes Beispiel finden:** Erfinden Sie ein **viertes** Beispiel aus Ihrem eigenen Lehrgebiet und entscheiden Sie, welches der drei Prinzipien (generativ, retrieval, multimedia) es am stärksten illustriert.
 2. **Lücke prüfen:** Welches der drei Prinzipien lässt sich in Ihrem Strang am **schlechtesten** umsetzen? Notieren Sie eine Begründung in einem Satz — diese Notiz nutzen wir im Showcase am Tagesende.
-3. **HTML wagen:** Öffnen Sie `interactions/lernspiel-kapitel1.html` in RStudio, suchen Sie im Quelltext den `examples`-Array und tauschen Sie eines der drei Beispiele gegen eines aus Ihrem Strang. Lokal rendern, im Browser ansehen. (Veröffentlichen kommt in Kap. 8.)
+3. **HTML wagen:** Öffnen Sie `interactions/lernspiel-kapitel1.html` in RStudio, suchen Sie im Quelltext den `examples`-Array und tauschen Sie eines der drei Beispiele gegen eines aus Ihrem Strang. Lokal rendern, im Browser ansehen. (Veröffentlichen kommt in Kap. 9.)
 :::
 
 ::: {.callout-warning}

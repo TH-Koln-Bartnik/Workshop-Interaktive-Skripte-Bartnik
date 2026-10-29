@@ -1,8 +1,8 @@
 # Workshop-Vorlage: Interaktives Skript mit Quarto
 
 Eine vollständige Quarto-Buch-Vorlage mit Platzhaltern für alle wichtigen
-Elemente. Entstanden im Workshop „Interaktive Skripte mit KI erstellen"
-am 11.05.2026 (TH Köln, hdw nrw).
+Elemente. Entstanden für den Workshop „Interaktive Skripte mit KI erstellen"
+(TH Köln, hdw nrw).
 
 ## Was ist drin?
 

@@ -1,5 +1,5 @@
 ---
-title: "8 — Veröffentlichen mit GitHub und Pages"
+title: "9 — Veröffentlichen mit GitHub und Pages"
 ---
 
 ::: {.lernziel-box}

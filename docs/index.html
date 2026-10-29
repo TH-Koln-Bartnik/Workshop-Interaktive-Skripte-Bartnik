@@ -27,7 +27,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -37,7 +57,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./appendix/quickstart.html" rel="next">
+<link href="./parts/00-vorbereitung.html" rel="next">
 <link href="./images/th-koeln-logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -148,16 +168,162 @@ ul.task-list li input[type="checkbox"] {
   <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Willkommen</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Teil 0 — Vorbereitung zu Hause</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix/quickstart.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quick-Start Guide</span></a>
+  <a href="./parts/00-vorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">0 — Quick-Start: Vorbereitung zu Hause</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./parts/galerie.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Galerie</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 1 — Schreiben und Rendern (lokal)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./parts/01-didaktik.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1 — Warum interaktiv?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./parts/02-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2 — RStudio + erstes Skript (lokal)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./parts/03b-bilder-tabellen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3 — Bilder, Tabellen und Verweise</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 2 — Quellen mit Zotero</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./parts/03a-uebersicht.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4 — Quellen mit Zotero</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 3 — Stil, Interaktion, Veröffentlichung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./parts/03c-style.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">5 — TH-Köln-Stil einbauen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./parts/04-charts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">6 — Interaktive Diagramme</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./parts/05-iframes-tutor.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7 — iFrames, Spiele und KI-Tutor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./parts/07-widgets-colab.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8 — Widgets und Colab</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./parts/08-github-pages.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9 — Veröffentlichen mit GitHub und Pages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./parts/06-slides-optional.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10 — Slides mit Quarto (optional)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Kür — nach dem Workshop</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./parts/11-kurs-mit-agent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">11 — Einen Kurs mit einem KI-Agenten bauen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./parts/12-oeffentlich-intern.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">12 — Öffentlich und intern trennen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Anhänge</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix/troubleshooting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Trouble-Shooting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix/tutor-prompt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">KI-Tutor: Link und System-Prompt</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix/reviewer-prompt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reviewer-Prompt: KI als kritische Erstleserin</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./literatur.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Literatur</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -169,6 +335,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#der-workflow-auf-einen-blick" id="toc-der-workflow-auf-einen-blick" class="nav-link active" data-scroll-target="#der-workflow-auf-einen-blick">Der Workflow auf einen Blick</a></li>
+  <li><a href="#ablauf" id="toc-ablauf" class="nav-link" data-scroll-target="#ablauf">Ablauf</a></li>
+  <li><a href="#wählen-sie-ihren-beispielstrang" id="toc-wählen-sie-ihren-beispielstrang" class="nav-link" data-scroll-target="#wählen-sie-ihren-beispielstrang">Wählen Sie Ihren Beispielstrang</a></li>
+  <li><a href="#wie-sie-dieses-skript-benutzen" id="toc-wie-sie-dieses-skript-benutzen" class="nav-link" data-scroll-target="#wie-sie-dieses-skript-benutzen">Wie Sie dieses Skript benutzen</a></li>
+  <li><a href="#quellen" id="toc-quellen" class="nav-link" data-scroll-target="#quellen">Quellen</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
     </div>
@@ -178,7 +348,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Interaktive Skripte mit KI erstellen</h1>
-<p class="subtitle lead">Online-Auftakt am 28.10.2026</p>
+<p class="subtitle lead">Werkstatt-Skript zum Workshop, TH Köln</p>
 </div>
 
 
@@ -192,12 +362,6 @@ ul.task-list li input[type="checkbox"] {
           </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">28.10.2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -210,15 +374,18 @@ ul.task-list li input[type="checkbox"] {
 <div class="th-color-bar">
 
 </div>
-<section id="ziele-des-heutigen-inputs" class="level4 lernziel-box">
-<h4 class="anchored" data-anchor-id="ziele-des-heutigen-inputs">Ziele des heutigen Inputs</h4>
+<section id="ziele-des-workshops" class="level4 lernziel-box">
+<h4 class="anchored" data-anchor-id="ziele-des-workshops">Ziele des Workshops</h4>
+<p>Am Ende des Workshops können Sie …</p>
 <ol type="1">
-<li><strong>Installationen und Hilfsmittel klären:</strong> Welche Werkzeuge Sie in den nächsten Tagen einrichten, wie Sie prüfen, ob sie laufen, und wo Sie Hilfe bekommen.</li>
-<li><strong>Vorbereitung abstimmen:</strong> Was Sie zum Präsenz-Workshop mitbringen, damit der Tag dem Bauen gehört.</li>
-<li><strong>Beispiele zeigen:</strong> Was KI-gestützte Anwendungen in einem Online-Skript leisten können, vom Begriffsspiel bis zum Lern-Song.</li>
+<li>ein leicht pflegbares <strong>Online-Skript erstellen</strong>: ein Quarto-Projekt lokal in RStudio anlegen, rendern und über GitHub Pages veröffentlichen,</li>
+<li><strong>Formatierungen automatisch erzeugen</strong> lassen: Inhaltsverzeichnis, Querverweise und Zitate samt Literaturliste aus Zotero,</li>
+<li>das Skript im <strong>TH-Köln-Stil</strong> gestalten,</li>
+<li>Lernende mit den Inhalten <strong>interagieren</strong> lassen: mit einem interaktiven Diagramm, einem eingebetteten Spiel, einem eigenen Widget oder einem Colab-Arbeitsblatt,</li>
+<li><strong>KI als Hilfe</strong> einsetzen: als Tutor für die Lernenden und als agentische Hilfskraft, die mit Ihnen am Skript arbeitet.</li>
 </ol>
 </section>
-<p>Im Präsenz-Workshop bauen Sie Ihr eigenes interaktives Online-Skript: lokal in RStudio geschrieben, mit Quarto in eine Webseite verwandelt, mit Zotero zitiert, mit KI angereichert und über GitHub Pages veröffentlicht. Damit der Workshop-Tag dem Bauen gehört und nicht dem Installieren, richten Sie die Werkzeuge in den nächsten Tagen zu Hause ein.</p>
+<p>Im Workshop bauen Sie Ihr eigenes interaktives Online-Skript: lokal in RStudio geschrieben, mit Quarto in eine Webseite verwandelt, mit Zotero zitiert, mit KI angereichert und über GitHub Pages veröffentlicht. Damit die gemeinsame Zeit dem Bauen gehört und nicht dem Installieren, richten Sie die Werkzeuge vorher zu Hause ein. Wie das geht, steht in <a href="./parts/00-vorbereitung.html">Teil 0</a>.</p>
 <section id="der-workflow-auf-einen-blick" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="der-workflow-auf-einen-blick">Der Workflow auf einen Blick</h2>
 <p>Die Animation zeigt, welches Werkzeug welche Aufgabe übernimmt und in welcher Phase es dazukommt. Mit den Pfeiltasten oder der Leiste unten gehen Sie durch die sechs Schritte, ein Klick auf ein Werkzeug öffnet eine kurze Erklärung. In Schritt 0 können Sie Ihre Installationen abhaken.</p>
@@ -227,17 +394,102 @@ ul.task-list li input[type="checkbox"] {
 </iframe>
 </div>
 <p><a href="interactions/workflow-animation.html" target="_blank">Animation in eigenem Fenster öffnen ↗</a></p>
-<p>Dieses Skript wächst mit dem Workshop. Heute enthält es zwei Bereiche, die übrigen Kapitel werden bis zum Präsenztermin aktualisiert und dann freigeschaltet.</p>
+</section>
+<section id="ablauf" class="level2">
+<h2 class="anchored" data-anchor-id="ablauf">Ablauf</h2>
+<p>Der Workshop ist so geschnitten, dass Sie nicht alle Werkzeuge gleichzeitig lernen müssen: In jeder Phase kommt höchstens ein neues Werkzeug dazu. Die Dauern sind Richtwerte ohne Pausen; sie gelten für jeden Termin, gleich wann er beginnt.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Teil</th>
+<th>Dauer</th>
+<th>Inhalt</th>
+<th>Kapitel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Teil 0 — Vorbereitung zu Hause</strong></td>
+<td>ca. 2–3 h, vor dem Workshop</td>
+<td>Werkzeuge installieren, Selbsttest mit drei Häkchen, Rohmaterial sammeln; die Galerie als Anregung</td>
+<td><a href="./parts/00-vorbereitung.html">0</a>, <a href="./parts/galerie.html">Galerie</a></td>
+</tr>
+<tr class="even">
+<td><strong>Phase 1 — Schreiben und Rendern (lokal)</strong></td>
+<td>ca. 3 h</td>
+<td>Setup-Check (15 min), didaktische Verortung, erstes Quarto-Buch im Browser, Bilder, Tabellen und Verweise</td>
+<td>1–3</td>
+</tr>
+<tr class="odd">
+<td><strong>Phase 2 — Quellen mit Zotero</strong></td>
+<td>ca. 45 min</td>
+<td><code>references.bib</code>, automatische Zitate und Literaturliste</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td><strong>Phase 3 — Stil, Interaktion, Veröffentlichung</strong></td>
+<td>ca. 2,5 h</td>
+<td>Auswahl aus TH-Köln-Stil, interaktiven Diagrammen, Spielen und Tutor, Widgets und Colab; danach GitHub Pages live und kurzer Rundgang durch die Ergebnisse</td>
+<td>5–9, 10 optional</td>
+</tr>
+<tr class="odd">
+<td><strong>Kür — nach dem Workshop</strong></td>
+<td>nach Bedarf</td>
+<td>einen Kurs mit einem KI-Agenten bauen; öffentliches und internes Material trennen</td>
+<td>11–12</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="wählen-sie-ihren-beispielstrang" class="level2">
+<h2 class="anchored" data-anchor-id="wählen-sie-ihren-beispielstrang">Wählen Sie Ihren Beispielstrang</h2>
+<p>Damit Sie nicht auch noch Inhalte erfinden müssen, nutzen wir ein durchgehendes Mini-Thema: eine <strong>kurze Einführung ins wissenschaftliche Arbeiten</strong>. Wählen Sie einen der drei Stränge, oder bringen Sie eigenes Material mit (siehe <a href="./parts/00-vorbereitung.html#mitbringen">Mitbringliste</a>).</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Strang</th>
+<th>Worum es geht</th>
+<th>Quelle</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>A — Wissenschaftliche Einstellung</strong></td>
+<td>Skepsis, Belege, intellektuelle Demut</td>
+<td><a href="https://publish.obsidian.md/wagp-calling-bullshit/wissenschaftliche+Einstellung" target="_blank">Bartnik &amp; Palmer (2024), Kap. „Wissenschaftliche Einstellung“</a></td>
+</tr>
+<tr class="even">
+<td><strong>B — Recherche und Quellenqualität</strong></td>
+<td>Suchen, prüfen, Quellen einordnen</td>
+<td><a href="https://publish.obsidian.md/wagp-calling-bullshit/Kritische+Informationssuche" target="_blank">Bartnik &amp; Palmer (2024), Kap. „Kritische Informationssuche“</a></td>
+</tr>
+<tr class="odd">
+<td><strong>C — Transparent schreiben</strong></td>
+<td>Methoden offenlegen, Reproduzierbarkeit</td>
+<td><a href="https://publish.obsidian.md/wagp-calling-bullshit/Transparent+schreiben" target="_blank">Bartnik &amp; Palmer (2024), Kap. „Transparent schreiben“</a></td>
+</tr>
+</tbody>
+</table>
+<p>Die technischen Schritte sind in jedem Strang identisch.</p>
+</section>
+<section id="wie-sie-dieses-skript-benutzen" class="level2">
+<h2 class="anchored" data-anchor-id="wie-sie-dieses-skript-benutzen">Wie Sie dieses Skript benutzen</h2>
+<p>Jedes Kapitel öffnet mit einem Lernziel-Kasten („Was Sie nach diesem Kapitel können“), gefolgt von einem <strong>„Mach mit“</strong>-Block, der eigentlichen Übung. Dazwischen steht so wenig Text wie möglich. Am Ende jedes Kapitels finden Sie einen Kasten „Was, wenn …“ mit den häufigsten Stolpersteinen und einen fertigen <strong>Tutor-Prompt</strong> zum Kopieren. Die Lernziele und Übungen sind aufeinander abgestimmt, wie es Constructive Alignment verlangt <span class="citation" data-cites="biggs2011">(<a href="index.html#ref-biggs2011" role="doc-biblioref">Biggs &amp; Tang, 2011</a>)</span>; die interaktiven Elemente haben einen lerntheoretischen Grund, keinen dekorativen <span class="citation" data-cites="mayer2021">(<a href="index.html#ref-mayer2021" role="doc-biblioref">Mayer, 2021</a>)</span>.</p>
 <div class="benchmark-grid">
-<section id="quick-start-guide" class="level3 benchmark-card">
-<h3 class="anchored" data-anchor-id="quick-start-guide">Quick-Start Guide</h3>
-<p>Was Sie bis zum Workshop installieren und einmal ausprobieren, und was Sie zum Präsenztermin mitbringen.</p>
-<p><a href="./appendix/quickstart.html">Zum Quick-Start Guide →</a></p>
+<section id="teil-0-vorbereitung" class="level3 benchmark-card">
+<h3 class="anchored" data-anchor-id="teil-0-vorbereitung">Teil 0 — Vorbereitung</h3>
+<p>Was Sie vor dem Workshop installieren und testen, und was Sie mitbringen.</p>
+<p><a href="./parts/00-vorbereitung.html">Zum Quick-Start →</a></p>
 </section>
 <section id="galerie" class="level3 benchmark-card">
 <h3 class="anchored" data-anchor-id="galerie">Galerie</h3>
-<p>Was mit KI-Unterstützung möglich wird: ein Begriffsspiel, eine interaktive Prozesslinie, ein Fall-Teaser, ein Colab-Arbeitsblatt, ein Lern-Song, eine Vokabel-App und zwei Beispiele von Ethan Mollick.</p>
+<p>Was mit KI-Unterstützung möglich wird: Begriffsspiel, Prozesslinie, Fall-Teaser, Colab-Arbeitsblatt, Lern-Song, Vokabel-App und zwei Beispiele von Ethan Mollick.</p>
 <p><a href="./parts/galerie.html">Zur Galerie →</a></p>
+</section>
+<section id="phase-1-loslegen" class="level3 benchmark-card">
+<h3 class="anchored" data-anchor-id="phase-1-loslegen">Phase 1 — Loslegen</h3>
+<p>Warum interaktiv, und wie aus einer Textdatei die erste Webseite wird.</p>
+<p><a href="./parts/01-didaktik.html">Zu Kapitel 1 →</a></p>
 </section>
 </div>
 <div class="callout callout-style-simple callout-tip callout-titled">
@@ -250,8 +502,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Wenn bei der Installation etwas hakt, beschreiben Sie dem Tutor, was Sie getan haben und was Sie sehen (gern mit Screenshot der Fehlermeldung).</p>
-<p><a href="https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte" target="_blank"><strong>Tutor öffnen — „Interaktive Skripte”</strong> →</a></p>
+<p>Wenn bei der Installation oder im Workshop etwas hakt, beschreiben Sie dem Tutor, was Sie getan haben und was Sie sehen (gern mit Screenshot der Fehlermeldung).</p>
+<p><a href="https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte" target="_blank"><strong>Tutor öffnen — „Interaktive Skripte“</strong> →</a></p>
 </div>
 </div>
 <div class="callout callout-style-simple callout-note callout-titled">
@@ -265,6 +517,129 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <p>Bei der Erstellung dieses Skriptes wurde Claude (Opus 4.7 und Opus 5.5, Claude Cowork) zur Aufwertung der Inhalte (speziell für Beispiele und Interaktionen), als Reviewer (speziell Sprach- und Konsistenzchecks) und zur Gestaltung des Layouts genutzt. Alle Inhalte wurden von Roman Bartnik geprüft, überarbeitet und verantwortet.</p>
+</div>
+</div>
+</section>
+<section id="quellen" class="level2">
+<h2 class="anchored" data-anchor-id="quellen">Quellen</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-allaire2024" class="csl-entry" role="listitem">
+Allaire, J. J., Teague, C., Scheidegger, C., Xie, Y., &amp; Dervieux, C.
+(2024). <em>Quarto: An open-source scientific and technical publishing
+system</em>. <a href="https://quarto.org/">https://quarto.org/</a>
+</div>
+<div id="ref-bartnik2024" class="csl-entry" role="listitem">
+Bartnik, R., &amp; Palmer, C. (2024). <em>Projektorientierte einführung
+in kritisches wissenschaftliches denken</em>. <a href="https://publish.obsidian.md/wagp-calling-bullshit/">https://publish.obsidian.md/wagp-calling-bullshit/</a>
+</div>
+<div id="ref-biggs2011" class="csl-entry" role="listitem">
+Biggs, J., &amp; Tang, C. (2011). <em>Teaching for quality learning at
+university</em> (4th ed.). Open University Press.
+</div>
+<div id="ref-bornmann2021" class="csl-entry" role="listitem">
+Bornmann, L., Haunschild, R., &amp; Mutz, R. (2021). Growth rates of
+modern science: A latent piecewise growth curve approach to model
+publication numbers from established and new literature databases.
+<em>Humanities and Social Sciences Communications</em>, <em>8</em>, 224.
+<a href="https://doi.org/10.1057/s41599-021-00903-w">https://doi.org/10.1057/s41599-021-00903-w</a>
+</div>
+<div id="ref-bryan2018" class="csl-entry" role="listitem">
+Bryan, J. (2018). Excuse me, do you have a moment to talk about version
+control? <em>The American Statistician</em>, <em>72</em>(1), 20–27. <a href="https://doi.org/10.1080/00031305.2017.1399928">https://doi.org/10.1080/00031305.2017.1399928</a>
+</div>
+<div id="ref-chang2023" class="csl-entry" role="listitem">
+Chang, W., Cheng, J., Allaire, J. J., Sievert, C., Schloerke, B., Xie,
+Y., Allen, J., McPherson, J., Dipert, A., &amp; Borges, B. (2023).
+<em>Shiny: Web application framework for <span>R</span></em>. <a href="https://shiny.posit.co/">https://shiny.posit.co/</a>
+</div>
+<div id="ref-dakan2025" class="csl-entry" role="listitem">
+Dakan, R., &amp; Feller, J. (2025). <em>The <span>AI</span> fluency
+framework</em>. Ringling College of Art and Design, University College
+Cork, Anthropic. <a href="https://aifluencyframework.org/">https://aifluencyframework.org/</a>
+</div>
+<div id="ref-fiorella2016" class="csl-entry" role="listitem">
+Fiorella, L., &amp; Mayer, R. E. (2016). Eight ways to promote
+generative learning. <em>Educational Psychology Review</em>,
+<em>28</em>(4), 717–741. <a href="https://doi.org/10.1007/s10648-015-9348-9">https://doi.org/10.1007/s10648-015-9348-9</a>
+</div>
+<div id="ref-githubpages2026" class="csl-entry" role="listitem">
+GitHub. (2026). <em>What is <span>GitHub</span> pages?</em> GitHub Docs.
+<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages">https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages</a>
+</div>
+<div id="ref-grammarphobia2021" class="csl-entry" role="listitem">
+Grammarphobia. (2021). <em>How did an app come to be referred to as a
+widget?</em> The Grammarphobia Blog. <a href="https://www.grammarphobia.com/blog/2021/06/widget.html">https://www.grammarphobia.com/blog/2021/06/widget.html</a>
+</div>
+<div id="ref-healy2018" class="csl-entry" role="listitem">
+Healy, K. (2018). <em>Data visualization: A practical introduction</em>.
+Princeton University Press. <a href="https://socviz.co/">https://socviz.co/</a>
+</div>
+<div id="ref-karpicke2011" class="csl-entry" role="listitem">
+Karpicke, J. D., &amp; Blunt, J. R. (2011). Retrieval practice produces
+more learning than elaborative studying with concept mapping.
+<em>Science</em>, <em>331</em>(6018), 772–775. <a href="https://doi.org/10.1126/science.1199327">https://doi.org/10.1126/science.1199327</a>
+</div>
+<div id="ref-kasneci2023" class="csl-entry" role="listitem">
+Kasneci, E., Sessler, K., Küchemann, S., Bannert, M., Dementieva, D.,
+Fischer, F., Gasser, U., Groh, G., Günnemann, S., Hüllermeier, E.,
+Krusche, S., Kutyniok, G., Michaeli, T., Nerdel, C., Pfeffer, J.,
+Poquet, O., Sailer, M., Schmidt, A., Seidel, T., … Kasneci, G. (2023).
+<span>ChatGPT</span> for good? On opportunities and challenges of large
+language models for education. <em>Learning and Individual
+Differences</em>, <em>103</em>, 102274. <a href="https://doi.org/10.1016/j.lindif.2023.102274">https://doi.org/10.1016/j.lindif.2023.102274</a>
+</div>
+<div id="ref-lakens2022" class="csl-entry" role="listitem">
+Lakens, D. (2022). <em>Improving your statistical inferences</em>. <a href="https://doi.org/10.5281/zenodo.6409077">https://doi.org/10.5281/zenodo.6409077</a>
+</div>
+<div id="ref-mayer2021" class="csl-entry" role="listitem">
+Mayer, R. E. (2021). <em>Multimedia learning</em> (3rd ed.). Cambridge
+University Press. <a href="https://doi.org/10.1017/9781316941355">https://doi.org/10.1017/9781316941355</a>
+</div>
+<div id="ref-mollick2026overhang" class="csl-entry" role="listitem">
+Mollick, E. (2026). <em>The overhang</em>. One Useful Thing. <a href="https://www.oneusefulthing.org/p/the-overhang">https://www.oneusefulthing.org/p/the-overhang</a>
+</div>
+<div id="ref-mollick2023" class="csl-entry" role="listitem">
+Mollick, E. R., &amp; Mollick, L. (2023). Assigning <span>AI</span>:
+Seven approaches for students, with prompts. <em>SSRN Working
+Paper</em>. <a href="https://doi.org/10.2139/ssrn.4475995">https://doi.org/10.2139/ssrn.4475995</a>
+</div>
+<div id="ref-observable2024" class="csl-entry" role="listitem">
+Observable, Inc. (2024). <em>Observable plot — a <span>JavaScript</span>
+library for exploratory data visualization</em>. Software-Dokumentation.
+<a href="https://observablehq.com/plot/">https://observablehq.com/plot/</a>
+</div>
+<div id="ref-quartoscripts2026" class="csl-entry" role="listitem">
+Posit. (2026). <em>Project scripts</em>. Quarto Documentation. <a href="https://quarto.org/docs/projects/scripts.html">https://quarto.org/docs/projects/scripts.html</a>
+</div>
+<div id="ref-roediger2006" class="csl-entry" role="listitem">
+Roediger, H. L., &amp; Karpicke, J. D. (2006). Test-enhanced learning:
+Taking memory tests improves long-term retention. <em>Psychological
+Science</em>, <em>17</em>(3), 249–255. <a href="https://doi.org/10.1111/j.1467-9280.2006.01693.x">https://doi.org/10.1111/j.1467-9280.2006.01693.x</a>
+</div>
+<div id="ref-owid2024" class="csl-entry" role="listitem">
+Roser, M., Ritchie, H., Mathieu, E., &amp; Ortiz-Ospina, E. (2024).
+<em>Our world in data</em>. <a href="https://ourworldindata.org/">https://ourworldindata.org/</a>
+</div>
+<div id="ref-tufte2001" class="csl-entry" role="listitem">
+Tufte, E. R. (2001). <em>The visual display of quantitative
+information</em> (2nd ed.). Graphics Press.
+</div>
+<div id="ref-wickham2019" class="csl-entry" role="listitem">
+Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D.,
+François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M.,
+Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J.,
+Robinson, D., Seidel, D. P., Spinu, V., … Yutani, H. (2019). Welcome to
+the tidyverse. <em>Journal of Open Source Software</em>, <em>4</em>(43),
+1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>
+</div>
+<div id="ref-jupyterwiki" class="csl-entry" role="listitem">
+Wikipedia. (2026). <em>Project jupyter</em>. Wikipedia, The Free
+Encyclopedia. <a href="https://en.wikipedia.org/wiki/Project_Jupyter">https://en.wikipedia.org/wiki/Project_Jupyter</a>
+</div>
+<div id="ref-willingham2009" class="csl-entry" role="listitem">
+Willingham, D. T. (2009). <em>Why don’t students like school? A
+cognitive scientist answers questions about how the mind works and what
+it means for the classroom</em>. Jossey-Bass.
 </div>
 </div>
 
@@ -681,8 +1056,8 @@ ul.task-list li input[type="checkbox"] {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./appendix/quickstart.html" class="pagination-link" aria-label="Quick-Start Guide">
-        <span class="nav-page-text"><span class="chapter-title">Quick-Start Guide</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./parts/00-vorbereitung.html" class="pagination-link" aria-label="0 — Quick-Start: Vorbereitung zu Hause">
+        <span class="nav-page-text"><span class="chapter-title">0 — Quick-Start: Vorbereitung zu Hause</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

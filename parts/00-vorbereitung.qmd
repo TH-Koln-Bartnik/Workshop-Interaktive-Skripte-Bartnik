@@ -1,11 +1,13 @@
 ---
-title: "Quick-Start Guide"
-subtitle: "Zu Hause installieren, einmal testen, vorbereitet in den Workshop kommen"
+title: "0 — Quick-Start: Vorbereitung zu Hause"
+subtitle: "Installieren, einmal testen, vorbereitet in den Workshop kommen"
+aliases:
+  - ../appendix/quickstart.html
 ---
 
 ::: {.lernziel-box}
 #### Was Sie bis zum Präsenz-Workshop erledigen
-Sie installieren in den nächsten Tagen sechs Werkzeuge, testen jedes einmal kurz und packen Ihr Rohmaterial zusammen. Planen Sie dafür ein ruhiges Zeitfenster mit stabiler Internetverbindung ein. Wer am Workshop-Tag mit einem fertig eingerichteten Laptop kommt, verbringt den Tag mit Schreiben und Gestalten statt mit Installationsdialogen.
+Sie installieren sechs Werkzeuge, testen jedes einmal kurz, bestehen den [Selbsttest](#selbsttest) mit drei Häkchen und packen Ihr Rohmaterial zusammen. Planen Sie dafür **zwei bis drei Stunden** mit stabiler Internetverbindung ein, gern auf zwei Abende verteilt. Wer mit einem fertig eingerichteten Laptop kommt, verbringt den Workshop mit Schreiben und Gestalten statt mit Installationsdialogen.
 :::
 
 ## Die Werkstatt im Überblick
@@ -100,11 +102,23 @@ Wenn alle Werkzeuge installiert sind, prüft eine kurze Generalprobe, ob sie zus
 
 Sehen Sie das Beispielbuch im Browser, ist Ihre Werkstatt einsatzbereit. Den Ordner dürfen Sie behalten oder löschen; im Workshop starten wir mit einer eigenen Vorlage.
 
+## Selbsttest: drei Häkchen {#selbsttest}
+
+Die Checkliste oben prüft jedes Werkzeug einzeln. Der Selbsttest prüft die drei Übergaben zwischen ihnen, an denen es im Workshop sonst am häufigsten hakt. Wie bei einer Staffel genügt es nicht, dass jede Läuferin schnell ist; der Stab muss auch übergeben werden.
+
+| | Übergabe | So prüfen Sie es | Bestanden, wenn … |
+|---|---|---|---|
+| ☐ | **Rendern klappt** (RStudio → Quarto → Browser) | die Generalprobe oben | das Beispielbuch im Browser erscheint |
+| ☐ | **Zotero-Export klappt** (Zotero → Better BibTeX → Datei) | Ihre Sammlung rechtsklicken → *Sammlung exportieren…* → Format *Better BibTeX* → *Speichern* als `references.bib` in den Ordner der Generalprobe | Sie die Datei in RStudio öffnen und Einträge sehen, die mit `@article{` oder `@book{` beginnen |
+| ☐ | **GitHub-Anmeldung klappt** (GitHub Desktop → github.com) | in GitHub Desktop *File → Options → Accounts* | dort Ihr Benutzername mit Profilbild steht |
+
+Sind alle drei Häkchen gesetzt, beginnt der Workshop für Sie mit dem kurzen [Setup-Check](02-setup.qmd#setup-check) in Kapitel 2 statt mit einer Installation. Fehlt eines, ist das kein Beinbruch: Notieren Sie, wo es hängt (siehe [Wenn etwas hakt](#hakt)).
+
 ## Was Sie in den Workshop mitbringen {#mitbringen}
 
 ::: {.callout-tip}
 ## Technik
-- Laptop mit Netzteil, alle sechs Häkchen der Checkliste gesetzt
+- Laptop mit Netzteil, alle sechs Häkchen der Checkliste und alle drei des Selbsttests gesetzt
 - Zugangsdaten: GitHub (plus Smartphone für die Zwei-Faktor-Anmeldung), Claude oder ChatGPT, Zotero-Konto falls vorhanden
 - Kopfhörer, falls Sie Video- und Audiobeispiele anhören möchten
 :::
@@ -114,14 +128,14 @@ Sehen Sie das Beispielbuch im Browser, ist Ihre Werkstatt einsatzbereit. Den Ord
 - **Einen Textbaustein**: ein bis zwei Seiten aus einer Lehrveranstaltung, die Sie online stellen möchten (Word, PDF oder Markdown; Text, den Sie veröffentlichen dürfen)
 - **Zwei bis drei Bilder** (eigene Fotos, Grafiken oder Abbildungen mit klarer Lizenz) und **eine Tabelle**
 - **Fünf bis zehn Literaturangaben** in einer Zotero-Sammlung
-- **Eine Idee für eine Interaktion**: Was sollen Studierende an Ihrer Stelle *tun* statt nur lesen? Ein Quiz, ein Zuordnungsspiel, eine Animation, ein kleiner Rechner? Die [Galerie](../parts/galerie.qmd) liefert Anregungen.
+- **Eine Idee für eine Interaktion**: Was sollen Studierende an Ihrer Stelle *tun* statt nur lesen? Ein Quiz, ein Zuordnungsspiel, eine Animation, ein kleiner Rechner? Die [Galerie](galerie.qmd) liefert Anregungen.
 :::
 
 Wer kein eigenes Material mitbringt, arbeitet mit einem vorbereiteten Beispielthema zum wissenschaftlichen Arbeiten. Die technischen Schritte sind identisch.
 
-## Wenn etwas hakt
+## Wenn etwas hakt {#hakt}
 
-Notieren Sie, an welchem Schritt es hängt, und machen Sie einen Screenshot der Fehlermeldung. Viele Probleme löst der [KI-Tutor](https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte){target="_blank"}, wenn Sie ihm Betriebssystem, Schritt und Fehlermeldung nennen. Was offen bleibt, klären wir in der ersten halben Stunde des Workshops gemeinsam.
+Notieren Sie, an welchem Schritt es hängt, und machen Sie einen Screenshot der Fehlermeldung. Viele Probleme löst der [KI-Tutor](https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte){target="_blank"}, wenn Sie ihm Betriebssystem, Schritt und Fehlermeldung nennen. Typische Fehler und ihre Lösung stehen im Anhang [Trouble-Shooting](../appendix/troubleshooting.qmd). Was offen bleibt, klären wir im Setup-Check zu Beginn des Workshops gemeinsam.
 
 ## Quellen
 

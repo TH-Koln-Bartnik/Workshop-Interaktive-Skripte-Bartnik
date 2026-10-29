@@ -4,7 +4,7 @@ title: "5 — TH-Köln-Stil einbauen"
 
 ::: {.callout-note}
 ## Kür-Kapitel der Phase 3
-Dieses Kapitel ist Auftakt der Kür. Wer eher zur Veröffentlichung will, springt direkt zu Kapitel 8 (GitHub Pages); Stil ist auch im Nachgang einbaubar, sobald Ihr Skript einmal live ist.
+Dieses Kapitel eröffnet die Auswahl in Phase 3. Wer eher zur Veröffentlichung will, springt direkt zu Kapitel 9 (GitHub Pages); Stil ist auch im Nachgang einbaubar, sobald Ihr Skript einmal live ist.
 :::
 
 ::: {.lernziel-box}

@@ -34,7 +34,7 @@ Zotero exportiert Ihre Bibliothek als `.bib`-Datei, Quarto liest sie ein, Sie zi
 
 ### Mach mit — in fünf Schritten
 
-1. **Better BibTeX** in Zotero installieren: <https://retorque.re/zotero-better-bibtex/>.
+1. **Better BibTeX** prüfen: Es ist seit [Teil 0](00-vorbereitung.qmd) installiert und steht in Zotero unter *Werkzeuge → Plugins*. Wer den Selbsttest bestanden hat, hat Schritt 3 und 4 schon einmal gemacht.
 2. Eine kleine **Zotero-Sammlung** anlegen mit zwei oder drei Quellen aus Ihrem Strang.
 3. Sammlung **rechtsklicken → Export Collection → Better BibTeX → Keep updated**.
 4. Datei speichern als `references.bib` im Projektordner.

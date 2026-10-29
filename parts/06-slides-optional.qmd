@@ -1,10 +1,10 @@
 ---
-title: "9 — Slides mit Quarto (optional)"
+title: "10 — Slides mit Quarto (optional)"
 ---
 
 ::: {.callout-note}
 ## Optional, für Fortgeschrittene
-Dieses Kapitel ist nicht Teil der gemeinsamen Übung. Wer mit Kapitel 1–8 früher fertig ist, baut hier eigene Folien. Vorlage und Inspiration: Békés (2025), [Course slides for "Data Analysis with AI"](https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-01-llm-course.html){target="_blank"}.
+Dieses Kapitel ist nicht Teil der gemeinsamen Übung. Wer mit Kapitel 1–9 früher fertig ist, baut hier eigene Folien. Vorlage und Inspiration: Békés (2025), [Course slides for "Data Analysis with AI"](https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-01-llm-course.html){target="_blank"}.
 :::
 
 ::: {.lernziel-box}

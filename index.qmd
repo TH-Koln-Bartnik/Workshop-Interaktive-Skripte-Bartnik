@@ -1,20 +1,24 @@
 ---
 title: "Willkommen"
-subtitle: "Online-Auftakt am 28.10.2026"
+subtitle: "Werkstatt-Skript zum Workshop, TH Köln"
 ---
 
 ::: th-color-bar
 :::
 
 ::: lernziel-box
-#### Ziele des heutigen Inputs
+#### Ziele des Workshops
 
-1.  **Installationen und Hilfsmittel klären:** Welche Werkzeuge Sie in den nächsten Tagen einrichten, wie Sie prüfen, ob sie laufen, und wo Sie Hilfe bekommen.
-2.  **Vorbereitung abstimmen:** Was Sie zum Präsenz-Workshop mitbringen, damit der Tag dem Bauen gehört.
-3.  **Beispiele zeigen:** Was KI-gestützte Anwendungen in einem Online-Skript leisten können, vom Begriffsspiel bis zum Lern-Song.
+Am Ende des Workshops können Sie …
+
+1.  ein leicht pflegbares **Online-Skript erstellen**: ein Quarto-Projekt lokal in RStudio anlegen, rendern und über GitHub Pages veröffentlichen,
+2.  **Formatierungen automatisch erzeugen** lassen: Inhaltsverzeichnis, Querverweise und Zitate samt Literaturliste aus Zotero,
+3.  das Skript im **TH-Köln-Stil** gestalten,
+4.  Lernende mit den Inhalten **interagieren** lassen: mit einem interaktiven Diagramm, einem eingebetteten Spiel, einem eigenen Widget oder einem Colab-Arbeitsblatt,
+5.  **KI als Hilfe** einsetzen: als Tutor für die Lernenden und als agentische Hilfskraft, die mit Ihnen am Skript arbeitet.
 :::
 
-Im Präsenz-Workshop bauen Sie Ihr eigenes interaktives Online-Skript: lokal in RStudio geschrieben, mit Quarto in eine Webseite verwandelt, mit Zotero zitiert, mit KI angereichert und über GitHub Pages veröffentlicht. Damit der Workshop-Tag dem Bauen gehört und nicht dem Installieren, richten Sie die Werkzeuge in den nächsten Tagen zu Hause ein.
+Im Workshop bauen Sie Ihr eigenes interaktives Online-Skript: lokal in RStudio geschrieben, mit Quarto in eine Webseite verwandelt, mit Zotero zitiert, mit KI angereichert und über GitHub Pages veröffentlicht. Damit die gemeinsame Zeit dem Bauen gehört und nicht dem Installieren, richten Sie die Werkzeuge vorher zu Hause ein. Wie das geht, steht in [Teil 0](parts/00-vorbereitung.qmd).
 
 ## Der Workflow auf einen Blick
 
@@ -26,34 +30,73 @@ Die Animation zeigt, welches Werkzeug welche Aufgabe übernimmt und in welcher P
 
 [Animation in eigenem Fenster öffnen ↗](interactions/workflow-animation.html){target="_blank"}
 
-Dieses Skript wächst mit dem Workshop. Heute enthält es zwei Bereiche, die übrigen Kapitel werden bis zum Präsenztermin aktualisiert und dann freigeschaltet.
+## Ablauf
+
+Der Workshop ist so geschnitten, dass Sie nicht alle Werkzeuge gleichzeitig lernen müssen: In jeder Phase kommt höchstens ein neues Werkzeug dazu. Die Dauern sind Richtwerte ohne Pausen; sie gelten für jeden Termin, gleich wann er beginnt.
+
+| Teil | Dauer | Inhalt | Kapitel |
+|------------------|------------------|------------------------------|------------|
+| **Teil 0 — Vorbereitung zu Hause** | ca. 2–3 h, vor dem Workshop | Werkzeuge installieren, Selbsttest mit drei Häkchen, Rohmaterial sammeln; die Galerie als Anregung | [0](parts/00-vorbereitung.qmd), [Galerie](parts/galerie.qmd) |
+| **Phase 1 — Schreiben und Rendern (lokal)** | ca. 3 h | Setup-Check (15 min), didaktische Verortung, erstes Quarto-Buch im Browser, Bilder, Tabellen und Verweise | 1–3 |
+| **Phase 2 — Quellen mit Zotero** | ca. 45 min | `references.bib`, automatische Zitate und Literaturliste | 4 |
+| **Phase 3 — Stil, Interaktion, Veröffentlichung** | ca. 2,5 h | Auswahl aus TH-Köln-Stil, interaktiven Diagrammen, Spielen und Tutor, Widgets und Colab; danach GitHub Pages live und kurzer Rundgang durch die Ergebnisse | 5–9, 10 optional |
+| **Kür — nach dem Workshop** | nach Bedarf | einen Kurs mit einem KI-Agenten bauen; öffentliches und internes Material trennen | 11–12 |
+
+## Wählen Sie Ihren Beispielstrang
+
+Damit Sie nicht auch noch Inhalte erfinden müssen, nutzen wir ein durchgehendes Mini-Thema: eine **kurze Einführung ins wissenschaftliche Arbeiten**. Wählen Sie einen der drei Stränge, oder bringen Sie eigenes Material mit (siehe [Mitbringliste](parts/00-vorbereitung.qmd#mitbringen)).
+
+| Strang | Worum es geht | Quelle |
+|------------------------|------------------------|------------------------|
+| **A — Wissenschaftliche Einstellung** | Skepsis, Belege, intellektuelle Demut | [Bartnik & Palmer (2024), Kap. „Wissenschaftliche Einstellung“](https://publish.obsidian.md/wagp-calling-bullshit/wissenschaftliche+Einstellung){target="_blank"} |
+| **B — Recherche und Quellenqualität** | Suchen, prüfen, Quellen einordnen | [Bartnik & Palmer (2024), Kap. „Kritische Informationssuche“](https://publish.obsidian.md/wagp-calling-bullshit/Kritische+Informationssuche){target="_blank"} |
+| **C — Transparent schreiben** | Methoden offenlegen, Reproduzierbarkeit | [Bartnik & Palmer (2024), Kap. „Transparent schreiben“](https://publish.obsidian.md/wagp-calling-bullshit/Transparent+schreiben){target="_blank"} |
+
+Die technischen Schritte sind in jedem Strang identisch.
+
+## Wie Sie dieses Skript benutzen
+
+Jedes Kapitel öffnet mit einem Lernziel-Kasten („Was Sie nach diesem Kapitel können“), gefolgt von einem **„Mach mit“**-Block, der eigentlichen Übung. Dazwischen steht so wenig Text wie möglich. Am Ende jedes Kapitels finden Sie einen Kasten „Was, wenn …“ mit den häufigsten Stolpersteinen und einen fertigen **Tutor-Prompt** zum Kopieren. Die Lernziele und Übungen sind aufeinander abgestimmt, wie es Constructive Alignment verlangt [@biggs2011]; die interaktiven Elemente haben einen lerntheoretischen Grund, keinen dekorativen [@mayer2021].
 
 :::::: benchmark-grid
 ::: benchmark-card
-### Quick-Start Guide
+### Teil 0 — Vorbereitung
 
-Was Sie bis zum Workshop installieren und einmal ausprobieren, und was Sie zum Präsenztermin mitbringen.
+Was Sie vor dem Workshop installieren und testen, und was Sie mitbringen.
 
-[Zum Quick-Start Guide →](appendix/quickstart.qmd)
+[Zum Quick-Start →](parts/00-vorbereitung.qmd)
 :::
 
 ::: benchmark-card
 ### Galerie
 
-Was mit KI-Unterstützung möglich wird: ein Begriffsspiel, eine interaktive Prozesslinie, ein Fall-Teaser, ein Colab-Arbeitsblatt, ein Lern-Song, eine Vokabel-App und zwei Beispiele von Ethan Mollick.
+Was mit KI-Unterstützung möglich wird: Begriffsspiel, Prozesslinie, Fall-Teaser, Colab-Arbeitsblatt, Lern-Song, Vokabel-App und zwei Beispiele von Ethan Mollick.
 
 [Zur Galerie →](parts/galerie.qmd)
+:::
+
+::: benchmark-card
+### Phase 1 — Loslegen
+
+Warum interaktiv, und wie aus einer Textdatei die erste Webseite wird.
+
+[Zu Kapitel 1 →](parts/01-didaktik.qmd)
 :::
 ::::::
 
 ::: {.callout-tip}
 ## KI-Tutor für Fragen zwischendurch
-Wenn bei der Installation etwas hakt, beschreiben Sie dem Tutor, was Sie getan haben und was Sie sehen (gern mit Screenshot der Fehlermeldung).
+Wenn bei der Installation oder im Workshop etwas hakt, beschreiben Sie dem Tutor, was Sie getan haben und was Sie sehen (gern mit Screenshot der Fehlermeldung).
 
-[**Tutor öffnen — „Interaktive Skripte"** →](https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte){target="_blank"}
+[**Tutor öffnen — „Interaktive Skripte“** →](https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte){target="_blank"}
 :::
 
 ::: callout-note
 ## Transparenzhinweis zur KI-Nutzung
 Bei der Erstellung dieses Skriptes wurde Claude (Opus 4.7 und Opus 5.5, Claude Cowork) zur Aufwertung der Inhalte (speziell für Beispiele und Interaktionen), als Reviewer (speziell Sprach- und Konsistenzchecks) und zur Gestaltung des Layouts genutzt. Alle Inhalte wurden von Roman Bartnik geprüft, überarbeitet und verantwortet.
+:::
+
+## Quellen
+
+::: {#refs}
 :::

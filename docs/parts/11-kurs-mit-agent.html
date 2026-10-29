@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>11 — Einen Kurs mit einem KI-Agenten bauen – Interaktive Skripte mit KI erstellen</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../parts/12-oeffentlich-intern.html" rel="next">
+<link href="../parts/06-slides-optional.html" rel="prev">
+<link href="../images/th-koeln-logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/11-kurs-mit-agent.html">Kür — nach dem Workshop</a></li><li class="breadcrumb-item"><a href="../parts/11-kurs-mit-agent.html"><span class="chapter-title">11 — Einen Kurs mit einem KI-Agenten bauen</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Interaktive Skripte mit KI erstellen</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Willkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Teil 0 — Vorbereitung zu Hause</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/00-vorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">0 — Quick-Start: Vorbereitung zu Hause</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/galerie.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Galerie</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 1 — Schreiben und Rendern (lokal)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/01-didaktik.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1 — Warum interaktiv?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/02-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2 — RStudio + erstes Skript (lokal)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/03b-bilder-tabellen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3 — Bilder, Tabellen und Verweise</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 2 — Quellen mit Zotero</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/03a-uebersicht.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4 — Quellen mit Zotero</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 3 — Stil, Interaktion, Veröffentlichung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/03c-style.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">5 — TH-Köln-Stil einbauen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/04-charts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">6 — Interaktive Diagramme</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/05-iframes-tutor.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7 — iFrames, Spiele und KI-Tutor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/07-widgets-colab.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8 — Widgets und Colab</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/08-github-pages.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9 — Veröffentlichen mit GitHub und Pages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/06-slides-optional.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10 — Slides mit Quarto (optional)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Kür — nach dem Workshop</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/11-kurs-mit-agent.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">11 — Einen Kurs mit einem KI-Agenten bauen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/12-oeffentlich-intern.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">12 — Öffentlich und intern trennen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Anhänge</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/troubleshooting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Trouble-Shooting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/tutor-prompt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">KI-Tutor: Link und System-Prompt</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/reviewer-prompt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reviewer-Prompt: KI als kritische Erstleserin</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../literatur.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Literatur</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhalt</h2>
+   
+  <ul>
+  <li><a href="#worum-es-im-kern-geht" id="toc-worum-es-im-kern-geht" class="nav-link active" data-scroll-target="#worum-es-im-kern-geht">Worum es im Kern geht</a></li>
+  <li><a href="#die-vier-steuerungsdateien" id="toc-die-vier-steuerungsdateien" class="nav-link" data-scroll-target="#die-vier-steuerungsdateien">Die vier Steuerungsdateien</a>
+  <ul class="collapse">
+  <li><a href="#master-plan" id="toc-master-plan" class="nav-link" data-scroll-target="#master-plan">Master-Plan</a></li>
+  <li><a href="#übergabe" id="toc-übergabe" class="nav-link" data-scroll-target="#übergabe">Übergabe</a></li>
+  <li><a href="#entscheidungsbogen" id="toc-entscheidungsbogen" class="nav-link" data-scroll-target="#entscheidungsbogen">Entscheidungsbogen</a></li>
+  <li><a href="#zahlendatei-und-prüfskript" id="toc-zahlendatei-und-prüfskript" class="nav-link" data-scroll-target="#zahlendatei-und-prüfskript">Zahlendatei und Prüfskript</a></li>
+  </ul></li>
+  <li><a href="#eine-sitzung-eröffnen-und-abschließen" id="toc-eine-sitzung-eröffnen-und-abschließen" class="nav-link" data-scroll-target="#eine-sitzung-eröffnen-und-abschließen">Eine Sitzung eröffnen und abschließen</a></li>
+  <li><a href="#mach-mit-ein-kursgerüst-in-30-minuten" id="toc-mach-mit-ein-kursgerüst-in-30-minuten" class="nav-link" data-scroll-target="#mach-mit-ein-kursgerüst-in-30-minuten">Mach mit — ein Kursgerüst in 30 Minuten</a></li>
+  <li><a href="#tutor" id="toc-tutor" class="nav-link" data-scroll-target="#tutor">Tutor</a></li>
+  <li><a href="#literatur" id="toc-literatur" class="nav-link" data-scroll-target="#literatur">Literatur</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/edit/main/parts/11-kurs-mit-agent.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/11-kurs-mit-agent.html">Kür — nach dem Workshop</a></li><li class="breadcrumb-item"><a href="../parts/11-kurs-mit-agent.html"><span class="chapter-title">11 — Einen Kurs mit einem KI-Agenten bauen</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">11 — Einen Kurs mit einem KI-Agenten bauen</span></h1>
+<p class="subtitle lead">Kür für die Zeit nach dem Workshop</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="was-sie-nach-diesem-kapitel-können" class="level4 lernziel-box">
+<h4 class="anchored" data-anchor-id="was-sie-nach-diesem-kapitel-können">Was Sie nach diesem Kapitel können</h4>
+<ul>
+<li>erklären, warum ein KI-Agent ein <strong>schriftliches Gedächtnis</strong> im Projektordner braucht,</li>
+<li>die vier Steuerungsdateien <strong>Master-Plan, Übergabe, Entscheidungsbogen und Zahlendatei</strong> anlegen lassen,</li>
+<li>eine Arbeitssitzung mit einem Agenten <strong>eröffnen und abschließen</strong>, ohne dass Wissen verloren geht,</li>
+<li>ein <strong>Prüfskript</strong> einsetzen, das die Lösungen unabhängig nachrechnet.</li>
+</ul>
+</section>
+<section id="worum-es-im-kern-geht" class="level2">
+<h2 class="anchored" data-anchor-id="worum-es-im-kern-geht">Worum es im Kern geht</h2>
+<p>Im Workshop haben Sie die KI für einzelne Aufträge genutzt: ein Widget hier, ein Arbeitsblatt dort. Ein ganzer Kurs besteht aus Dutzenden solcher Teile, die zusammenpassen müssen: Fallstudie, Folien, Handouts, Notebooks und Lösungen rechnen mit denselben Zahlen und bauen Woche für Woche aufeinander auf. Ein Agent wie Claude Desktop (Cowork) oder Codex kann diese Arbeit übernehmen, hat aber eine Eigenheit, die man kennen muss: <strong>Er beginnt jede neue Sitzung ohne Erinnerung an die letzte.</strong> Was er weiß, steht in den Dateien Ihres Projektordners oder nirgends.</p>
+<p>Die Lösung kennt jede Klinik: die Schichtübergabe. Die Pflegekraft, die geht, schreibt auf, was erledigt ist, was offen ist und worauf die nächste achten muss. Die nächste liest das zuerst und fängt erst dann an. Für die Arbeit mit einem Agenten übernehmen vier Dateien diese Aufgabe. Mit diesem Aufbau ist das Modul <em>Sustainable Supply Chain Management</em> (Wintersemester 2026/27) entstanden: fünf Wochen Material mit durchgehender Fallstudie, Folien, Widgets und Colab-Arbeitsblättern; die unabhängige Nachrechnung der Lösungsschlüssel meldete dort 218 geprüfte Werte ohne Abweichung.</p>
+<p>Der 4D-Rahmen der AI Fluency <span class="citation" data-cites="dakan2025">(<a href="../index.html#ref-dakan2025" role="doc-biblioref">Dakan &amp; Feller, 2025</a>)</span> ordnet, wer was verantwortet. Jede Datei bedient eine der vier Kompetenzen:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kompetenz</th>
+<th>Frage</th>
+<th>Wo sie im Projekt steckt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Delegation</strong></td>
+<td>Was gebe ich ab, was behalte ich?</td>
+<td>Master-Plan: Aufgaben der KI, Grenzen, Ordner</td>
+</tr>
+<tr class="even">
+<td><strong>Description</strong></td>
+<td>Wie beschreibe ich den Auftrag präzise?</td>
+<td>Master-Plan: Ziele, Regeln, Qualitätskriterien</td>
+</tr>
+<tr class="odd">
+<td><strong>Discernment</strong></td>
+<td>Woran erkenne ich, ob das Ergebnis stimmt?</td>
+<td>Zahlendatei und Prüfskript</td>
+</tr>
+<tr class="even">
+<td><strong>Diligence</strong></td>
+<td>Wer steht für das Ergebnis gerade?</td>
+<td>Entscheidungsbogen, Ihr eigener Commit, Transparenzhinweis</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="die-vier-steuerungsdateien" class="level2">
+<h2 class="anchored" data-anchor-id="die-vier-steuerungsdateien">Die vier Steuerungsdateien</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Datei</th>
+<th>Funktion</th>
+<th>Vergleich</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>MASTER_PLAN.md</code></td>
+<td>Ziel, Wochenplan, Regeln für die KI</td>
+<td>der Bauplan an der Baustellenwand</td>
+</tr>
+<tr class="even">
+<td><code>HANDOVER.md</code></td>
+<td>Stand nach jeder Sitzung: erledigt, offen, nächster Schritt</td>
+<td>das Übergabebuch der Schicht</td>
+</tr>
+<tr class="odd">
+<td><code>ENTSCHEIDUNGEN.md</code></td>
+<td>offene Fragen, die nur Sie entscheiden</td>
+<td>der Ordner „zur Unterschrift“</td>
+</tr>
+<tr class="even">
+<td><code>zahlen.json</code></td>
+<td>die eine Quelle aller Zahlen für Fall, Folien und Notebook</td>
+<td>das Kassenbuch: Was nicht drinsteht, gibt es nicht</td>
+</tr>
+</tbody>
+</table>
+<p>Die Endung <code>.md</code> steht für Markdown, dieselbe einfache Textauszeichnung wie in Ihren Quarto-Kapiteln. <code>.json</code> (<em>JavaScript Object Notation</em>) ist ein Textformat für Daten in geschweiften Klammern, das Menschen lesen und Programme verarbeiten können.</p>
+<p>Eine bewährte Ordnerstruktur:</p>
+<pre><code>mein-kurs/
+├── MASTER_PLAN.md
+├── HANDOVER.md
+├── ENTSCHEIDUNGEN.md
+├── zahlen.json
+├── pruefen.R          ← rechnet die Lösungen unabhängig nach
+├── skript/            ← das Quarto-Buch, wird veröffentlicht
+└── intern/            ← Lösungen, Teaching Notes: nie veröffentlichen (Kapitel 12)</code></pre>
+<section id="master-plan" class="level3">
+<h3 class="anchored" data-anchor-id="master-plan">Master-Plan</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Master-Plan: [Kursname]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ziel</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Ein Satz: Was können die Studierenden am Ende?</span><span class="co">]</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rahmen</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Zielgruppe, Semester, Umfang, Prüfungsform</span><span class="co">]</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Wochenplan</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Woche <span class="pp">|</span> Thema <span class="pp">|</span> Lernziel <span class="pp">|</span> Material <span class="pp">|</span> Status <span class="pp">|</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1 <span class="pp">|</span> <span class="co">[</span><span class="ot">Thema</span><span class="co">]</span> <span class="pp">|</span> <span class="co">[</span><span class="ot">Lernziel</span><span class="co">]</span> <span class="pp">|</span> Fall, Folien, Notebook <span class="pp">|</span> offen <span class="pp">|</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Regeln für die KI</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lies zu Beginn jeder Sitzung MASTER_PLAN.md, HANDOVER.md und ENTSCHEIDUNGEN.md.</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Alle Zahlen stammen aus zahlen.json. Steht eine Zahl nicht dort, frag nach.</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lösungen und Teaching Notes nur im Ordner intern/.</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lösche keine Dateien. Ändere nur die Ordner, die im Auftrag genannt sind.</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Triff keine didaktischen Entscheidungen allein, sondern trage sie in ENTSCHEIDUNGEN.md ein.</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Beende jede Sitzung mit einem Eintrag in HANDOVER.md.</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Qualitätskriterien</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">z. B. Aussagetitel auf jeder Folie, Quelle auf jeder Folie, Sprache B1</span><span class="co">]</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="übergabe" class="level3">
+<h3 class="anchored" data-anchor-id="übergabe">Übergabe</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Übergabe — Stand [Datum]</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>**Erledigt:** Woche 2 Fall und Notebook, Prüfskript grün.</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>**Offen:** Folien Woche 2, Abbildung zur Durchlaufzeit.</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>**Nächster Schritt:** Folien Woche 2 nach dem 7-Folien-Gerüst.</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>**Fragen an Roman:** siehe ENTSCHEIDUNGEN.md, E-07.</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Halten Sie die Datei kurz: die letzten drei Sitzungen ausführlich, alles Ältere in einem Absatz zusammengefasst. Eine Übergabe, die niemand mehr liest, ist keine.</p>
+</section>
+<section id="entscheidungsbogen" class="level3">
+<h3 class="anchored" data-anchor-id="entscheidungsbogen">Entscheidungsbogen</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Nr. <span class="pp">|</span> Frage <span class="pp">|</span> Optionen <span class="pp">|</span> Empfehlung der KI <span class="pp">|</span> Entscheidung <span class="pp">|</span> Datum <span class="pp">|</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|---|---|---|</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> E-07 <span class="pp">|</span> Fallstudie: eine Bäckerei oder zwei Betriebe? <span class="pp">|</span> (a) eine, (b) zwei <span class="pp">|</span> (a), weniger Einarbeitung <span class="pp">|</span> (a) <span class="pp">|</span> 2026-10-12 <span class="pp">|</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Die Spalte <em>Entscheidung</em> füllen nur Sie. Die KI darf vorschlagen und begründen, aber die didaktische Verantwortung bleibt bei Ihnen.</p>
+</section>
+<section id="zahlendatei-und-prüfskript" class="level3">
+<h3 class="anchored" data-anchor-id="zahlendatei-und-prüfskript">Zahlendatei und Prüfskript</h3>
+<p>Sobald dieselbe Zahl in Fall, Folie, Handout und Lösung auftaucht, wird sie irgendwann an einer Stelle geändert und an den anderen nicht. Die Zahlendatei verhindert das: Alle Materialien lesen ihre Zahlen aus einer Datei, und ein Prüfskript rechnet die Lösungen aus diesen Zahlen neu aus. Ein Beispiel mit einer Brötchenlinie:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"stationen"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Teig"</span><span class="fu">:</span>   <span class="fu">{</span> <span class="dt">"minuten_pro_blech"</span><span class="fu">:</span> <span class="dv">6</span><span class="fu">,</span> <span class="dt">"personal"</span><span class="fu">:</span> <span class="dv">1</span> <span class="fu">},</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Formen"</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">"minuten_pro_blech"</span><span class="fu">:</span> <span class="dv">8</span><span class="fu">,</span> <span class="dt">"personal"</span><span class="fu">:</span> <span class="dv">2</span> <span class="fu">},</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Ofen"</span><span class="fu">:</span>   <span class="fu">{</span> <span class="dt">"minuten_pro_blech"</span><span class="fu">:</span> <span class="dv">5</span><span class="fu">,</span> <span class="dt">"personal"</span><span class="fu">:</span> <span class="dv">1</span> <span class="fu">}</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"nachfrage_bleche_pro_stunde"</span><span class="fu">:</span> <span class="dv">14</span><span class="fu">,</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"loesung"</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">"engpass"</span><span class="fu">:</span> <span class="st">"Teig"</span><span class="fu">,</span> <span class="dt">"ausbringung_bleche_pro_stunde"</span><span class="fu">:</span> <span class="dv">10</span> <span class="fu">}</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Das Prüfskript <code>pruefen.R</code> braucht nur das R, das Sie in Teil 0 installiert haben (plus das Paket <code>jsonlite</code>, einmalig mit <code>install.packages("jsonlite")</code>). Es rechnet die Kapazität jeder Station aus, findet den Engpass und vergleicht mit dem Lösungsschlüssel:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pruefen.R — rechnet den Lösungsschlüssel unabhängig nach</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">fromJSON</span>(<span class="st">"zahlen.json"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>kap <span class="ot">&lt;-</span> <span class="fu">sapply</span>(z<span class="sc">$</span>stationen, <span class="cf">function</span>(s) s<span class="sc">$</span>personal <span class="sc">*</span> <span class="dv">60</span> <span class="sc">/</span> s<span class="sc">$</span>minuten_pro_blech)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>engpass <span class="ot">&lt;-</span> <span class="fu">names</span>(<span class="fu">which.min</span>(kap))</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>ausbringung <span class="ot">&lt;-</span> <span class="fu">min</span>(<span class="fu">min</span>(kap), z<span class="sc">$</span>nachfrage_bleche_pro_stunde)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>fehler <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>pruefe <span class="ot">&lt;-</span> <span class="cf">function</span>(name, ist, soll) {</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  ok <span class="ot">&lt;-</span> <span class="fu">identical</span>(<span class="fu">as.character</span>(ist), <span class="fu">as.character</span>(soll))</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="cf">if</span> (ok) <span class="st">"✅"</span> <span class="cf">else</span> <span class="st">"❌"</span>, name, <span class="st">": gerechnet"</span>, ist, <span class="st">"| Schlüssel"</span>, soll, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span>ok) fehler <span class="ot">&lt;&lt;-</span> fehler <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="fu">pruefe</span>(<span class="st">"Engpass"</span>, engpass, z<span class="sc">$</span>loesung<span class="sc">$</span>engpass)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="fu">pruefe</span>(<span class="st">"Ausbringung (Bleche/h)"</span>, ausbringung, z<span class="sc">$</span>loesung<span class="sc">$</span>ausbringung_bleche_pro_stunde)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (fehler <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="fu">quit</span>(<span class="at">status =</span> <span class="dv">1</span>)   <span class="co"># Abweichung: Stopp</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Im RStudio-Terminal starten Sie es mit <code>Rscript pruefen.R</code>. Steht der Schlüssel auf „Ofen“, meldet das Skript ❌ und nennt beide Werte. Wichtig ist das Prinzip, nicht die Sprache: Das Prüfskript rechnet auf einem <strong>zweiten Weg</strong> und weiß nichts davon, wie die Lösung entstanden ist. Einen Agenten seine eigene Lösung „prüfen“ zu lassen, indem er sie noch einmal liest, prüft nichts.</p>
+</section>
+</section>
+<section id="eine-sitzung-eröffnen-und-abschließen" class="level2">
+<h2 class="anchored" data-anchor-id="eine-sitzung-eröffnen-und-abschließen">Eine Sitzung eröffnen und abschließen</h2>
+<p>Zwei Aufträge rahmen jede Sitzung. Kopieren Sie sie in Ihre Notizen; sie sind die wichtigsten Prompts dieses Kapitels.</p>
+<p><strong>Zum Start:</strong></p>
+<blockquote class="blockquote">
+<p>Lies zuerst <code>MASTER_PLAN.md</code>, <code>HANDOVER.md</code> und <code>ENTSCHEIDUNGEN.md</code>. Fasse in fünf Sätzen zusammen, wo wir stehen und welche Entscheidungen offen sind. Schlage dann den nächsten Arbeitsschritt vor und warte auf meine Freigabe, bevor du Dateien änderst.</p>
+</blockquote>
+<p><strong>Zum Schluss:</strong></p>
+<blockquote class="blockquote">
+<p>Bevor wir aufhören: Führe <code>Rscript pruefen.R</code> aus und zeige mir das Ergebnis. Aktualisiere <code>HANDOVER.md</code> (erledigt, offen, nächster Schritt) und trage neue offene Fragen in <code>ENTSCHEIDUNGEN.md</code> ein. Ändere sonst nichts.</p>
+</blockquote>
+<p>Danach sehen Sie die Änderungen in GitHub Desktop durch und committen selbst. Der Commit ist Ihre Unterschrift unter die Sitzung.</p>
+</section>
+<section id="mach-mit-ein-kursgerüst-in-30-minuten" class="level2">
+<h2 class="anchored" data-anchor-id="mach-mit-ein-kursgerüst-in-30-minuten">Mach mit — ein Kursgerüst in 30 Minuten</h2>
+<ol type="1">
+<li><p><strong>Ordner anlegen:</strong> einen leeren Ordner <code>mein-kurs</code> und darin Ihren Workshop-Skriptordner als <code>skript/</code>.</p></li>
+<li><p><strong>Agent verbinden:</strong> in Claude Desktop (Cowork) den Ordner <code>mein-kurs</code> freigeben, in Codex als Projektordner wählen.</p></li>
+<li><p><strong>Gerüst bauen lassen:</strong></p>
+<blockquote class="blockquote">
+<p>Ich plane den Kurs [Name] für [Zielgruppe], [Anzahl] Wochen. Lege in diesem Ordner <code>MASTER_PLAN.md</code>, <code>HANDOVER.md</code> und <code>ENTSCHEIDUNGEN.md</code> nach den Vorlagen aus dem Workshop-Skript an (Kapitel 11), dazu einen Ordner <code>intern/</code>. Fülle den Wochenplan mit einem Vorschlag, markiere alles, was ich entscheiden muss, als Eintrag in <code>ENTSCHEIDUNGEN.md</code>, und ändere nichts im Ordner <code>skript/</code>.</p>
+</blockquote></li>
+<li><p><strong>Entscheiden:</strong> Lesen Sie den Entscheidungsbogen und füllen Sie die Spalte <em>Entscheidung</em>.</p></li>
+<li><p><strong>Erste Woche:</strong> Eröffnen Sie eine Sitzung mit dem Start-Prompt und lassen Sie Woche 1 bauen, samt Zahlendatei und Prüfskript.</p></li>
+</ol>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Variieren Sie
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Ein Projekt, mehrere Ausgaben:</strong> Lassen Sie aus derselben Zahlendatei auch die Folien (Kapitel 10) und ein Formelblatt erzeugen. Ändert sich eine Zahl, ändern sich alle Ausgaben mit.</li>
+<li><strong>Story-Fall nach Willingham:</strong> Bitten Sie den Agenten um eine Fallstudie mit Hauptfigur, Konflikt und Komplikation, die über mehrere Wochen läuft <span class="citation" data-cites="willingham2009">(<a href="../index.html#ref-willingham2009" role="doc-biblioref">Willingham, 2009</a>)</span>, und um eine getrennte Teaching Note in <code>intern/</code>.</li>
+<li><strong>Key Learnings:</strong> Eine Seite im Skript, die jede Woche um genau einen Satz wächst. Am Semesterende ist sie die Zusammenfassung, die die Studierenden selbst miterlebt haben.</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warnung</span>Was, wenn …
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Der Agent legt einfach los, ohne den Plan zu lesen?</strong> → Start-Prompt wörtlich verwenden; im Master-Plan steht die Regel ganz oben.</li>
+<li><strong>Zahlen im Fall und in der Lösung passen nicht zusammen?</strong> → Der Agent hat eine Zahl im Text geändert statt in <code>zahlen.json</code>. Prüfskript laufen lassen, Zahl zurück in die Datei, Text neu erzeugen lassen.</li>
+<li><strong>Die Übergabe wird seitenlang?</strong> → Den Agenten bitten: „Fasse alles vor den letzten drei Sitzungen in einem Absatz zusammen.“</li>
+<li><strong>Der Agent will eine didaktische Frage selbst entscheiden?</strong> → Freundlich auf die Regel verweisen: Eintrag in <code>ENTSCHEIDUNGEN.md</code>, Entscheidung durch Sie.</li>
+<li><strong>Etwas ist kaputt?</strong> → In GitHub Desktop den letzten Commit wiederherstellen. Deshalb committen Sie nach jeder Sitzung.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="tutor" class="level2">
+<h2 class="anchored" data-anchor-id="tutor">Tutor</h2>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Tutor öffnen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte" target="_blank">Tutor „Interaktive Skripte“ →</a></p>
+<p>Vorschlag-Prompt für dieses Kapitel:</p>
+<blockquote class="blockquote">
+<p>Ich will einen Kurs [Thema, Umfang] mit einem KI-Agenten aufbauen und habe noch nie mit einem Master-Plan gearbeitet. Stelle mir fünf Fragen, deren Antworten in den Master-Plan gehören, eine nach der anderen. Formuliere am Ende aus meinen Antworten den Abschnitt „Regeln für die KI“.</p>
+</blockquote>
+</div>
+</div>
+</section>
+<section id="literatur" class="level1 unnumbered">
+<h1 class="unnumbered">Literatur</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-dakan2025" class="csl-entry" role="listitem">
+Dakan, R., &amp; Feller, J. (2025). <em>The <span>AI</span> Fluency Framework</em>. Ringling College of Art and Design, University College Cork, Anthropic. <a href="https://aifluencyframework.org/">https://aifluencyframework.org/</a>
+</div>
+<div id="ref-willingham2009" class="csl-entry" role="listitem">
+Willingham, D. T. (2009). <em>Why Don’t Students Like School? A Cognitive Scientist Answers Questions About How the Mind Works and What It Means for the Classroom</em>. Jossey-Bass.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../parts/06-slides-optional.html" class="pagination-link" aria-label="10 — Slides mit Quarto (optional)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">10 — Slides mit Quarto (optional)</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../parts/12-oeffentlich-intern.html" class="pagination-link" aria-label="12 — Öffentlich und intern trennen">
+        <span class="nav-page-text"><span class="chapter-title">12 — Öffentlich und intern trennen</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Roman Bartnik · CC BY-SA 4.0</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/edit/main/parts/11-kurs-mit-agent.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Erstellt mit <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

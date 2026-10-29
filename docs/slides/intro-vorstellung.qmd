@@ -1,6 +1,6 @@
 ---
 title: "Interaktive Skripte mit KI erstellen"
-subtitle: "Workshop · TH Köln · 11.05.2026"
+subtitle: "Workshop · TH Köln"
 author: "Prof. Dr. Roman Bartnik"
 format:
   revealjs:

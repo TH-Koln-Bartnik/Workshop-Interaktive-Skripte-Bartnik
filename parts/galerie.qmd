@@ -28,6 +28,8 @@ Aus dem Modul *Sustainable Supply Chain Management*. Vier Freunde wollen 24 Pizz
 
 [Widget im eigenen Fenster öffnen →](https://th-koln-bartnik.github.io/sscm-2026-student/widgets/02_line_widget.html){target="_blank"}
 
+Wie Sie ein solches Widget für Ihr Fach von der KI bauen lassen, zeigt [Kapitel 8](07-widgets-colab.qmd).
+
 ## 3. Fall-Teaser: Backhaus Kaya
 
 Fünf Sekunden, eine Bäckerin allein in ihrer Backstube bei Nacht. Der Teaser eröffnet die Fallstudie zur Bäckerei aus Beispiel 2, die sich über mehrere Wochen durch das SSCM-Modul zieht: Prozessstrategie, CO₂-Bilanz, Qualität, Prognose, jedes Mal am selben Betrieb. Geschichten mit einer Hauptfigur und einem Konflikt bleiben besser im Gedächtnis als die gleiche Information in Listenform [@willingham2009]; das kurze Video gibt der Figur ein Gesicht, bevor die Zahlen kommen.
@@ -56,6 +58,8 @@ Google Colab ist ein Dokument im Browser, in dem Text und kleine Programmstücke
 
 Colab öffnet eine Kopie nur für Sie; Sie können nichts kaputt machen. Zellen führen Sie mit dem Play-Knopf links daneben aus.
 :::
+
+Wie ein solches Arbeitsblatt aufgebaut ist und wie Sie eines für Ihr Fach entwerfen lassen, zeigt ebenfalls [Kapitel 8](07-widgets-colab.qmd#colab).
 
 ## 5. Lern-Song: Every Forecast Is Wrong
 

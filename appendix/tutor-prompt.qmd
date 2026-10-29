@@ -166,6 +166,6 @@ Schritt.
 
 Prompt A bei jedem konkreten Render-Fehler — die kürzeste Antwort, die
 Sie wieder zum Arbeiten bringt. Prompt B vor jedem Push, wenn Sie sich
-beim eigenen YAML oder Code unsicher sind. Prompt C in der Phase
-„eigene Inhalte einbauen" am Workshop-Nachmittag, wenn die Technik
+beim eigenen YAML oder Code unsicher sind. Prompt C in Phase 3 beim
+Einbauen eigener Inhalte, wenn die Technik
 sitzt und es um das Didaktische geht.

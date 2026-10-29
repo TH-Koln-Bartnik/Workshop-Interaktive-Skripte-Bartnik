@@ -1,14 +1,29 @@
 project:
   type: book
   output-dir: docs
-  # Stand 28.10.2026 (Online-Auftakt): nur Startseite, Quick-Start und Galerie
-  # werden gerendert. Die übrigen Kapitel bleiben im Repo und werden vor dem
-  # Präsenz-Workshop aktualisiert und wieder freigeschaltet (siehe unten).
-  # Die Fassung vom Mai 2026 liegt unter _archiv/.
+  # Alle Kapitel, die zur Webseite werden. Wer ein Kapitel ergänzt, trägt es
+  # hier UND unten unter book: chapters: ein. Die Fassungen vom Mai und vom
+  # Online-Auftakt (28.10.2026) liegen unter _archiv/ bzw. in der Git-Historie.
   render:
     - index.qmd
-    - appendix/quickstart.qmd
+    - parts/00-vorbereitung.qmd
     - parts/galerie.qmd
+    - parts/01-didaktik.qmd
+    - parts/02-setup.qmd
+    - parts/03b-bilder-tabellen.qmd
+    - parts/03a-uebersicht.qmd
+    - parts/03c-style.qmd
+    - parts/04-charts.qmd
+    - parts/05-iframes-tutor.qmd
+    - parts/07-widgets-colab.qmd
+    - parts/08-github-pages.qmd
+    - parts/06-slides-optional.qmd
+    - parts/11-kurs-mit-agent.qmd
+    - parts/12-oeffentlich-intern.qmd
+    - appendix/troubleshooting.qmd
+    - appendix/tutor-prompt.qmd
+    - appendix/reviewer-prompt.qmd
+    - literatur.qmd
   resources:
     - "interactions/*"
     - "images/*"
@@ -18,10 +33,8 @@ project:
 
 book:
   title: "Interaktive Skripte mit KI erstellen"
-  subtitle: "Skript zum Workshop, TH Köln — Online-Auftakt am 28.10.2026"
+  subtitle: "Skript zum Workshop, TH Köln"
   author: "Prof. Dr. Roman Bartnik"
-  date: "2026-10-28"
-  date-format: "DD.MM.YYYY"
   search: true
   repo-url: "https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik"
   repo-actions: [edit, issue]
@@ -36,35 +49,38 @@ book:
     logo: images/th-koeln-logo.png
   chapters:
     - index.qmd
-    - appendix/quickstart.qmd
-    - parts/galerie.qmd
-    # --- vorübergehend ausgeblendet (Update vor dem Präsenz-Workshop) ---
-    # Zum Freischalten: Zeilen wieder einkommentieren und die Dateien
-    # zusätzlich oben unter project: render: eintragen.
-    # - part: "Phase 1 — RStudio + KI-Tutor (lokal)"
-    #   chapters:
-    #     - parts/01-didaktik.qmd
-    #     - parts/02-setup.qmd
-    #     - parts/03b-bilder-tabellen.qmd
-    # - part: "Phase 2 — Zotero hinzu (immer noch lokal)"
-    #   chapters:
-    #     - parts/03a-uebersicht.qmd
-    # - part: "Phase 3 — Kür plus Veröffentlichung"
-    #   chapters:
-    #     - parts/03c-style.qmd
-    #     - parts/04-charts.qmd
-    #     - parts/05-iframes-tutor.qmd
-    #     - parts/08-github-pages.qmd
-    #     - parts/06-slides-optional.qmd
-    # - part: "Quick-Starter und Anhänge"
-    #   chapters:
-    #     - appendix/quickstart.qmd
-    #     - appendix/troubleshooting.qmd
-    #     - appendix/tutor-prompt.qmd
-    #     - appendix/reviewer-prompt.qmd
-    #     - appendix/netlify.qmd   # TODO: neuer Anhang „Netlify als zweiter Weg ins Netz“
-    #                              # (Entwurf: _archiv/netlify-anhang-entwurf.qmd)
-    # - literatur.qmd
+    - part: "Teil 0 — Vorbereitung zu Hause"
+      chapters:
+        - parts/00-vorbereitung.qmd
+        - parts/galerie.qmd
+    - part: "Phase 1 — Schreiben und Rendern (lokal)"
+      chapters:
+        - parts/01-didaktik.qmd
+        - parts/02-setup.qmd
+        - parts/03b-bilder-tabellen.qmd
+    - part: "Phase 2 — Quellen mit Zotero"
+      chapters:
+        - parts/03a-uebersicht.qmd
+    - part: "Phase 3 — Stil, Interaktion, Veröffentlichung"
+      chapters:
+        - parts/03c-style.qmd
+        - parts/04-charts.qmd
+        - parts/05-iframes-tutor.qmd
+        - parts/07-widgets-colab.qmd
+        - parts/08-github-pages.qmd
+        - parts/06-slides-optional.qmd
+    - part: "Kür — nach dem Workshop"
+      chapters:
+        - parts/11-kurs-mit-agent.qmd
+        - parts/12-oeffentlich-intern.qmd
+    - part: "Anhänge"
+      chapters:
+        - appendix/troubleshooting.qmd
+        - appendix/tutor-prompt.qmd
+        - appendix/reviewer-prompt.qmd
+        # - appendix/netlify.qmd   # TODO: neuer Anhang „Netlify als zweiter Weg ins Netz“
+        #                          # (Entwurf: _archiv/netlify-anhang-entwurf.qmd)
+        - literatur.qmd
   page-footer:
     left: "© 2026 Roman Bartnik · CC BY-SA 4.0"
     right: "Erstellt mit [Quarto](https://quarto.org)"
