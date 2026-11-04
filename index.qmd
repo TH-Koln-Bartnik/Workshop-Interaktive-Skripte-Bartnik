@@ -1,26 +1,11 @@
 ---
 title: "Willkommen"
-subtitle: "Werkstatt-Skript zum Workshop, TH Köln"
+subtitle: "Werkstatt-Skript zum Workshop, hdw"
 ---
 
 ::: th-color-bar
 :::
 
-<<<<<<< HEAD
-::: {.callout-tip appearance="minimal"}
-## Auftakt-Folien zum Workshop
-
-[**Zur Intro-Slideshow →**](slides/intro-vorstellung.html){target="_blank"}
-
-Sechs Folien für den Einstieg: Titelfolie, Vorstellung & Motivation, Vorstellungsrunde, Drei Phasen, Workflow, „Los geht's" mit der Live-URL.
-:::
-
-# Was Sie heute bauen
-
-Ihr eigenes interaktives Skript live im Netz.
-
-=======
->>>>>>> 4ee90cba7e52a7df21f523ff45595995d2a51394
 ::: lernziel-box
 #### Ziele des Workshops
 
@@ -62,31 +47,12 @@ Der Workshop ist so geschnitten, dass Sie nicht alle Werkzeuge gleichzeitig lern
 Damit Sie nicht auch noch Inhalte erfinden müssen, nutzen wir ein durchgehendes Mini-Thema: eine **kurze Einführung ins wissenschaftliche Arbeiten**. Wählen Sie einen der drei Stränge, oder bringen Sie eigenes Material mit (siehe [Mitbringliste](parts/00-vorbereitung.qmd#mitbringen)).
 
 | Strang | Worum es geht | Quelle |
-<<<<<<< HEAD
-|----|----|----|
-| **A — Wissenschaftliche Einstellung** | Skepsis, Belege, intellektuelle Demut | [Bartnik & Palmer (2024), Kap. „Wissenschaftliche Einstellung"](https://publish.obsidian.md/wagp-calling-bullshit/wissenschaftliche+Einstellung){target="_blank"} |
-| **B — Recherche und Quellenqualität** | Suchen, prüfen, Quellen einordnen | [Bartnik & Palmer (2024), Kap. „Kritische Informationssuche"](https://publish.obsidian.md/wagp-calling-bullshit/Kritische+Informationssuche){target="_blank"} |
-| **C — Transparent schreiben** | Methoden offenlegen, Reproduzierbarkeit | [Bartnik & Palmer (2024), Kap. „Transparent schreiben"](https://publish.obsidian.md/wagp-calling-bullshit/Transparent+schreiben){target="_blank"} |
-
-Sie können natürlich auch eigene Inhalte einfügen. Die Wahl ist Geschmackssache. Die technischen Schritte sind in jedem Strang identisch.
-
-## Tagesablauf — drei Phasen
-
-Der Workshop ist so geschnitten, dass Sie nicht alle Werkzeuge gleichzeitig lernen müssen. Drei Phasen, in jeder kommt höchstens ein neues Werkzeug dazu.
-
-| Phase | Zeitrahmen | Inhalt |
-|----|----|----|
-| **Phase 1 — RStudio + KI-Tutor (lokal)** | Vormittag, ca. 09:00–12:30 (inkl. Pause) | Auftakt und Strangwahl, kurze didaktische Verortung, RStudio-Cockpit, erstes Quarto-Buch lokal anlegen und im Browser sehen, Bilder/Tabellen/Verweise einbauen |
-| **Phase 2 — Zotero hinzu (immer noch lokal)** | Früher Nachmittag, ca. 13:15–14:00 | Better-BibTeX, `references.bib`, automatische Zitate und Literaturliste |
-| **Phase 3 — Kür plus Veröffentlichung** | Nachmittag, ca. 14:00–16:00 | Auswahl aus TH-Köln-Stil, interaktiven Charts, iFrames + KI-Tutor; dann GitHub Pages live; Showcase |
-=======
 |------------------------|------------------------|------------------------|
 | **A — Wissenschaftliche Einstellung** | Skepsis, Belege, intellektuelle Demut | [Bartnik & Palmer (2024), Kap. „Wissenschaftliche Einstellung“](https://publish.obsidian.md/wagp-calling-bullshit/wissenschaftliche+Einstellung){target="_blank"} |
 | **B — Recherche und Quellenqualität** | Suchen, prüfen, Quellen einordnen | [Bartnik & Palmer (2024), Kap. „Kritische Informationssuche“](https://publish.obsidian.md/wagp-calling-bullshit/Kritische+Informationssuche){target="_blank"} |
 | **C — Transparent schreiben** | Methoden offenlegen, Reproduzierbarkeit | [Bartnik & Palmer (2024), Kap. „Transparent schreiben“](https://publish.obsidian.md/wagp-calling-bullshit/Transparent+schreiben){target="_blank"} |
 
 Die technischen Schritte sind in jedem Strang identisch.
->>>>>>> 4ee90cba7e52a7df21f523ff45595995d2a51394
 
 ## Wie Sie dieses Skript benutzen
 
@@ -106,33 +72,7 @@ Was Sie vor dem Workshop installieren und testen, und was Sie mitbringen.
 
 Was mit KI-Unterstützung möglich wird: Begriffsspiel, Prozesslinie, Fall-Teaser, Colab-Arbeitsblatt, Lern-Song, Vokabel-App und zwei Beispiele von Ethan Mollick.
 
-<<<<<<< HEAD
-| Ordner          | Was kommt rein?                                         |
-|-----------------|---------------------------------------------------------|
-| `parts/`        | Ihre Kapiteldateien (`.qmd`)                            |
-| `images/`       | Logos, Screenshots, statische Grafiken (PNG, JPG, SVG)  |
-| `interactions/` | HTML-Widgets ohne Backend (Lernspiel, Memory, Quiz)     |
-| `include/`      | Wiederverwendbare qmd-Schnipsel (per `{{< include >}}`) |
-| `data/`         | CSV/JSON-Daten für interaktive Charts                   |
-| `appendix/`     | Quickstart, Troubleshooting, Tutor-Prompt               |
-
-## Voraussetzungen
-
-Wenn Sie noch nichts installiert haben, springen Sie zuerst in den [Quick-Starter Guide](appendix/quickstart.qmd). Dort steht, welche Werkzeuge Sie pro Phase brauchen — Phase 1 fordert nur Quarto, R, RStudio und einen ChatGPT-Tutor-Tab; Zotero und GitHub kommen erst später.
-
-## Vorlage-Skript zum Download
-
-Wer den graduellen Aufbau überspringen oder absichern möchte, lädt sich die **fertige Vorlage** herunter — ein vollständiges Quarto-Buchprojekt mit Platzhaltern für alle wichtigen Elemente (Bilder mit Caption und Label, Tabellen mit Cross-Reference, interaktive Charts, iFrames, Zitate mit Hover-Tooltip, Tutor-Link). Im RStudio öffnen, Inhalte ersetzen, fertig.
-
-::: callout-tip
-## Fertige Vorlage holen
-
-[**vorlage-skript.zip herunterladen** →](downloads/vorlage-skript-v3.zip)
-
-Im ZIP enthalten: `_quarto.yml`, `_brand.yml`, `styles.scss`, `references.bib`, ein Beispielkapitel mit allen Element-Typen (Bild, Tabelle, Chart, iFrame, Zitat, Cross-Refs), ein leeres Kapitel zum Befüllen, ein Beispiel-Quiz als HTML-Widget, ein Beispieldatensatz und die Bibliographie. Eine `README.md` erklärt, was wo liegt und wie der Einstieg läuft.
-=======
 [Zur Galerie →](parts/galerie.qmd)
->>>>>>> 4ee90cba7e52a7df21f523ff45595995d2a51394
 :::
 
 ::: benchmark-card
@@ -153,12 +93,7 @@ Wenn bei der Installation oder im Workshop etwas hakt, beschreiben Sie dem Tutor
 
 ::: callout-note
 ## Transparenzhinweis zur KI-Nutzung
-<<<<<<< HEAD
-
-Bei der Erstellung dieses Skriptes wurde Claude 4.7/Cowork zur Aufwertung der Inhalte (speziell für Beispiele und Interaktionen), als Reviewer (speziell Sprach- und Konsistenzchecks) und zur Gestaltung des Layouts genutzt. Alle Inhalte wurden von Roman Bartnik geprüft, überarbeitet und verantwortet.
-=======
 Bei der Erstellung dieses Skriptes wurde Claude (Opus 4.7 und Opus 5.5, Claude Cowork) zur Aufwertung der Inhalte (speziell für Beispiele und Interaktionen), als Reviewer (speziell Sprach- und Konsistenzchecks) und zur Gestaltung des Layouts genutzt. Alle Inhalte wurden von Roman Bartnik geprüft, überarbeitet und verantwortet.
->>>>>>> 4ee90cba7e52a7df21f523ff45595995d2a51394
 :::
 
 ## Quellen

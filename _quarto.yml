@@ -33,7 +33,7 @@ project:
 
 book:
   title: "Interaktive Skripte mit KI erstellen"
-  subtitle: "Skript zum Workshop, TH Köln"
+  subtitle: "Skript zum Workshop, hdw"
   author: "Prof. Dr. Roman Bartnik"
   search: true
   repo-url: "https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik"
