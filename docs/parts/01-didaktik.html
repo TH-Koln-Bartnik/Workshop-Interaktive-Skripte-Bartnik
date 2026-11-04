@@ -370,6 +370,7 @@ div.csl-indent {
    
   <ul>
   <li><a href="#mach-mit-ihre-vorhersage" id="toc-mach-mit-ihre-vorhersage" class="nav-link active" data-scroll-target="#mach-mit-ihre-vorhersage">Mach mit — Ihre Vorhersage</a></li>
+  <li><a href="#mach-mit-die-übung-für-ihr-fach-umbauen" id="toc-mach-mit-die-übung-für-ihr-fach-umbauen" class="nav-link" data-scroll-target="#mach-mit-die-übung-für-ihr-fach-umbauen">Mach mit — die Übung für Ihr Fach umbauen</a></li>
   <li><a href="#drei-argumente-in-drei-sätzen" id="toc-drei-argumente-in-drei-sätzen" class="nav-link" data-scroll-target="#drei-argumente-in-drei-sätzen">Drei Argumente in drei Sätzen</a>
   <ul class="collapse">
   <li><a href="#generatives-lernen" id="toc-generatives-lernen" class="nav-link" data-scroll-target="#generatives-lernen">Generatives Lernen</a></li>
@@ -511,25 +512,62 @@ Tabelle&nbsp;4.2: Anteil der erinnerten Inhalte <span class="citation" data-cite
 </div>
 </div>
 </div>
+</section>
+<section id="mach-mit-die-übung-für-ihr-fach-umbauen" class="level2">
+<h2 class="anchored" data-anchor-id="mach-mit-die-übung-für-ihr-fach-umbauen">Mach mit — die Übung für Ihr Fach umbauen</h2>
+<p>Die Übung oben besteht aus reinem Quarto-Text, ohne HTML und ohne JavaScript. Die Auflösung steckt in einem aufklappbaren Kasten. Quarto nennt so einen Kasten <em>Callout</em>, und der Zusatz <code>collapse="true"</code> hält ihn beim Laden geschlossen. Wer ihn nicht öffnet, sieht die Lösung nicht. Diese Vorlage bauen Sie jetzt in zehn Minuten zu einer Vorhersagefrage aus Ihrem eigenen Fach um.</p>
+<ol type="1">
+<li><strong>Datei anlegen.</strong> In RStudio: <strong>File → New File → Quarto Document…</strong>, Titel „Vorhersage“, Format HTML. Entfernen Sie das Häkchen bei <em>Use visual markdown editor</em>, denn der visuelle Editor versteckt die Doppelpunkte, um die es hier geht. Speichern Sie die Datei als <code>vorhersage.qmd</code>. Den Beispielinhalt unter dem Kopf (dem Bereich zwischen den beiden <code>---</code>-Zeilen) löschen Sie.</li>
+<li><strong>Vorlage einfügen.</strong> Kopieren Sie den Block unten (Symbol oben rechts im Kasten) unter den Kopf.</li>
+<li><strong>Anpassen.</strong> Ersetzen Sie alles in eckigen Klammern. Wählen Sie eine Frage, bei der Ihre Studierenden erfahrungsgemäß falsch raten: eine Messung, einen Effekt oder eine Faustregel aus Ihrer Lehre, deren Ergebnis überrascht. Die Auflösung nennt die richtige Antwort und in einem Satz, warum die Intuition täuscht.</li>
+<li><strong>Rendern.</strong> Klicken Sie auf <strong>Render</strong> oder drücken Sie <strong>Strg+Shift+K</strong>. Prüfen Sie in der Vorschau: Ist der Kasten geschlossen? Öffnet er sich per Klick?</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ihre Vorhersage</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Situation aus Ihrem Fach in zwei bis drei Sätzen.</span><span class="co">]</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Notieren Sie Ihre Antwort, **bevor** Sie die Auflösung öffnen:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">Frage 1</span><span class="co">]</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span><span class="co">[</span><span class="ot">Frage 2</span><span class="co">]</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Auflösung (erst nach Ihrer Vorhersage öffnen)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Die richtige Antwort.</span><span class="co">] [Warum die Intuition hier täuscht.]</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tipp</span>So ist diese Übung gebaut
+<span class="screen-reader-only">Tipp</span>Variieren Sie
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Die Übung besteht aus reinem Quarto-Text, ohne HTML und ohne JavaScript. Die Auflösung ist ein aufklappbarer Kasten, ein sogenannter <em>Callout</em> mit dem Zusatz <code>collapse="true"</code>. Wer den Kasten nicht öffnet, sieht die Lösung nicht. In der Datei <code>parts/01-didaktik.qmd</code> steht dafür nur:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">## Auflösung (erst nach Ihrer Vorhersage öffnen)</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Hier steht die Lösung.</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Dieses Muster können Sie für jede Vorhersage- oder Abruffrage in Ihrem eigenen Skript übernehmen: Frage stellen, Antwort notieren lassen, Auflösung zuklappen.</p>
+<ol type="1">
+<li><strong>Farbe wechseln:</strong> Ersetzen Sie <code>callout-note</code> durch <code>callout-warning</code> oder <code>callout-tip</code> und rendern Sie neu. Welche Farbe passt zu einer Auflösung, welche zu einem Hinweis?</li>
+<li><strong>Zuklappen abschalten:</strong> Löschen Sie <code>collapse="true"</code> und rendern Sie. Die Lösung steht jetzt offen neben der Frage. Was bedeutet das für den Abruf, um den es in dieser Übung geht?</li>
+<li><strong>Absichtlich kaputt machen:</strong> Löschen Sie beim schließenden <code>:::</code> einen Doppelpunkt, schreiben Sie darunter einen weiteren Absatz und rendern Sie. Wo landet der neue Absatz? Danach den Doppelpunkt wieder einsetzen.</li>
+<li><strong>Mit Kollegin tauschen:</strong> Lassen Sie Ihre Sitznachbarin Ihre Frage beantworten, bevor sie den Kasten öffnet. Lag sie falsch? Dann haben Sie eine gute Vorhersagefrage gefunden.</li>
+</ol>
 </div>
+</div>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warnung</span>Was, wenn …
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Statt eines Kastens erscheinen die Doppelpunkte als Text?</strong> → Vor <code>:::</code> und nach <code>:::</code> fehlt eine Leerzeile. Quarto erkennt den Kasten nur, wenn er durch leere Zeilen vom übrigen Text getrennt ist.</li>
+<li><strong>Alles nach der Auflösung ist verschwunden?</strong> → Das schließende <code>:::</code> fehlt oder hat nur zwei Doppelpunkte. Quarto steckt dann den ganzen Rest des Dokuments in den zugeklappten Kasten. Öffnen Sie ihn, und Sie finden Ihren Text dort.</li>
+<li><strong>Sie sehen Knöpfe statt Doppelpunkte?</strong> → Der visuelle Editor ist an. Oben links im Editor auf <strong>Source</strong> umschalten.</li>
+</ul>
 </div>
 </div>
 </section>

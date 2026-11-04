@@ -44,18 +44,46 @@ Nach fünf Minuten gewinnt das Lesen, nach einer Woche dreht sich das Bild. Grup
 Sie haben es gerade selbst angewendet: Eine Vorhersage aus dem eigenen Kopf, bevor die Antwort kommt, ist ein kleiner Abruf.
 :::
 
-::: {.callout-tip collapse="true"}
-## So ist diese Übung gebaut
-Die Übung besteht aus reinem Quarto-Text, ohne HTML und ohne JavaScript. Die Auflösung ist ein aufklappbarer Kasten, ein sogenannter *Callout* mit dem Zusatz `collapse="true"`. Wer den Kasten nicht öffnet, sieht die Lösung nicht. In der Datei `parts/01-didaktik.qmd` steht dafür nur:
+## Mach mit — die Übung für Ihr Fach umbauen
+
+Die Übung oben besteht aus reinem Quarto-Text, ohne HTML und ohne JavaScript. Die Auflösung steckt in einem aufklappbaren Kasten. Quarto nennt so einen Kasten *Callout*, und der Zusatz `collapse="true"` hält ihn beim Laden geschlossen. Wer ihn nicht öffnet, sieht die Lösung nicht. Diese Vorlage bauen Sie jetzt in zehn Minuten zu einer Vorhersagefrage aus Ihrem eigenen Fach um.
+
+1. **Datei anlegen.** In RStudio: **File → New File → Quarto Document…**, Titel „Vorhersage“, Format HTML. Entfernen Sie das Häkchen bei *Use visual markdown editor*, denn der visuelle Editor versteckt die Doppelpunkte, um die es hier geht. Speichern Sie die Datei als `vorhersage.qmd`. Den Beispielinhalt unter dem Kopf (dem Bereich zwischen den beiden `---`-Zeilen) löschen Sie.
+2. **Vorlage einfügen.** Kopieren Sie den Block unten (Symbol oben rechts im Kasten) unter den Kopf.
+3. **Anpassen.** Ersetzen Sie alles in eckigen Klammern. Wählen Sie eine Frage, bei der Ihre Studierenden erfahrungsgemäß falsch raten: eine Messung, einen Effekt oder eine Faustregel aus Ihrer Lehre, deren Ergebnis überrascht. Die Auflösung nennt die richtige Antwort und in einem Satz, warum die Intuition täuscht.
+4. **Rendern.** Klicken Sie auf **Render** oder drücken Sie **Strg+Shift+K**. Prüfen Sie in der Vorschau: Ist der Kasten geschlossen? Öffnet er sich per Klick?
 
 ````markdown
+## Ihre Vorhersage
+
+[Situation aus Ihrem Fach in zwei bis drei Sätzen.]
+
+Notieren Sie Ihre Antwort, **bevor** Sie die Auflösung öffnen:
+
+1. [Frage 1]
+2. [Frage 2]
+
 ::: {.callout-note collapse="true"}
 ## Auflösung (erst nach Ihrer Vorhersage öffnen)
-Hier steht die Lösung.
+[Die richtige Antwort.] [Warum die Intuition hier täuscht.]
 :::
 ````
 
-Dieses Muster können Sie für jede Vorhersage- oder Abruffrage in Ihrem eigenen Skript übernehmen: Frage stellen, Antwort notieren lassen, Auflösung zuklappen.
+::: {.callout-tip}
+## Variieren Sie
+
+1. **Farbe wechseln:** Ersetzen Sie `callout-note` durch `callout-warning` oder `callout-tip` und rendern Sie neu. Welche Farbe passt zu einer Auflösung, welche zu einem Hinweis?
+2. **Zuklappen abschalten:** Löschen Sie `collapse="true"` und rendern Sie. Die Lösung steht jetzt offen neben der Frage. Was bedeutet das für den Abruf, um den es in dieser Übung geht?
+3. **Absichtlich kaputt machen:** Löschen Sie beim schließenden `:::` einen Doppelpunkt, schreiben Sie darunter einen weiteren Absatz und rendern Sie. Wo landet der neue Absatz? Danach den Doppelpunkt wieder einsetzen.
+4. **Mit Kollegin tauschen:** Lassen Sie Ihre Sitznachbarin Ihre Frage beantworten, bevor sie den Kasten öffnet. Lag sie falsch? Dann haben Sie eine gute Vorhersagefrage gefunden.
+:::
+
+::: {.callout-warning}
+## Was, wenn …
+
+- **Statt eines Kastens erscheinen die Doppelpunkte als Text?** → Vor `:::` und nach `:::` fehlt eine Leerzeile. Quarto erkennt den Kasten nur, wenn er durch leere Zeilen vom übrigen Text getrennt ist.
+- **Alles nach der Auflösung ist verschwunden?** → Das schließende `:::` fehlt oder hat nur zwei Doppelpunkte. Quarto steckt dann den ganzen Rest des Dokuments in den zugeklappten Kasten. Öffnen Sie ihn, und Sie finden Ihren Text dort.
+- **Sie sehen Knöpfe statt Doppelpunkte?** → Der visuelle Editor ist an. Oben links im Editor auf **Source** umschalten.
 :::
 
 ## Drei Argumente in drei Sätzen
