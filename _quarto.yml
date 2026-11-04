@@ -20,6 +20,7 @@ project:
     - parts/06-slides-optional.qmd
     - parts/11-kurs-mit-agent.qmd
     - parts/12-oeffentlich-intern.qmd
+    - parts/13-lms-einbinden.qmd
     - appendix/troubleshooting.qmd
     - appendix/tutor-prompt.qmd
     - appendix/reviewer-prompt.qmd
@@ -73,6 +74,7 @@ book:
       chapters:
         - parts/11-kurs-mit-agent.qmd
         - parts/12-oeffentlich-intern.qmd
+        - parts/13-lms-einbinden.qmd
     - part: "Anhänge"
       chapters:
         - appendix/troubleshooting.qmd

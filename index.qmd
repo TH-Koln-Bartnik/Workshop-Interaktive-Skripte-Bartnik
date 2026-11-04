@@ -46,7 +46,7 @@ Der Workshop ist so geschnitten, dass Sie nicht alle Werkzeuge gleichzeitig lern
 | **Phase 1 — Schreiben und Rendern (lokal)** | ca. 3 h | Setup-Check (15 min), didaktische Verortung, erstes Quarto-Buch im Browser, Bilder, Tabellen und Verweise | 1–3 |
 | **Phase 2 — Quellen mit Zotero** | ca. 45 min | `references.bib`, automatische Zitate und Literaturliste | 4 |
 | **Phase 3 — Stil, Interaktion, Veröffentlichung** | ca. 2,5 h | Auswahl aus TH-Köln-Stil, interaktiven Diagrammen, Spielen und Tutor, Widgets und Colab; danach GitHub Pages live und kurzer Rundgang durch die Ergebnisse | 5–9, 10 optional |
-| **Kür — nach dem Workshop** | nach Bedarf | einen Kurs mit einem KI-Agenten bauen; öffentliches und internes Material trennen | 11–12 |
+| **Kür — nach dem Workshop** | nach Bedarf | einen Kurs mit einem KI-Agenten bauen; öffentliches und internes Material trennen; das Skript in ILIAS oder Moodle einbinden | 11–13 |
 
 ## Wählen Sie Ihren Beispielstrang
 

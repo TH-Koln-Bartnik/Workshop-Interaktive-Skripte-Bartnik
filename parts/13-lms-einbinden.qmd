@@ -1,0 +1,162 @@
+---
+title: "13 — Primer: Das Skript in ILIAS und Moodle einbinden"
+subtitle: "Kür für die Zeit nach dem Workshop"
+---
+
+::: {.lernziel-box}
+#### Was Sie nach diesem Kapitel können
+
+- die **vier Wege** benennen, auf denen ein Quarto-Skript in ein Lernmanagementsystem kommt (verlinken, einbetten, hochladen, verpacken), und für Ihren Kurs den passenden wählen,
+- ein gerendertes Skript oder ein einzelnes Lernspiel als **HTML-Paket** in ILIAS oder Moodle hochladen,
+- Skript und Kursraum **didaktisch verzahnen**: Das Skript erklärt und lässt üben, das LMS organisiert, prüft und sammelt,
+- die typischen Stolpersteine vorab erkennen: gesperrte iFrames, veraltete Kopien, Datenschutz und fehlende Fortschrittsdaten.
+:::
+
+## Worum es im Kern geht
+
+Ein **Lernmanagementsystem** (LMS) ist der digitale Kursraum Ihrer Hochschule hinter dem Login: Es kennt die Teilnehmenden, verwaltet Termine und Abgaben, stellt Tests bereit und hält Foren offen. An vielen Hochschulen ist das ILIAS (manchmal unter eigenem Namen, an der TH Köln etwa als ILU), an anderen Moodle. Ihr Quarto-Skript dagegen ist eine öffentliche Webseite, die niemanden kennt: Sie zeigt allen dasselbe und merkt sich nichts.
+
+Das Bild dazu liefert die Bibliothek. Das Skript ist das Lehrbuch im Freihandregal, für alle greifbar und immer in der neuesten Auflage. Der LMS-Kurs ist der Semesterapparat: Er steht hinter der Theke, nur Ihre Teilnehmenden kommen heran, und er enthält Hinweise auf das Buch, ausgewählte Kopien und die Aufgabenblätter. Beide zusammen sind stärker als jedes für sich, weil jedes das kann, was dem anderen fehlt. Das Skript erklärt, zeigt und lässt ausprobieren; das LMS weiß, **wer** gerade lernt, und kann deshalb freischalten, prüfen, bewerten und Rückmeldungen sammeln.
+
+::: {.callout-note}
+## Woher die Namen kommen — Eselsbrücken zum Merken
+
+**Primer** kommt vom mittellateinischen *primarius*, „der erste, vorderste“. Im Englischen hieß so zuerst das Gebetbuch für Laien, dann die Lesefibel, mit der Kinder lesen lernten. Ein Primer ist also das erste Buch zu einer Sache, nicht das letzte.
+
+**ILIAS** steht für „Integriertes Lern-, Informations- und Arbeitskooperations-System“; es entstand 1997/98 an der Wirtschafts- und Sozialwissenschaftlichen Fakultät der Universität zu Köln [@hspvilias]. Der Anklang an Homers Epos hilft beim Merken: Eine *Ilias* erzählt eine lange Belagerung, und manche Semester fühlen sich genauso an.
+
+**Moodle** war ursprünglich die Abkürzung für *Modular Object-Oriented Dynamic Learning Environment*. Zugleich ist *to moodle* ein englisches Verb für gemächliches, neugieriges Herumstöbern, bei dem man tut, was einem gerade einfällt, und das oft zu Einsichten führt [@moodleabout]. Ein schöneres Leitbild für ein interaktives Skript gibt es kaum.
+:::
+
+## Vier Wege vom Skript in den Kursraum
+
+Vier Wege führen vom Skript in den Kursraum, und sie unterscheiden sich wie ein **Wegweiser**, ein **Schaufenster**, eine **Kopie im Semesterapparat** und ein **Paket mit Laufzettel**.
+
+| Weg | ILIAS | Moodle | Aufwand | Immer aktuell? | Hinter Login? | Fortschritt? |
+|---|---|---|---|---|---|---|
+| **1 Verlinken** | Weblink | Link (URL) | Minuten | ja | nein | „aufgerufen“ |
+| **2 Einbetten** | gesperrt ab ILIAS 8 | Link mit Anzeige „Einbetten“ | Minuten | ja | nein | „aufgerufen“ |
+| **3 Hochladen** | Lernmodul HTML | Datei (ZIP) oder IMS-Content | ¼ Stunde | nein | ja | „aufgerufen“ |
+| **4 Verpacken** | Lernmodul SCORM | Lernpaket (SCORM) | 1 Stunde + | nein | ja | „abgeschlossen“ |
+
+: Die vier Wege im Überblick. „Fortschritt?“ meint, was das LMS über die Bearbeitung erfährt. {tbl-colwidths="[15,16,19,12,12,12,14]"}
+
+### Weg 1 — Verlinken: der Wegweiser
+
+Der einfachste Weg ist ein Link. In ILIAS legen Sie dafür einen **Weblink** an, in Moodle die Aktivität **Link** (in der englischen Fassung *URL*). Weil das Skript auf GitHub Pages bleibt, sehen die Lernenden immer die aktuelle Fassung; Sie pflegen nur eine Quelle.
+
+Der Trick liegt in der Genauigkeit des Ziels. Quarto vergibt jeder Überschrift einen **Anker**, eine Sprungmarke, die an die Adresse angehängt wird. Ein Link auf `…/parts/04-charts.html#worum-es-im-kern-geht` führt nicht zum Kapitelanfang, sondern direkt zu diesem Abschnitt. Den Anker finden Sie, wenn Sie im Skript mit der Maus über eine Überschrift fahren und auf das kleine Ankersymbol daneben klicken: Die Adresszeile zeigt dann die vollständige Sprungadresse.
+
+Quarto bildet den Anker aus dem Wortlaut der Überschrift. Ändern Sie die Überschrift, ändert sich der Anker, und jeder Link im LMS läuft ins Leere. Für Abschnitte, auf die Sie aus dem LMS verweisen, vergeben Sie deshalb einen festen, kurzen Anker in geschweiften Klammern:
+
+```markdown
+## Mach mit — eigenes Observable-Diagramm {#uebung-observable}
+```
+
+Die Adresse lautet dann dauerhaft `…/parts/04-charts.html#uebung-observable`, gleich wie Sie die Überschrift später formulieren.
+
+In Moodle legt die Anzeigeoption fest, wie der Link sich öffnet: automatisch, eingebettet in die Moodle-Seite, im ganzen Fenster oder als Pop-up [@moodleurl]. Zusätzlich lässt sich ein Abschlusskriterium wie „Link aufgerufen“ setzen, sofern Ihre Hochschule den Aktivitätsabschluss freigeschaltet hat [@moodleurlcompletion]. Mehr als „aufgerufen“ erfährt das LMS so aber nicht.
+
+### Weg 2 — Einbetten: das Schaufenster
+
+Ein **iFrame** (*inline frame*) ist ein Fenster in einer Webseite, durch das man auf eine andere Webseite schaut; Sie kennen ihn aus Kapitel 7. Technisch erlaubt GitHub Pages das Einbetten: Die Seiten senden keine Kopfzeile, die das Anzeigen in fremden Rahmen verbietet (geprüft am 04.11.2026 an diesem Skript). Ob es klappt, entscheidet deshalb das LMS.
+
+In **Moodle** wählen Sie bei der Aktivität „Link“ die Anzeige **Einbetten**. Dann zeigt Moodle Kopfzeile, Navigation und Beschreibung und darunter das Skript [@moodleurl]. Alternativ lässt sich iFrame-Code in ein Textfeld oder eine Textseite schreiben. Ob Moodle ihn beim Speichern stehen lässt, hängt von den Filtereinstellungen ab, die nur die Administration ändern kann; die Einstellung heißt „Vertrauenswürdige Inhalte aktivieren“ (*enabletrusttext*) [@moodletrackeriframe].
+
+In **ILIAS** ist dieser Weg seit Version 8 versperrt: Der Seiteneditor wertet HTML-, JavaScript- und iFrame-Code nicht mehr aus, sondern zeigt ihn als Text an [@freiburgilias8]. Das betrifft Kurs- und Gruppenseiten ebenso wie Lernmodul- und Inhaltsseiten. In ILIAS nehmen Sie deshalb Weg 1 oder Weg 3.
+
+### Weg 3 — Hochladen: die Kopie im Semesterapparat
+
+Hier wandert das gerenderte Skript selbst ins LMS. Was Quarto in den Ordner `docs/` schreibt, ist eine vollständige Webseite aus HTML-, CSS- und JavaScript-Dateien, die ohne Server-Programm läuft. Jedes LMS, das HTML-Pakete annimmt, kann sie anzeigen.
+
+In **ILIAS** legen Sie ein **Lernmodul HTML** an, laden den Inhalt von `docs/` als ZIP-Datei hoch, entpacken ihn dort und bestimmen `index.html` als Startdatei. Damit alle Seiten einander finden, müssen die Verweise relativ sein, also `bilder/foo.jpg` statt einer vollständigen Webadresse [@bernilias]; Quarto erzeugt solche relativen Verweise von selbst. In **Moodle** laden Sie dieselbe ZIP-Datei als **Datei** hoch, entpacken sie und setzen `index.html` als Hauptdatei; wichtig ist, dass die Hauptdatei in der ZIP-Datei nicht in einem Unterordner liegt [@zhawmoodlezip]. Moodle kennt außerdem das **IMS-Content-Paket**, das eine eigene Navigation mitbringt, aber eine Manifestdatei verlangt [@moodleims].
+
+Für einzelne Seiten gibt es eine Abkürzung. Mit `embed-resources: true` schreibt Quarto alle Bilder, Stile und Skripte in **eine einzige HTML-Datei** [@quartopublishing2026]. Ihre Lernspiele aus dem Ordner `interactions/` sind ohnehin schon solche Einzeldateien. Eine einzelne Datei laden Sie in Moodle als „Datei“ hoch; in ILIAS packen Sie sie in ein Lernmodul HTML, damit sie angezeigt und nicht nur heruntergeladen wird.
+
+Der Preis dieses Weges ist die **Aktualität**: Die Kopie im LMS altert, sobald Sie das Skript ändern. Der Gewinn ist der **Login**: Was im LMS liegt, sehen nur Ihre Teilnehmenden. Damit löst Weg 3 ein Problem aus Kapitel 12, denn Lösungen und Musterfassungen, die nicht auf GitHub Pages gehören, können als HTML-Lernmodul hinter dem Login stehen und zu einem festgelegten Zeitpunkt freigeschaltet werden.
+
+### Weg 4 — Verpacken: das Paket mit Laufzettel
+
+**SCORM** (*Sharable Content Object Reference Model*) ist ein Standard für Lernpakete: eine ZIP-Datei mit einer Manifestdatei `imsmanifest.xml`, die dem LMS sagt, was im Paket steckt und wo es beginnt. ILIAS und Moodle importieren solche Pakete [@hsu2025lms]. Der Vorteil gegenüber Weg 3 ist der Laufzettel: Das LMS kann vermerken, ob jemand das Paket geöffnet und abgeschlossen hat.
+
+Quarto hat keinen SCORM-Export. Das freie Werkzeug **simple-scorm-packager** macht aus einem Ordner wie `docs/` ein SCORM-1.2- oder SCORM-2004-Paket samt Manifest [@simplescormpackager]. Es braucht Node.js, eine Laufzeitumgebung für JavaScript auf dem eigenen Rechner. Rechnen Sie aber mit einer Ernüchterung: Ein so verpacktes Skript meldet nur „geöffnet“ oder „abgeschlossen“. Die Ergebnisse Ihrer Quizze und Lernspiele erreichen das LMS erst, wenn jedes Widget mit zusätzlichem JavaScript die SCORM-Schnittstelle anspricht. Für die meisten Kurse ist ein kurzer LMS-Test hinter dem Skript (siehe Idee 2 unten) der bessere Laufzettel.
+
+::: {.callout-tip}
+## Faustregel
+Öffentliches Skript **verlinken**, Internes **hochladen**, Leistung **im LMS prüfen**. Verpacken lohnt sich erst, wenn Ihre Hochschule einen Bearbeitungsnachweis pro Lerneinheit verlangt.
+:::
+
+## Acht Ideen für die didaktische Verzahnung
+
+Technisch ist die Einbindung in einer Stunde erledigt. Der eigentliche Gewinn entsteht, wenn Skript und Kursraum einander zuarbeiten, so wie Lehrbuch und Übungsgruppe. Die folgenden Ideen nutzen jeweils die Stärke beider Seiten.
+
+**1 — Der Wochenpfad.** Jeder Kursabschnitt im LMS folgt demselben Dreischritt: Link auf genau den Skriptabschnitt der Woche, ein kurzer Test mit drei bis fünf Fragen, eine Forumsfrage zum Weiterdenken. Die gleichbleibende Form senkt die Orientierungslast, weil die Lernenden nach zwei Wochen wissen, was sie erwartet [@mayer2021].
+
+**2 — Feedback mit Rücksprung.** In ILIAS- und Moodle-Tests lässt sich zu jeder Antwort ein Feedbacktext hinterlegen. Setzen Sie dort einen Ankerlink auf die Stelle im Skript, die den Fehler erklärt, etwa „Nicht ganz. Schauen Sie sich das zweite Beispiel im Abschnitt zu Plotly noch einmal an“, verlinkt auf genau diese Stelle. Abrufübungen wirken am stärksten, wenn auf den Abruf eine Rückmeldung folgt [@roediger2006; @karpicke2011]; der Ankerlink macht aus der Rückmeldung einen Weg zurück zur Erklärung.
+
+**3 — Freischalten statt fluten.** Moodle kann Aktivitäten an Voraussetzungen knüpfen [@moodleurlcompletion], ILIAS kennt dafür Vorbedingungen. Der Link zum nächsten Kapitel erscheint dann erst, wenn der Kurztest zum vorigen bestanden ist. Das Skript bleibt öffentlich und vollständig; das LMS dosiert nur den Weg dorthin.
+
+**4 — Bühne und Hinterbühne.** Das Skript mit Aufgaben steht auf GitHub Pages, die Lösungen, Solved-Notebooks und Musterfassungen liegen als HTML-Lernmodul im LMS und werden nach der Sitzung sichtbar geschaltet. So setzen Sie die Trennung aus Kapitel 12 um, ohne ein zweites Repository pflegen zu müssen.
+
+**5 — Erst vorhersagen, dann ausprobieren.** Vor einem interaktiven Diagramm oder einer PhET-Simulation stellen Sie im LMS-Forum die Frage: „Was passiert, wenn …?“ Erst nach dem eigenen Beitrag öffnen die Lernenden das Skript und prüfen ihre Vorhersage. In Moodle lässt sich ein Forum so einstellen, dass man fremde Beiträge erst nach dem eigenen sieht (Forumstyp „Frage und Antwort“).
+
+**6 — Studierende bauen Widgets.** Lassen Sie Studierende mit KI ein eigenes kleines Lernspiel als einzelne HTML-Datei bauen, nach dem Muster aus Kapitel 7. Die Abgabe läuft über die Aufgabe in Moodle oder die Übung in ILIAS, das Gegenlesen über die gegenseitige Beurteilung. Die besten Widgets wandern mit Namensnennung ins nächste Semester des Skripts.
+
+**7 — Das Exit-Ticket.** Am Ende jedes Kapitels steht im Skript ein Link auf eine Umfrage im LMS mit einer einzigen Frage: „Was ist Ihnen heute am unklarsten geblieben?“ Die Antworten sind anonym möglich und bestimmen den Einstieg der nächsten Präsenzsitzung.
+
+**8 — Die Notfallkopie.** Vor Prüfungen legen Sie das Skript zusätzlich als hochgeladene Fassung ins LMS, mit Datum im Titel. Fällt GitHub aus oder ändern Sie kurz vor der Klausur noch etwas, haben alle eine verbindliche Fassung, auf die sich Prüfungsfragen beziehen dürfen.
+
+## Datenschutz, Aktualität, Barrierefreiheit
+
+Drei Fragen sollten Sie vor dem Semester beantworten, nicht währenddessen.
+
+**Datenschutz.** Beim Aufruf einer GitHub-Pages-Seite speichert GitHub die IP-Adresse der Besucher aus Sicherheitsgründen, gleich ob sie bei GitHub angemeldet sind oder nicht [@githubpages2026]. Ein Satz dazu im LMS-Kurs („Das Skript liegt bei GitHub; beim Aufruf fallen dort Verbindungsdaten an“) schafft Transparenz. Wer das vermeiden muss, nimmt Weg 3: Dann liefert der Server Ihrer Hochschule das Skript aus. Klären Sie im Zweifel mit der Datenschutzstelle Ihrer Hochschule, welcher Weg für Pflichtmaterial vorgesehen ist.
+
+**Aktualität.** Jede hochgeladene Kopie ist ein Schnappschuss. Schreiben Sie das Renderdatum sichtbar ins Skript, etwa mit `date: today` im Kopf der `index.qmd`, und in den Titel des LMS-Objekts. Dann sieht jeder auf einen Blick, ob Kopie und Original übereinstimmen.
+
+**Barrierefreiheit.** Ein iFrame braucht ein `title`-Attribut, damit Screenreader ansagen können, was darin steckt. Bieten Sie neben jeder Einbettung einen Link „in eigenem Fenster öffnen“ an; auf kleinen Bildschirmen ist ein Rahmen im Rahmen oft zu eng.
+
+## Mach mit — ein Kapitel in den Kursraum bringen
+
+Rechnen Sie mit zwanzig Minuten. Sie brauchen einen Testkurs in ILIAS oder Moodle, in dem Sie Objekte anlegen dürfen; viele Hochschulen stellen dafür eine Spielwiese bereit.
+
+1. **Wegweiser setzen.** Öffnen Sie Ihr veröffentlichtes Skript, klicken Sie neben der Überschrift einer Übung auf das Kettensymbol und kopieren Sie die Adresse. Legen Sie im Testkurs einen Weblink (ILIAS) oder einen Link (Moodle) mit dieser Adresse an.
+2. **Ein Widget hochladen.** Nehmen Sie eine Datei aus Ihrem Ordner `interactions/` und laden Sie sie hoch: in Moodle als Datei, in ILIAS als ZIP-Datei in ein neues Lernmodul HTML.
+3. **Das ganze Skript hochladen.** Rendern Sie das Skript, öffnen Sie den Ordner `docs/` im Datei-Explorer, markieren Sie **den Inhalt** des Ordners (nicht den Ordner selbst) und wählen Sie per Rechtsklick *In ZIP-Datei komprimieren* (Windows 11) bzw. *Senden an → ZIP-komprimierter Ordner*. Laden Sie die ZIP-Datei als Lernmodul HTML (ILIAS) oder als Datei mit Hauptdatei `index.html` (Moodle) hoch.
+4. **Mit den Augen der Lernenden prüfen.** Wechseln Sie in die Ansicht der Teilnehmenden: in ILIAS über die Mitgliederansicht, in Moodle über *Rolle wechseln → Studierende*. Funktionieren Navigation, Bilder, interaktive Diagramme und die Suche?
+5. **Eine Rücksprung-Frage bauen.** Legen Sie im Testkurs eine einzige Testfrage an und hinterlegen Sie im Feedback zur falschen Antwort den Ankerlink aus Schritt 1.
+
+Wer das ZIP lieber aus R heraus erzeugt, nimmt das Paket `zip`; die Zeile packt den Inhalt von `docs/` so, dass `index.html` oben liegt:
+
+```r
+# einmalig: install.packages("zip")
+zip::zip("skript-fuer-lms.zip", files = list.files("docs", recursive = TRUE), root = "docs")
+```
+
+::: {.callout-warning}
+## Was, wenn …
+
+- **ILIAS zeigt meinen iFrame-Code als Text an?** → Das ist seit ILIAS 8 so gewollt. Nehmen Sie einen Weblink oder ein Lernmodul HTML.
+- **Moodle löscht den iFrame beim Speichern?** → Die Filter Ihrer Moodle-Installation entfernen ihn. Nehmen Sie die Aktivität „Link“ mit der Anzeige „Einbetten“ oder fragen Sie die Administration nach „Vertrauenswürdigen Inhalten“.
+- **Das hochgeladene Skript zeigt eine leere Seite oder keine Bilder?** → Meist liegt `index.html` in der ZIP-Datei in einem Unterordner, oder die Startdatei ist nicht gesetzt. ZIP aus dem Inhalt von `docs/` neu packen, Startdatei auf `index.html` setzen.
+- **Das LMS lädt die HTML-Datei herunter, statt sie anzuzeigen?** → In ILIAS ein Lernmodul HTML statt eines Datei-Objekts verwenden; in Moodle die Anzeige der Datei auf „Öffnen“ oder „Einbetten“ stellen.
+- **Interaktive Diagramme oder die Suche laufen im LMS nicht?** → Manche Installationen beschränken JavaScript in hochgeladenen Paketen. Dann bleibt Weg 1: Das Original auf GitHub Pages läuft immer.
+- **Die Kopie im LMS ist veraltet?** → Neues ZIP hochladen und im ILIAS-Lernmodul bzw. in der Moodle-Datei ersetzen; das Renderdatum im Titel zeigt, ob es geklappt hat.
+- **Ich brauche Noten aus den Lernspielen im LMS?** → Ohne SCORM-Programmierung geht das nicht. Bilden Sie die Prüfung als LMS-Test nach und lassen Sie die Lernspiele zum Üben im Skript.
+:::
+
+## Tutor
+
+::: {.callout-tip}
+## Tutor öffnen
+[Tutor „Interaktive Skripte“ →](https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte){target="_blank"}
+
+Vorschlag-Prompt für dieses Kapitel:
+
+> Meine Hochschule nutzt [ILIAS / Moodle, Version falls bekannt]. Mein Quarto-Skript liegt auf GitHub Pages unter [Adresse]. Ich unterrichte [Kurs, Zahl der Teilnehmenden] und möchte [Ziel, z. B. Lösungen erst nach der Sitzung freigeben / Bearbeitung nachweisen / Feedback sammeln]. Erkläre mir zuerst in zwei Sätzen ohne Fachjargon, welcher der vier Wege (verlinken, einbetten, hochladen, verpacken) zu meinem Ziel passt und warum. Gib mir dann die Klickfolge im LMS Schritt für Schritt und nenne die zwei Stolpersteine, an denen es am wahrscheinlichsten hakt.
+:::
+
+# Literatur {.unnumbered}
+
+::: {#refs}
+:::

@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>13 — Primer: Das Skript in ILIAS und Moodle einbinden – Interaktive Skripte mit KI erstellen</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../appendix/troubleshooting.html" rel="next">
+<link href="../parts/12-oeffentlich-intern.html" rel="prev">
+<link href="../images/th-koeln-logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-871b9b02520cb5272a04c8be3530b6f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-871b9b02520cb5272a04c8be3530b6f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-871b9b02520cb5272a04c8be3530b6f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/11-kurs-mit-agent.html">Kür — nach dem Workshop</a></li><li class="breadcrumb-item"><a href="../parts/13-lms-einbinden.html"><span class="chapter-title">13 — Primer: Das Skript in ILIAS und Moodle einbinden</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Interaktive Skripte mit KI erstellen</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Willkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Teil 0 — Vorbereitung zu Hause</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/00-vorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">0 — Quick-Start: Vorbereitung zu Hause</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/galerie.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Galerie</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 1 — Schreiben und Rendern (lokal)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/01-didaktik.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1 — Warum interaktiv?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/02-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2 — RStudio + erstes Skript (lokal)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/03b-bilder-tabellen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3 — Bilder, Tabellen und Verweise</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 2 — Quellen mit Zotero</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/03a-uebersicht.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4 — Quellen mit Zotero</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 3 — Stil, Interaktion, Veröffentlichung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/03c-style.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">5 — TH-Köln-Stil einbauen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/04-charts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">6 — Interaktive Diagramme</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/05-iframes-tutor.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7 — iFrames, Spiele und KI-Tutor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/07-widgets-colab.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8 — Widgets und Colab</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/08-github-pages.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9 — Veröffentlichen mit GitHub und Pages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/06-slides-optional.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10 — Slides mit Quarto (optional)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Kür — nach dem Workshop</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/11-kurs-mit-agent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">11 — Einen Kurs mit einem KI-Agenten bauen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/12-oeffentlich-intern.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">12 — Öffentlich und intern trennen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/13-lms-einbinden.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">13 — Primer: Das Skript in ILIAS und Moodle einbinden</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Anhänge</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/troubleshooting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Trouble-Shooting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/tutor-prompt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">KI-Tutor: Link und System-Prompt</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/reviewer-prompt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reviewer-Prompt: KI als kritische Erstleserin</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../literatur.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Literatur</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhalt</h2>
+   
+  <ul>
+  <li><a href="#worum-es-im-kern-geht" id="toc-worum-es-im-kern-geht" class="nav-link active" data-scroll-target="#worum-es-im-kern-geht">Worum es im Kern geht</a></li>
+  <li><a href="#vier-wege-vom-skript-in-den-kursraum" id="toc-vier-wege-vom-skript-in-den-kursraum" class="nav-link" data-scroll-target="#vier-wege-vom-skript-in-den-kursraum">Vier Wege vom Skript in den Kursraum</a>
+  <ul class="collapse">
+  <li><a href="#weg-1-verlinken-der-wegweiser" id="toc-weg-1-verlinken-der-wegweiser" class="nav-link" data-scroll-target="#weg-1-verlinken-der-wegweiser">Weg 1 — Verlinken: der Wegweiser</a></li>
+  <li><a href="#weg-2-einbetten-das-schaufenster" id="toc-weg-2-einbetten-das-schaufenster" class="nav-link" data-scroll-target="#weg-2-einbetten-das-schaufenster">Weg 2 — Einbetten: das Schaufenster</a></li>
+  <li><a href="#weg-3-hochladen-die-kopie-im-semesterapparat" id="toc-weg-3-hochladen-die-kopie-im-semesterapparat" class="nav-link" data-scroll-target="#weg-3-hochladen-die-kopie-im-semesterapparat">Weg 3 — Hochladen: die Kopie im Semesterapparat</a></li>
+  <li><a href="#weg-4-verpacken-das-paket-mit-laufzettel" id="toc-weg-4-verpacken-das-paket-mit-laufzettel" class="nav-link" data-scroll-target="#weg-4-verpacken-das-paket-mit-laufzettel">Weg 4 — Verpacken: das Paket mit Laufzettel</a></li>
+  </ul></li>
+  <li><a href="#acht-ideen-für-die-didaktische-verzahnung" id="toc-acht-ideen-für-die-didaktische-verzahnung" class="nav-link" data-scroll-target="#acht-ideen-für-die-didaktische-verzahnung">Acht Ideen für die didaktische Verzahnung</a></li>
+  <li><a href="#datenschutz-aktualität-barrierefreiheit" id="toc-datenschutz-aktualität-barrierefreiheit" class="nav-link" data-scroll-target="#datenschutz-aktualität-barrierefreiheit">Datenschutz, Aktualität, Barrierefreiheit</a></li>
+  <li><a href="#mach-mit-ein-kapitel-in-den-kursraum-bringen" id="toc-mach-mit-ein-kapitel-in-den-kursraum-bringen" class="nav-link" data-scroll-target="#mach-mit-ein-kapitel-in-den-kursraum-bringen">Mach mit — ein Kapitel in den Kursraum bringen</a></li>
+  <li><a href="#tutor" id="toc-tutor" class="nav-link" data-scroll-target="#tutor">Tutor</a></li>
+  <li><a href="#literatur" id="toc-literatur" class="nav-link" data-scroll-target="#literatur">Literatur</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/edit/main/parts/13-lms-einbinden.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/11-kurs-mit-agent.html">Kür — nach dem Workshop</a></li><li class="breadcrumb-item"><a href="../parts/13-lms-einbinden.html"><span class="chapter-title">13 — Primer: Das Skript in ILIAS und Moodle einbinden</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">13 — Primer: Das Skript in ILIAS und Moodle einbinden</span></h1>
+<p class="subtitle lead">Kür für die Zeit nach dem Workshop</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="was-sie-nach-diesem-kapitel-können" class="level4 lernziel-box">
+<h4 class="anchored" data-anchor-id="was-sie-nach-diesem-kapitel-können">Was Sie nach diesem Kapitel können</h4>
+<ul>
+<li>die <strong>vier Wege</strong> benennen, auf denen ein Quarto-Skript in ein Lernmanagementsystem kommt (verlinken, einbetten, hochladen, verpacken), und für Ihren Kurs den passenden wählen,</li>
+<li>ein gerendertes Skript oder ein einzelnes Lernspiel als <strong>HTML-Paket</strong> in ILIAS oder Moodle hochladen,</li>
+<li>Skript und Kursraum <strong>didaktisch verzahnen</strong>: Das Skript erklärt und lässt üben, das LMS organisiert, prüft und sammelt,</li>
+<li>die typischen Stolpersteine vorab erkennen: gesperrte iFrames, veraltete Kopien, Datenschutz und fehlende Fortschrittsdaten.</li>
+</ul>
+</section>
+<section id="worum-es-im-kern-geht" class="level2">
+<h2 class="anchored" data-anchor-id="worum-es-im-kern-geht">Worum es im Kern geht</h2>
+<p>Ein <strong>Lernmanagementsystem</strong> (LMS) ist der digitale Kursraum Ihrer Hochschule hinter dem Login: Es kennt die Teilnehmenden, verwaltet Termine und Abgaben, stellt Tests bereit und hält Foren offen. An vielen Hochschulen ist das ILIAS (manchmal unter eigenem Namen, an der TH Köln etwa als ILU), an anderen Moodle. Ihr Quarto-Skript dagegen ist eine öffentliche Webseite, die niemanden kennt: Sie zeigt allen dasselbe und merkt sich nichts.</p>
+<p>Das Bild dazu liefert die Bibliothek. Das Skript ist das Lehrbuch im Freihandregal, für alle greifbar und immer in der neuesten Auflage. Der LMS-Kurs ist der Semesterapparat: Er steht hinter der Theke, nur Ihre Teilnehmenden kommen heran, und er enthält Hinweise auf das Buch, ausgewählte Kopien und die Aufgabenblätter. Beide zusammen sind stärker als jedes für sich, weil jedes das kann, was dem anderen fehlt. Das Skript erklärt, zeigt und lässt ausprobieren; das LMS weiß, <strong>wer</strong> gerade lernt, und kann deshalb freischalten, prüfen, bewerten und Rückmeldungen sammeln.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Woher die Namen kommen — Eselsbrücken zum Merken
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Primer</strong> kommt vom mittellateinischen <em>primarius</em>, „der erste, vorderste“. Im Englischen hieß so zuerst das Gebetbuch für Laien, dann die Lesefibel, mit der Kinder lesen lernten. Ein Primer ist also das erste Buch zu einer Sache, nicht das letzte.</p>
+<p><strong>ILIAS</strong> steht für „Integriertes Lern-, Informations- und Arbeitskooperations-System“; es entstand 1997/98 an der Wirtschafts- und Sozialwissenschaftlichen Fakultät der Universität zu Köln <span class="citation" data-cites="hspvilias">(<a href="../index.html#ref-hspvilias" role="doc-biblioref">Hochschule für Polizei und öffentliche Verwaltung NRW, o. J.</a>)</span>. Der Anklang an Homers Epos hilft beim Merken: Eine <em>Ilias</em> erzählt eine lange Belagerung, und manche Semester fühlen sich genauso an.</p>
+<p><strong>Moodle</strong> war ursprünglich die Abkürzung für <em>Modular Object-Oriented Dynamic Learning Environment</em>. Zugleich ist <em>to moodle</em> ein englisches Verb für gemächliches, neugieriges Herumstöbern, bei dem man tut, was einem gerade einfällt, und das oft zu Einsichten führt <span class="citation" data-cites="moodleabout">(<a href="../index.html#ref-moodleabout" role="doc-biblioref">Moodle, o. J.a</a>)</span>. Ein schöneres Leitbild für ein interaktives Skript gibt es kaum.</p>
+</div>
+</div>
+</section>
+<section id="vier-wege-vom-skript-in-den-kursraum" class="level2">
+<h2 class="anchored" data-anchor-id="vier-wege-vom-skript-in-den-kursraum">Vier Wege vom Skript in den Kursraum</h2>
+<p>Vier Wege führen vom Skript in den Kursraum, und sie unterscheiden sich wie ein <strong>Wegweiser</strong>, ein <strong>Schaufenster</strong>, eine <strong>Kopie im Semesterapparat</strong> und ein <strong>Paket mit Laufzettel</strong>.</p>
+<table class="caption-top table">
+<caption>Die vier Wege im Überblick. „Fortschritt?“ meint, was das LMS über die Bearbeitung erfährt.</caption>
+<colgroup>
+<col style="width: 15%">
+<col style="width: 16%">
+<col style="width: 19%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Weg</th>
+<th>ILIAS</th>
+<th>Moodle</th>
+<th>Aufwand</th>
+<th>Immer aktuell?</th>
+<th>Hinter Login?</th>
+<th>Fortschritt?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1 Verlinken</strong></td>
+<td>Weblink</td>
+<td>Link (URL)</td>
+<td>Minuten</td>
+<td>ja</td>
+<td>nein</td>
+<td>„aufgerufen“</td>
+</tr>
+<tr class="even">
+<td><strong>2 Einbetten</strong></td>
+<td>gesperrt ab ILIAS 8</td>
+<td>Link mit Anzeige „Einbetten“</td>
+<td>Minuten</td>
+<td>ja</td>
+<td>nein</td>
+<td>„aufgerufen“</td>
+</tr>
+<tr class="odd">
+<td><strong>3 Hochladen</strong></td>
+<td>Lernmodul HTML</td>
+<td>Datei (ZIP) oder IMS-Content</td>
+<td>¼ Stunde</td>
+<td>nein</td>
+<td>ja</td>
+<td>„aufgerufen“</td>
+</tr>
+<tr class="even">
+<td><strong>4 Verpacken</strong></td>
+<td>Lernmodul SCORM</td>
+<td>Lernpaket (SCORM)</td>
+<td>1 Stunde +</td>
+<td>nein</td>
+<td>ja</td>
+<td>„abgeschlossen“</td>
+</tr>
+</tbody>
+</table>
+<section id="weg-1-verlinken-der-wegweiser" class="level3">
+<h3 class="anchored" data-anchor-id="weg-1-verlinken-der-wegweiser">Weg 1 — Verlinken: der Wegweiser</h3>
+<p>Der einfachste Weg ist ein Link. In ILIAS legen Sie dafür einen <strong>Weblink</strong> an, in Moodle die Aktivität <strong>Link</strong> (in der englischen Fassung <em>URL</em>). Weil das Skript auf GitHub Pages bleibt, sehen die Lernenden immer die aktuelle Fassung; Sie pflegen nur eine Quelle.</p>
+<p>Der Trick liegt in der Genauigkeit des Ziels. Quarto vergibt jeder Überschrift einen <strong>Anker</strong>, eine Sprungmarke, die an die Adresse angehängt wird. Ein Link auf <code>…/parts/04-charts.html#worum-es-im-kern-geht</code> führt nicht zum Kapitelanfang, sondern direkt zu diesem Abschnitt. Den Anker finden Sie, wenn Sie im Skript mit der Maus über eine Überschrift fahren und auf das kleine Ankersymbol daneben klicken: Die Adresszeile zeigt dann die vollständige Sprungadresse.</p>
+<p>Quarto bildet den Anker aus dem Wortlaut der Überschrift. Ändern Sie die Überschrift, ändert sich der Anker, und jeder Link im LMS läuft ins Leere. Für Abschnitte, auf die Sie aus dem LMS verweisen, vergeben Sie deshalb einen festen, kurzen Anker in geschweiften Klammern:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mach mit — eigenes Observable-Diagramm {#uebung-observable}</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Die Adresse lautet dann dauerhaft <code>…/parts/04-charts.html#uebung-observable</code>, gleich wie Sie die Überschrift später formulieren.</p>
+<p>In Moodle legt die Anzeigeoption fest, wie der Link sich öffnet: automatisch, eingebettet in die Moodle-Seite, im ganzen Fenster oder als Pop-up <span class="citation" data-cites="moodleurl">(<a href="../index.html#ref-moodleurl" role="doc-biblioref">Moodle, o. J.d</a>)</span>. Zusätzlich lässt sich ein Abschlusskriterium wie „Link aufgerufen“ setzen, sofern Ihre Hochschule den Aktivitätsabschluss freigeschaltet hat <span class="citation" data-cites="moodleurlcompletion">(<a href="../index.html#ref-moodleurlcompletion" role="doc-biblioref">Moodle, o. J.e</a>)</span>. Mehr als „aufgerufen“ erfährt das LMS so aber nicht.</p>
+</section>
+<section id="weg-2-einbetten-das-schaufenster" class="level3">
+<h3 class="anchored" data-anchor-id="weg-2-einbetten-das-schaufenster">Weg 2 — Einbetten: das Schaufenster</h3>
+<p>Ein <strong>iFrame</strong> (<em>inline frame</em>) ist ein Fenster in einer Webseite, durch das man auf eine andere Webseite schaut; Sie kennen ihn aus Kapitel 7. Technisch erlaubt GitHub Pages das Einbetten: Die Seiten senden keine Kopfzeile, die das Anzeigen in fremden Rahmen verbietet (geprüft am 04.11.2026 an diesem Skript). Ob es klappt, entscheidet deshalb das LMS.</p>
+<p>In <strong>Moodle</strong> wählen Sie bei der Aktivität „Link“ die Anzeige <strong>Einbetten</strong>. Dann zeigt Moodle Kopfzeile, Navigation und Beschreibung und darunter das Skript <span class="citation" data-cites="moodleurl">(<a href="../index.html#ref-moodleurl" role="doc-biblioref">Moodle, o. J.d</a>)</span>. Alternativ lässt sich iFrame-Code in ein Textfeld oder eine Textseite schreiben. Ob Moodle ihn beim Speichern stehen lässt, hängt von den Filtereinstellungen ab, die nur die Administration ändern kann; die Einstellung heißt „Vertrauenswürdige Inhalte aktivieren“ (<em>enabletrusttext</em>) <span class="citation" data-cites="moodletrackeriframe">(<a href="../index.html#ref-moodletrackeriframe" role="doc-biblioref">Moodle, o. J.c</a>)</span>.</p>
+<p>In <strong>ILIAS</strong> ist dieser Weg seit Version 8 versperrt: Der Seiteneditor wertet HTML-, JavaScript- und iFrame-Code nicht mehr aus, sondern zeigt ihn als Text an <span class="citation" data-cites="freiburgilias8">(<a href="../index.html#ref-freiburgilias8" role="doc-biblioref">Universität Freiburg, o. J.</a>)</span>. Das betrifft Kurs- und Gruppenseiten ebenso wie Lernmodul- und Inhaltsseiten. In ILIAS nehmen Sie deshalb Weg 1 oder Weg 3.</p>
+</section>
+<section id="weg-3-hochladen-die-kopie-im-semesterapparat" class="level3">
+<h3 class="anchored" data-anchor-id="weg-3-hochladen-die-kopie-im-semesterapparat">Weg 3 — Hochladen: die Kopie im Semesterapparat</h3>
+<p>Hier wandert das gerenderte Skript selbst ins LMS. Was Quarto in den Ordner <code>docs/</code> schreibt, ist eine vollständige Webseite aus HTML-, CSS- und JavaScript-Dateien, die ohne Server-Programm läuft. Jedes LMS, das HTML-Pakete annimmt, kann sie anzeigen.</p>
+<p>In <strong>ILIAS</strong> legen Sie ein <strong>Lernmodul HTML</strong> an, laden den Inhalt von <code>docs/</code> als ZIP-Datei hoch, entpacken ihn dort und bestimmen <code>index.html</code> als Startdatei. Damit alle Seiten einander finden, müssen die Verweise relativ sein, also <code>bilder/foo.jpg</code> statt einer vollständigen Webadresse <span class="citation" data-cites="bernilias">(<a href="../index.html#ref-bernilias" role="doc-biblioref">Universität Bern, o. J.</a>)</span>; Quarto erzeugt solche relativen Verweise von selbst. In <strong>Moodle</strong> laden Sie dieselbe ZIP-Datei als <strong>Datei</strong> hoch, entpacken sie und setzen <code>index.html</code> als Hauptdatei; wichtig ist, dass die Hauptdatei in der ZIP-Datei nicht in einem Unterordner liegt <span class="citation" data-cites="zhawmoodlezip">(<a href="../index.html#ref-zhawmoodlezip" role="doc-biblioref">ZHAW Zürcher Hochschule für Angewandte Wissenschaften, o. J.</a>)</span>. Moodle kennt außerdem das <strong>IMS-Content-Paket</strong>, das eine eigene Navigation mitbringt, aber eine Manifestdatei verlangt <span class="citation" data-cites="moodleims">(<a href="../index.html#ref-moodleims" role="doc-biblioref">Moodle, o. J.b</a>)</span>.</p>
+<p>Für einzelne Seiten gibt es eine Abkürzung. Mit <code>embed-resources: true</code> schreibt Quarto alle Bilder, Stile und Skripte in <strong>eine einzige HTML-Datei</strong> <span class="citation" data-cites="quartopublishing2026">(<a href="../index.html#ref-quartopublishing2026" role="doc-biblioref">Posit, 2026</a>)</span>. Ihre Lernspiele aus dem Ordner <code>interactions/</code> sind ohnehin schon solche Einzeldateien. Eine einzelne Datei laden Sie in Moodle als „Datei“ hoch; in ILIAS packen Sie sie in ein Lernmodul HTML, damit sie angezeigt und nicht nur heruntergeladen wird.</p>
+<p>Der Preis dieses Weges ist die <strong>Aktualität</strong>: Die Kopie im LMS altert, sobald Sie das Skript ändern. Der Gewinn ist der <strong>Login</strong>: Was im LMS liegt, sehen nur Ihre Teilnehmenden. Damit löst Weg 3 ein Problem aus Kapitel 12, denn Lösungen und Musterfassungen, die nicht auf GitHub Pages gehören, können als HTML-Lernmodul hinter dem Login stehen und zu einem festgelegten Zeitpunkt freigeschaltet werden.</p>
+</section>
+<section id="weg-4-verpacken-das-paket-mit-laufzettel" class="level3">
+<h3 class="anchored" data-anchor-id="weg-4-verpacken-das-paket-mit-laufzettel">Weg 4 — Verpacken: das Paket mit Laufzettel</h3>
+<p><strong>SCORM</strong> (<em>Sharable Content Object Reference Model</em>) ist ein Standard für Lernpakete: eine ZIP-Datei mit einer Manifestdatei <code>imsmanifest.xml</code>, die dem LMS sagt, was im Paket steckt und wo es beginnt. ILIAS und Moodle importieren solche Pakete <span class="citation" data-cites="hsu2025lms">(<a href="../index.html#ref-hsu2025lms" role="doc-biblioref">Helmut-Schmidt-Universität / Universität der Bundeswehr Hamburg, 2025</a>)</span>. Der Vorteil gegenüber Weg 3 ist der Laufzettel: Das LMS kann vermerken, ob jemand das Paket geöffnet und abgeschlossen hat.</p>
+<p>Quarto hat keinen SCORM-Export. Das freie Werkzeug <strong>simple-scorm-packager</strong> macht aus einem Ordner wie <code>docs/</code> ein SCORM-1.2- oder SCORM-2004-Paket samt Manifest <span class="citation" data-cites="simplescormpackager">(<a href="../index.html#ref-simplescormpackager" role="doc-biblioref"><span class="nocase">simple-scorm-packager contributors</span>, o. J.</a>)</span>. Es braucht Node.js, eine Laufzeitumgebung für JavaScript auf dem eigenen Rechner. Rechnen Sie aber mit einer Ernüchterung: Ein so verpacktes Skript meldet nur „geöffnet“ oder „abgeschlossen“. Die Ergebnisse Ihrer Quizze und Lernspiele erreichen das LMS erst, wenn jedes Widget mit zusätzlichem JavaScript die SCORM-Schnittstelle anspricht. Für die meisten Kurse ist ein kurzer LMS-Test hinter dem Skript (siehe Idee 2 unten) der bessere Laufzettel.</p>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Faustregel
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Öffentliches Skript <strong>verlinken</strong>, Internes <strong>hochladen</strong>, Leistung <strong>im LMS prüfen</strong>. Verpacken lohnt sich erst, wenn Ihre Hochschule einen Bearbeitungsnachweis pro Lerneinheit verlangt.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="acht-ideen-für-die-didaktische-verzahnung" class="level2">
+<h2 class="anchored" data-anchor-id="acht-ideen-für-die-didaktische-verzahnung">Acht Ideen für die didaktische Verzahnung</h2>
+<p>Technisch ist die Einbindung in einer Stunde erledigt. Der eigentliche Gewinn entsteht, wenn Skript und Kursraum einander zuarbeiten, so wie Lehrbuch und Übungsgruppe. Die folgenden Ideen nutzen jeweils die Stärke beider Seiten.</p>
+<p><strong>1 — Der Wochenpfad.</strong> Jeder Kursabschnitt im LMS folgt demselben Dreischritt: Link auf genau den Skriptabschnitt der Woche, ein kurzer Test mit drei bis fünf Fragen, eine Forumsfrage zum Weiterdenken. Die gleichbleibende Form senkt die Orientierungslast, weil die Lernenden nach zwei Wochen wissen, was sie erwartet <span class="citation" data-cites="mayer2021">(<a href="../index.html#ref-mayer2021" role="doc-biblioref">Mayer, 2021</a>)</span>.</p>
+<p><strong>2 — Feedback mit Rücksprung.</strong> In ILIAS- und Moodle-Tests lässt sich zu jeder Antwort ein Feedbacktext hinterlegen. Setzen Sie dort einen Ankerlink auf die Stelle im Skript, die den Fehler erklärt, etwa „Nicht ganz. Schauen Sie sich das zweite Beispiel im Abschnitt zu Plotly noch einmal an“, verlinkt auf genau diese Stelle. Abrufübungen wirken am stärksten, wenn auf den Abruf eine Rückmeldung folgt <span class="citation" data-cites="roediger2006 karpicke2011">(<a href="../index.html#ref-karpicke2011" role="doc-biblioref">Karpicke &amp; Blunt, 2011</a>; <a href="../index.html#ref-roediger2006" role="doc-biblioref">Roediger &amp; Karpicke, 2006</a>)</span>; der Ankerlink macht aus der Rückmeldung einen Weg zurück zur Erklärung.</p>
+<p><strong>3 — Freischalten statt fluten.</strong> Moodle kann Aktivitäten an Voraussetzungen knüpfen <span class="citation" data-cites="moodleurlcompletion">(<a href="../index.html#ref-moodleurlcompletion" role="doc-biblioref">Moodle, o. J.e</a>)</span>, ILIAS kennt dafür Vorbedingungen. Der Link zum nächsten Kapitel erscheint dann erst, wenn der Kurztest zum vorigen bestanden ist. Das Skript bleibt öffentlich und vollständig; das LMS dosiert nur den Weg dorthin.</p>
+<p><strong>4 — Bühne und Hinterbühne.</strong> Das Skript mit Aufgaben steht auf GitHub Pages, die Lösungen, Solved-Notebooks und Musterfassungen liegen als HTML-Lernmodul im LMS und werden nach der Sitzung sichtbar geschaltet. So setzen Sie die Trennung aus Kapitel 12 um, ohne ein zweites Repository pflegen zu müssen.</p>
+<p><strong>5 — Erst vorhersagen, dann ausprobieren.</strong> Vor einem interaktiven Diagramm oder einer PhET-Simulation stellen Sie im LMS-Forum die Frage: „Was passiert, wenn …?“ Erst nach dem eigenen Beitrag öffnen die Lernenden das Skript und prüfen ihre Vorhersage. In Moodle lässt sich ein Forum so einstellen, dass man fremde Beiträge erst nach dem eigenen sieht (Forumstyp „Frage und Antwort“).</p>
+<p><strong>6 — Studierende bauen Widgets.</strong> Lassen Sie Studierende mit KI ein eigenes kleines Lernspiel als einzelne HTML-Datei bauen, nach dem Muster aus Kapitel 7. Die Abgabe läuft über die Aufgabe in Moodle oder die Übung in ILIAS, das Gegenlesen über die gegenseitige Beurteilung. Die besten Widgets wandern mit Namensnennung ins nächste Semester des Skripts.</p>
+<p><strong>7 — Das Exit-Ticket.</strong> Am Ende jedes Kapitels steht im Skript ein Link auf eine Umfrage im LMS mit einer einzigen Frage: „Was ist Ihnen heute am unklarsten geblieben?“ Die Antworten sind anonym möglich und bestimmen den Einstieg der nächsten Präsenzsitzung.</p>
+<p><strong>8 — Die Notfallkopie.</strong> Vor Prüfungen legen Sie das Skript zusätzlich als hochgeladene Fassung ins LMS, mit Datum im Titel. Fällt GitHub aus oder ändern Sie kurz vor der Klausur noch etwas, haben alle eine verbindliche Fassung, auf die sich Prüfungsfragen beziehen dürfen.</p>
+</section>
+<section id="datenschutz-aktualität-barrierefreiheit" class="level2">
+<h2 class="anchored" data-anchor-id="datenschutz-aktualität-barrierefreiheit">Datenschutz, Aktualität, Barrierefreiheit</h2>
+<p>Drei Fragen sollten Sie vor dem Semester beantworten, nicht währenddessen.</p>
+<p><strong>Datenschutz.</strong> Beim Aufruf einer GitHub-Pages-Seite speichert GitHub die IP-Adresse der Besucher aus Sicherheitsgründen, gleich ob sie bei GitHub angemeldet sind oder nicht <span class="citation" data-cites="githubpages2026">(<a href="../index.html#ref-githubpages2026" role="doc-biblioref">GitHub, 2026</a>)</span>. Ein Satz dazu im LMS-Kurs („Das Skript liegt bei GitHub; beim Aufruf fallen dort Verbindungsdaten an“) schafft Transparenz. Wer das vermeiden muss, nimmt Weg 3: Dann liefert der Server Ihrer Hochschule das Skript aus. Klären Sie im Zweifel mit der Datenschutzstelle Ihrer Hochschule, welcher Weg für Pflichtmaterial vorgesehen ist.</p>
+<p><strong>Aktualität.</strong> Jede hochgeladene Kopie ist ein Schnappschuss. Schreiben Sie das Renderdatum sichtbar ins Skript, etwa mit <code>date: today</code> im Kopf der <code>index.qmd</code>, und in den Titel des LMS-Objekts. Dann sieht jeder auf einen Blick, ob Kopie und Original übereinstimmen.</p>
+<p><strong>Barrierefreiheit.</strong> Ein iFrame braucht ein <code>title</code>-Attribut, damit Screenreader ansagen können, was darin steckt. Bieten Sie neben jeder Einbettung einen Link „in eigenem Fenster öffnen“ an; auf kleinen Bildschirmen ist ein Rahmen im Rahmen oft zu eng.</p>
+</section>
+<section id="mach-mit-ein-kapitel-in-den-kursraum-bringen" class="level2">
+<h2 class="anchored" data-anchor-id="mach-mit-ein-kapitel-in-den-kursraum-bringen">Mach mit — ein Kapitel in den Kursraum bringen</h2>
+<p>Rechnen Sie mit zwanzig Minuten. Sie brauchen einen Testkurs in ILIAS oder Moodle, in dem Sie Objekte anlegen dürfen; viele Hochschulen stellen dafür eine Spielwiese bereit.</p>
+<ol type="1">
+<li><strong>Wegweiser setzen.</strong> Öffnen Sie Ihr veröffentlichtes Skript, klicken Sie neben der Überschrift einer Übung auf das Kettensymbol und kopieren Sie die Adresse. Legen Sie im Testkurs einen Weblink (ILIAS) oder einen Link (Moodle) mit dieser Adresse an.</li>
+<li><strong>Ein Widget hochladen.</strong> Nehmen Sie eine Datei aus Ihrem Ordner <code>interactions/</code> und laden Sie sie hoch: in Moodle als Datei, in ILIAS als ZIP-Datei in ein neues Lernmodul HTML.</li>
+<li><strong>Das ganze Skript hochladen.</strong> Rendern Sie das Skript, öffnen Sie den Ordner <code>docs/</code> im Datei-Explorer, markieren Sie <strong>den Inhalt</strong> des Ordners (nicht den Ordner selbst) und wählen Sie per Rechtsklick <em>In ZIP-Datei komprimieren</em> (Windows 11) bzw. <em>Senden an → ZIP-komprimierter Ordner</em>. Laden Sie die ZIP-Datei als Lernmodul HTML (ILIAS) oder als Datei mit Hauptdatei <code>index.html</code> (Moodle) hoch.</li>
+<li><strong>Mit den Augen der Lernenden prüfen.</strong> Wechseln Sie in die Ansicht der Teilnehmenden: in ILIAS über die Mitgliederansicht, in Moodle über <em>Rolle wechseln → Studierende</em>. Funktionieren Navigation, Bilder, interaktive Diagramme und die Suche?</li>
+<li><strong>Eine Rücksprung-Frage bauen.</strong> Legen Sie im Testkurs eine einzige Testfrage an und hinterlegen Sie im Feedback zur falschen Antwort den Ankerlink aus Schritt 1.</li>
+</ol>
+<p>Wer das ZIP lieber aus R heraus erzeugt, nimmt das Paket <code>zip</code>; die Zeile packt den Inhalt von <code>docs/</code> so, dass <code>index.html</code> oben liegt:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># einmalig: install.packages("zip")</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>zip<span class="sc">::</span><span class="fu">zip</span>(<span class="st">"skript-fuer-lms.zip"</span>, <span class="at">files =</span> <span class="fu">list.files</span>(<span class="st">"docs"</span>, <span class="at">recursive =</span> <span class="cn">TRUE</span>), <span class="at">root =</span> <span class="st">"docs"</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warnung</span>Was, wenn …
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>ILIAS zeigt meinen iFrame-Code als Text an?</strong> → Das ist seit ILIAS 8 so gewollt. Nehmen Sie einen Weblink oder ein Lernmodul HTML.</li>
+<li><strong>Moodle löscht den iFrame beim Speichern?</strong> → Die Filter Ihrer Moodle-Installation entfernen ihn. Nehmen Sie die Aktivität „Link“ mit der Anzeige „Einbetten“ oder fragen Sie die Administration nach „Vertrauenswürdigen Inhalten“.</li>
+<li><strong>Das hochgeladene Skript zeigt eine leere Seite oder keine Bilder?</strong> → Meist liegt <code>index.html</code> in der ZIP-Datei in einem Unterordner, oder die Startdatei ist nicht gesetzt. ZIP aus dem Inhalt von <code>docs/</code> neu packen, Startdatei auf <code>index.html</code> setzen.</li>
+<li><strong>Das LMS lädt die HTML-Datei herunter, statt sie anzuzeigen?</strong> → In ILIAS ein Lernmodul HTML statt eines Datei-Objekts verwenden; in Moodle die Anzeige der Datei auf „Öffnen“ oder „Einbetten“ stellen.</li>
+<li><strong>Interaktive Diagramme oder die Suche laufen im LMS nicht?</strong> → Manche Installationen beschränken JavaScript in hochgeladenen Paketen. Dann bleibt Weg 1: Das Original auf GitHub Pages läuft immer.</li>
+<li><strong>Die Kopie im LMS ist veraltet?</strong> → Neues ZIP hochladen und im ILIAS-Lernmodul bzw. in der Moodle-Datei ersetzen; das Renderdatum im Titel zeigt, ob es geklappt hat.</li>
+<li><strong>Ich brauche Noten aus den Lernspielen im LMS?</strong> → Ohne SCORM-Programmierung geht das nicht. Bilden Sie die Prüfung als LMS-Test nach und lassen Sie die Lernspiele zum Üben im Skript.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="tutor" class="level2">
+<h2 class="anchored" data-anchor-id="tutor">Tutor</h2>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Tutor öffnen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte" target="_blank">Tutor „Interaktive Skripte“ →</a></p>
+<p>Vorschlag-Prompt für dieses Kapitel:</p>
+<blockquote class="blockquote">
+<p>Meine Hochschule nutzt [ILIAS / Moodle, Version falls bekannt]. Mein Quarto-Skript liegt auf GitHub Pages unter [Adresse]. Ich unterrichte [Kurs, Zahl der Teilnehmenden] und möchte [Ziel, z. B. Lösungen erst nach der Sitzung freigeben / Bearbeitung nachweisen / Feedback sammeln]. Erkläre mir zuerst in zwei Sätzen ohne Fachjargon, welcher der vier Wege (verlinken, einbetten, hochladen, verpacken) zu meinem Ziel passt und warum. Gib mir dann die Klickfolge im LMS Schritt für Schritt und nenne die zwei Stolpersteine, an denen es am wahrscheinlichsten hakt.</p>
+</blockquote>
+</div>
+</div>
+</section>
+<section id="literatur" class="level1 unnumbered">
+<h1 class="unnumbered">Literatur</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-githubpages2026" class="csl-entry" role="listitem">
+GitHub. (2026). <em>What is <span>GitHub</span> Pages?</em> GitHub Docs. <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages">https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages</a>
+</div>
+<div id="ref-hsu2025lms" class="csl-entry" role="listitem">
+Helmut-Schmidt-Universität / Universität der Bundeswehr Hamburg. (2025). <em>Technik-Leitfaden <span>LMS</span></em>. Leitfaden zur Einbindung von <span>HTML</span>- und <span>SCORM</span>-Paketen in <span>ILIAS</span> und <span>Moodle</span>. <a href="https://www.hsu-hh.de/wb/wp-content/uploads/sites/647/2025/02/Technik-Leitfaden-LMS_2025-02-06.pdf">https://www.hsu-hh.de/wb/wp-content/uploads/sites/647/2025/02/Technik-Leitfaden-LMS_2025-02-06.pdf</a>
+</div>
+<div id="ref-hspvilias" class="csl-entry" role="listitem">
+Hochschule für Polizei und öffentliche Verwaltung NRW. (o. J.). <em>Bericht <span>ILIAS</span></em>. Newsletter der HSPV NRW. <a href="https://www.hspv.nrw.de/fileadmin/Newsletter/Bericht_ILIAS.pdf">https://www.hspv.nrw.de/fileadmin/Newsletter/Bericht_ILIAS.pdf</a>
+</div>
+<div id="ref-karpicke2011" class="csl-entry" role="listitem">
+Karpicke, J. D., &amp; Blunt, J. R. (2011). Retrieval Practice Produces More Learning than Elaborative Studying with Concept Mapping. <em>Science</em>, <em>331</em>(6018), 772–775. <a href="https://doi.org/10.1126/science.1199327">https://doi.org/10.1126/science.1199327</a>
+</div>
+<div id="ref-mayer2021" class="csl-entry" role="listitem">
+Mayer, R. E. (2021). <em>Multimedia Learning</em> (3. Aufl.). Cambridge University Press. <a href="https://doi.org/10.1017/9781316941355">https://doi.org/10.1017/9781316941355</a>
+</div>
+<div id="ref-moodleabout" class="csl-entry" role="listitem">
+Moodle. (o. J.a). <em>About <span>Moodle</span></em>. MoodleDocs, Version 2.3. <a href="https://docs.moodle.org/23/en/Moodle">https://docs.moodle.org/23/en/Moodle</a>
+</div>
+<div id="ref-moodleims" class="csl-entry" role="listitem">
+Moodle. (o. J.b). <em><span>IMS</span> content package</em>. MoodleDocs, Version 5.0. <a href="https://docs.moodle.org/500/en/mod/resource/ims">https://docs.moodle.org/500/en/mod/resource/ims</a>
+</div>
+<div id="ref-moodletrackeriframe" class="csl-entry" role="listitem">
+Moodle. (o. J.c). <em><span>MDL-76664</span>: Wiki: <span>HTML</span> tags added using <span>HTML</span> editor are removed</em>. Moodle Tracker. <a href="https://tracker-old.moodle.org/browse/MDL-76664">https://tracker-old.moodle.org/browse/MDL-76664</a>
+</div>
+<div id="ref-moodleurl" class="csl-entry" role="listitem">
+Moodle. (o. J.d). <em><span>URL</span> resource settings</em>. MoodleDocs, Version 4.2. <a href="https://docs.moodle.org/402/en/URL_resource_settings">https://docs.moodle.org/402/en/URL_resource_settings</a>
+</div>
+<div id="ref-moodleurlcompletion" class="csl-entry" role="listitem">
+Moodle. (o. J.e). <em><span>URL</span> resource settings</em>. MoodleDocs, Version 2.7. <a href="https://docs.moodle.org/27/en/URL_resource_settings">https://docs.moodle.org/27/en/URL_resource_settings</a>
+</div>
+<div id="ref-quartopublishing2026" class="csl-entry" role="listitem">
+Posit. (2026). <em>Publishing <span>HTML</span></em>. Quarto Documentation. <a href="https://quarto.org/docs/output-formats/html-publishing.html">https://quarto.org/docs/output-formats/html-publishing.html</a>
+</div>
+<div id="ref-roediger2006" class="csl-entry" role="listitem">
+Roediger, H. L., &amp; Karpicke, J. D. (2006). Test-Enhanced Learning: Taking Memory Tests Improves Long-Term Retention. <em>Psychological Science</em>, <em>17</em>(3), 249–255. <a href="https://doi.org/10.1111/j.1467-9280.2006.01693.x">https://doi.org/10.1111/j.1467-9280.2006.01693.x</a>
+</div>
+<div id="ref-simplescormpackager" class="csl-entry" role="listitem">
+<span class="nocase">simple-scorm-packager contributors</span>. (o. J.). <em>simple-scorm-packager (Version 0.2.7)</em>. npm. <a href="https://www.npmjs.com/package/simple-scorm-packager">https://www.npmjs.com/package/simple-scorm-packager</a>
+</div>
+<div id="ref-bernilias" class="csl-entry" role="listitem">
+Universität Bern. (o. J.). <em><span>ILIAS</span>: Lernmodule</em>. ILIAS-Hilfe der Universität Bern. <a href="https://ilias.unibe.ch/goto_ilias3_unibe_wiki_wpage_15180_2572718.html">https://ilias.unibe.ch/goto_ilias3_unibe_wiki_wpage_15180_2572718.html</a>
+</div>
+<div id="ref-freiburgilias8" class="csl-entry" role="listitem">
+Universität Freiburg. (o. J.). <em>Deactivation of <span>HTML</span> / <span>JavaScript</span> / iframe content in <span>ILIAS</span> 8</em>. Digital Teaching Toolbox. <a href="https://ilias.uni-freiburg.de/goto.php/wiki/wpage_32979_1631765">https://ilias.uni-freiburg.de/goto.php/wiki/wpage_32979_1631765</a>
+</div>
+<div id="ref-zhawmoodlezip" class="csl-entry" role="listitem">
+ZHAW Zürcher Hochschule für Angewandte Wissenschaften. (o. J.). <em>Moodle 4.5: Applikation als <span>ZIP</span>-Datei einbinden</em>. Anleitung. <a href="https://moodle.zhaw.ch/pluginfile.php/1767012/mod_resource/content/2/Moodle_45_Anleitung_Applikation%20als%20ZIP-Datei%20einbinden.pdf">https://moodle.zhaw.ch/pluginfile.php/1767012/mod_resource/content/2/Moodle_45_Anleitung_Applikation%20als%20ZIP-Datei%20einbinden.pdf</a>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../parts/12-oeffentlich-intern.html" class="pagination-link" aria-label="12 — Öffentlich und intern trennen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">12 — Öffentlich und intern trennen</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../appendix/troubleshooting.html" class="pagination-link" aria-label="Trouble-Shooting">
+        <span class="nav-page-text"><span class="chapter-title">Trouble-Shooting</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Roman Bartnik · CC BY-SA 4.0</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/edit/main/parts/13-lms-einbinden.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Erstellt mit <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
