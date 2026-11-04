@@ -10,6 +10,54 @@ title: "1 — Warum interaktiv?"
 - entscheiden, **wann sich Interaktivität lohnt** und wann nicht.
 :::
 
+## Mach mit — Ihre Vorhersage
+
+Bevor Sie weiterlesen, eine Wette. In einem bekannten Experiment bekamen Studierende einen kurzen Sachtext von etwa 250 Wörtern, zum Beispiel über Seeotter. Für den Text hatten sie viermal sieben Minuten Zeit und lernten ihn auf eine von drei Arten [@roediger2006]:
+
+| Gruppe | So wurde gelernt |
+|---|---|
+| **A** | viermal lesen |
+| **B** | dreimal lesen, dann einmal aus dem Gedächtnis aufschreiben |
+| **C** | einmal lesen, dann dreimal aus dem Gedächtnis aufschreiben (ohne nachzusehen, ohne Rückmeldung) |
+
+: Drei Arten, denselben Text zu lernen {#tbl-vorhersage}
+
+Danach schrieben alle auf, was sie vom Text noch wussten. Notieren Sie Ihre Antworten auf Papier oder im Chat, **bevor** Sie die Auflösung öffnen:
+
+1. Welche Gruppe weiß **fünf Minuten** später am meisten?
+2. Welche Gruppe weiß **eine Woche** später am meisten?
+3. Welche Gruppe *glaubte* selbst, am meisten zu behalten?
+
+::: {.callout-note collapse="true"}
+## Auflösung (erst nach Ihrer Vorhersage öffnen)
+
+| Gruppe | nach 5 Minuten | nach 1 Woche |
+|---|---|---|
+| A — viermal lesen | **83 %** | 40 % |
+| B — dreimal lesen, einmal abrufen | 78 % | 56 % |
+| C — einmal lesen, dreimal abrufen | 71 % | **61 %** |
+
+: Anteil der erinnerten Inhalte [@roediger2006, Exp. 2] {#tbl-aufloesung}
+
+Nach fünf Minuten gewinnt das Lesen, nach einer Woche dreht sich das Bild. Gruppe C hatte den Text nur sieben Minuten vor Augen und weiß trotzdem am meisten. Die Studierenden selbst sahen das nicht kommen: Gruppe A schätzte ihr Behalten am höchsten ein. Wiederholtes Lesen *fühlt* sich nach Lernen an, weil der Text vertraut wird; das Abrufen fühlt sich mühsam an und wirkt gerade deshalb. Dieses Prinzip heißt **Retrieval Practice** und ist eines der drei Argumente dieses Kapitels.
+
+Sie haben es gerade selbst angewendet: Eine Vorhersage aus dem eigenen Kopf, bevor die Antwort kommt, ist ein kleiner Abruf.
+:::
+
+::: {.callout-tip collapse="true"}
+## So ist diese Übung gebaut
+Die Übung besteht aus reinem Quarto-Text, ohne HTML und ohne JavaScript. Die Auflösung ist ein aufklappbarer Kasten, ein sogenannter *Callout* mit dem Zusatz `collapse="true"`. Wer den Kasten nicht öffnet, sieht die Lösung nicht. In der Datei `parts/01-didaktik.qmd` steht dafür nur:
+
+````markdown
+::: {.callout-note collapse="true"}
+## Auflösung (erst nach Ihrer Vorhersage öffnen)
+Hier steht die Lösung.
+:::
+````
+
+Dieses Muster können Sie für jede Vorhersage- oder Abruffrage in Ihrem eigenen Skript übernehmen: Frage stellen, Antwort notieren lassen, Auflösung zuklappen.
+:::
+
 ## Drei Argumente in drei Sätzen
 
 Lehrforschung sagt es seit Jahren — aber selten so kompakt: Lernen klappt besser, wenn Lernende **selbst etwas tun**, **regelmäßig abrufen** und **Bilder neben Worten** bekommen. Drei Prinzipien, drei Belege, drei Konsequenzen für Ihr Skript.
@@ -20,7 +68,7 @@ Auch beim Lernen gilt eine Form von „wer schreibt, der bleibt". Wenn wir einen
 
 ### Retrieval Practice
 
-Sich an etwas erinnern zu **müssen** verbessert das Behalten stärker als wiederholtes Lesen [@roediger2006; @karpicke2011]. In Experimenten von Karpicke und Mitarbeitern lasen Studierende dasselbe Material wiederholt oder kombinierten Lesen mit aktiven Abrufphasen — die Abruf-Gruppen schlugen die reinen Leser eine Woche später deutlich. Übersetzt: ein **kurzes Quiz** oder eine **Drag-and-Drop-Aufgabe** in Ihrem Skript wirkt wie eine Mini-Klausur, ohne dass jemand die Klausur korrigieren muss.
+Sich an etwas erinnern zu **müssen** verbessert das Behalten stärker als wiederholtes Lesen [@roediger2006; @karpicke2011]. Das Experiment vom Kapitelanfang zeigt es: Studierende lasen dasselbe Material wiederholt oder kombinierten Lesen mit aktiven Abrufphasen — die Abruf-Gruppen schlugen die reinen Leser eine Woche später deutlich (@tbl-aufloesung). Übersetzt: ein **kurzes Quiz** oder eine **Drag-and-Drop-Aufgabe** in Ihrem Skript wirkt wie eine Mini-Klausur, ohne dass jemand die Klausur korrigieren muss.
 
 ### Multimedia-Prinzip
 

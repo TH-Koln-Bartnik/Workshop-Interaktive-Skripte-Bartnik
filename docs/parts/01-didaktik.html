@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -334,7 +369,8 @@ div.csl-indent {
     <h2 id="toc-title">Inhalt</h2>
    
   <ul>
-  <li><a href="#drei-argumente-in-drei-sätzen" id="toc-drei-argumente-in-drei-sätzen" class="nav-link active" data-scroll-target="#drei-argumente-in-drei-sätzen">Drei Argumente in drei Sätzen</a>
+  <li><a href="#mach-mit-ihre-vorhersage" id="toc-mach-mit-ihre-vorhersage" class="nav-link active" data-scroll-target="#mach-mit-ihre-vorhersage">Mach mit — Ihre Vorhersage</a></li>
+  <li><a href="#drei-argumente-in-drei-sätzen" id="toc-drei-argumente-in-drei-sätzen" class="nav-link" data-scroll-target="#drei-argumente-in-drei-sätzen">Drei Argumente in drei Sätzen</a>
   <ul class="collapse">
   <li><a href="#generatives-lernen" id="toc-generatives-lernen" class="nav-link" data-scroll-target="#generatives-lernen">Generatives Lernen</a></li>
   <li><a href="#retrieval-practice" id="toc-retrieval-practice" class="nav-link" data-scroll-target="#retrieval-practice">Retrieval Practice</a></li>
@@ -379,6 +415,124 @@ div.csl-indent {
 <li>entscheiden, <strong>wann sich Interaktivität lohnt</strong> und wann nicht.</li>
 </ul>
 </section>
+<section id="mach-mit-ihre-vorhersage" class="level2">
+<h2 class="anchored" data-anchor-id="mach-mit-ihre-vorhersage">Mach mit — Ihre Vorhersage</h2>
+<p>Bevor Sie weiterlesen, eine Wette. In einem bekannten Experiment bekamen Studierende einen kurzen Sachtext von etwa 250 Wörtern, zum Beispiel über Seeotter. Für den Text hatten sie viermal sieben Minuten Zeit und lernten ihn auf eine von drei Arten <span class="citation" data-cites="roediger2006">(<a href="../index.html#ref-roediger2006" role="doc-biblioref">Roediger &amp; Karpicke, 2006</a>)</span>:</p>
+<div id="tbl-vorhersage" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-vorhersage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;4.1: Drei Arten, denselben Text zu lernen
+</figcaption>
+<div aria-describedby="tbl-vorhersage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Gruppe</th>
+<th>So wurde gelernt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>A</strong></td>
+<td>viermal lesen</td>
+</tr>
+<tr class="even">
+<td><strong>B</strong></td>
+<td>dreimal lesen, dann einmal aus dem Gedächtnis aufschreiben</td>
+</tr>
+<tr class="odd">
+<td><strong>C</strong></td>
+<td>einmal lesen, dann dreimal aus dem Gedächtnis aufschreiben (ohne nachzusehen, ohne Rückmeldung)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Danach schrieben alle auf, was sie vom Text noch wussten. Notieren Sie Ihre Antworten auf Papier oder im Chat, <strong>bevor</strong> Sie die Auflösung öffnen:</p>
+<ol type="1">
+<li>Welche Gruppe weiß <strong>fünf Minuten</strong> später am meisten?</li>
+<li>Welche Gruppe weiß <strong>eine Woche</strong> später am meisten?</li>
+<li>Welche Gruppe <em>glaubte</em> selbst, am meisten zu behalten?</li>
+</ol>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Auflösung (erst nach Ihrer Vorhersage öffnen)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="tbl-aufloesung" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-aufloesung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;4.2: Anteil der erinnerten Inhalte <span class="citation" data-cites="roediger2006">(<a href="../index.html#ref-roediger2006" role="doc-biblioref">Roediger &amp; Karpicke, 2006</a>, Exp. 2)</span>
+</figcaption>
+<div aria-describedby="tbl-aufloesung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Gruppe</th>
+<th>nach 5 Minuten</th>
+<th>nach 1 Woche</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A — viermal lesen</td>
+<td><strong>83 %</strong></td>
+<td>40 %</td>
+</tr>
+<tr class="even">
+<td>B — dreimal lesen, einmal abrufen</td>
+<td>78 %</td>
+<td>56 %</td>
+</tr>
+<tr class="odd">
+<td>C — einmal lesen, dreimal abrufen</td>
+<td>71 %</td>
+<td><strong>61 %</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Nach fünf Minuten gewinnt das Lesen, nach einer Woche dreht sich das Bild. Gruppe C hatte den Text nur sieben Minuten vor Augen und weiß trotzdem am meisten. Die Studierenden selbst sahen das nicht kommen: Gruppe A schätzte ihr Behalten am höchsten ein. Wiederholtes Lesen <em>fühlt</em> sich nach Lernen an, weil der Text vertraut wird; das Abrufen fühlt sich mühsam an und wirkt gerade deshalb. Dieses Prinzip heißt <strong>Retrieval Practice</strong> und ist eines der drei Argumente dieses Kapitels.</p>
+<p>Sie haben es gerade selbst angewendet: Eine Vorhersage aus dem eigenen Kopf, bevor die Antwort kommt, ist ein kleiner Abruf.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>So ist diese Übung gebaut
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Die Übung besteht aus reinem Quarto-Text, ohne HTML und ohne JavaScript. Die Auflösung ist ein aufklappbarer Kasten, ein sogenannter <em>Callout</em> mit dem Zusatz <code>collapse="true"</code>. Wer den Kasten nicht öffnet, sieht die Lösung nicht. In der Datei <code>parts/01-didaktik.qmd</code> steht dafür nur:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">## Auflösung (erst nach Ihrer Vorhersage öffnen)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Hier steht die Lösung.</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Dieses Muster können Sie für jede Vorhersage- oder Abruffrage in Ihrem eigenen Skript übernehmen: Frage stellen, Antwort notieren lassen, Auflösung zuklappen.</p>
+</div>
+</div>
+</div>
+</section>
 <section id="drei-argumente-in-drei-sätzen" class="level2">
 <h2 class="anchored" data-anchor-id="drei-argumente-in-drei-sätzen">Drei Argumente in drei Sätzen</h2>
 <p>Lehrforschung sagt es seit Jahren — aber selten so kompakt: Lernen klappt besser, wenn Lernende <strong>selbst etwas tun</strong>, <strong>regelmäßig abrufen</strong> und <strong>Bilder neben Worten</strong> bekommen. Drei Prinzipien, drei Belege, drei Konsequenzen für Ihr Skript.</p>
@@ -388,7 +542,7 @@ div.csl-indent {
 </section>
 <section id="retrieval-practice" class="level3">
 <h3 class="anchored" data-anchor-id="retrieval-practice">Retrieval Practice</h3>
-<p>Sich an etwas erinnern zu <strong>müssen</strong> verbessert das Behalten stärker als wiederholtes Lesen <span class="citation" data-cites="roediger2006 karpicke2011">(<a href="../index.html#ref-karpicke2011" role="doc-biblioref">Karpicke &amp; Blunt, 2011</a>; <a href="../index.html#ref-roediger2006" role="doc-biblioref">Roediger &amp; Karpicke, 2006</a>)</span>. In Experimenten von Karpicke und Mitarbeitern lasen Studierende dasselbe Material wiederholt oder kombinierten Lesen mit aktiven Abrufphasen — die Abruf-Gruppen schlugen die reinen Leser eine Woche später deutlich. Übersetzt: ein <strong>kurzes Quiz</strong> oder eine <strong>Drag-and-Drop-Aufgabe</strong> in Ihrem Skript wirkt wie eine Mini-Klausur, ohne dass jemand die Klausur korrigieren muss.</p>
+<p>Sich an etwas erinnern zu <strong>müssen</strong> verbessert das Behalten stärker als wiederholtes Lesen <span class="citation" data-cites="roediger2006 karpicke2011">(<a href="../index.html#ref-karpicke2011" role="doc-biblioref">Karpicke &amp; Blunt, 2011</a>; <a href="../index.html#ref-roediger2006" role="doc-biblioref">Roediger &amp; Karpicke, 2006</a>)</span>. Das Experiment vom Kapitelanfang zeigt es: Studierende lasen dasselbe Material wiederholt oder kombinierten Lesen mit aktiven Abrufphasen — die Abruf-Gruppen schlugen die reinen Leser eine Woche später deutlich (<a href="#tbl-aufloesung" class="quarto-xref">Tabelle&nbsp;<span>4.2</span></a>). Übersetzt: ein <strong>kurzes Quiz</strong> oder eine <strong>Drag-and-Drop-Aufgabe</strong> in Ihrem Skript wirkt wie eine Mini-Klausur, ohne dass jemand die Klausur korrigieren muss.</p>
 </section>
 <section id="multimedia-prinzip" class="level3">
 <h3 class="anchored" data-anchor-id="multimedia-prinzip">Multimedia-Prinzip</h3>
