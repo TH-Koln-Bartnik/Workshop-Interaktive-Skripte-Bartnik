@@ -73,7 +73,7 @@ Sie brauchen dafür keine Zeile Code zu schreiben. Sie beschreiben, was das Widg
 > **Eingaben:** [Stellschraube 1 mit Bereich], [Stellschraube 2 mit Bereich] als Schieberegler mit sichtbarem Wert.
 > **Rechenkern:** [Formel oder Regel in Worten]. **Ausgabe:** eine Kennzahl groß, darunter ein einfaches Diagramm.
 > **Ablauf:** Oben steht eine Vorhersagefrage mit Eingabefeld („Was erwarten Sie, wenn …?“). Erst nach der Eingabe werden die Regler aktiv. Danach drei kurze Aufgaben, unten die Formeln.
-> **Gestaltung:** schlicht, TH-Köln-Rot `#c81e0f` als Akzentfarbe, deutsche Beschriftung, gut lesbar auf 360 px Breite.
+> **Gestaltung:** schlicht, [Hauptfarbe Ihrer Hochschule, z. B. `#c81e0f`] als Akzentfarbe, deutsche Beschriftung, gut lesbar auf 360 px Breite.
 > Erkläre mir danach in drei Sätzen, wie der Rechenkern funktioniert, und nenne mir zwei Eingabewerte mit dem Ergebnis, das ich von Hand nachrechnen kann.
 
 Ein so entstandenes Beispiel für Strang B finden Sie hier: [Widget „Zwanzig Tests auf Rauschen“ öffnen →](../interactions/widget-mehrfachtests.html){target="_blank"}

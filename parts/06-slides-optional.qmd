@@ -13,7 +13,7 @@ Dieses Kapitel ist nicht Teil der gemeinsamen Übung. Wer mit Kapitel 1–9 frü
 - aus einem `.qmd`-Kapitel einen **Foliensatz** mit Quarto Reveal.js erzeugen,
 - **Stichpunkte schrittweise einblenden** (Appear-Effekt wie in PowerPoint),
 - **Bilder und Diagramme** in Folien einbetten — auch in zwei Spalten neben dem Text,
-- die **TH-Köln-Farben** auf Slides übertragen.
+- die **Farben Ihrer Hochschule** auf Slides übertragen.
 :::
 
 ## Worum es im Kern geht
@@ -39,13 +39,13 @@ format:
     slide-number: true
     chalkboard: true
     incremental: false
-    logo: ../images/th-koeln-logo.png
-    footer: "Workshop · TH Köln"
+    logo: ../images/logo.png
+    footer: "Workshop · Ihre Hochschule"
     transition: fade
 ---
 ```
 
-Wichtig: `theme: [default, ../styles.scss]` zieht Ihre TH-Köln-Farben auch auf die Folien.
+Wichtig: `theme: [default, ../styles.scss]` zieht Ihre Hochschulfarben auch auf die Folien.
 
 ## Bausteine — sieben Techniken zum Übernehmen
 
@@ -169,7 +169,7 @@ Render mit **Strg+Shift+K** oder im Terminal: `quarto render slides/meine-sequen
 4. **Eigenes Theme:** Tauschen Sie `theme: [default, ../styles.scss]` gegen ein dunkles Theme: `theme: [dark, ../styles.scss]`. Render und vergleichen.
 :::
 
-## TH-Köln-Brand auf Slides
+## Hochschul-Stil auf Slides
 
 Die `_brand.yml` aus Ihrem Skript wird auch von Reveal.js gelesen, sobald Sie sie in den Reveal-YAML einbauen:
 
@@ -197,7 +197,7 @@ format:
 
 Vorschlag-Prompt für dieses Kapitel:
 
-> Ich will aus meinem bestehenden Quarto-Kapitel einen Foliensatz mit Reveal.js machen. TH-Köln-Brand soll erhalten bleiben. Schlagen Sie mir die einfachste Aufteilung vor: Welche Abschnitte werden eine Folie, welche mehrere? Welche Stichpunkte sollen mit Appear-Effekt erscheinen? Geben Sie mir den YAML-Header und ein bis zwei Beispielfolien.
+> Ich will aus meinem bestehenden Quarto-Kapitel einen Foliensatz mit Reveal.js machen. Der Stil meiner Hochschule aus `_brand.yml` soll erhalten bleiben. Schlagen Sie mir die einfachste Aufteilung vor: Welche Abschnitte werden eine Folie, welche mehrere? Welche Stichpunkte sollen mit Appear-Effekt erscheinen? Geben Sie mir den YAML-Header und ein bis zwei Beispielfolien.
 :::
 
 ## Reaktivierung: Aktiv auslaufen lassen

@@ -79,8 +79,9 @@ WORKSHOP-INHALT, AUF DEN SIE SICH BEZIEHST
 - Werkzeuge: Quarto (Version 1.5+), RStudio Desktop, GitHub Desktop,
   Zotero mit Better BibTeX, optional H5P, Observable JS für reaktive
   Diagramme.
-- Stil: TH-Köln-Brand (rot #c81e0f, magenta #b43092, orange #ea5a00),
-  scharfe Ecken, Arial.
+- Stil: der Stil der jeweiligen Hochschule über _brand.yml und styles.scss;
+  Beispiel im Skript ist die TH Köln (rot #c81e0f, magenta #b43092,
+  orange #ea5a00, scharfe Ecken, Arial).
 - Struktur: Quarto-Buch mit Kapiteln in einem parts/-Ordner, output-dir: docs,
   Veröffentlichung über GitHub Pages aus dem main-Branch, Folder /docs.
 - Inhaltsbeispiel: Einführung wissenschaftliches Arbeiten, drei Stränge:
@@ -125,7 +126,7 @@ IHRE GRENZEN
 ZIEL
 Am Ende des Workshops haben die Teilnehmenden ein eigenes, im Netz
 veröffentlichtes Skript mit Inhaltsverzeichnis, Zotero-Zitaten,
-TH-Köln-Stil, einem interaktiven Diagramm und einem iFrame-Element.
+dem Stil ihrer Hochschule, einem interaktiven Diagramm und einem iFrame-Element.
 Hilf ihnen, dorthin zu kommen — Schritt für Schritt.
 ```
 

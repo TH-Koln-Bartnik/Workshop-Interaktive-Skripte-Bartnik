@@ -19,7 +19,7 @@ Am Ende des Workshops können Sie …
 
 1.  ein leicht pflegbares **Online-Skript erstellen**: ein Quarto-Projekt lokal in RStudio anlegen, rendern und über GitHub Pages veröffentlichen,
 2.  **Formatierungen automatisch erzeugen** lassen: Inhaltsverzeichnis, Querverweise und Zitate samt Literaturliste aus Zotero,
-3.  das Skript im **TH-Köln-Stil** gestalten,
+3.  das Skript im **Stil Ihrer Hochschule** gestalten,
 4.  Lernende mit den Inhalten **interagieren** lassen: mit einem interaktiven Diagramm, einem eingebetteten Spiel, einem eigenen Widget oder einem Colab-Arbeitsblatt,
 5.  **KI als Hilfe** einsetzen: als Tutor für die Lernenden und als agentische Hilfskraft, die mit Ihnen am Skript arbeitet.
 :::
@@ -45,7 +45,7 @@ Der Workshop ist so geschnitten, dass Sie nicht alle Werkzeuge gleichzeitig lern
 | **Teil 0 — Vorbereitung zu Hause** | ca. 2–3 h, vor dem Workshop | Werkzeuge installieren, Selbsttest mit drei Häkchen, Rohmaterial sammeln; die Galerie als Anregung | [0](parts/00-vorbereitung.qmd), [Galerie](parts/galerie.qmd) |
 | **Phase 1 — Schreiben und Rendern (lokal)** | ca. 3 h | Setup-Check (15 min), didaktische Verortung, erstes Quarto-Buch im Browser, Bilder, Tabellen und Verweise | 1–3 |
 | **Phase 2 — Quellen mit Zotero** | ca. 45 min | `references.bib`, automatische Zitate und Literaturliste | 4 |
-| **Phase 3 — Stil, Interaktion, Veröffentlichung** | ca. 2,5 h | Auswahl aus TH-Köln-Stil, interaktiven Diagrammen, Spielen und Tutor, Widgets und Colab; danach GitHub Pages live und kurzer Rundgang durch die Ergebnisse | 5–9, 10 optional |
+| **Phase 3 — Stil, Interaktion, Veröffentlichung** | ca. 2,5 h | Auswahl aus dem Stil Ihrer Hochschule, interaktiven Diagrammen, Spielen und Tutor, Widgets und Colab; danach GitHub Pages live und kurzer Rundgang durch die Ergebnisse | 5–9, 10 optional |
 | **Kür — nach dem Workshop** | nach Bedarf | einen Kurs mit einem KI-Agenten bauen; öffentliches und internes Material trennen; das Skript in ILIAS oder Moodle einbinden | 11–13 |
 
 ## Wählen Sie Ihren Beispielstrang

@@ -33,7 +33,7 @@ Installieren Sie in dieser Reihenfolge: R vor RStudio, weil RStudio beim ersten 
 
 ::: {.callout-warning}
 ## Dienstrechner ohne Administratorrechte
-Auf verwalteten Hochschulrechnern dürfen Sie oft keine Software selbst installieren. Klären Sie das frühzeitig mit Ihrer IT (an der TH Köln häufig über das Softwarecenter lösbar) oder bringen Sie ein privates Gerät mit, auf dem Sie installieren dürfen.
+Auf verwalteten Hochschulrechnern dürfen Sie oft keine Software selbst installieren. Klären Sie das frühzeitig mit Ihrer IT (oft über ein Softwarecenter oder ein Self-Service-Portal lösbar) oder bringen Sie ein privates Gerät mit, auf dem Sie installieren dürfen.
 :::
 
 ## Schritt für Schritt

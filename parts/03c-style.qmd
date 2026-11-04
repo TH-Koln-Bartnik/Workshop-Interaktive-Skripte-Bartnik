@@ -1,5 +1,5 @@
 ---
-title: "5 — TH-Köln-Stil einbauen"
+title: "5 — Stil Ihrer Hochschule einbauen"
 ---
 
 ::: {.callout-note}
@@ -12,7 +12,7 @@ Dieses Kapitel eröffnet die Auswahl in Phase 3. Wer eher zur Veröffentlichung 
 
 - die Hochschulfarben über `_brand.yml` setzen,
 - per CSS scharfkantige Callouts, Tabellen und Code-Blöcke gestalten,
-- das TH-Köln-Logo einbinden und prüfen, dass es überall korrekt erscheint.
+- das Logo Ihrer Hochschule einbinden und prüfen, dass es überall korrekt erscheint.
 :::
 
 ## Worum es im Kern geht
@@ -27,35 +27,39 @@ Drei Stellschrauben, in dieser Reihenfolge:
 2. **`styles.scss`** — alles, was `_brand.yml` nicht abdeckt (Layout, Akzente, eigene Boxen).
 3. **`format.html.theme`** in `_quarto.yml` — wählt das Bootstrap-Basistheme.
 
-## Die TH-Köln-Palette in Stichworten
+## Ihre Hochschulfarben finden
 
-Drei Farben, sonst nur Grautöne. Alles andere ist Verstoß gegen das Corporate Design.
+Jede Hochschule legt Farben, Schriften und Logo-Regeln in einem Corporate-Design-Handbuch fest. Sie finden es meist im Intranet unter „Corporate Design“ oder „Marke“; sonst hilft die Pressestelle. Für das Skript brauchen Sie daraus nur vier Dinge: eine Hauptfarbe, ein bis zwei Akzentfarben als Hex-Werte (sechsstellige Farbcodes wie `#c81e0f`), die Hausschrift und das Logo als PNG-Datei.
 
-| Rolle | Hex | Wo? |
-|---|---|---|
-| TH Red | `#c81e0f` | Links, Akzente, wichtige Hervorhebungen |
-| TH Magenta | `#b43092` | Strukturlinien, Callout-Ränder |
-| TH Orange | `#ea5a00` | Sehr sparsam — Warnungen, Verlauf |
-| Ink | `#111111` | Fließtext (weicheres Schwarz) |
-| Paper | `#ffffff` | Hintergründe, immer |
+## Beispiel: die Palette der TH Köln
 
-## Mach mit — `_brand.yml` kopieren
+Dieses Skript ist im Stil der TH Köln gestaltet, und ihre Palette dient hier als durchgerechnetes Beispiel. Sie kommt mit drei Farben aus, alles Übrige sind Grautöne. Notieren Sie sich für jede Zeile den passenden Wert Ihrer Hochschule.
 
-Im Repository des Workshops liegt eine fertige `_brand.yml` mit der TH-Köln-Palette. Kopieren Sie sie in Ihr Projektverzeichnis. Beim nächsten `quarto render` sind Links rot, Überschriften schwarz, Akzente magenta.
+| Rolle | Beispiel TH Köln | Hex | Wo? |
+|---|---|---|---|
+| Hauptfarbe | TH Red | `#c81e0f` | Links, Akzente, wichtige Hervorhebungen |
+| Strukturfarbe | TH Magenta | `#b43092` | Strukturlinien, Callout-Ränder |
+| Warnfarbe | TH Orange | `#ea5a00` | Sehr sparsam — Warnungen, Verlauf |
+| Text | Ink | `#111111` | Fließtext (weicheres Schwarz) |
+| Hintergrund | Paper | `#ffffff` | Hintergründe, immer |
+
+## Mach mit — `_brand.yml` anpassen
+
+Im Repository des Workshops liegt eine fertige `_brand.yml` mit der Palette der TH Köln. Kopieren Sie sie in Ihr Projektverzeichnis und ersetzen Sie die drei Hex-Werte durch die Ihrer Hochschule. Die Namen links (`th-red` usw.) sind frei wählbar. Wer sie umbenennt, etwa in `hs-haupt`, muss den neuen Namen auch bei `primary` und `secondary` eintragen. Beim nächsten `quarto render` erscheinen Links in Ihrer Hauptfarbe und Akzente in Ihrer Strukturfarbe.
 
 ```yaml
 color:
-  palette:
-    th-red: "#c81e0f"
-    th-magenta: "#b43092"
-    th-orange: "#ea5a00"
+  palette:                 # Beispiel TH Köln: Hex-Werte durch Ihre ersetzen
+    th-red: "#c81e0f"      # Hauptfarbe
+    th-magenta: "#b43092"  # Strukturfarbe
+    th-orange: "#ea5a00"   # Warnfarbe
   primary: th-red
   secondary: th-magenta
 ```
 
 ## SCSS-Ergänzungen
 
-Drei Dinge, die `_brand.yml` nicht regelt: scharfe Ecken („kantig"), die magenta H2-Unterstreichung und die TH-Farbleiste am Seitenanfang. Quarto verarbeitet eigene Stile als **SCSS** (Sass) — eine Erweiterung von CSS, die mit Bootstrap zusammenarbeitet. Sie brauchen dafür kein Sass-Wissen: jede gültige CSS-Regel ist auch gültiges SCSS.
+Drei Dinge, die `_brand.yml` nicht regelt: scharfe Ecken („kantig"), die farbige H2-Unterstreichung und die Farbleiste am Seitenanfang. Quarto verarbeitet eigene Stile als **SCSS** (Sass) — eine Erweiterung von CSS, die mit Bootstrap zusammenarbeitet. Sie brauchen dafür kein Sass-Wissen: jede gültige CSS-Regel ist auch gültiges SCSS.
 
 ::: {.callout-warning}
 Die Datei muss `styles.scss` heißen (nicht `.css`) und am Anfang einen **Layer-Marker** enthalten — sonst bricht `quarto render` mit einer Fehlermeldung „doesn't contain at least one layer boundary" ab.
@@ -76,7 +80,7 @@ In `styles.scss` (Auszug — Layer-Marker am Anfang ist Pflicht):
 ```scss
 /*-- scss:rules --*/
 
-:root {
+:root {                 /* Beispiel TH Köln */
   --th-red: #c81e0f;
   --th-magenta: #b43092;
 }
@@ -95,21 +99,21 @@ Rendern Sie Ihr Skript einmal **vor** und einmal **nach** dem Einbau von `_brand
 ::: {.callout-tip}
 ## Variieren Sie
 
-1. **Andere Hochschulfarbe:** Tauschen Sie TH Red (`#c81e0f`) gegen die Hauptfarbe Ihrer eigenen Fakultät oder Hochschule. Render — wie wirkt der Wechsel?
-2. **Eigene CSS-Regel:** Ergänzen Sie in `styles.scss` eine Regel, die `<strong>`-Text in TH Magenta hervorhebt (`strong { color: var(--th-magenta); }`). Render und prüfen.
+1. **Fakultätsfarbe:** Viele Hochschulen geben Fakultäten oder Instituten eine eigene Akzentfarbe. Tauschen Sie die Hauptfarbe gegen die Ihrer Fakultät. Render — wie wirkt der Wechsel?
+2. **Eigene CSS-Regel:** Ergänzen Sie in `styles.scss` eine Regel, die `<strong>`-Text in Ihrer Strukturfarbe hervorhebt (`strong { color: var(--th-magenta); }`). Render und prüfen.
 3. **Anderes Theme:** Tauschen Sie unter `format.html.theme` `cosmo` gegen ein anderes Bootstrap-Theme (z. B. `flatly`, `journal`, `cerulean`, `simplex`) und vergleichen Sie das Gesamtbild.
 4. **Schriftgröße erhöhen:** Setzen Sie in `styles.scss` `body { font-size: 1.1rem; }`. Render — wie verändert sich Lesbarkeit und Folgewirkung auf andere Elemente?
 :::
 
 ## Logo einbinden
 
-1. Laden Sie das TH-Köln-Logo (PNG, transparent) in `images/th-koeln-logo.png`.
+1. Legen Sie das Logo Ihrer Hochschule (PNG mit transparentem Hintergrund) als `images/logo.png` ab. Ob und in welcher Form das Logo auf einer öffentlichen Seite stehen darf, regelt das Corporate-Design-Handbuch; im Zweifel entscheidet die Pressestelle.
 2. In `_brand.yml`:
 
 ```yaml
 logo:
-  small: images/th-koeln-logo.png
-  medium: images/th-koeln-logo.png
+  small: images/logo.png
+  medium: images/logo.png
 ```
 
 3. Rendern und prüfen.
@@ -132,12 +136,12 @@ logo:
 
 Vorschlag-Prompt für dieses Kapitel:
 
-> Ich möchte mein Quarto-Skript im TH-Köln-Stil gestalten (rot #c81e0f, magenta #b43092, orange #ea5a00, kantige Ecken, Arial). Mein Stand: [_brand.yml vorhanden / fehlt]; [styles.scss vorhanden / fehlt]. Was ist mein nächster Schritt? Erklärung in einfachen Worten zuerst, dann ein konkreter Code-Schnipsel.
+> Ich möchte mein Quarto-Skript im Stil meiner Hochschule gestalten (Hauptfarbe [#…], Akzentfarbe [#…], Schrift [Name], Logo [vorhanden / fehlt]). Mein Stand: [_brand.yml vorhanden / fehlt]; [styles.scss vorhanden / fehlt]. Was ist mein nächster Schritt? Erklärung in einfachen Worten zuerst, dann ein konkreter Code-Schnipsel.
 :::
 
 ## Reaktivierung: Aktiv auslaufen lassen
 
-Schieber bewegen, Stil-Aspekte einzeln an- und abschalten. Links der TH-Köln-Stil, rechts der Quarto-Default. Welche der drei Stellschrauben (Farbe, Schrift, Kanten) verändert das Bild am stärksten?
+Schieber bewegen, Stil-Aspekte einzeln an- und abschalten. Links ein Hochschul-Stil am Beispiel der TH Köln, rechts der Quarto-Default. Welche der drei Stellschrauben (Farbe, Schrift, Kanten) verändert das Bild am stärksten?
 
 <iframe src="../interactions/vorher-nachher-kap04.html" width="100%" height="780" frameborder="0" style="border: 1px solid #e6e6ea;"></iframe>
 
