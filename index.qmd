@@ -22,7 +22,7 @@ Im Workshop bauen Sie Ihr eigenes interaktives Online-Skript: lokal in RStudio g
 
 ## Der Workflow auf einen Blick
 
-Die Animation zeigt, welches Werkzeug welche Aufgabe übernimmt und in welcher Phase es dazukommt. Mit den Pfeiltasten oder der Leiste unten gehen Sie durch die sechs Schritte, ein Klick auf ein Werkzeug öffnet eine kurze Erklärung. In Schritt 0 können Sie Ihre Installationen abhaken.
+Die Animation zeigt, welches Werkzeug welche Aufgabe übernimmt und in welcher Phase es dazukommt. Mit „▶ Start“ oben rechts oder der Leiste unten gehen Sie durch die sechs Schritte; die Pfeiltasten funktionieren, sobald Sie einmal in die Animation geklickt haben. Ein Klick auf ein Werkzeug öffnet eine kurze Erklärung. In Schritt 0 können Sie Ihre Installationen abhaken.
 
 ::: {.column-page}
 <iframe src="interactions/workflow-animation.html" width="100%" height="880px" frameborder="0" loading="lazy" allow="fullscreen" allowfullscreen title="Animation: Vom Manuskript zur Website, der Workflow für interaktive Skripte"></iframe>

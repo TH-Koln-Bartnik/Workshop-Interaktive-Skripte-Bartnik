@@ -201,8 +201,9 @@ footer{display:flex;align-items:center;gap:10px;padding:12px 20px 14px;flex-wrap
   body{display:block}
   .side{overflow:visible}
 }
+body.still *{animation-play-state:paused!important}
 @media (prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
+  body.still *{animation:none!important;transition:none!important}
 }
 </style>
 </head>
@@ -215,7 +216,7 @@ footer{display:flex;align-items:center;gap:10px;padding:12px 20px 14px;flex-wrap
   <div class="tools">
     <button class="tbtn" id="kiBtn" aria-pressed="false" title="KI-Assistent ein- oder ausblenden (Taste K)">✦ KI-Schicht <kbd>K</kbd></button>
     <button class="tbtn" id="quizBtn" title="Reihenfolge-Quiz öffnen (Taste Q)">Reihenfolge-Quiz <kbd>Q</kbd></button>
-    <button class="tbtn" id="playBtn" title="Animation anhalten oder fortsetzen (Leertaste)">⏸ Pause</button>
+    <button class="tbtn" id="playBtn" title="Animation starten, anhalten oder fortsetzen (Leertaste)">▶ Start</button>
     <button class="tbtn" id="fsBtn" title="Vollbild (Taste F)">⛶ Vollbild</button>
   </div>
 </header>
@@ -377,7 +378,9 @@ const CHECK = [
 ];
 
 /* ---------- Zustand ---------- */
-let step = 0, kiOn = false, paused = false;
+/* Bei „Bewegung reduzieren“ (Windows: Animationseffekte aus) startet die Animation angehalten,
+   lässt sich aber per Knopf bewusst einschalten. */
+let step = 0, kiOn = false, paused = reduced;
 const checked = new Set();
 
 /* ---------- SVG aufbauen ---------- */
@@ -496,7 +499,6 @@ function applyLinks(){
 let flows=[];
 function buildFlows(running){
   gDots.innerHTML=""; flows=[];
-  if(reduced) return;
   const S=STEPS[step];
   if(S.flows.includes("relay")){
     const seq=[["zot",0],["int",0],["ki",0],["prev",1100],["commit",2300],["push",3300],["pages",4300],["web",5200]];
@@ -627,6 +629,7 @@ function go(i){
   document.getElementById("browserPanel").style.display = step===0 ? "none" : "";
   elapsed=0;
   renderRStudio(); applyNodes(); applyLinks(); renderExplain(); renderPage(); closePop();
+  if(typeof updatePlayBtn==="function") updatePlayBtn();
   try{ if(location.hash!=="#schritt-"+step) history.replaceState(null,"","#schritt-"+step); }catch(e){}
 }
 document.getElementById("prev").addEventListener("click",()=>go(step-1));
@@ -652,7 +655,12 @@ for(const id in nodeEls){
 function toggleKI(){ kiOn = step===5 ? true : !kiOn; document.getElementById("kiBtn").setAttribute("aria-pressed",String(kiOn)); applyNodes(); applyLinks(); }
 document.getElementById("kiBtn").addEventListener("click",toggleKI);
 const playBtn=document.getElementById("playBtn");
-function togglePlay(){ paused=!paused; playBtn.textContent = paused ? "▶ Weiter" : "⏸ Pause"; }
+function updatePlayBtn(){
+  playBtn.textContent = step===0 ? "▶ Start" : paused ? "▶ Abspielen" : "⏸ Pause";
+  document.body.classList.toggle("still", paused);
+}
+/* In Schritt 0 fließt noch nichts: Start springt in Schritt 1 und lässt die Punkte laufen. */
+function togglePlay(){ if(step===0){ paused=false; go(1); } else paused=!paused; updatePlayBtn(); }
 playBtn.addEventListener("click",togglePlay);
 function toggleFS(){
   try{
@@ -706,6 +714,7 @@ document.addEventListener("keydown",e=>{
 function fromHash(){ const m=(location.hash||"").match(/^#schritt-([0-5])$/); return m?+m[1]:0; }
 window.addEventListener("hashchange",()=>{const s=fromHash(); if(s!==step) go(s);});
 go(fromHash());
+updatePlayBtn();
 })();
 </script>
 </body>
