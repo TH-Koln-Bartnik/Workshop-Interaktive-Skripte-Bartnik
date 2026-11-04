@@ -10,6 +10,82 @@ title: "1 — Warum interaktiv?"
 - entscheiden, **wann sich Interaktivität lohnt** und wann nicht.
 :::
 
+## Mach mit — Ihre Vorhersage
+
+Bevor Sie weiterlesen, eine Wette. In einem bekannten Experiment bekamen Studierende einen kurzen Sachtext von etwa 250 Wörtern, zum Beispiel über Seeotter. Für den Text hatten sie viermal sieben Minuten Zeit und lernten ihn auf eine von drei Arten [@roediger2006]:
+
+| Gruppe | So wurde gelernt |
+|---|---|
+| **A** | viermal lesen |
+| **B** | dreimal lesen, dann einmal aus dem Gedächtnis aufschreiben |
+| **C** | einmal lesen, dann dreimal aus dem Gedächtnis aufschreiben (ohne nachzusehen, ohne Rückmeldung) |
+
+: Drei Arten, denselben Text zu lernen {#tbl-vorhersage}
+
+Danach schrieben alle auf, was sie vom Text noch wussten. Notieren Sie Ihre Antworten auf Papier oder im Chat, **bevor** Sie die Auflösung öffnen:
+
+1. Welche Gruppe weiß **fünf Minuten** später am meisten?
+2. Welche Gruppe weiß **eine Woche** später am meisten?
+3. Welche Gruppe *glaubte* selbst, am meisten zu behalten?
+
+::: {.callout-note collapse="true"}
+## Auflösung (erst nach Ihrer Vorhersage öffnen)
+
+| Gruppe | nach 5 Minuten | nach 1 Woche |
+|---|---|---|
+| A — viermal lesen | **83 %** | 40 % |
+| B — dreimal lesen, einmal abrufen | 78 % | 56 % |
+| C — einmal lesen, dreimal abrufen | 71 % | **61 %** |
+
+: Anteil der erinnerten Inhalte [@roediger2006, Exp. 2] {#tbl-aufloesung}
+
+Nach fünf Minuten gewinnt das Lesen, nach einer Woche dreht sich das Bild. Gruppe C hatte den Text nur sieben Minuten vor Augen und weiß trotzdem am meisten. Die Studierenden selbst sahen das nicht kommen: Gruppe A schätzte ihr Behalten am höchsten ein. Wiederholtes Lesen *fühlt* sich nach Lernen an, weil der Text vertraut wird; das Abrufen fühlt sich mühsam an und wirkt gerade deshalb. Dieses Prinzip heißt **Retrieval Practice** und ist eines der drei Argumente dieses Kapitels.
+
+Sie haben es gerade selbst angewendet: Eine Vorhersage aus dem eigenen Kopf, bevor die Antwort kommt, ist ein kleiner Abruf.
+:::
+
+## Mach mit — die Übung für Ihr Fach umbauen
+
+Die Übung oben besteht aus reinem Quarto-Text, ohne HTML und ohne JavaScript. Die Auflösung steckt in einem aufklappbaren Kasten. Quarto nennt so einen Kasten *Callout*, und der Zusatz `collapse="true"` hält ihn beim Laden geschlossen. Wer ihn nicht öffnet, sieht die Lösung nicht. Diese Vorlage bauen Sie jetzt in zehn Minuten zu einer Vorhersagefrage aus Ihrem eigenen Fach um.
+
+1. **Datei anlegen.** In RStudio: **File → New File → Quarto Document…**, Titel „Vorhersage“, Format HTML. Entfernen Sie das Häkchen bei *Use visual markdown editor*, denn der visuelle Editor versteckt die Doppelpunkte, um die es hier geht. Speichern Sie die Datei als `vorhersage.qmd`. Den Beispielinhalt unter dem Kopf (dem Bereich zwischen den beiden `---`-Zeilen) löschen Sie.
+2. **Vorlage einfügen.** Kopieren Sie den Block unten (Symbol oben rechts im Kasten) unter den Kopf.
+3. **Anpassen.** Ersetzen Sie alles in eckigen Klammern. Wählen Sie eine Frage, bei der Ihre Studierenden erfahrungsgemäß falsch raten: eine Messung, einen Effekt oder eine Faustregel aus Ihrer Lehre, deren Ergebnis überrascht. Die Auflösung nennt die richtige Antwort und in einem Satz, warum die Intuition täuscht.
+4. **Rendern.** Klicken Sie auf **Render** oder drücken Sie **Strg+Shift+K**. Prüfen Sie in der Vorschau: Ist der Kasten geschlossen? Öffnet er sich per Klick?
+
+````markdown
+## Ihre Vorhersage
+
+[Situation aus Ihrem Fach in zwei bis drei Sätzen.]
+
+Notieren Sie Ihre Antwort, **bevor** Sie die Auflösung öffnen:
+
+1. [Frage 1]
+2. [Frage 2]
+
+::: {.callout-note collapse="true"}
+## Auflösung (erst nach Ihrer Vorhersage öffnen)
+[Die richtige Antwort.] [Warum die Intuition hier täuscht.]
+:::
+````
+
+::: {.callout-tip}
+## Variieren Sie
+
+1. **Farbe wechseln:** Ersetzen Sie `callout-note` durch `callout-warning` oder `callout-tip` und rendern Sie neu. Welche Farbe passt zu einer Auflösung, welche zu einem Hinweis?
+2. **Zuklappen abschalten:** Löschen Sie `collapse="true"` und rendern Sie. Die Lösung steht jetzt offen neben der Frage. Was bedeutet das für den Abruf, um den es in dieser Übung geht?
+3. **Absichtlich kaputt machen:** Löschen Sie beim schließenden `:::` einen Doppelpunkt, schreiben Sie darunter einen weiteren Absatz und rendern Sie. Wo landet der neue Absatz? Danach den Doppelpunkt wieder einsetzen.
+4. **Mit Kollegin tauschen:** Lassen Sie Ihre Sitznachbarin Ihre Frage beantworten, bevor sie den Kasten öffnet. Lag sie falsch? Dann haben Sie eine gute Vorhersagefrage gefunden.
+:::
+
+::: {.callout-warning}
+## Was, wenn …
+
+- **Statt eines Kastens erscheinen die Doppelpunkte als Text?** → Vor `:::` und nach `:::` fehlt eine Leerzeile. Quarto erkennt den Kasten nur, wenn er durch leere Zeilen vom übrigen Text getrennt ist.
+- **Alles nach der Auflösung ist verschwunden?** → Das schließende `:::` fehlt oder hat nur zwei Doppelpunkte. Quarto steckt dann den ganzen Rest des Dokuments in den zugeklappten Kasten. Öffnen Sie ihn, und Sie finden Ihren Text dort.
+- **Sie sehen Knöpfe statt Doppelpunkte?** → Der visuelle Editor ist an. Oben links im Editor auf **Source** umschalten.
+:::
+
 ## Drei Argumente in drei Sätzen
 
 Lehrforschung sagt es seit Jahren — aber selten so kompakt: Lernen klappt besser, wenn Lernende **selbst etwas tun**, **regelmäßig abrufen** und **Bilder neben Worten** bekommen. Drei Prinzipien, drei Belege, drei Konsequenzen für Ihr Skript.
@@ -20,7 +96,7 @@ Auch beim Lernen gilt eine Form von „wer schreibt, der bleibt". Wenn wir einen
 
 ### Retrieval Practice
 
-Sich an etwas erinnern zu **müssen** verbessert das Behalten stärker als wiederholtes Lesen [@roediger2006; @karpicke2011]. In Experimenten von Karpicke und Mitarbeitern lasen Studierende dasselbe Material wiederholt oder kombinierten Lesen mit aktiven Abrufphasen — die Abruf-Gruppen schlugen die reinen Leser eine Woche später deutlich. Übersetzt: ein **kurzes Quiz** oder eine **Drag-and-Drop-Aufgabe** in Ihrem Skript wirkt wie eine Mini-Klausur, ohne dass jemand die Klausur korrigieren muss.
+Sich an etwas erinnern zu **müssen** verbessert das Behalten stärker als wiederholtes Lesen [@roediger2006; @karpicke2011]. Das Experiment vom Kapitelanfang zeigt es: Studierende lasen dasselbe Material wiederholt oder kombinierten Lesen mit aktiven Abrufphasen — die Abruf-Gruppen schlugen die reinen Leser eine Woche später deutlich (@tbl-aufloesung). Übersetzt: ein **kurzes Quiz** oder eine **Drag-and-Drop-Aufgabe** in Ihrem Skript wirkt wie eine Mini-Klausur, ohne dass jemand die Klausur korrigieren muss.
 
 ### Multimedia-Prinzip
 
@@ -60,7 +136,7 @@ Drei Beispiele, drei Prinzipien, fünf Minuten. Ziehen Sie jedes Beispiel auf da
 
 1. **Eigenes Beispiel finden:** Erfinden Sie ein **viertes** Beispiel aus Ihrem eigenen Lehrgebiet und entscheiden Sie, welches der drei Prinzipien (generativ, retrieval, multimedia) es am stärksten illustriert.
 2. **Lücke prüfen:** Welches der drei Prinzipien lässt sich in Ihrem Strang am **schlechtesten** umsetzen? Notieren Sie eine Begründung in einem Satz — diese Notiz nutzen wir im Showcase am Tagesende.
-3. **HTML wagen:** Öffnen Sie `interactions/lernspiel-kapitel1.html` in RStudio, suchen Sie im Quelltext den `examples`-Array und tauschen Sie eines der drei Beispiele gegen eines aus Ihrem Strang. Lokal rendern, im Browser ansehen. (Veröffentlichen kommt in Kap. 8.)
+3. **HTML wagen:** Öffnen Sie `interactions/lernspiel-kapitel1.html` in RStudio, suchen Sie im Quelltext den `examples`-Array und tauschen Sie eines der drei Beispiele gegen eines aus Ihrem Strang. Lokal rendern, im Browser ansehen. (Veröffentlichen kommt in Kap. 9.)
 :::
 
 ::: {.callout-warning}

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zwanzig Tests auf Rauschen</title>
+<style>
+  :root { --th-red:#c81e0f; --ink:#2b2f36; --muted:#6b7280; --line:#e6e6ea; --soft:#f7f5f2; --ok:#1f7a4d; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color:var(--ink); background:#fff; line-height:1.45; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 16px; }
+  .bar { height: 6px; background: linear-gradient(90deg, var(--th-red), #b43092, #ea5a00); border-radius: 3px; margin-bottom: 12px; }
+  h1 { font-size: 1.35rem; margin: 0 0 4px; }
+  .lead { color: var(--muted); margin: 0 0 14px; }
+  .card { border:1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin: 12px 0; background:#fff; }
+  .card.soft { background: var(--soft); }
+  label { font-weight: 600; display:block; margin-bottom: 4px; }
+  input[type=range] { width: 100%; accent-color: var(--th-red); }
+  .row { display:grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 560px) { .row { grid-template-columns: 1fr; } }
+  .val { font-variant-numeric: tabular-nums; color: var(--th-red); font-weight: 700; }
+  .big { font-size: 2.4rem; font-weight: 800; color: var(--th-red); font-variant-numeric: tabular-nums; }
+  .sub { color: var(--muted); font-size: .92rem; }
+  button { font: inherit; border:1px solid var(--th-red); background: var(--th-red); color:#fff; border-radius: 8px; padding: 6px 14px; cursor:pointer; }
+  button.ghost { background:#fff; color: var(--th-red); }
+  button:disabled { opacity:.45; cursor: not-allowed; }
+  .locked { opacity:.45; pointer-events:none; }
+  svg { width:100%; height:auto; display:block; }
+  .pred { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  .pred input[type=number] { width: 90px; font: inherit; padding: 4px 6px; border:1px solid var(--line); border-radius:6px; }
+  .feedback { margin-top: 8px; }
+  ol { padding-left: 1.2rem; margin: 6px 0; }
+  code { background: var(--soft); padding: 1px 4px; border-radius: 4px; }
+  footer { color: var(--muted); font-size: .8rem; border-top:1px solid var(--line); padding-top: 8px; margin-top: 14px; }
+  .check { display:flex; gap:8px; align-items:center; font-weight: 400; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar"></div>
+  <h1>Zwanzig Tests auf Rauschen</h1>
+  <p class="lead">Eine Forschungsgruppe prüft viele Hypothesen, von denen <strong>keine</strong> stimmt. Jeder Test hat dieselbe kleine Chance, zufällig „signifikant“ zu werden. Wie oft findet die Gruppe trotzdem einen „Effekt“?</p>
+
+  <div class="card soft" id="predCard">
+    <label for="pred">1 · Ihre Vorhersage</label>
+    <div class="pred">
+      <span>Bei 20 Tests mit α = 0,05: Wie wahrscheinlich ist mindestens ein Zufallstreffer?</span>
+      <input id="pred" type="number" min="0" max="100" step="1" placeholder="z. B. 10"> <span>%</span>
+      <button id="predBtn">Festhalten</button>
+    </div>
+    <div class="feedback sub" id="predFb">Erst nach Ihrer Vorhersage werden die Regler aktiv.</div>
+  </div>
+
+  <div id="lab" class="locked">
+    <div class="card">
+      <div class="row">
+        <div>
+          <label for="k">Anzahl Tests: <span class="val" id="kVal">20</span></label>
+          <input id="k" type="range" min="1" max="60" step="1" value="20">
+        </div>
+        <div>
+          <label for="a">Signifikanzniveau α: <span class="val" id="aVal">0,05</span></label>
+          <input id="a" type="range" min="0" max="2" step="1" value="1">
+          <div class="sub">0,01 · 0,05 · 0,10</div>
+        </div>
+      </div>
+      <label class="check" style="margin-top:10px"><input type="checkbox" id="bonf"> Bonferroni-Korrektur (jeder Test mit α ÷ Anzahl Tests)</label>
+    </div>
+
+    <div class="card">
+      <div class="sub">Wahrscheinlichkeit für mindestens einen Zufallstreffer</div>
+      <div class="big" id="pAny">64,2 %</div>
+      <div class="sub" id="pExpl"></div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
+        <strong>2 · Beobachten: ein simulierter Durchgang</strong>
+        <button class="ghost" id="roll">Neu würfeln</button>
+      </div>
+      <div class="sub">Jeder Punkt ist ein Test auf reines Rauschen; der p-Wert ist zufällig zwischen 0 und 1 verteilt. Rote Punkte liegen unter der Schwelle und gälten als „signifikant“.</div>
+      <svg id="plot" viewBox="0 0 600 220" role="img" aria-label="p-Werte der simulierten Tests"></svg>
+      <div class="sub" id="simTxt"></div>
+      <div class="sub" id="tally"></div>
+    </div>
+  </div>
+
+  <div class="card soft">
+    <strong>3 · Erklären und übertragen</strong>
+    <ol>
+      <li>Ab wie vielen Tests ist ein Zufallstreffer wahrscheinlicher als keiner? Finden Sie die Zahl mit dem Regler.</li>
+      <li>Schalten Sie die Bonferroni-Korrektur ein. Was gewinnen Sie, und was verlieren Sie, wenn es doch einen echten Effekt gäbe?</li>
+      <li>Eine Pressemitteilung meldet einen „signifikanten Zusammenhang“ aus einer Studie mit 40 Messgrößen. Welche Frage stellen Sie zuerst?</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <strong>Formeln</strong>
+    <p class="sub" style="margin:.3rem 0 0">Chance, dass ein Test kein Zufallstreffer ist: <code>1 − α</code>. Bei k unabhängigen Tests: <code>(1 − α)ᵏ</code>. Also mindestens ein Zufallstreffer: <code>1 − (1 − α)ᵏ</code>. Bonferroni: jeder Test mit <code>α ÷ k</code>; dann bleibt die Gesamtchance höchstens bei α. Beispiel: k = 20, α = 0,05 → 1 − 0,95²⁰ ≈ 0,642.</p>
+  </div>
+
+  <footer>Beispiel-Widget zu Kapitel 8 des Workshops „Interaktive Skripte mit KI erstellen“, TH Köln · Prof. Dr. Roman Bartnik · mit KI-Unterstützung erstellt.</footer>
+</div>
+
+<script>
+(function () {
+  const alphas = [0.01, 0.05, 0.10];
+  const $ = (id) => document.getElementById(id);
+  const fmt = (x, d) => x.toLocaleString('de-DE', { minimumFractionDigits: d, maximumFractionDigits: d });
+  let pvals = [], prediction = null, runs = 0, runsWithHit = 0;
+
+  function pAny(k, a) { return 1 - Math.pow(1 - a, k); }
+
+  function roll() {
+    const k = +$('k').value;
+    pvals = Array.from({ length: k }, () => Math.random());
+    const a = alphas[+$('a').value], thr = $('bonf').checked ? a / k : a;
+    runs++; if (pvals.some(p => p < thr)) runsWithHit++;
+    draw();
+  }
+
+  function draw() {
+    const k = +$('k').value, a = alphas[+$('a').value], bonf = $('bonf').checked;
+    const thr = bonf ? a / k : a;
+    $('kVal').textContent = k; $('aVal').textContent = fmt(a, 2);
+    const p = pAny(k, thr);
+    $('pAny').textContent = fmt(p * 100, 1) + ' %';
+    $('pExpl').textContent = bonf
+      ? `Schwelle je Test: ${fmt(a, 2)} ÷ ${k} = ${fmt(thr, 4)}`
+      : `Schwelle je Test: ${fmt(a, 2)}` + (prediction !== null ? ` · Ihre Vorhersage für 20 Tests bei 0,05: ${prediction} %` : '');
+    // plot: x = test index, y = p-value on log-ish scale (sqrt for readability)
+    const W = 600, H = 220, L = 54, R = 8, T = 10, B = 30;
+    const y = (v) => T + (H - T - B) * (1 - Math.sqrt(v));
+    let s = `<line x1="${L}" y1="${H - B}" x2="${W - R}" y2="${H - B}" stroke="#ccc"/>`;
+    [0, 0.05, 0.25, 1].forEach(t => { s += `<text x="${L - 4}" y="${y(t) + 6}" font-size="17" text-anchor="end" fill="#6b7280">${fmt(t, 2)}</text>`; });
+    s += `<line x1="${L}" y1="${y(thr)}" x2="${W - R}" y2="${y(thr)}" stroke="#c81e0f" stroke-dasharray="4 3"/>`;
+    s += `<text x="${W - R}" y="${y(thr) - 6}" font-size="17" text-anchor="end" fill="#c81e0f">Schwelle</text>`;
+    const n = pvals.length, step = (W - L - R) / Math.max(n, 1);
+    let hits = 0;
+    pvals.forEach((v, i) => {
+      const hit = v < thr; if (hit) hits++;
+      s += `<circle cx="${L + step * (i + 0.5)}" cy="${y(v)}" r="${n > 40 ? 4 : 6}" fill="${hit ? '#c81e0f' : '#9ca3af'}"/>`;
+    });
+    s += `<text x="${(W + L) / 2}" y="${H - 6}" font-size="17" text-anchor="middle" fill="#6b7280">Test 1 … ${n}   ·   y-Achse: p-Wert</text>`;
+    $('plot').innerHTML = s;
+    $('simTxt').textContent = hits === 0 ? 'In diesem Durchgang: kein Zufallstreffer.' :
+      `In diesem Durchgang: ${hits} „signifikante“ Ergebnis${hits > 1 ? 'se' : ''}, obwohl nichts dahintersteckt.`;
+    $('tally').textContent = runs ? `Bisher ${runs} Durchgänge, davon ${runsWithHit} mit mindestens einem Zufallstreffer (${fmt(100 * runsWithHit / runs, 0)} %).` : '';
+  }
+
+  $('predBtn').addEventListener('click', () => {
+    const v = parseFloat($('pred').value);
+    if (isNaN(v) || v < 0 || v > 100) { $('predFb').textContent = 'Bitte eine Zahl zwischen 0 und 100 eingeben.'; return; }
+    prediction = v;
+    const truth = pAny(20, 0.05) * 100;
+    $('predFb').textContent = `Festgehalten: ${fmt(v, 0)} %. Der richtige Wert steht unten; liegt Ihre Schätzung ${Math.abs(v - truth) < 10 ? 'nah dran' : 'weit daneben'}? Überlegen Sie, warum.`;
+    $('lab').classList.remove('locked'); $('predBtn').disabled = true; $('pred').disabled = true;
+    roll();
+  });
+  ['k', 'a', 'bonf'].forEach(id => $(id).addEventListener('input', () => { runs = 0; runsWithHit = 0; roll(); }));
+  $('roll').addEventListener('click', roll);
+  pvals = Array.from({ length: 20 }, () => Math.random());
+  draw();
+})();
+</script>
+</body>
+</html>

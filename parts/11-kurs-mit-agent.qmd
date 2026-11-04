@@ -1,0 +1,201 @@
+---
+title: "11 — Einen Kurs mit einem KI-Agenten bauen"
+subtitle: "Kür für die Zeit nach dem Workshop"
+---
+
+::: {.lernziel-box}
+#### Was Sie nach diesem Kapitel können
+
+- erklären, warum ein KI-Agent ein **schriftliches Gedächtnis** im Projektordner braucht,
+- die vier Steuerungsdateien **Master-Plan, Übergabe, Entscheidungsbogen und Zahlendatei** anlegen lassen,
+- eine Arbeitssitzung mit einem Agenten **eröffnen und abschließen**, ohne dass Wissen verloren geht,
+- ein **Prüfskript** einsetzen, das die Lösungen unabhängig nachrechnet.
+:::
+
+## Worum es im Kern geht
+
+Im Workshop haben Sie die KI für einzelne Aufträge genutzt: ein Widget hier, ein Arbeitsblatt dort. Ein ganzer Kurs besteht aus Dutzenden solcher Teile, die zusammenpassen müssen: Fallstudie, Folien, Handouts, Notebooks und Lösungen rechnen mit denselben Zahlen und bauen Woche für Woche aufeinander auf. Ein Agent wie Claude Desktop (Cowork) oder Codex kann diese Arbeit übernehmen, hat aber eine Eigenheit, die man kennen muss: **Er beginnt jede neue Sitzung ohne Erinnerung an die letzte.** Was er weiß, steht in den Dateien Ihres Projektordners oder nirgends.
+
+Die Lösung kennt jede Klinik: die Schichtübergabe. Die Pflegekraft, die geht, schreibt auf, was erledigt ist, was offen ist und worauf die nächste achten muss. Die nächste liest das zuerst und fängt erst dann an. Für die Arbeit mit einem Agenten übernehmen vier Dateien diese Aufgabe. Mit diesem Aufbau ist das Modul *Sustainable Supply Chain Management* (Wintersemester 2026/27) entstanden: fünf Wochen Material mit durchgehender Fallstudie, Folien, Widgets und Colab-Arbeitsblättern; die unabhängige Nachrechnung der Lösungsschlüssel meldete dort 218 geprüfte Werte ohne Abweichung.
+
+Der 4D-Rahmen der AI Fluency [@dakan2025] ordnet, wer was verantwortet. Jede Datei bedient eine der vier Kompetenzen:
+
+| Kompetenz | Frage | Wo sie im Projekt steckt |
+|---|---|---|
+| **Delegation** | Was gebe ich ab, was behalte ich? | Master-Plan: Aufgaben der KI, Grenzen, Ordner |
+| **Description** | Wie beschreibe ich den Auftrag präzise? | Master-Plan: Ziele, Regeln, Qualitätskriterien |
+| **Discernment** | Woran erkenne ich, ob das Ergebnis stimmt? | Zahlendatei und Prüfskript |
+| **Diligence** | Wer steht für das Ergebnis gerade? | Entscheidungsbogen, Ihr eigener Commit, Transparenzhinweis |
+
+## Die vier Steuerungsdateien
+
+| Datei | Funktion | Vergleich |
+|---|---|---|
+| `MASTER_PLAN.md` | Ziel, Wochenplan, Regeln für die KI | der Bauplan an der Baustellenwand |
+| `HANDOVER.md` | Stand nach jeder Sitzung: erledigt, offen, nächster Schritt | das Übergabebuch der Schicht |
+| `ENTSCHEIDUNGEN.md` | offene Fragen, die nur Sie entscheiden | der Ordner „zur Unterschrift“ |
+| `zahlen.json` | die eine Quelle aller Zahlen für Fall, Folien und Notebook | das Kassenbuch: Was nicht drinsteht, gibt es nicht |
+
+Die Endung `.md` steht für Markdown, dieselbe einfache Textauszeichnung wie in Ihren Quarto-Kapiteln. `.json` (*JavaScript Object Notation*) ist ein Textformat für Daten in geschweiften Klammern, das Menschen lesen und Programme verarbeiten können.
+
+Eine bewährte Ordnerstruktur:
+
+```
+mein-kurs/
+├── MASTER_PLAN.md
+├── HANDOVER.md
+├── ENTSCHEIDUNGEN.md
+├── zahlen.json
+├── pruefen.R          ← rechnet die Lösungen unabhängig nach
+├── skript/            ← das Quarto-Buch, wird veröffentlicht
+└── intern/            ← Lösungen, Teaching Notes: nie veröffentlichen (Kapitel 12)
+```
+
+### Master-Plan
+
+```markdown
+# Master-Plan: [Kursname]
+
+## Ziel
+[Ein Satz: Was können die Studierenden am Ende?]
+
+## Rahmen
+[Zielgruppe, Semester, Umfang, Prüfungsform]
+
+## Wochenplan
+| Woche | Thema | Lernziel | Material | Status |
+|---|---|---|---|---|
+| 1 | [Thema] | [Lernziel] | Fall, Folien, Notebook | offen |
+
+## Regeln für die KI
+- Lies zu Beginn jeder Sitzung MASTER_PLAN.md, HANDOVER.md und ENTSCHEIDUNGEN.md.
+- Alle Zahlen stammen aus zahlen.json. Steht eine Zahl nicht dort, frag nach.
+- Lösungen und Teaching Notes nur im Ordner intern/.
+- Lösche keine Dateien. Ändere nur die Ordner, die im Auftrag genannt sind.
+- Triff keine didaktischen Entscheidungen allein, sondern trage sie in ENTSCHEIDUNGEN.md ein.
+- Beende jede Sitzung mit einem Eintrag in HANDOVER.md.
+
+## Qualitätskriterien
+[z. B. Aussagetitel auf jeder Folie, Quelle auf jeder Folie, Sprache B1]
+```
+
+### Übergabe
+
+```markdown
+# Übergabe — Stand [Datum]
+
+**Erledigt:** Woche 2 Fall und Notebook, Prüfskript grün.
+**Offen:** Folien Woche 2, Abbildung zur Durchlaufzeit.
+**Nächster Schritt:** Folien Woche 2 nach dem 7-Folien-Gerüst.
+**Fragen an Roman:** siehe ENTSCHEIDUNGEN.md, E-07.
+```
+
+Halten Sie die Datei kurz: die letzten drei Sitzungen ausführlich, alles Ältere in einem Absatz zusammengefasst. Eine Übergabe, die niemand mehr liest, ist keine.
+
+### Entscheidungsbogen
+
+```markdown
+| Nr. | Frage | Optionen | Empfehlung der KI | Entscheidung | Datum |
+|---|---|---|---|---|---|
+| E-07 | Fallstudie: eine Bäckerei oder zwei Betriebe? | (a) eine, (b) zwei | (a), weniger Einarbeitung | (a) | 2026-10-12 |
+```
+
+Die Spalte *Entscheidung* füllen nur Sie. Die KI darf vorschlagen und begründen, aber die didaktische Verantwortung bleibt bei Ihnen.
+
+### Zahlendatei und Prüfskript
+
+Sobald dieselbe Zahl in Fall, Folie, Handout und Lösung auftaucht, wird sie irgendwann an einer Stelle geändert und an den anderen nicht. Die Zahlendatei verhindert das: Alle Materialien lesen ihre Zahlen aus einer Datei, und ein Prüfskript rechnet die Lösungen aus diesen Zahlen neu aus. Ein Beispiel mit einer Brötchenlinie:
+
+```json
+{
+  "stationen": {
+    "Teig":   { "minuten_pro_blech": 6, "personal": 1 },
+    "Formen": { "minuten_pro_blech": 8, "personal": 2 },
+    "Ofen":   { "minuten_pro_blech": 5, "personal": 1 }
+  },
+  "nachfrage_bleche_pro_stunde": 14,
+  "loesung": { "engpass": "Teig", "ausbringung_bleche_pro_stunde": 10 }
+}
+```
+
+Das Prüfskript `pruefen.R` braucht nur das R, das Sie in Teil 0 installiert haben (plus das Paket `jsonlite`, einmalig mit `install.packages("jsonlite")`). Es rechnet die Kapazität jeder Station aus, findet den Engpass und vergleicht mit dem Lösungsschlüssel:
+
+```r
+# pruefen.R — rechnet den Lösungsschlüssel unabhängig nach
+z <- jsonlite::fromJSON("zahlen.json")
+kap <- sapply(z$stationen, function(s) s$personal * 60 / s$minuten_pro_blech)
+engpass <- names(which.min(kap))
+ausbringung <- min(min(kap), z$nachfrage_bleche_pro_stunde)
+
+fehler <- 0
+pruefe <- function(name, ist, soll) {
+  ok <- identical(as.character(ist), as.character(soll))
+  cat(if (ok) "✅" else "❌", name, ": gerechnet", ist, "| Schlüssel", soll, "\n")
+  if (!ok) fehler <<- fehler + 1
+}
+pruefe("Engpass", engpass, z$loesung$engpass)
+pruefe("Ausbringung (Bleche/h)", ausbringung, z$loesung$ausbringung_bleche_pro_stunde)
+
+if (fehler > 0) quit(status = 1)   # Abweichung: Stopp
+```
+
+Im RStudio-Terminal starten Sie es mit `Rscript pruefen.R`. Steht der Schlüssel auf „Ofen“, meldet das Skript ❌ und nennt beide Werte. Wichtig ist das Prinzip, nicht die Sprache: Das Prüfskript rechnet auf einem **zweiten Weg** und weiß nichts davon, wie die Lösung entstanden ist. Einen Agenten seine eigene Lösung „prüfen“ zu lassen, indem er sie noch einmal liest, prüft nichts.
+
+## Eine Sitzung eröffnen und abschließen
+
+Zwei Aufträge rahmen jede Sitzung. Kopieren Sie sie in Ihre Notizen; sie sind die wichtigsten Prompts dieses Kapitels.
+
+**Zum Start:**
+
+> Lies zuerst `MASTER_PLAN.md`, `HANDOVER.md` und `ENTSCHEIDUNGEN.md`. Fasse in fünf Sätzen zusammen, wo wir stehen und welche Entscheidungen offen sind. Schlage dann den nächsten Arbeitsschritt vor und warte auf meine Freigabe, bevor du Dateien änderst.
+
+**Zum Schluss:**
+
+> Bevor wir aufhören: Führe `Rscript pruefen.R` aus und zeige mir das Ergebnis. Aktualisiere `HANDOVER.md` (erledigt, offen, nächster Schritt) und trage neue offene Fragen in `ENTSCHEIDUNGEN.md` ein. Ändere sonst nichts.
+
+Danach sehen Sie die Änderungen in GitHub Desktop durch und committen selbst. Der Commit ist Ihre Unterschrift unter die Sitzung.
+
+## Mach mit — ein Kursgerüst in 30 Minuten
+
+1. **Ordner anlegen:** einen leeren Ordner `mein-kurs` und darin Ihren Workshop-Skriptordner als `skript/`.
+2. **Agent verbinden:** in Claude Desktop (Cowork) den Ordner `mein-kurs` freigeben, in Codex als Projektordner wählen.
+3. **Gerüst bauen lassen:**
+
+   > Ich plane den Kurs [Name] für [Zielgruppe], [Anzahl] Wochen. Lege in diesem Ordner `MASTER_PLAN.md`, `HANDOVER.md` und `ENTSCHEIDUNGEN.md` nach den Vorlagen aus dem Workshop-Skript an (Kapitel 11), dazu einen Ordner `intern/`. Fülle den Wochenplan mit einem Vorschlag, markiere alles, was ich entscheiden muss, als Eintrag in `ENTSCHEIDUNGEN.md`, und ändere nichts im Ordner `skript/`.
+
+4. **Entscheiden:** Lesen Sie den Entscheidungsbogen und füllen Sie die Spalte *Entscheidung*.
+5. **Erste Woche:** Eröffnen Sie eine Sitzung mit dem Start-Prompt und lassen Sie Woche 1 bauen, samt Zahlendatei und Prüfskript.
+
+::: {.callout-tip}
+## Variieren Sie
+
+1. **Ein Projekt, mehrere Ausgaben:** Lassen Sie aus derselben Zahlendatei auch die Folien (Kapitel 10) und ein Formelblatt erzeugen. Ändert sich eine Zahl, ändern sich alle Ausgaben mit.
+2. **Story-Fall nach Willingham:** Bitten Sie den Agenten um eine Fallstudie mit Hauptfigur, Konflikt und Komplikation, die über mehrere Wochen läuft [@willingham2009], und um eine getrennte Teaching Note in `intern/`.
+3. **Key Learnings:** Eine Seite im Skript, die jede Woche um genau einen Satz wächst. Am Semesterende ist sie die Zusammenfassung, die die Studierenden selbst miterlebt haben.
+:::
+
+::: {.callout-warning}
+## Was, wenn …
+
+- **Der Agent legt einfach los, ohne den Plan zu lesen?** → Start-Prompt wörtlich verwenden; im Master-Plan steht die Regel ganz oben.
+- **Zahlen im Fall und in der Lösung passen nicht zusammen?** → Der Agent hat eine Zahl im Text geändert statt in `zahlen.json`. Prüfskript laufen lassen, Zahl zurück in die Datei, Text neu erzeugen lassen.
+- **Die Übergabe wird seitenlang?** → Den Agenten bitten: „Fasse alles vor den letzten drei Sitzungen in einem Absatz zusammen.“
+- **Der Agent will eine didaktische Frage selbst entscheiden?** → Freundlich auf die Regel verweisen: Eintrag in `ENTSCHEIDUNGEN.md`, Entscheidung durch Sie.
+- **Etwas ist kaputt?** → In GitHub Desktop den letzten Commit wiederherstellen. Deshalb committen Sie nach jeder Sitzung.
+:::
+
+## Tutor
+
+::: {.callout-tip}
+## Tutor öffnen
+[Tutor „Interaktive Skripte“ →](https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte){target="_blank"}
+
+Vorschlag-Prompt für dieses Kapitel:
+
+> Ich will einen Kurs [Thema, Umfang] mit einem KI-Agenten aufbauen und habe noch nie mit einem Master-Plan gearbeitet. Stelle mir fünf Fragen, deren Antworten in den Master-Plan gehören, eine nach der anderen. Formuliere am Ende aus meinen Antworten den Abschnitt „Regeln für die KI“.
+:::
+
+# Literatur {.unnumbered}
+
+::: {#refs}
+:::

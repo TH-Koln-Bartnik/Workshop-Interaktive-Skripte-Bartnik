@@ -1,6 +1,6 @@
 # Interaktive Skripte mit KI erstellen
 
-Werkstatt-Skript zum Workshop am 11.05.2026 an der TH Köln (hdw nrw, 26-157-P-Z).
+Werkstatt-Skript zum Workshop an der TH Köln (hdw nrw, 26-157-P-Z).
 Referent: Prof. Dr. Roman Bartnik.
 
 Dieses Repository ist gleichzeitig **Lehrmaterial** und **Vorlage** —
@@ -32,10 +32,10 @@ quarto publish gh-pages
 ├── styles.scss             # SCSS-Ergänzungen (TH-Köln-Brand)
 ├── references.bib          # Zotero-Export
 ├── index.qmd               # Landing Page mit Lernzielen
-├── parts/                  # Workshop-Kapitel 1–6
-├── appendix/               # Quickstart, Troubleshooting, Tutor-Prompt
+├── parts/                  # Teil 0 (Quick-Start, Galerie), Kapitel 1–12
+├── appendix/               # Troubleshooting, Tutor-Prompt, Reviewer-Prompt
 ├── images/                 # Logos, Screenshots, statische Grafiken
-├── interactions/           # HTML-Widgets (Lernspiel, Memory)
+├── interactions/           # HTML-Widgets (Lernspiele, Workflow-Animation, Beispiel-Widget)
 ├── include/                # Wiederverwendbare qmd-Partials
 └── data/                   # CSV/JSON-Daten für interaktive Charts
 ```

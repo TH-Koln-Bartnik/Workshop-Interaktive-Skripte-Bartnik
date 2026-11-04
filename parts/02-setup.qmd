@@ -10,9 +10,23 @@ title: "2 — RStudio + erstes Skript (lokal)"
 - den **KI-Tutor** als ständigen Begleiter im zweiten Browser-Tab nutzen — drei konkrete Anlässe sitzen am Ende dieses Kapitels.
 :::
 
+## Setup-Check: 15 Minuten zum Start {#setup-check}
+
+Installiert haben Sie zu Hause, in [Teil 0](00-vorbereitung.qmd). Bevor es losgeht, prüfen wir gemeinsam, ob alle Werkzeuge auf jedem Laptop laufen. Das ist der Rundgang vor dem Abflug: Niemand baut das Flugzeug neu, aber alle schauen, ob Tank, Klappen und Funk funktionieren.
+
+| Prüfen | So geht es | Wenn es nicht klappt |
+|---|---|---|
+| **Quarto** | RStudio öffnen, im Reiter *Terminal* `quarto --version` eingeben | Quarto aus [Teil 0, Schritt 2](00-vorbereitung.qmd#quarto) nachinstallieren, RStudio neu starten |
+| **Rendern** | Generalprobe-Ordner öffnen, `quarto preview` | Fehlermeldung als Screenshot an den Tutor oder an mich |
+| **Zotero-Export** | `references.bib` aus dem Selbsttest in RStudio öffnen | erst in Phase 2 nötig, bis dahin nachholen |
+| **GitHub Desktop** | Benutzername oben links sichtbar | erst in Phase 3 nötig, bis dahin nachholen |
+| **KI-Assistenz** | Claude Desktop (Cowork) oder Codex startet, Tutor-Link öffnet sich | Tutor im Browser reicht für Phase 1 |
+
+Wer alle fünf Zeilen grün hat, hilft der Nachbarin. Was in 15 Minuten nicht läuft, wird parallel gelöst, während die anderen mit Kapitel 1 weitermachen; niemand verpasst dadurch eine Phase, weil Zotero und GitHub erst später gebraucht werden.
+
 ## Worum es im Kern geht
 
-Sie schreiben Text in einer Datei. Ein Programm verwandelt diese Datei in eine Webseite, die in Ihrem Browser auf `localhost` lebt — also nur auf Ihrem Computer, ohne Internet, ohne Server. Eine zweite Datei legt fest, wie das Ergebnis aussieht. Bis zum Mittag bleiben wir in genau dieser lokalen Welt — kein GitHub, keine Veröffentlichung, kein Anmeldekonto. Das senkt die Stolperfallen auf eins: Quarto. So entsteht Routine in der Schreib-Render-Schleife, bevor wir später Versionsverwaltung und Web-Speicherung dazuschalten.
+Sie schreiben Text in einer Datei. Ein Programm verwandelt diese Datei in eine Webseite, die in Ihrem Browser auf `localhost` lebt — also nur auf Ihrem Computer, ohne Internet, ohne Server. Eine zweite Datei legt fest, wie das Ergebnis aussieht. In Phase 1 bleiben wir in genau dieser lokalen Welt — kein GitHub, keine Veröffentlichung, kein Anmeldekonto. Das senkt die Stolperfallen auf eins: Quarto. So entsteht Routine in der Schreib-Render-Schleife, bevor wir später Versionsverwaltung und Web-Speicherung dazuschalten.
 
 Dass wissenschaftliches Arbeiten von einer reproduzierbaren Render-Logik profitiert, ist seit langem belegt [@bryan2018]; Quarto bringt diese Logik in die Hochschullehre [@allaire2024].
 
@@ -58,7 +72,7 @@ Drei Minuten, vier Paare. Ordnen Sie jeden Begriff der Definition in einfachen W
 3. **Reihenfolge:** Schreiben Sie die vier Werkzeuge in der Reihenfolge auf, in der Sie ihnen heute begegnen — von „RStudio öffnen" bis „lokale Webseite im Browser sehen".
 :::
 
-## Der Vormittags-Workflow in einem Bild
+## Der Workflow in Phase 1 in einem Bild
 
 Zwei Werkzeuge, ein Kreislauf:
 
@@ -68,11 +82,11 @@ RStudio (schreiben + rendern)  →  Browser-Vorschau auf localhost (ansehen)
         └──────────────────  Tutor im zweiten Tab (helfen)  ─────────┘
 ```
 
-Versionsverwaltung und Web-Veröffentlichung kommen am Nachmittag in Kapitel 8 dazu. Jetzt geht es um die Schreib-Render-Schleife.
+Versionsverwaltung und Web-Veröffentlichung kommen in Phase 3 mit Kapitel 9 dazu. Jetzt geht es um die Schreib-Render-Schleife.
 
 ## RStudio als Arbeitszentrale — vier Bereiche
 
-Sie arbeiten fast ausschließlich in RStudio. Vier Bereiche reichen für den Vormittag:
+Sie arbeiten fast ausschließlich in RStudio. Vier Bereiche reichen für Phase 1:
 
 | Bereich | Wo? | Wofür? |
 |---|---|---|
@@ -160,8 +174,8 @@ Methodenteils. Quelle: Bartnik & Palmer (2024).
 Im **Files-Pane** (unten rechts) klicken Sie auf **New Folder** und legen nacheinander an: `images/`, `interactions/`, `include/`, `data/`. Das sind die Ordner für Ihre späteren Bilder, HTML-Widgets, eingebundene Schnipsel und Datendateien — die Aufteilung folgt der Konvention, die Lakens [-@lakens2022] in seinem Skript verwendet.
 
 ::: {.callout-note}
-## Was nicht heute Vormittag passiert
-Versionsverwaltung mit Git, GitHub-Konto, GitHub Desktop, GitHub Pages — das alles kommt in **Kapitel 8 — Veröffentlichen mit GitHub Pages** ganz am Ende des Tages dran. Bis dahin lebt Ihr Skript zufrieden auf Ihrem Computer.
+## Was in Phase 1 noch nicht passiert
+Versionsverwaltung mit Git und GitHub Pages kommen in **Kapitel 9 — Veröffentlichen mit GitHub Pages** am Ende des Workshops dran. Konto und GitHub Desktop haben Sie in Teil 0 schon eingerichtet; sie warten so lange. Bis dahin lebt Ihr Skript zufrieden auf Ihrem Computer.
 :::
 
 ## KI-Tutor als ständiger Begleiter — drei Anlässe

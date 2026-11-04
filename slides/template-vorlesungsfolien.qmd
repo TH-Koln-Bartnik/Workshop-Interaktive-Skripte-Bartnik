@@ -1,8 +1,7 @@
 ---
 title: "Vorlesungsfolien — Vorlage"
-subtitle: "Workshop Interaktive Skripte, TH Köln, 11.05.2026"
+subtitle: "Workshop Interaktive Skripte, TH Köln"
 author: "Prof. Dr. Roman Bartnik"
-date: "2026-05-11"
 date-format: "DD.MM.YYYY"
 format:
   revealjs:

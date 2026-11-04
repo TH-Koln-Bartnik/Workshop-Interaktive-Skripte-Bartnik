@@ -1,0 +1,164 @@
+---
+title: "12 — Öffentlich und intern trennen"
+subtitle: "Kür für die Zeit nach dem Workshop"
+---
+
+::: {.lernziel-box}
+#### Was Sie nach diesem Kapitel können
+
+- erklären, warum in einem öffentlichen Repository **alles** öffentlich ist, auch das, was nirgends verlinkt ist,
+- Ihr Material auf ein **öffentliches** und ein **internes** Ablagesystem aufteilen,
+- mit einer **`.gitignore`**-Datei verhindern, dass interne Dateien hochgeladen werden,
+- einen **Site-Check** einbauen, der das Rendern stoppt, sobald eine Lösung in der Webseite steckt.
+:::
+
+## Worum es im Kern geht
+
+Ein Theater hat eine Bühne und eine Hinterbühne. Auf der Bühne steht, was das Publikum sehen soll; dahinter liegen Requisiten, Regiebuch und Souffleurtext. Lehrmaterial hat dieselben zwei Bereiche: Skript, Aufgaben und Build-Fassungen der Arbeitsblätter gehören auf die Bühne; Lösungsschlüssel, Solved-Fassungen, Teaching Notes und Prüfungsaufgaben gehören dahinter.
+
+GitHub Pages kennt diese Trennung nicht von selbst. Bei einem kostenlosen Konto läuft Pages nur aus **öffentlichen** Repositories [@githubpages2026], und öffentlich heißt: Jede Datei im Repository ist für jeden lesbar, auch wenn sie in keinem Kapitel verlinkt ist, und auch jede frühere Fassung jeder Datei bleibt in der Versionsgeschichte abrufbar. Eine Lösung, die Sie „nur kurz“ in den Ordner gelegt und committet haben, ist veröffentlicht. Die Trennung muss deshalb **vor** dem Commit passieren, nicht danach.
+
+::: {.callout-note}
+## Woher die Namen kommen — Eselsbrücken zum Merken
+
+**Repository** kommt vom lateinischen *repositorium*, „Aufbewahrungsort“, zu *reponere*, „zurücklegen, verwahren“. Ein Repository ist ein Archiv, und ein öffentliches Archiv hat einen Lesesaal für alle.
+
+**Privat** stammt von *privatus*, „abgesondert, dem Einzelnen gehörig“, zu *privare*, „berauben, absondern“. **Öffentlich** ist das Gegenteil: was offen vor allen liegt. Auf GitHub ist das eine einzige Einstellung unter *Settings → General → Danger Zone*, und sie heißt nicht ohne Grund so.
+:::
+
+## Zwei Ablagen statt einer
+
+Die einfachste Trennung ist räumlich: zwei Ordner, die nie ineinander geschachtelt werden.
+
+```
+kurs-intern/                 ← privat: nie öffentliches Repository
+├── loesungen/
+├── teaching-notes/
+├── notebooks-solved/
+└── pruefungen/
+
+skript/                      ← öffentliches Repository, wird zu GitHub Pages
+├── _quarto.yml
+├── parts/
+├── interactions/
+├── notebooks/               ← nur Build-Fassungen
+└── docs/                    ← die gerenderte Webseite
+```
+
+`kurs-intern/` kann ein privates GitHub-Repository sein (Sicherung und Versionsgeschichte ohne Öffentlichkeit), ein Ordner im Hochschul-Cloudspeicher oder beides. Wichtig ist nur: Er liegt **neben** `skript/`, nicht darin.
+
+Wer wie im SSCM-Kurs mit einem Agenten arbeitet (Kapitel 11), geht einen Schritt weiter. Alles liegt in einem internen Repository, und ein Skript erzeugt daraus das öffentliche Repository für die Studierenden, indem es nur ausdrücklich freigegebene Ordner kopiert. Das öffentliche Repository trägt dann den Hinweis, dass es erzeugt wird und niemand darin von Hand arbeitet; Material erscheint dort vor der jeweiligen Sitzung, Lösungen erst danach. Der Grundsatz dahinter heißt **Positivliste statt Verbotsliste**: Kopiert wird nur, was ausdrücklich erlaubt ist, statt alles außer dem, was jemand zu verbieten nicht vergessen hat.
+
+## `.gitignore`: der Zettel „Nicht einpacken“
+
+Beim Umzug klebt man auf manche Kisten einen Zettel: „Bleibt hier.“ Die Datei `.gitignore` im Hauptordner Ihres Repositories ist dieser Zettel für Git. Jede Zeile beschreibt Dateien oder Ordner, die GitHub Desktop gar nicht erst zum Commit anbietet. Der Punkt am Anfang des Namens macht die Datei unter Windows und macOS standardmäßig unsichtbar; in RStudio sehen Sie sie im *Files*-Bereich unter *More → Show Hidden Files*.
+
+```gitignore
+# Interne Dateien nie hochladen
+intern/
+*_solved.ipynb
+*loesung*
+*teaching-note*
+
+# Arbeitsdateien von RStudio und Quarto
+.Rproj.user/
+.quarto/
+*.Rhistory
+```
+
+Ein Sternchen steht für „beliebige Zeichen“: `*_solved.ipynb` erfasst `woche2_solved.ipynb` ebenso wie `umzug_solved.ipynb`.
+
+::: {.callout-warning}
+## Die Grenze von `.gitignore`
+`.gitignore` wirkt nur für Dateien, die noch **nie** committet wurden. Wurde eine Lösung schon einmal hochgeladen, ignoriert Git den Zettel für diese Datei, und sie bleibt in der Versionsgeschichte, selbst wenn Sie sie löschen. Behandeln Sie sie dann als veröffentlicht (siehe unten).
+:::
+
+## Der Site-Check: eine Lichtschranke vor der Tür
+
+`.gitignore` schützt den Quellordner. Was tatsächlich ins Netz geht, ist aber der gerenderte Ordner `docs/`, und dorthin kann Internes auch auf anderen Wegen gelangen: als Download in `resources:`, als vergessener Abschnitt in einem Kapitel, als eingebettetes Notebook. Der Site-Check prüft deshalb nach jedem Rendern die fertige Webseite, wie eine Lichtschranke am Ausgang.
+
+Zwei Regeln machen ihn einfach. Erstens tragen interne Dateien verräterische Namen (`_solved`, `loesung`, `teaching-note`). Zweitens bekommt jedes interne Dokument eine Markierung in die erste Zeile, die in öffentlichem Material nie vorkommt, etwa `INTERN-NICHT-VEROEFFENTLICHEN`. Die Markierung findet der Check auch dann, wenn eine Datei umbenannt oder ihr Inhalt in ein Kapitel kopiert wurde.
+
+Legen Sie die Datei `_site_check.R` in den Hauptordner Ihres Skripts. Der Unterstrich am Anfang sorgt dafür, dass Quarto sie nicht als Kapitel behandelt.
+
+```r
+# _site_check.R — läuft nach jedem Rendern und stoppt, wenn Internes in der Webseite steckt
+ausgabe <- Sys.getenv("QUARTO_PROJECT_OUTPUT_DIR", "docs")
+verbotene_namen  <- c("_solved", "loesung", "lösung", "teaching-note", "teaching_note", "_intern")
+verbotene_marke  <- "INTERN-NICHT-VEROEFFENTLICHEN"
+
+treffer <- character(0)
+for (f in list.files(ausgabe, recursive = TRUE, full.names = TRUE)) {
+  name <- tolower(basename(f))
+  if (any(sapply(verbotene_namen, grepl, x = name, fixed = TRUE)))
+    treffer <- c(treffer, paste("Dateiname:", f))
+  if (grepl("\\.(html|ipynb|json|md|txt|csv)$", name) &&
+      any(grepl(verbotene_marke, readLines(f, warn = FALSE), fixed = TRUE)))
+    treffer <- c(treffer, paste("Markierung im Inhalt:", f))
+}
+
+if (length(treffer) > 0) {
+  cat("\n⛔ STOPP: Internes Material in '", ausgabe, "' gefunden. Nicht pushen!\n", sep = "")
+  cat(paste("  -", treffer), sep = "\n")
+  quit(status = 1)
+}
+cat("✅ Site-Check: nichts Internes in '", ausgabe, "' gefunden.\n", sep = "")
+```
+
+Dann tragen Sie in `_quarto.yml` eine Zeile ein, und Quarto führt den Check nach jedem Rendern selbst aus [@quartoscripts2026]:
+
+```yaml
+project:
+  type: book
+  output-dir: docs
+  post-render: _site_check.R
+```
+
+Findet der Check etwas, bricht das Rendern mit der Meldung **STOPP** ab und listet die betroffenen Dateien. Dann pushen Sie nicht, sondern entfernen die Ursache, rendern neu und warten auf das grüne Häkchen.
+
+## Mach mit — die Lichtschranke testen
+
+1. `_site_check.R` und die `post-render`-Zeile wie oben einbauen, einmal rendern: Es erscheint das grüne Häkchen.
+2. In ein beliebiges Kapitel vorübergehend die Zeile `INTERN-NICHT-VEROEFFENTLICHEN` schreiben und neu rendern: Der Check muss **STOPP** melden und das Kapitel nennen.
+3. Die Zeile wieder löschen, neu rendern, grünes Häkchen. Erst jetzt ist der Check bewiesen; ein Alarm, den man nie ausgelöst hat, ist nur eine Hoffnung.
+4. `.gitignore` anlegen oder ergänzen und in GitHub Desktop prüfen: Eine Testdatei `test_solved.ipynb` darf in der Liste der Änderungen nicht auftauchen.
+
+## Vor jedem Push: fünf Fragen
+
+| ☐ | Frage |
+|---|---|
+| ☐ | Liegen Lösungen, Solved-Fassungen und Teaching Notes außerhalb des Skriptordners? |
+| ☐ | Zeigt das letzte Rendern das grüne Häkchen des Site-Checks? |
+| ☐ | Enthält die Liste der Änderungen in GitHub Desktop nur Dateien, die Sie erwarten? |
+| ☐ | Ist Material, das eine Übung in der Sitzung verraten würde, erst für die Zeit danach vorgesehen? |
+| ☐ | Steht kein Zugangsschlüssel (API-Key, Passwort) in einer Datei? |
+
+::: {.callout-important}
+## Wenn doch etwas durchgerutscht ist
+Datei entfernen, neu rendern, pushen, damit sie von der Webseite verschwindet. Gehen Sie trotzdem davon aus, dass sie gesehen wurde, denn die Versionsgeschichte behält sie, und Suchmaschinen und Archivdienste können Kopien haben. Prüfungsaufgaben und Lösungsschlüssel ersetzen Sie daher durch neue. Ein Zugangsschlüssel wird sofort beim Anbieter gesperrt und neu erzeugt. Die Geschichte eines Repositories nachträglich zu bereinigen ist möglich, aber aufwendig und ersetzt keinen dieser Schritte.
+:::
+
+::: {.callout-warning}
+## Was, wenn …
+
+- **Der Check meldet STOPP bei einer harmlosen Datei?** → Entweder umbenennen oder das Muster in `verbotene_namen` enger fassen. Nicht den Check abschalten.
+- **Quarto meldet, dass `Rscript` nicht gefunden wird?** → R ist nicht installiert oder nicht im Suchpfad. Teil 0, Schritt 1 wiederholen und RStudio neu starten.
+- **Eine Datei aus `.gitignore` erscheint trotzdem in GitHub Desktop?** → Sie wurde früher schon committet und ist damit im Repository. Siehe Kasten „Wenn doch etwas durchgerutscht ist“.
+- **Studierende brauchen nach der Sitzung die Lösung?** → Bewusst freigeben: Lösung in den Skriptordner kopieren, Markierung entfernen, rendern, pushen. Eine Freigabe ist eine Entscheidung, kein Versehen.
+:::
+
+## Tutor
+
+::: {.callout-tip}
+## Tutor öffnen
+[Tutor „Interaktive Skripte“ →](https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte){target="_blank"}
+
+Vorschlag-Prompt für dieses Kapitel:
+
+> Ich habe ein öffentliches Quarto-Skript auf GitHub Pages und dazu Lösungen und Notizen, die nicht öffentlich werden dürfen. Hier ist die Liste meiner Ordner und Dateien: [Liste einfügen]. Ordne jede Datei „öffentlich“ oder „intern“ zu, begründe es in einem halben Satz, und schreibe mir eine passende `.gitignore`. Erkläre vorher in zwei Sätzen, was eine `.gitignore` tut und was sie nicht kann.
+:::
+
+# Literatur {.unnumbered}
+
+::: {#refs}
+:::

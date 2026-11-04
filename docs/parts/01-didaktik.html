@@ -2,23 +2,64 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>1 — Warum interaktiv? – Interaktive Skripte mit KI erstellen</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -51,7 +92,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../parts/02-setup.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../parts/galerie.html" rel="prev">
 <link href="../images/th-koeln-logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -59,10 +100,14 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6317282ee51c604cf7febe74a2c0ba34.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -104,7 +149,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/01-didaktik.html">Phase 1 — RStudio + KI-Tutor (lokal)</a></li><li class="breadcrumb-item"><a href="../parts/01-didaktik.html"><span class="chapter-title">1 — Warum interaktiv?</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/01-didaktik.html">Phase 1 — Schreiben und Rendern (lokal)</a></li><li class="breadcrumb-item"><a href="../parts/01-didaktik.html"><span class="chapter-title">1 — Warum interaktiv?</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -119,7 +164,8 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Interaktive Skripte mit KI erstellen</a> 
@@ -160,12 +206,33 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Phase 1 — RStudio + KI-Tutor (lokal)</span></a>
+ <span class="menu-text">Teil 0 — Vorbereitung zu Hause</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/00-vorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">0 — Quick-Start: Vorbereitung zu Hause</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/galerie.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Galerie</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 1 — Schreiben und Rendern (lokal)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../parts/01-didaktik.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">1 — Warum interaktiv?</span></a>
@@ -185,13 +252,13 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Phase 2 — Zotero hinzu (immer noch lokal)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 2 — Quellen mit Zotero</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../parts/03a-uebersicht.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4 — Quellen mit Zotero</span></a>
@@ -201,13 +268,13 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Phase 3 — Kür plus Veröffentlichung</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 3 — Stil, Interaktion, Veröffentlichung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../parts/03c-style.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">5 — TH-Köln-Stil einbauen</span></a>
@@ -225,30 +292,51 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../parts/08-github-pages.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8 — Veröffentlichen mit GitHub und Pages</span></a>
+  <a href="../parts/07-widgets-colab.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8 — Widgets und Colab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../parts/06-slides-optional.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9 — Slides mit Quarto (optional)</span></a>
+  <a href="../parts/08-github-pages.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9 — Veröffentlichen mit GitHub und Pages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/06-slides-optional.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10 — Slides mit Quarto (optional)</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Quick-Starter und Anhänge</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Kür — nach dem Workshop</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendix/quickstart.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quick-Starter Guide</span></a>
+  <a href="../parts/11-kurs-mit-agent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">11 — Einen Kurs mit einem KI-Agenten bauen</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/12-oeffentlich-intern.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">12 — Öffentlich und intern trennen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Anhänge</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendix/troubleshooting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Trouble-Shooting</span></a>
@@ -264,13 +352,13 @@ div.csl-indent {
   <a href="../appendix/reviewer-prompt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reviewer-Prompt: KI als kritische Erstleserin</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../literatur.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Literatur</span></a>
   </div>
 </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -281,7 +369,9 @@ div.csl-indent {
     <h2 id="toc-title">Inhalt</h2>
    
   <ul>
-  <li><a href="#drei-argumente-in-drei-sätzen" id="toc-drei-argumente-in-drei-sätzen" class="nav-link active" data-scroll-target="#drei-argumente-in-drei-sätzen">Drei Argumente in drei Sätzen</a>
+  <li><a href="#mach-mit-ihre-vorhersage" id="toc-mach-mit-ihre-vorhersage" class="nav-link active" data-scroll-target="#mach-mit-ihre-vorhersage">Mach mit — Ihre Vorhersage</a></li>
+  <li><a href="#mach-mit-die-übung-für-ihr-fach-umbauen" id="toc-mach-mit-die-übung-für-ihr-fach-umbauen" class="nav-link" data-scroll-target="#mach-mit-die-übung-für-ihr-fach-umbauen">Mach mit — die Übung für Ihr Fach umbauen</a></li>
+  <li><a href="#drei-argumente-in-drei-sätzen" id="toc-drei-argumente-in-drei-sätzen" class="nav-link" data-scroll-target="#drei-argumente-in-drei-sätzen">Drei Argumente in drei Sätzen</a>
   <ul class="collapse">
   <li><a href="#generatives-lernen" id="toc-generatives-lernen" class="nav-link" data-scroll-target="#generatives-lernen">Generatives Lernen</a></li>
   <li><a href="#retrieval-practice" id="toc-retrieval-practice" class="nav-link" data-scroll-target="#retrieval-practice">Retrieval Practice</a></li>
@@ -299,7 +389,7 @@ div.csl-indent {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/01-didaktik.html">Phase 1 — RStudio + KI-Tutor (lokal)</a></li><li class="breadcrumb-item"><a href="../parts/01-didaktik.html"><span class="chapter-title">1 — Warum interaktiv?</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/01-didaktik.html">Phase 1 — Schreiben und Rendern (lokal)</a></li><li class="breadcrumb-item"><a href="../parts/01-didaktik.html"><span class="chapter-title">1 — Warum interaktiv?</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-title">1 — Warum interaktiv?</span></h1>
 </div>
@@ -326,6 +416,161 @@ div.csl-indent {
 <li>entscheiden, <strong>wann sich Interaktivität lohnt</strong> und wann nicht.</li>
 </ul>
 </section>
+<section id="mach-mit-ihre-vorhersage" class="level2">
+<h2 class="anchored" data-anchor-id="mach-mit-ihre-vorhersage">Mach mit — Ihre Vorhersage</h2>
+<p>Bevor Sie weiterlesen, eine Wette. In einem bekannten Experiment bekamen Studierende einen kurzen Sachtext von etwa 250 Wörtern, zum Beispiel über Seeotter. Für den Text hatten sie viermal sieben Minuten Zeit und lernten ihn auf eine von drei Arten <span class="citation" data-cites="roediger2006">(<a href="../index.html#ref-roediger2006" role="doc-biblioref">Roediger &amp; Karpicke, 2006</a>)</span>:</p>
+<div id="tbl-vorhersage" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-vorhersage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;4.1: Drei Arten, denselben Text zu lernen
+</figcaption>
+<div aria-describedby="tbl-vorhersage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Gruppe</th>
+<th>So wurde gelernt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>A</strong></td>
+<td>viermal lesen</td>
+</tr>
+<tr class="even">
+<td><strong>B</strong></td>
+<td>dreimal lesen, dann einmal aus dem Gedächtnis aufschreiben</td>
+</tr>
+<tr class="odd">
+<td><strong>C</strong></td>
+<td>einmal lesen, dann dreimal aus dem Gedächtnis aufschreiben (ohne nachzusehen, ohne Rückmeldung)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Danach schrieben alle auf, was sie vom Text noch wussten. Notieren Sie Ihre Antworten auf Papier oder im Chat, <strong>bevor</strong> Sie die Auflösung öffnen:</p>
+<ol type="1">
+<li>Welche Gruppe weiß <strong>fünf Minuten</strong> später am meisten?</li>
+<li>Welche Gruppe weiß <strong>eine Woche</strong> später am meisten?</li>
+<li>Welche Gruppe <em>glaubte</em> selbst, am meisten zu behalten?</li>
+</ol>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Auflösung (erst nach Ihrer Vorhersage öffnen)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="tbl-aufloesung" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-aufloesung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;4.2: Anteil der erinnerten Inhalte <span class="citation" data-cites="roediger2006">(<a href="../index.html#ref-roediger2006" role="doc-biblioref">Roediger &amp; Karpicke, 2006</a>, Exp. 2)</span>
+</figcaption>
+<div aria-describedby="tbl-aufloesung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Gruppe</th>
+<th>nach 5 Minuten</th>
+<th>nach 1 Woche</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A — viermal lesen</td>
+<td><strong>83 %</strong></td>
+<td>40 %</td>
+</tr>
+<tr class="even">
+<td>B — dreimal lesen, einmal abrufen</td>
+<td>78 %</td>
+<td>56 %</td>
+</tr>
+<tr class="odd">
+<td>C — einmal lesen, dreimal abrufen</td>
+<td>71 %</td>
+<td><strong>61 %</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Nach fünf Minuten gewinnt das Lesen, nach einer Woche dreht sich das Bild. Gruppe C hatte den Text nur sieben Minuten vor Augen und weiß trotzdem am meisten. Die Studierenden selbst sahen das nicht kommen: Gruppe A schätzte ihr Behalten am höchsten ein. Wiederholtes Lesen <em>fühlt</em> sich nach Lernen an, weil der Text vertraut wird; das Abrufen fühlt sich mühsam an und wirkt gerade deshalb. Dieses Prinzip heißt <strong>Retrieval Practice</strong> und ist eines der drei Argumente dieses Kapitels.</p>
+<p>Sie haben es gerade selbst angewendet: Eine Vorhersage aus dem eigenen Kopf, bevor die Antwort kommt, ist ein kleiner Abruf.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="mach-mit-die-übung-für-ihr-fach-umbauen" class="level2">
+<h2 class="anchored" data-anchor-id="mach-mit-die-übung-für-ihr-fach-umbauen">Mach mit — die Übung für Ihr Fach umbauen</h2>
+<p>Die Übung oben besteht aus reinem Quarto-Text, ohne HTML und ohne JavaScript. Die Auflösung steckt in einem aufklappbaren Kasten. Quarto nennt so einen Kasten <em>Callout</em>, und der Zusatz <code>collapse="true"</code> hält ihn beim Laden geschlossen. Wer ihn nicht öffnet, sieht die Lösung nicht. Diese Vorlage bauen Sie jetzt in zehn Minuten zu einer Vorhersagefrage aus Ihrem eigenen Fach um.</p>
+<ol type="1">
+<li><strong>Datei anlegen.</strong> In RStudio: <strong>File → New File → Quarto Document…</strong>, Titel „Vorhersage“, Format HTML. Entfernen Sie das Häkchen bei <em>Use visual markdown editor</em>, denn der visuelle Editor versteckt die Doppelpunkte, um die es hier geht. Speichern Sie die Datei als <code>vorhersage.qmd</code>. Den Beispielinhalt unter dem Kopf (dem Bereich zwischen den beiden <code>---</code>-Zeilen) löschen Sie.</li>
+<li><strong>Vorlage einfügen.</strong> Kopieren Sie den Block unten (Symbol oben rechts im Kasten) unter den Kopf.</li>
+<li><strong>Anpassen.</strong> Ersetzen Sie alles in eckigen Klammern. Wählen Sie eine Frage, bei der Ihre Studierenden erfahrungsgemäß falsch raten: eine Messung, einen Effekt oder eine Faustregel aus Ihrer Lehre, deren Ergebnis überrascht. Die Auflösung nennt die richtige Antwort und in einem Satz, warum die Intuition täuscht.</li>
+<li><strong>Rendern.</strong> Klicken Sie auf <strong>Render</strong> oder drücken Sie <strong>Strg+Shift+K</strong>. Prüfen Sie in der Vorschau: Ist der Kasten geschlossen? Öffnet er sich per Klick?</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ihre Vorhersage</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Situation aus Ihrem Fach in zwei bis drei Sätzen.</span><span class="co">]</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Notieren Sie Ihre Antwort, **bevor** Sie die Auflösung öffnen:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">Frage 1</span><span class="co">]</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span><span class="co">[</span><span class="ot">Frage 2</span><span class="co">]</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Auflösung (erst nach Ihrer Vorhersage öffnen)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Die richtige Antwort.</span><span class="co">] [Warum die Intuition hier täuscht.]</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Variieren Sie
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Farbe wechseln:</strong> Ersetzen Sie <code>callout-note</code> durch <code>callout-warning</code> oder <code>callout-tip</code> und rendern Sie neu. Welche Farbe passt zu einer Auflösung, welche zu einem Hinweis?</li>
+<li><strong>Zuklappen abschalten:</strong> Löschen Sie <code>collapse="true"</code> und rendern Sie. Die Lösung steht jetzt offen neben der Frage. Was bedeutet das für den Abruf, um den es in dieser Übung geht?</li>
+<li><strong>Absichtlich kaputt machen:</strong> Löschen Sie beim schließenden <code>:::</code> einen Doppelpunkt, schreiben Sie darunter einen weiteren Absatz und rendern Sie. Wo landet der neue Absatz? Danach den Doppelpunkt wieder einsetzen.</li>
+<li><strong>Mit Kollegin tauschen:</strong> Lassen Sie Ihre Sitznachbarin Ihre Frage beantworten, bevor sie den Kasten öffnet. Lag sie falsch? Dann haben Sie eine gute Vorhersagefrage gefunden.</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warnung</span>Was, wenn …
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Statt eines Kastens erscheinen die Doppelpunkte als Text?</strong> → Vor <code>:::</code> und nach <code>:::</code> fehlt eine Leerzeile. Quarto erkennt den Kasten nur, wenn er durch leere Zeilen vom übrigen Text getrennt ist.</li>
+<li><strong>Alles nach der Auflösung ist verschwunden?</strong> → Das schließende <code>:::</code> fehlt oder hat nur zwei Doppelpunkte. Quarto steckt dann den ganzen Rest des Dokuments in den zugeklappten Kasten. Öffnen Sie ihn, und Sie finden Ihren Text dort.</li>
+<li><strong>Sie sehen Knöpfe statt Doppelpunkte?</strong> → Der visuelle Editor ist an. Oben links im Editor auf <strong>Source</strong> umschalten.</li>
+</ul>
+</div>
+</div>
+</section>
 <section id="drei-argumente-in-drei-sätzen" class="level2">
 <h2 class="anchored" data-anchor-id="drei-argumente-in-drei-sätzen">Drei Argumente in drei Sätzen</h2>
 <p>Lehrforschung sagt es seit Jahren — aber selten so kompakt: Lernen klappt besser, wenn Lernende <strong>selbst etwas tun</strong>, <strong>regelmäßig abrufen</strong> und <strong>Bilder neben Worten</strong> bekommen. Drei Prinzipien, drei Belege, drei Konsequenzen für Ihr Skript.</p>
@@ -335,7 +580,7 @@ div.csl-indent {
 </section>
 <section id="retrieval-practice" class="level3">
 <h3 class="anchored" data-anchor-id="retrieval-practice">Retrieval Practice</h3>
-<p>Sich an etwas erinnern zu <strong>müssen</strong> verbessert das Behalten stärker als wiederholtes Lesen <span class="citation" data-cites="roediger2006 karpicke2011">(<a href="../index.html#ref-karpicke2011" role="doc-biblioref">Karpicke &amp; Blunt, 2011</a>; <a href="../index.html#ref-roediger2006" role="doc-biblioref">Roediger &amp; Karpicke, 2006</a>)</span>. In Experimenten von Karpicke und Mitarbeitern lasen Studierende dasselbe Material wiederholt oder kombinierten Lesen mit aktiven Abrufphasen — die Abruf-Gruppen schlugen die reinen Leser eine Woche später deutlich. Übersetzt: ein <strong>kurzes Quiz</strong> oder eine <strong>Drag-and-Drop-Aufgabe</strong> in Ihrem Skript wirkt wie eine Mini-Klausur, ohne dass jemand die Klausur korrigieren muss.</p>
+<p>Sich an etwas erinnern zu <strong>müssen</strong> verbessert das Behalten stärker als wiederholtes Lesen <span class="citation" data-cites="roediger2006 karpicke2011">(<a href="../index.html#ref-karpicke2011" role="doc-biblioref">Karpicke &amp; Blunt, 2011</a>; <a href="../index.html#ref-roediger2006" role="doc-biblioref">Roediger &amp; Karpicke, 2006</a>)</span>. Das Experiment vom Kapitelanfang zeigt es: Studierende lasen dasselbe Material wiederholt oder kombinierten Lesen mit aktiven Abrufphasen — die Abruf-Gruppen schlugen die reinen Leser eine Woche später deutlich (<a href="#tbl-aufloesung" class="quarto-xref">Tabelle&nbsp;<span>4.2</span></a>). Übersetzt: ein <strong>kurzes Quiz</strong> oder eine <strong>Drag-and-Drop-Aufgabe</strong> in Ihrem Skript wirkt wie eine Mini-Klausur, ohne dass jemand die Klausur korrigieren muss.</p>
 </section>
 <section id="multimedia-prinzip" class="level3">
 <h3 class="anchored" data-anchor-id="multimedia-prinzip">Multimedia-Prinzip</h3>
@@ -396,7 +641,7 @@ div.csl-indent {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Lernspiel öffnen
+<span class="screen-reader-only">Tipp</span>Lernspiel öffnen
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -409,14 +654,14 @@ Lernspiel öffnen
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Variieren Sie
+<span class="screen-reader-only">Tipp</span>Variieren Sie
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li><strong>Eigenes Beispiel finden:</strong> Erfinden Sie ein <strong>viertes</strong> Beispiel aus Ihrem eigenen Lehrgebiet und entscheiden Sie, welches der drei Prinzipien (generativ, retrieval, multimedia) es am stärksten illustriert.</li>
 <li><strong>Lücke prüfen:</strong> Welches der drei Prinzipien lässt sich in Ihrem Strang am <strong>schlechtesten</strong> umsetzen? Notieren Sie eine Begründung in einem Satz — diese Notiz nutzen wir im Showcase am Tagesende.</li>
-<li><strong>HTML wagen:</strong> Öffnen Sie <code>interactions/lernspiel-kapitel1.html</code> in RStudio, suchen Sie im Quelltext den <code>examples</code>-Array und tauschen Sie eines der drei Beispiele gegen eines aus Ihrem Strang. Lokal rendern, im Browser ansehen. (Veröffentlichen kommt in Kap. 8.)</li>
+<li><strong>HTML wagen:</strong> Öffnen Sie <code>interactions/lernspiel-kapitel1.html</code> in RStudio, suchen Sie im Quelltext den <code>examples</code>-Array und tauschen Sie eines der drei Beispiele gegen eines aus Ihrem Strang. Lokal rendern, im Browser ansehen. (Veröffentlichen kommt in Kap. 9.)</li>
 </ol>
 </div>
 </div>
@@ -426,7 +671,7 @@ Variieren Sie
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Was, wenn …
+<span class="screen-reader-only">Warnung</span>Was, wenn …
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -445,7 +690,7 @@ Was, wenn …
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tutor öffnen
+<span class="screen-reader-only">Tipp</span>Tutor öffnen
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -535,13 +780,14 @@ Roediger, H. L., &amp; Karpicke, J. D. (2006). Test-Enhanced Learning: Taking Me
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -890,8 +1136,8 @@ Roediger, H. L., &amp; Karpicke, J. D. (2006). Test-Enhanced Learning: Taking Me
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="Willkommen">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Willkommen</span></span>
+      <a href="../parts/galerie.html" class="pagination-link" aria-label="Galerie">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Galerie</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

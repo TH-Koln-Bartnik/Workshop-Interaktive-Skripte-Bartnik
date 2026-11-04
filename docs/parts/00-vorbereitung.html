@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>0 — Quick-Start: Vorbereitung zu Hause – Interaktive Skripte mit KI erstellen</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../parts/galerie.html" rel="next">
+<link href="../index.html" rel="prev">
+<link href="../images/th-koeln-logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/00-vorbereitung.html">Teil 0 — Vorbereitung zu Hause</a></li><li class="breadcrumb-item"><a href="../parts/00-vorbereitung.html"><span class="chapter-title">0 — Quick-Start: Vorbereitung zu Hause</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Interaktive Skripte mit KI erstellen</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Willkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Teil 0 — Vorbereitung zu Hause</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/00-vorbereitung.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">0 — Quick-Start: Vorbereitung zu Hause</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/galerie.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Galerie</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 1 — Schreiben und Rendern (lokal)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/01-didaktik.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1 — Warum interaktiv?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/02-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2 — RStudio + erstes Skript (lokal)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/03b-bilder-tabellen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3 — Bilder, Tabellen und Verweise</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 2 — Quellen mit Zotero</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/03a-uebersicht.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4 — Quellen mit Zotero</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 3 — Stil, Interaktion, Veröffentlichung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/03c-style.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">5 — TH-Köln-Stil einbauen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/04-charts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">6 — Interaktive Diagramme</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/05-iframes-tutor.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7 — iFrames, Spiele und KI-Tutor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/07-widgets-colab.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8 — Widgets und Colab</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/08-github-pages.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9 — Veröffentlichen mit GitHub und Pages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/06-slides-optional.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10 — Slides mit Quarto (optional)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Kür — nach dem Workshop</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/11-kurs-mit-agent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">11 — Einen Kurs mit einem KI-Agenten bauen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/12-oeffentlich-intern.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">12 — Öffentlich und intern trennen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Anhänge</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/troubleshooting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Trouble-Shooting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/tutor-prompt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">KI-Tutor: Link und System-Prompt</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/reviewer-prompt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reviewer-Prompt: KI als kritische Erstleserin</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../literatur.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Literatur</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhalt</h2>
+   
+  <ul>
+  <li><a href="#die-werkstatt-im-überblick" id="toc-die-werkstatt-im-überblick" class="nav-link active" data-scroll-target="#die-werkstatt-im-überblick">Die Werkstatt im Überblick</a></li>
+  <li><a href="#checkliste" id="toc-checkliste" class="nav-link" data-scroll-target="#checkliste">Checkliste</a></li>
+  <li><a href="#schritt-für-schritt" id="toc-schritt-für-schritt" class="nav-link" data-scroll-target="#schritt-für-schritt">Schritt für Schritt</a>
+  <ul class="collapse">
+  <li><a href="#r-und-rstudio" id="toc-r-und-rstudio" class="nav-link" data-scroll-target="#r-und-rstudio">1. R und RStudio</a></li>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">2. Quarto</a></li>
+  <li><a href="#zotero-und-better-bibtex" id="toc-zotero-und-better-bibtex" class="nav-link" data-scroll-target="#zotero-und-better-bibtex">3. Zotero und Better BibTeX</a></li>
+  <li><a href="#github-konto-und-github-desktop" id="toc-github-konto-und-github-desktop" class="nav-link" data-scroll-target="#github-konto-und-github-desktop">4. GitHub-Konto und GitHub Desktop</a></li>
+  <li><a href="#claude-desktop-empfohlen" id="toc-claude-desktop-empfohlen" class="nav-link" data-scroll-target="#claude-desktop-empfohlen">5. Claude Desktop (empfohlen)</a></li>
+  </ul></li>
+  <li><a href="#generalprobe-ihr-erstes-quarto-buch" id="toc-generalprobe-ihr-erstes-quarto-buch" class="nav-link" data-scroll-target="#generalprobe-ihr-erstes-quarto-buch">Generalprobe: Ihr erstes Quarto-Buch</a></li>
+  <li><a href="#selbsttest" id="toc-selbsttest" class="nav-link" data-scroll-target="#selbsttest">Selbsttest: drei Häkchen</a></li>
+  <li><a href="#mitbringen" id="toc-mitbringen" class="nav-link" data-scroll-target="#mitbringen">Was Sie in den Workshop mitbringen</a></li>
+  <li><a href="#hakt" id="toc-hakt" class="nav-link" data-scroll-target="#hakt">Wenn etwas hakt</a></li>
+  <li><a href="#quellen" id="toc-quellen" class="nav-link" data-scroll-target="#quellen">Quellen</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/edit/main/parts/00-vorbereitung.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/00-vorbereitung.html">Teil 0 — Vorbereitung zu Hause</a></li><li class="breadcrumb-item"><a href="../parts/00-vorbereitung.html"><span class="chapter-title">0 — Quick-Start: Vorbereitung zu Hause</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">0 — Quick-Start: Vorbereitung zu Hause</span></h1>
+<p class="subtitle lead">Installieren, einmal testen, vorbereitet in den Workshop kommen</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="was-sie-bis-zum-präsenz-workshop-erledigen" class="level4 lernziel-box">
+<h4 class="anchored" data-anchor-id="was-sie-bis-zum-präsenz-workshop-erledigen">Was Sie bis zum Präsenz-Workshop erledigen</h4>
+<p>Sie installieren sechs Werkzeuge, testen jedes einmal kurz, bestehen den <a href="#selbsttest">Selbsttest</a> mit drei Häkchen und packen Ihr Rohmaterial zusammen. Planen Sie dafür <strong>zwei bis drei Stunden</strong> mit stabiler Internetverbindung ein, gern auf zwei Abende verteilt. Wer mit einem fertig eingerichteten Laptop kommt, verbringt den Workshop mit Schreiben und Gestalten statt mit Installationsdialogen.</p>
+</section>
+<section id="die-werkstatt-im-überblick" class="level2">
+<h2 class="anchored" data-anchor-id="die-werkstatt-im-überblick">Die Werkstatt im Überblick</h2>
+<p>Ein Online-Skript entsteht wie ein Buch in einer kleinen Werkstatt. <strong>RStudio</strong> ist die Werkbank, an der Sie schreiben. <strong>Quarto</strong> ist die Druckerei, die aus Ihren Textdateien eine fertige Webseite setzt. <strong>Zotero</strong> ist der Bibliothekskatalog, aus dem die Zitate und die Literaturliste automatisch kommen. <strong>GitHub</strong> ist Archiv und Schaufenster zugleich: Es bewahrt jede Fassung Ihres Skripts auf und stellt die aktuelle ins Netz. <strong>Claude Desktop</strong> schließlich ist die studentische Hilfskraft, die direkt in Ihrem Projektordner mitarbeitet, wenn Sie ihr einen präzisen Auftrag geben.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><em>Quarto</em> kommt aus der Buchdruckerei: Ein Bogen, der zweimal gefaltet wird, ergibt vier Blätter, lateinisch <em>in quarto</em> („in Vierteln”, von <em>quartus</em>, der Vierte). Der Name verspricht, was das Werkzeug tut: aus Rohtext ein gesetztes Buch machen.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="checkliste" class="level2">
+<h2 class="anchored" data-anchor-id="checkliste">Checkliste</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Werkzeug</th>
+<th>Wofür</th>
+<th>Download</th>
+<th>Läuft, wenn …</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>☐</td>
+<td><strong>R</strong></td>
+<td>Rechenmaschine im Hintergrund, die RStudio braucht</td>
+<td><a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a></td>
+<td>die Installation ohne Fehlermeldung durchläuft</td>
+</tr>
+<tr class="even">
+<td>☐</td>
+<td><strong>RStudio Desktop</strong></td>
+<td>Werkbank: Editor, Dateien, Vorschau in einem Fenster</td>
+<td><a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></td>
+<td>RStudio startet und unten links die Console zeigt</td>
+</tr>
+<tr class="odd">
+<td>☐</td>
+<td><strong>Quarto</strong></td>
+<td>Druckerei: macht aus <code>.qmd</code>-Dateien eine Webseite</td>
+<td><a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a></td>
+<td>im RStudio-Terminal <code>quarto --version</code> eine Versionsnummer liefert</td>
+</tr>
+<tr class="even">
+<td>☐</td>
+<td><strong>Zotero</strong> + <strong>Better BibTeX</strong></td>
+<td>Literaturverwaltung, Zitate per Kürzel</td>
+<td><a href="https://www.zotero.org/download/" class="uri">https://www.zotero.org/download/</a> und <a href="https://retorque.re/zotero-better-bibtex/installation/" class="uri">https://retorque.re/zotero-better-bibtex/installation/</a></td>
+<td>in Zotero unter <em>Werkzeuge → Plugins</em> „Better BibTeX” erscheint</td>
+</tr>
+<tr class="odd">
+<td>☐</td>
+<td><strong>GitHub-Konto</strong> + <strong>GitHub Desktop</strong></td>
+<td>Versionsarchiv und Veröffentlichung</td>
+<td><a href="https://github.com/signup" class="uri">https://github.com/signup</a> und <a href="https://desktop.github.com/" class="uri">https://desktop.github.com/</a></td>
+<td>Sie in GitHub Desktop mit Ihrem Konto angemeldet sind</td>
+</tr>
+<tr class="even">
+<td>☐</td>
+<td><strong>Claude Desktop</strong> (empfohlen)</td>
+<td>agentische KI, die in Ihrem Projektordner mitarbeitet</td>
+<td><a href="https://claude.com/download" class="uri">https://claude.com/download</a></td>
+<td>im Cowork-Bereich ein Testordner verbunden ist</td>
+</tr>
+</tbody>
+</table>
+<p>Installieren Sie in dieser Reihenfolge: R vor RStudio, weil RStudio beim ersten Start nach R sucht.</p>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warnung</span>Dienstrechner ohne Administratorrechte
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Auf verwalteten Hochschulrechnern dürfen Sie oft keine Software selbst installieren. Klären Sie das frühzeitig mit Ihrer IT (an der TH Köln häufig über das Softwarecenter lösbar) oder bringen Sie ein privates Gerät mit, auf dem Sie installieren dürfen.</p>
+</div>
+</div>
+</section>
+<section id="schritt-für-schritt" class="level2">
+<h2 class="anchored" data-anchor-id="schritt-für-schritt">Schritt für Schritt</h2>
+<section id="r-und-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="r-und-rstudio">1. R und RStudio</h3>
+<p>R ist eine Programmiersprache für Statistik; Sie werden sie im Workshop kaum direkt benutzen, aber RStudio braucht sie als Motor. Auf <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a> wählen Sie Ihr Betriebssystem (unter Windows: <em>Download R for Windows → base</em>) und installieren mit den Voreinstellungen. Danach laden Sie RStudio Desktop von <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a> und installieren es ebenso.</p>
+<p><strong>Test:</strong> RStudio öffnen. Links unten sehen Sie die <em>Console</em> mit einer Begrüßung von R. Daneben liegt der Reiter <em>Terminal</em>, das Textfenster, in dem man dem Computer Befehle eintippt.</p>
+</section>
+<section id="quarto" class="level3">
+<h3 class="anchored" data-anchor-id="quarto">2. Quarto</h3>
+<p>RStudio bringt bereits eine Quarto-Version mit. Die eigenständige Installation von <a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a> sorgt dafür, dass der Befehl <code>quarto</code> auch im Terminal funktioniert, was im Workshop die Arbeit vereinfacht.</p>
+<p><strong>Test:</strong> In RStudio den Reiter <em>Terminal</em> öffnen und eingeben:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Erscheint eine Versionsnummer, ist die Druckerei betriebsbereit.</p>
+</section>
+<section id="zotero-und-better-bibtex" class="level3">
+<h3 class="anchored" data-anchor-id="zotero-und-better-bibtex">3. Zotero und Better BibTeX</h3>
+<p>Zotero sammelt Ihre Literatur; Better BibTeX vergibt jedem Titel ein stabiles Kürzel (etwa <code>mayer2021</code>), über das Quarto später zitiert. Installieren Sie Zotero von <a href="https://www.zotero.org/download/" class="uri">https://www.zotero.org/download/</a>. Laden Sie dann die Better-BibTeX-Datei (Endung <code>.xpi</code>) von der <a href="https://retorque.re/zotero-better-bibtex/installation/">Installationsseite</a> herunter und spielen Sie sie in Zotero über <em>Werkzeuge → Plugins →</em> Zahnrad <em>→ Plugin aus Datei installieren</em> ein.</p>
+<p><strong>Test:</strong> Zotero neu starten. Unter <em>Werkzeuge → Plugins</em> steht „Better BibTeX”. Legen Sie schon jetzt eine Sammlung mit fünf bis zehn Titeln zum Thema Ihres Skripts an (siehe <a href="#mitbringen">Mitbringen</a>).</p>
+</section>
+<section id="github-konto-und-github-desktop" class="level3">
+<h3 class="anchored" data-anchor-id="github-konto-und-github-desktop">4. GitHub-Konto und GitHub Desktop</h3>
+<p>GitHub ist ein Archiv für Projektordner, das jede gespeicherte Fassung aufhebt, und zugleich ein kostenloser Webspace (<em>GitHub Pages</em>), auf dem Ihr Skript öffentlich erreichbar wird. GitHub Desktop ist das Programm, mit dem Sie das ohne Befehlszeile bedienen.</p>
+<p>Legen Sie auf <a href="https://github.com/signup" class="uri">https://github.com/signup</a> ein Konto an. Wählen Sie einen Benutzernamen, den Sie gern in einer Webadresse sehen: Er wird Teil der Adresse Ihres Skripts (<code>https://IHR-NAME.github.io/...</code>). GitHub verlangt in der Regel eine Zwei-Faktor-Anmeldung; halten Sie dafür Ihr Smartphone bereit. Installieren Sie anschließend GitHub Desktop von <a href="https://desktop.github.com/" class="uri">https://desktop.github.com/</a> und melden Sie sich dort mit dem neuen Konto an.</p>
+<p><strong>Test:</strong> GitHub Desktop zeigt oben links Ihren Benutzernamen.</p>
+</section>
+<section id="claude-desktop-empfohlen" class="level3">
+<h3 class="anchored" data-anchor-id="claude-desktop-empfohlen">5. Claude Desktop (empfohlen)</h3>
+<p>Der Chat im Browser beantwortet Fragen und liefert Text zum Kopieren. <strong>Agentische KI</strong> geht einen Schritt weiter: Sie liest und schreibt selbst Dateien in einem Ordner, den Sie freigeben, rendert, findet Fehler und korrigiert sie. Das gleicht einer Hilfskraft, die an Ihrem Schreibtisch sitzt, statt Ihnen Zettel durch die Tür zu reichen. Für den Workshop empfehle ich <strong>Claude Desktop</strong> mit dem Bereich <strong>Cowork</strong>: Er arbeitet ohne Befehlszeile, zeigt vor jedem Schritt seinen Plan und wartet auf Ihre Freigabe.</p>
+<p>Laden Sie die App von <a href="https://claude.com/download" class="uri">https://claude.com/download</a> (Windows und macOS), installieren Sie sie und melden Sie sich an. Chat ist in allen Tarifen nutzbar; <strong>Cowork setzt einen bezahlten Tarif voraus</strong> (Pro oder höher, auch Team und Enterprise) (<a href="https://support.claude.com/en/articles/10065433" target="_blank">Anthropic, o. J.</a>).</p>
+<p><strong>Test:</strong> Legen Sie einen leeren Ordner <code>cowork-test</code> an. In Claude Desktop oben auf <em>Cowork</em> wechseln, den Ordner verbinden und einen harmlosen Auftrag geben, etwa:</p>
+<blockquote class="blockquote">
+<p>„Lege in diesem Ordner eine Datei <code>notizen.md</code> an und schreibe drei Ideen hinein, welche interaktiven Elemente in einem Skript zu meinem Fach sinnvoll wären.”</p>
+</blockquote>
+<p>Erscheint die Datei im Ordner, ist alles bereit.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Alternative: ChatGPT Codex
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Wer lieber bei OpenAI bleibt, installiert die <strong>Codex-App</strong> (Windows und macOS) von <a href="https://developers.openai.com/codex/app" class="uri">https://developers.openai.com/codex/app</a>; unter Windows läuft der Download über den Microsoft Store. Codex ist in allen ChatGPT-Tarifen enthalten. Nach der Anmeldung wählen Sie einen Projektordner und den Modus <em>Local</em>, damit Codex auf Ihrem Rechner arbeitet (<a href="https://developers.openai.com/codex/quickstart" target="_blank">OpenAI, o. J.</a>). Codex ist stärker auf Programmierende zugeschnitten; für Lehrende ohne IT-Hintergrund ist Cowork der sanftere Einstieg.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warnung</span>Sicherheitsregeln für agentische KI
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Geben Sie nur Ordner frei, die nichts Sensibles enthalten: keine Prüfungsunterlagen mit Namen, keine Personalakten, keine Passwörter oder Zugangsschlüssel. Behandeln Sie die KI wie eine Hilfskraft mit Schreibrechten: enger Auftrag („Ändere nichts außer …“, „Lösche keine Dateien”), danach Ergebnis prüfen, dann erst übernehmen. Commits und Veröffentlichung machen Sie selbst über GitHub Desktop; so bleibt jede Fassung wiederherstellbar.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="generalprobe-ihr-erstes-quarto-buch" class="level2">
+<h2 class="anchored" data-anchor-id="generalprobe-ihr-erstes-quarto-buch">Generalprobe: Ihr erstes Quarto-Buch</h2>
+<p>Wenn alle Werkzeuge installiert sind, prüft eine kurze Generalprobe, ob sie zusammenspielen.</p>
+<ol type="1">
+<li>In RStudio: <strong>File → New Project → New Directory → Quarto Book → Create Project</strong>.</li>
+<li>Im Reiter <em>Terminal</em> eingeben: <code>quarto preview</code></li>
+<li>Ein Browserfenster öffnet sich mit einem Beispielbuch. <strong>Strg+C</strong> im Terminal beendet die Vorschau.</li>
+</ol>
+<p>Sehen Sie das Beispielbuch im Browser, ist Ihre Werkstatt einsatzbereit. Den Ordner dürfen Sie behalten oder löschen; im Workshop starten wir mit einer eigenen Vorlage.</p>
+</section>
+<section id="selbsttest" class="level2">
+<h2 class="anchored" data-anchor-id="selbsttest">Selbsttest: drei Häkchen</h2>
+<p>Die Checkliste oben prüft jedes Werkzeug einzeln. Der Selbsttest prüft die drei Übergaben zwischen ihnen, an denen es im Workshop sonst am häufigsten hakt. Wie bei einer Staffel genügt es nicht, dass jede Läuferin schnell ist; der Stab muss auch übergeben werden.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Übergabe</th>
+<th>So prüfen Sie es</th>
+<th>Bestanden, wenn …</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>☐</td>
+<td><strong>Rendern klappt</strong> (RStudio → Quarto → Browser)</td>
+<td>die Generalprobe oben</td>
+<td>das Beispielbuch im Browser erscheint</td>
+</tr>
+<tr class="even">
+<td>☐</td>
+<td><strong>Zotero-Export klappt</strong> (Zotero → Better BibTeX → Datei)</td>
+<td>Ihre Sammlung rechtsklicken → <em>Sammlung exportieren…</em> → Format <em>Better BibTeX</em> → <em>Speichern</em> als <code>references.bib</code> in den Ordner der Generalprobe</td>
+<td>Sie die Datei in RStudio öffnen und Einträge sehen, die mit <code>@article{</code> oder <code>@book{</code> beginnen</td>
+</tr>
+<tr class="odd">
+<td>☐</td>
+<td><strong>GitHub-Anmeldung klappt</strong> (GitHub Desktop → github.com)</td>
+<td>in GitHub Desktop <em>File → Options → Accounts</em></td>
+<td>dort Ihr Benutzername mit Profilbild steht</td>
+</tr>
+</tbody>
+</table>
+<p>Sind alle drei Häkchen gesetzt, beginnt der Workshop für Sie mit dem kurzen <a href="../parts/02-setup.html#setup-check">Setup-Check</a> in Kapitel 2 statt mit einer Installation. Fehlt eines, ist das kein Beinbruch: Notieren Sie, wo es hängt (siehe <a href="#hakt">Wenn etwas hakt</a>).</p>
+</section>
+<section id="mitbringen" class="level2">
+<h2 class="anchored" data-anchor-id="mitbringen">Was Sie in den Workshop mitbringen</h2>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Technik
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Laptop mit Netzteil, alle sechs Häkchen der Checkliste und alle drei des Selbsttests gesetzt</li>
+<li>Zugangsdaten: GitHub (plus Smartphone für die Zwei-Faktor-Anmeldung), Claude oder ChatGPT, Zotero-Konto falls vorhanden</li>
+<li>Kopfhörer, falls Sie Video- und Audiobeispiele anhören möchten</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Rohmaterial für Ihr Skript
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Einen Textbaustein</strong>: ein bis zwei Seiten aus einer Lehrveranstaltung, die Sie online stellen möchten (Word, PDF oder Markdown; Text, den Sie veröffentlichen dürfen)</li>
+<li><strong>Zwei bis drei Bilder</strong> (eigene Fotos, Grafiken oder Abbildungen mit klarer Lizenz) und <strong>eine Tabelle</strong></li>
+<li><strong>Fünf bis zehn Literaturangaben</strong> in einer Zotero-Sammlung</li>
+<li><strong>Eine Idee für eine Interaktion</strong>: Was sollen Studierende an Ihrer Stelle <em>tun</em> statt nur lesen? Ein Quiz, ein Zuordnungsspiel, eine Animation, ein kleiner Rechner? Die <a href="../parts/galerie.html">Galerie</a> liefert Anregungen.</li>
+</ul>
+</div>
+</div>
+<p>Wer kein eigenes Material mitbringt, arbeitet mit einem vorbereiteten Beispielthema zum wissenschaftlichen Arbeiten. Die technischen Schritte sind identisch.</p>
+</section>
+<section id="hakt" class="level2">
+<h2 class="anchored" data-anchor-id="hakt">Wenn etwas hakt</h2>
+<p>Notieren Sie, an welchem Schritt es hängt, und machen Sie einen Screenshot der Fehlermeldung. Viele Probleme löst der <a href="https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte" target="_blank">KI-Tutor</a>, wenn Sie ihm Betriebssystem, Schritt und Fehlermeldung nennen. Typische Fehler und ihre Lösung stehen im Anhang <a href="../appendix/troubleshooting.html">Trouble-Shooting</a>. Was offen bleibt, klären wir im Setup-Check zu Beginn des Workshops gemeinsam.</p>
+</section>
+<section id="quellen" class="level2">
+<h2 class="anchored" data-anchor-id="quellen">Quellen</h2>
+<p>Anthropic. (o. J.). <em>Install Claude Desktop</em>. Claude Help Center. Abgerufen am 28. Oktober 2026, von <a href="https://support.claude.com/en/articles/10065433" class="uri">https://support.claude.com/en/articles/10065433</a></p>
+<p>OpenAI. (o. J.). <em>Codex quickstart</em>. OpenAI Developers. Abgerufen am 28. Oktober 2026, von <a href="https://developers.openai.com/codex/quickstart" class="uri">https://developers.openai.com/codex/quickstart</a></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../index.html" class="pagination-link" aria-label="Willkommen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Willkommen</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../parts/galerie.html" class="pagination-link" aria-label="Galerie">
+        <span class="nav-page-text"><span class="chapter-title">Galerie</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Roman Bartnik · CC BY-SA 4.0</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/edit/main/parts/00-vorbereitung.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Erstellt mit <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

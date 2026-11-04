@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>6 — Interaktive Diagramme – Interaktive Skripte mit KI erstellen</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -94,10 +100,14 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6317282ee51c604cf7febe74a2c0ba34.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f3e48cbc60d1a6019719a08f43f8f199.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -128,28 +138,16 @@ div.csl-indent {
 <style>html{ scroll-behavior: smooth; }</style>
 <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-<link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-
 <script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-
-<script src="../site_libs/plotly-binding-4.12.0/plotly.js"></script>
-
+<script src="../site_libs/plotly-binding-4.10.4/plotly.js"></script>
 <script src="../site_libs/typedarray-0.1/typedarray.min.js"></script>
-
 <script src="../site_libs/jquery-3.5.1/jquery.min.js"></script>
-
-<link href="../site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
-
-<script src="../site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
-
-<link href="../site_libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
-
-<script src="../site_libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
-
+<link href="../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 <link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-
 <script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
-
 
 
 </head>
@@ -163,7 +161,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/03c-style.html">Phase 3 — Kür plus Veröffentlichung</a></li><li class="breadcrumb-item"><a href="../parts/04-charts.html"><span class="chapter-title">6 — Interaktive Diagramme</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/03c-style.html">Phase 3 — Stil, Interaktion, Veröffentlichung</a></li><li class="breadcrumb-item"><a href="../parts/04-charts.html"><span class="chapter-title">6 — Interaktive Diagramme</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -178,7 +176,8 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Interaktive Skripte mit KI erstellen</a> 
@@ -219,12 +218,33 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Phase 1 — RStudio + KI-Tutor (lokal)</span></a>
+ <span class="menu-text">Teil 0 — Vorbereitung zu Hause</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/00-vorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">0 — Quick-Start: Vorbereitung zu Hause</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/galerie.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Galerie</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 1 — Schreiben und Rendern (lokal)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../parts/01-didaktik.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1 — Warum interaktiv?</span></a>
@@ -244,13 +264,13 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Phase 2 — Zotero hinzu (immer noch lokal)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 2 — Quellen mit Zotero</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../parts/03a-uebersicht.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4 — Quellen mit Zotero</span></a>
@@ -260,13 +280,13 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Phase 3 — Kür plus Veröffentlichung</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Phase 3 — Stil, Interaktion, Veröffentlichung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../parts/03c-style.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">5 — TH-Köln-Stil einbauen</span></a>
@@ -284,30 +304,51 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../parts/08-github-pages.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8 — Veröffentlichen mit GitHub und Pages</span></a>
+  <a href="../parts/07-widgets-colab.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8 — Widgets und Colab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../parts/06-slides-optional.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9 — Slides mit Quarto (optional)</span></a>
+  <a href="../parts/08-github-pages.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9 — Veröffentlichen mit GitHub und Pages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/06-slides-optional.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10 — Slides mit Quarto (optional)</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Quick-Starter und Anhänge</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Kür — nach dem Workshop</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendix/quickstart.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quick-Starter Guide</span></a>
+  <a href="../parts/11-kurs-mit-agent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">11 — Einen Kurs mit einem KI-Agenten bauen</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/12-oeffentlich-intern.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">12 — Öffentlich und intern trennen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Anhänge</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendix/troubleshooting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Trouble-Shooting</span></a>
@@ -323,13 +364,13 @@ div.csl-indent {
   <a href="../appendix/reviewer-prompt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reviewer-Prompt: KI als kritische Erstleserin</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../literatur.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Literatur</span></a>
   </div>
 </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -360,7 +401,7 @@ div.csl-indent {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/03c-style.html">Phase 3 — Kür plus Veröffentlichung</a></li><li class="breadcrumb-item"><a href="../parts/04-charts.html"><span class="chapter-title">6 — Interaktive Diagramme</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/03c-style.html">Phase 3 — Stil, Interaktion, Veröffentlichung</a></li><li class="breadcrumb-item"><a href="../parts/04-charts.html"><span class="chapter-title">6 — Interaktive Diagramme</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-title">6 — Interaktive Diagramme</span></h1>
 </div>
@@ -444,7 +485,7 @@ div.csl-indent {
 <section id="mach-mit-drei-beispiele-jeweils-zuerst-die-live-grafik-dann-der-code-zum-übernehmen" class="level2">
 <h2 class="anchored" data-anchor-id="mach-mit-drei-beispiele-jeweils-zuerst-die-live-grafik-dann-der-code-zum-übernehmen">Mach mit — drei Beispiele, jeweils zuerst die Live-Grafik, dann der Code zum Übernehmen</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Strang A — Wissenschaftliche Einstellung</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Strang B — Recherche und Quellenqualität</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Strang C — Transparent schreiben</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page">Strang A — Wissenschaftliche Einstellung</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Strang B — Recherche und Quellenqualität</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Strang C — Transparent schreiben</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>Frage: <em>Wie hat sich die Lebenserwartung in ausgewählten Ländern entwickelt?</em></p>
@@ -464,82 +505,50 @@ Plotly.newPlot('plot-le', [
 <p><strong>Datenquelle:</strong> Our World in Data, Serie „Life expectancy at birth (historical)” <span class="citation" data-cites="owid2024">(<a href="../index.html#ref-owid2024" role="doc-biblioref">Roser et al., 2024</a>)</span>. Stichprobe aus den Originaldaten (5 Jahre, 3 Entitäten); vollständiger Datensatz und Methodologie unter <a href="https://ourworldindata.org/life-expectancy" class="uri">https://ourworldindata.org/life-expectancy</a>. Zur didaktischen Nutzung im Unterricht; für Forschungszwecke aktuelle CSV direkt von OWID laden.</p>
 </div>
 <p><strong>R-Code zum Übernehmen</strong> (wenn Sie R + <code>plotly</code> + <code>tibble</code> installiert haben):</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>::: {.cell}</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r .cell-code}</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>::: {.cell-output .cell-output-stderr}</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="in">Warning: Paket 'plotly' wurde unter R Version 4.5.3 erstellt</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>::: {.cell-output .cell-output-stderr}</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="in">Warning: Paket 'ggplot2' wurde unter R Version 4.5.3 erstellt</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r .cell-code}</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>::: {.cell-output .cell-output-stderr}</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>le <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Year, <span class="sc">~</span>Land,         <span class="sc">~</span>Lebenserwartung,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1950</span>,  <span class="st">"Deutschland"</span>, <span class="fl">67.5</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1970</span>,  <span class="st">"Deutschland"</span>, <span class="fl">70.6</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1990</span>,  <span class="st">"Deutschland"</span>, <span class="fl">75.3</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2010</span>,  <span class="st">"Deutschland"</span>, <span class="fl">80.0</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2022</span>,  <span class="st">"Deutschland"</span>, <span class="fl">80.7</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1950</span>,  <span class="st">"Japan"</span>,       <span class="fl">62.0</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1970</span>,  <span class="st">"Japan"</span>,       <span class="fl">72.0</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1990</span>,  <span class="st">"Japan"</span>,       <span class="fl">78.8</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2010</span>,  <span class="st">"Japan"</span>,       <span class="fl">82.9</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2022</span>,  <span class="st">"Japan"</span>,       <span class="fl">84.1</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1950</span>,  <span class="st">"Welt"</span>,        <span class="fl">47.0</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1970</span>,  <span class="st">"Welt"</span>,        <span class="fl">58.0</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1990</span>,  <span class="st">"Welt"</span>,        <span class="fl">64.5</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2010</span>,  <span class="st">"Welt"</span>,        <span class="fl">70.0</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2022</span>,  <span class="st">"Welt"</span>,        <span class="fl">72.6</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>(le,</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="sc">~</span>Year, <span class="at">y =</span> <span class="sc">~</span>Lebenserwartung,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="sc">~</span>Land, <span class="at">type =</span> <span class="st">"scatter"</span>, <span class="at">mode =</span> <span class="st">"lines+markers"</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"#c81e0f"</span>, <span class="st">"#b43092"</span>, <span class="st">"#ea5a00"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(<span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Lebenserwartung (Jahre)"</span>))</span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="in">Warning: Paket 'tibble' wurde unter R Version 4.5.3 erstellt</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>::: {#fig-le .cell-output-display}</span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r .cell-code}</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>le <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Year, <span class="sc">~</span>Land,         <span class="sc">~</span>Lebenserwartung,</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1950</span>,  <span class="st">"Deutschland"</span>, <span class="fl">67.5</span>,</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1970</span>,  <span class="st">"Deutschland"</span>, <span class="fl">70.6</span>,</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1990</span>,  <span class="st">"Deutschland"</span>, <span class="fl">75.3</span>,</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2010</span>,  <span class="st">"Deutschland"</span>, <span class="fl">80.0</span>,</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2022</span>,  <span class="st">"Deutschland"</span>, <span class="fl">80.7</span>,</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1950</span>,  <span class="st">"Japan"</span>,       <span class="fl">62.0</span>,</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1970</span>,  <span class="st">"Japan"</span>,       <span class="fl">72.0</span>,</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1990</span>,  <span class="st">"Japan"</span>,       <span class="fl">78.8</span>,</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2010</span>,  <span class="st">"Japan"</span>,       <span class="fl">82.9</span>,</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2022</span>,  <span class="st">"Japan"</span>,       <span class="fl">84.1</span>,</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1950</span>,  <span class="st">"Welt"</span>,        <span class="fl">47.0</span>,</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1970</span>,  <span class="st">"Welt"</span>,        <span class="fl">58.0</span>,</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1990</span>,  <span class="st">"Welt"</span>,        <span class="fl">64.5</span>,</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2010</span>,  <span class="st">"Welt"</span>,        <span class="fl">70.0</span>,</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2022</span>,  <span class="st">"Welt"</span>,        <span class="fl">72.6</span></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>(le,</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="sc">~</span>Year, <span class="at">y =</span> <span class="sc">~</span>Lebenserwartung,</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="sc">~</span>Land, <span class="at">type =</span> <span class="st">"scatter"</span>, <span class="at">mode =</span> <span class="st">"lines+markers"</span>,</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>        <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"#c81e0f"</span>, <span class="st">"#b43092"</span>, <span class="st">"#ea5a00"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(<span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Lebenserwartung (Jahre)"</span>))</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>::: {#fig-le .cell-output-display}</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="plotly html-widget html-fill-item" id="htmlwidget-4e4bd2b04e1e74acfc96" style="width:100%;height:464px;"&gt;&lt;/div&gt;</span></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script type="application/json" data-for="htmlwidget-4e4bd2b04e1e74acfc96"&gt;{"x":{"visdat":{"355c3b808a1":["function () ","plotlyVisDat"]},"cur_data":"355c3b808a1","attrs":{"355c3b808a1":{"x":{},"y":{},"mode":"lines+markers","color":{},"colors":["#c81e0f","#b43092","#ea5a00"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"yaxis":{"domain":[0,1],"automargin":true,"title":"Lebenserwartung (Jahre)"},"xaxis":{"domain":[0,1],"automargin":true,"title":"Year"},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[1950,1970,1990,2010,2022],"y":[67.5,70.599999999999994,75.299999999999997,80,80.700000000000003],"mode":"lines+markers","type":"scatter","name":"Deutschland","marker":{"color":"rgba(200,30,15,1)","line":{"color":"rgba(200,30,15,1)"}},"textfont":{"color":"rgba(200,30,15,1)"},"error_y":{"color":"rgba(200,30,15,1)"},"error_x":{"color":"rgba(200,30,15,1)"},"line":{"color":"rgba(200,30,15,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[1950,1970,1990,2010,2022],"y":[62,72,78.799999999999997,82.900000000000006,84.099999999999994],"mode":"lines+markers","type":"scatter","name":"Japan","marker":{"color":"rgba(180,48,146,1)","line":{"color":"rgba(180,48,146,1)"}},"textfont":{"color":"rgba(180,48,146,1)"},"error_y":{"color":"rgba(180,48,146,1)"},"error_x":{"color":"rgba(180,48,146,1)"},"line":{"color":"rgba(180,48,146,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[1950,1970,1990,2010,2022],"y":[47,58,64.5,70,72.599999999999994],"mode":"lines+markers","type":"scatter","name":"Welt","marker":{"color":"rgba(234,90,0,1)","line":{"color":"rgba(234,90,0,1)"}},"textfont":{"color":"rgba(234,90,0,1)"},"error_y":{"color":"rgba(234,90,0,1)"},"error_x":{"color":"rgba(234,90,0,1)"},"line":{"color":"rgba(234,90,0,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}&lt;/script&gt;</span></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>Lebenserwartung bei Geburt, ausgewählte Länder. Quelle: Our World in Data.</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="plotly html-widget html-fill-item" id="htmlwidget-d3fdefe6bb092ca87bca" style="width:100%;height:464px;"&gt;&lt;/div&gt;</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script type="application/json" data-for="htmlwidget-d3fdefe6bb092ca87bca"&gt;{"x":{"visdat":{"2a0a355aefd8":["function () ","plotlyVisDat"]},"cur_data":"2a0a355aefd8","attrs":{"2a0a355aefd8":{"x":{},"y":{},"mode":"lines+markers","color":{},"colors":["#c81e0f","#b43092","#ea5a00"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"yaxis":{"domain":[0,1],"automargin":true,"title":"Lebenserwartung (Jahre)"},"xaxis":{"domain":[0,1],"automargin":true,"title":"Year"},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[1950,1970,1990,2010,2022],"y":[67.5,70.599999999999994,75.299999999999997,80,80.700000000000003],"mode":"lines+markers","type":"scatter","name":"Deutschland","marker":{"color":"rgba(200,30,15,1)","line":{"color":"rgba(200,30,15,1)"}},"textfont":{"color":"rgba(200,30,15,1)"},"error_y":{"color":"rgba(200,30,15,1)"},"error_x":{"color":"rgba(200,30,15,1)"},"line":{"color":"rgba(200,30,15,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[1950,1970,1990,2010,2022],"y":[62,72,78.799999999999997,82.900000000000006,84.099999999999994],"mode":"lines+markers","type":"scatter","name":"Japan","marker":{"color":"rgba(180,48,146,1)","line":{"color":"rgba(180,48,146,1)"}},"textfont":{"color":"rgba(180,48,146,1)"},"error_y":{"color":"rgba(180,48,146,1)"},"error_x":{"color":"rgba(180,48,146,1)"},"line":{"color":"rgba(180,48,146,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[1950,1970,1990,2010,2022],"y":[47,58,64.5,70,72.599999999999994],"mode":"lines+markers","type":"scatter","name":"Welt","marker":{"color":"rgba(234,90,0,1)","line":{"color":"rgba(234,90,0,1)"}},"textfont":{"color":"rgba(234,90,0,1)"},"error_y":{"color":"rgba(234,90,0,1)"},"error_x":{"color":"rgba(234,90,0,1)"},"line":{"color":"rgba(234,90,0,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}&lt;/script&gt;</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>Lebenserwartung bei Geburt, ausgewählte Länder. Quelle: Our World in Data.</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>Frage: <em>Wie viele wissenschaftliche Publikationen erscheinen pro Jahr?</em> Antwort führt zur Notwendigkeit, Quellen zu filtern.</p>
@@ -559,7 +568,7 @@ Plotly.newPlot('plot-pub', [
 <p><strong>Datenquelle:</strong> Eigene Schätzung in Anlehnung an die NSF Science &amp; Engineering Indicators sowie an Bornmann, Haunschild &amp; Mutz (2021), <em>Growth rates of modern science: a latent piecewise growth curve approach to model publication numbers from established and new literature databases</em>. Humanities and Social Sciences Communications, 8, 224. <a href="https://doi.org/10.1057/s41599-021-00903-w" class="uri">https://doi.org/10.1057/s41599-021-00903-w</a>. Aktuelle Originaldaten: NSF Science &amp; Engineering Indicators <a href="https://ncses.nsf.gov/indicators" class="uri">https://ncses.nsf.gov/indicators</a>. Für Forschungszwecke bitte aktuelle Originalquelle nutzen.</p>
 </div>
 <p><strong>R-Code zum Übernehmen:</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>::: {.cell}</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r .cell-code}</span></span>
@@ -587,14 +596,14 @@ Plotly.newPlot('plot-pub', [
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>::: {#fig-pub .cell-output-display}</span>
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="plotly html-widget html-fill-item" id="htmlwidget-248e18f6ada00e08610d" style="width:100%;height:464px;"&gt;&lt;/div&gt;</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script type="application/json" data-for="htmlwidget-248e18f6ada00e08610d"&gt;{"x":{"visdat":{"355c618b7650":["function () ","plotlyVisDat"]},"cur_data":"355c618b7650","attrs":{"355c618b7650":{"x":{},"y":{},"marker":{"color":"#c81e0f"},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"yaxis":{"domain":[0,1],"automargin":true,"title":"Publikationen (Mio. pro Jahr)"},"xaxis":{"domain":[0,1],"automargin":true,"title":"Year"},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[1990,1995,2000,2005,2010,2015,2020,2023],"y":[0.80000000000000004,1,1.2,1.6000000000000001,2.1000000000000001,2.5,2.8999999999999999,3.2999999999999998],"marker":{"color":"#c81e0f","line":{"color":"rgba(31,119,180,1)"}},"type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}&lt;/script&gt;</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="plotly html-widget html-fill-item" id="htmlwidget-c535f9199215fa8b8eb0" style="width:100%;height:464px;"&gt;&lt;/div&gt;</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script type="application/json" data-for="htmlwidget-c535f9199215fa8b8eb0"&gt;{"x":{"visdat":{"2a0a371dfa37":["function () ","plotlyVisDat"]},"cur_data":"2a0a371dfa37","attrs":{"2a0a371dfa37":{"x":{},"y":{},"marker":{"color":"#c81e0f"},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"yaxis":{"domain":[0,1],"automargin":true,"title":"Publikationen (Mio. pro Jahr)"},"xaxis":{"domain":[0,1],"automargin":true,"title":"Year"},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[1990,1995,2000,2005,2010,2015,2020,2023],"y":[0.80000000000000004,1,1.2,1.6000000000000001,2.1000000000000001,2.5,2.8999999999999999,3.2999999999999998],"marker":{"color":"#c81e0f","line":{"color":"rgba(31,119,180,1)"}},"type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}&lt;/script&gt;</span></span>
 <span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>Wissenschaftliche Publikationen weltweit (in Mio.).</span>
 <span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p>Frage: <em>Wie hat sich die Zahl der Pre-Registrierungen auf OSF entwickelt?</em> Antwort zeigt: Transparenz ist wachsende Praxis.</p>
@@ -614,7 +623,7 @@ Plotly.newPlot('plot-prereg', [
 <p><strong>Datenquelle:</strong> Eigene Schätzung in Anlehnung an die OSF-Statistik des Center for Open Science. Aktuelle Werte und Methodologie: OSF Registries Browser <a href="https://osf.io/registries" class="uri">https://osf.io/registries</a> sowie der COS Annual Report unter <a href="https://www.cos.io/about/annual-report" class="uri">https://www.cos.io/about/annual-report</a>. Die Größenordnungen sind belastbar, exakte Jahreswerte vor Publikation eigener Arbeiten direkt prüfen.</p>
 </div>
 <p><strong>R-Code zum Übernehmen:</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>::: {.cell}</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r .cell-code}</span></span>
@@ -639,14 +648,14 @@ Plotly.newPlot('plot-prereg', [
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>::: {#fig-prereg .cell-output-display}</span>
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="plotly html-widget html-fill-item" id="htmlwidget-a54838eda1f7fa682da0" style="width:100%;height:464px;"&gt;&lt;/div&gt;</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script type="application/json" data-for="htmlwidget-a54838eda1f7fa682da0"&gt;{"x":{"visdat":{"355c4b48218e":["function () ","plotlyVisDat"]},"cur_data":"355c4b48218e","attrs":{"355c4b48218e":{"x":{},"y":{},"marker":{"color":"#b43092"},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"yaxis":{"domain":[0,1],"automargin":true,"title":"Pre-Registrierungen pro Jahr"},"xaxis":{"domain":[0,1],"automargin":true,"title":"Jahr"},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[2015,2017,2019,2021,2023],"y":[1500,4200,9800,16500,22000],"marker":{"color":"#b43092","line":{"color":"rgba(31,119,180,1)"}},"type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}&lt;/script&gt;</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="plotly html-widget html-fill-item" id="htmlwidget-a9ccf3187ecacb1b1b29" style="width:100%;height:464px;"&gt;&lt;/div&gt;</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script type="application/json" data-for="htmlwidget-a9ccf3187ecacb1b1b29"&gt;{"x":{"visdat":{"2a0a42eb252":["function () ","plotlyVisDat"]},"cur_data":"2a0a42eb252","attrs":{"2a0a42eb252":{"x":{},"y":{},"marker":{"color":"#b43092"},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"yaxis":{"domain":[0,1],"automargin":true,"title":"Pre-Registrierungen pro Jahr"},"xaxis":{"domain":[0,1],"automargin":true,"title":"Jahr"},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[2015,2017,2019,2021,2023],"y":[1500,4200,9800,16500,22000],"marker":{"color":"#b43092","line":{"color":"rgba(31,119,180,1)"}},"type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}&lt;/script&gt;</span></span>
 <span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>Pre-registrierte Studien auf OSF, jährliche Neuanmeldungen.</span>
 <span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -655,35 +664,23 @@ Plotly.newPlot('plot-prereg', [
 <section id="plotly.js-direkt-wenn-sie-kein-r-wollen" class="level2">
 <h2 class="anchored" data-anchor-id="plotly.js-direkt-wenn-sie-kein-r-wollen">Plotly.js direkt — wenn Sie kein R wollen</h2>
 <p>Die HTML-Variante oben ist auch eine Vorlage. Im Quelltext dieses Kapitels (<code>parts/04-charts.qmd</code>) sehen Sie den <code>&lt;div&gt;</code>+<code>&lt;script&gt;</code>-Block. Diesen können Sie eins zu eins in eigene Kapitel kopieren — die einzige Voraussetzung: einmal pro Kapitel den Plotly-Loader einbinden:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://cdn.plot.ly/plotly-2.35.2.min.js"</span><span class="ot"> charset</span><span class="op">=</span><span class="st">"utf-8"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://cdn.plot.ly/plotly-2.35.2.min.js"</span><span class="ot"> charset</span><span class="op">=</span><span class="st">"utf-8"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Diesen Block packen Sie ans Anfang des <code>.qmd</code>-Kapitels in einen <code>{=html}</code>-Block:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"&gt;&lt;/script&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="daten-direkt-aus-dem-netz-für-fortgeschrittene-mit-r" class="level2">
 <h2 class="anchored" data-anchor-id="daten-direkt-aus-dem-netz-für-fortgeschrittene-mit-r">Daten direkt aus dem Netz (für Fortgeschrittene mit R)</h2>
 <p>Statt Daten im Code anzulegen, lassen sich CSVs direkt von Our World in Data laden:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>::: {.cell}</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r .cell-code}</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>::: {.cell-output .cell-output-stderr}</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="in">Warning: Paket 'readr' wurde unter R Version 4.5.3 erstellt</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r .cell-code}</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>owid <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://ourworldindata.org/grapher/life-expectancy.csv"</span>)</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>owid <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://ourworldindata.org/grapher/life-expectancy.csv"</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Wenn das Laden fehlschlägt: Datei manuell aus der Grapher-Seite herunterladen, in <code>data/</code> ablegen und lokal lesen.</p>
 </section>
 <section id="observable-js-reaktivität-ohne-javascript-schreiben" class="level2">
@@ -694,7 +691,7 @@ Plotly.newPlot('plot-prereg', [
 <h3 class="anchored" data-anchor-id="ein-slider-demo-die-kleinste-reaktive-geschichte">Ein-Slider-Demo — die kleinste reaktive Geschichte</h3>
 <p>Ein Schieberegler oben, ein Diagramm unten. Schieben Sie den Regler — die Balken passen sich live an.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7" data-startfrom="268" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 267;"><span id="cb7-268"><a href="#cb7-268" aria-hidden="true" tabindex="-1"></a>viewof bis_jahr <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">1990</span><span class="op">,</span> <span class="dv">2023</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Daten bis Jahr"</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">2023</span>})</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" data-startfrom="268" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 267;"><span id="cb7-268"><a href="#cb7-268" aria-hidden="true" tabindex="-1"></a>viewof bis_jahr <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">1990</span><span class="op">,</span> <span class="dv">2023</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Daten bis Jahr"</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">2023</span>})</span>
 <span id="cb7-269"><a href="#cb7-269" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-270"><a href="#cb7-270" aria-hidden="true" tabindex="-1"></a>publikationen <span class="op">=</span> [</span>
 <span id="cb7-271"><a href="#cb7-271" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">jahr</span><span class="op">:</span> <span class="dv">1990</span><span class="op">,</span> <span class="dt">anzahl</span><span class="op">:</span> <span class="fl">0.8</span>}<span class="op">,</span></span>
@@ -718,7 +715,7 @@ Plotly.newPlot('plot-prereg', [
 <span id="cb7-289"><a href="#cb7-289" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Jahr"</span>}<span class="op">,</span></span>
 <span id="cb7-290"><a href="#cb7-290" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">60</span><span class="op">,</span></span>
 <span id="cb7-291"><a href="#cb7-291" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">360</span></span>
-<span id="cb7-292"><a href="#cb7-292" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-292"><a href="#cb7-292" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -753,12 +750,12 @@ Plotly.newPlot('plot-prereg', [
 <section id="drei-beispiele-eines-pro-strang" class="level3">
 <h3 class="anchored" data-anchor-id="drei-beispiele-eines-pro-strang">Drei Beispiele — eines pro Strang</h3>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Strang A — Wissenschaftliche Einstellung</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Strang B — Recherche und Quellenqualität</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Strang C — Transparent schreiben</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Strang A — Wissenschaftliche Einstellung</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Strang B — Recherche und Quellenqualität</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Strang C — Transparent schreiben</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p><em>Wählen Sie, welche Länder Sie sehen wollen — die Linien blenden sich live ein und aus.</em></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8" data-startfrom="312" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 311;"><span id="cb8-312"><a href="#cb8-312" aria-hidden="true" tabindex="-1"></a>viewof laender <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">checkbox</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" data-startfrom="312" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 311;"><span id="cb8-312"><a href="#cb8-312" aria-hidden="true" tabindex="-1"></a>viewof laender <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">checkbox</span>(</span>
 <span id="cb8-313"><a href="#cb8-313" aria-hidden="true" tabindex="-1"></a>  [<span class="st">"Deutschland"</span><span class="op">,</span> <span class="st">"Japan"</span><span class="op">,</span> <span class="st">"Welt"</span>]<span class="op">,</span></span>
 <span id="cb8-314"><a href="#cb8-314" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">label</span><span class="op">:</span> <span class="st">"Länder anzeigen"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> [<span class="st">"Deutschland"</span><span class="op">,</span> <span class="st">"Japan"</span><span class="op">,</span> <span class="st">"Welt"</span>]}</span>
 <span id="cb8-315"><a href="#cb8-315" aria-hidden="true" tabindex="-1"></a>)</span>
@@ -793,7 +790,7 @@ Plotly.newPlot('plot-prereg', [
 <span id="cb8-344"><a href="#cb8-344" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Jahr"</span>}<span class="op">,</span></span>
 <span id="cb8-345"><a href="#cb8-345" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">60</span><span class="op">,</span></span>
 <span id="cb8-346"><a href="#cb8-346" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">380</span></span>
-<span id="cb8-347"><a href="#cb8-347" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-347"><a href="#cb8-347" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-2-1" data-nodetype="declaration">
@@ -830,7 +827,7 @@ Plotly.newPlot('plot-prereg', [
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <p><em>Schieben Sie die Schwelle — alle Jahre über der Schwelle erscheinen rot, darunter grau. Visualisiert die „Publikationsflut”.</em></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9" data-startfrom="365" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 364;"><span id="cb9-365"><a href="#cb9-365" aria-hidden="true" tabindex="-1"></a>viewof schwelle_pub <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.5</span><span class="op">,</span> <span class="fl">3.5</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Schwelle (Mio.)"</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="fl">2.0</span>})</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" data-startfrom="365" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 364;"><span id="cb9-365"><a href="#cb9-365" aria-hidden="true" tabindex="-1"></a>viewof schwelle_pub <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.5</span><span class="op">,</span> <span class="fl">3.5</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Schwelle (Mio.)"</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="fl">2.0</span>})</span>
 <span id="cb9-366"><a href="#cb9-366" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-367"><a href="#cb9-367" aria-hidden="true" tabindex="-1"></a>pub_daten <span class="op">=</span> [</span>
 <span id="cb9-368"><a href="#cb9-368" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">jahr</span><span class="op">:</span> <span class="dv">1990</span><span class="op">,</span> <span class="dt">anzahl</span><span class="op">:</span> <span class="fl">0.8</span>}<span class="op">,</span></span>
@@ -856,7 +853,7 @@ Plotly.newPlot('plot-prereg', [
 <span id="cb9-388"><a href="#cb9-388" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Jahr"</span>}<span class="op">,</span></span>
 <span id="cb9-389"><a href="#cb9-389" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">60</span><span class="op">,</span></span>
 <span id="cb9-390"><a href="#cb9-390" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">360</span></span>
-<span id="cb9-391"><a href="#cb9-391" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-391"><a href="#cb9-391" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-3-1" data-nodetype="declaration">
@@ -886,7 +883,7 @@ Plotly.newPlot('plot-prereg', [
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <p><em>Wählen Sie über den Dropdown, ab welchem Jahr Sie die Daten sehen wollen.</em></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10" data-startfrom="409" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 408;"><span id="cb10-409"><a href="#cb10-409" aria-hidden="true" tabindex="-1"></a>viewof startjahr <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>([<span class="dv">2015</span><span class="op">,</span> <span class="dv">2017</span><span class="op">,</span> <span class="dv">2019</span><span class="op">,</span> <span class="dv">2021</span><span class="op">,</span> <span class="dv">2023</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Ab Jahr"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">2015</span>})</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" data-startfrom="409" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 408;"><span id="cb10-409"><a href="#cb10-409" aria-hidden="true" tabindex="-1"></a>viewof startjahr <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>([<span class="dv">2015</span><span class="op">,</span> <span class="dv">2017</span><span class="op">,</span> <span class="dv">2019</span><span class="op">,</span> <span class="dv">2021</span><span class="op">,</span> <span class="dv">2023</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Ab Jahr"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="dv">2015</span>})</span>
 <span id="cb10-410"><a href="#cb10-410" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-411"><a href="#cb10-411" aria-hidden="true" tabindex="-1"></a>prereg_daten <span class="op">=</span> [</span>
 <span id="cb10-412"><a href="#cb10-412" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">jahr</span><span class="op">:</span> <span class="dv">2015</span><span class="op">,</span> <span class="dt">anzahl</span><span class="op">:</span> <span class="dv">1500</span>}<span class="op">,</span></span>
@@ -908,7 +905,7 @@ Plotly.newPlot('plot-prereg', [
 <span id="cb10-428"><a href="#cb10-428" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Jahr"</span>}<span class="op">,</span></span>
 <span id="cb10-429"><a href="#cb10-429" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginLeft</span><span class="op">:</span> <span class="dv">70</span><span class="op">,</span></span>
 <span id="cb10-430"><a href="#cb10-430" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">360</span></span>
-<span id="cb10-431"><a href="#cb10-431" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-431"><a href="#cb10-431" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-4-1" data-nodetype="declaration">
@@ -950,7 +947,7 @@ Plotly.newPlot('plot-prereg', [
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Mach mit — eigenes Observable-Diagramm
+<span class="screen-reader-only">Tipp</span>Mach mit — eigenes Observable-Diagramm
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -963,7 +960,7 @@ Mach mit — eigenes Observable-Diagramm
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Variieren Sie
+<span class="screen-reader-only">Tipp</span>Variieren Sie
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1000,11 +997,11 @@ Variieren Sie
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Mach mit
+<span class="screen-reader-only">Tipp</span>Mach mit
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Tauschen Sie im Code zwei Datenpunkte gegen welche aus, die für Ihren Strang interessant sind. Lokal rendern und im Browser ansehen. (Pushen folgt am Tagesende in Kap. 8.)</p>
+<p>Tauschen Sie im Code zwei Datenpunkte gegen welche aus, die für Ihren Strang interessant sind. Lokal rendern und im Browser ansehen. (Veröffentlichen folgt in Kap. 9.)</p>
 </div>
 </div>
 <div class="callout callout-style-simple callout-tip callout-titled">
@@ -1013,7 +1010,7 @@ Mach mit
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Variieren Sie
+<span class="screen-reader-only">Tipp</span>Variieren Sie
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1031,7 +1028,7 @@ Variieren Sie
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Was, wenn …
+<span class="screen-reader-only">Warnung</span>Was, wenn …
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1052,7 +1049,7 @@ Was, wenn …
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tutor öffnen
+<span class="screen-reader-only">Tipp</span>Tutor öffnen
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1165,13 +1162,14 @@ window._ojs.runtime.interpretFromScriptTags();
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

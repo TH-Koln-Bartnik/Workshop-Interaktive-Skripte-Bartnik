@@ -1,0 +1,148 @@
+---
+title: "Willkommen"
+subtitle: "Skript zum Workshop am 11.05.2026"
+---
+
+::: th-color-bar
+:::
+
+::: {.callout-tip appearance="minimal"}
+## Auftakt-Folien zum Workshop
+[**Zur Intro-Slideshow →**](slides/intro-vorstellung.html){target="_blank"}
+
+Sechs Folien für den Einstieg: Titelfolie, Vorstellung & Motivation, Vorstellungsrunde, Drei Phasen, Workflow, „Los geht's" mit der Live-URL.
+:::
+
+# Was Sie heute bauen
+
+Ihr eigenes interaktives Skript live im Netz.
+
+::: lernziel-box
+#### Am Ende des Tages können Sie …
+
+1.  Ein leicht pflegbares **Online-Skript erstellen** (ein Quarto-Projekt lokal in RStudio anlegen, rendern und über GitHub Pages veröffentlichen),
+2.  ...das verschiedene **Formatierungen automatisch erzeugt** (etwa ein automatisches Inhaltsverzeichnis erzeugen und Quellen aus Zotero zitieren),
+3.  ...**Stilelemente** an Ihre Vorlieben **anpasst** (das Skript im TH-Köln-Stil formatieren (`_brand.yml`, CSS)),
+4.  ...und den Lernenden erlaubt, mit den Inhalten zu **interagieren** (ein interaktives Diagramm und ein iFrame-Spiel einbauen),
+5.  **...**und **Hilfe durch KI** bereitzustellen (einen KI-Tutor verlinken, der die Lernenden im Skript begleitet).
+:::
+
+## Vier Referenzen
+
+Bevor wir bauen, schauen wir, was möglich ist. Vier Skripte zeigen die Bandbreite — vom Kapitel zum Buch zum Kurs, alle mit Quarto erstellt.
+
+:::::::: benchmark-grid
+::: benchmark-card
+### Lakens — Statistical Inferences
+
+Ein vollständiges Open-Access-Lehrbuch zur Statistik mit Quizzen, Code-Demos und Videos. Maßstab für „so gut kann ein Skript werden". Daniel Lakens ist Professor an der Eindhoven University of Technology, Experte für statistische Methoden und ein führender Vertreter der Open Science Bewegung und Bemühungen methodischer Neuorientierung in der Wissenschaft.
+
+[Zum Lehrbuch →](https://lakens.github.io/statistical_inferences/){target="_blank"}
+:::
+
+::: benchmark-card
+### Healy — Data Visualization
+
+Lehrbuch zur Datenvisualisierung in R [@healy2018], als Web-Edition kostenlos lesbar und unabhängig vom gedruckten Princeton-Band gepflegt. Maßstab für „klassisches Lehrbuch im Web". (Kieran Healy, ein Professor an der Duke University, hat eine Gabe für knackige Titel, wie er 2017 mit seinem Artikel "Fuck Nuance" [@healy2017] im Journal of Sociological Theory bewies.)
+
+[Zum Lehrbuch →](https://socviz.co/){target="_blank"}
+:::
+
+::: benchmark-card
+### Békés — Data Analysis with AI
+
+Ein vollständiger Kurs samt Folien, Notebooks und Übungen. Maßstab für „Skript plus Slides plus Code". Schön ist hier die starke Verbindung von Datenanalyse mit GenAI Methoden.
+
+[Zum Kurs →](https://gabors-data-analysis.com/ai-course/){target="_blank"}
+:::
+
+::: benchmark-card
+### Bartnik — KI als Hilfe zum Lehren und Lernen
+
+Mein eigenes Skript, im Vergleich zu den schon publizierten Werken noch etwas unfertig, mit interaktiven Widgets, eingebetteten Tutor-Bots und kleinen Lernspielen.
+
+[Zum Skript →](https://th-koln-bartnik.github.io/genai4teaching/){target="_blank"}
+:::
+
+::: benchmark-card
+:::
+::::::::
+
+## Wählen Sie Ihren Beispielstrang
+
+Damit Sie nicht auch noch Inhalte erfinden müssen, nutzen wir ein durchgehendes Mini-Thema: eine **kurze Einführung ins wissenschaftliche Arbeiten**. Wählen Sie einen der drei Stränge.
+
+| Strang | Worum es geht | Quelle |
+|------------------------|------------------------|------------------------|
+| **A — Wissenschaftliche Einstellung** | Skepsis, Belege, intellektuelle Demut | [Bartnik & Palmer (2024), Kap. „Wissenschaftliche Einstellung"](https://publish.obsidian.md/wagp-calling-bullshit/wissenschaftliche+Einstellung){target="_blank"} |
+| **B — Recherche und Quellenqualität** | Suchen, prüfen, Quellen einordnen | [Bartnik & Palmer (2024), Kap. „Kritische Informationssuche"](https://publish.obsidian.md/wagp-calling-bullshit/Kritische+Informationssuche){target="_blank"} |
+| **C — Transparent schreiben** | Methoden offenlegen, Reproduzierbarkeit | [Bartnik & Palmer (2024), Kap. „Transparent schreiben"](https://publish.obsidian.md/wagp-calling-bullshit/Transparent+schreiben){target="_blank"} |
+
+Sie können natürlich auch eigene Inhalte einfügen. Die Wahl ist Geschmackssache. Die technischen Schritte sind in jedem Strang identisch.
+
+## Tagesablauf — drei Phasen
+
+Der Workshop ist so geschnitten, dass Sie nicht alle Werkzeuge gleichzeitig lernen müssen. Drei Phasen, in jeder kommt höchstens ein neues Werkzeug dazu.
+
+| Phase | Zeitrahmen | Inhalt |
+|------------------------|------------------------|------------------------|
+| **Phase 1 — RStudio + KI-Tutor (lokal)** | Vormittag, ca. 09:00–12:30 (inkl. Pause) | Auftakt und Strangwahl, kurze didaktische Verortung, RStudio-Cockpit, erstes Quarto-Buch lokal anlegen und im Browser sehen, Bilder/Tabellen/Verweise einbauen |
+| **Phase 2 — Zotero hinzu (immer noch lokal)** | Früher Nachmittag, ca. 13:15–14:00 | Better-BibTeX, `references.bib`, automatische Zitate und Literaturliste |
+| **Phase 3 — Kür plus Veröffentlichung** | Nachmittag, ca. 14:00–16:00 | Auswahl aus TH-Köln-Stil, interaktiven Charts, iFrames + KI-Tutor; dann GitHub Pages live; Showcase |
+
+## Wie Sie dieses Skript benutzen
+
+Jedes Kapitel öffnet mit einem Lernziel-Kasten („Was Sie nach diesem Kapitel können"), gefolgt von einem **„Mach mit"**-Block — das ist die eigentliche Übung. Dazwischen steht so wenig Text wie möglich. Am Ende jedes Kapitels finden Sie einen Trouble-Shooting-Kasten („Was, wenn …") und einen fertigen **Tutor-Prompt** zum Kopieren.
+
+::: callout-tip
+## RStudio ist Ihre Arbeitszentrale
+
+Innerhalb von RStudio haben Sie **Editor**, **Terminal** (für `quarto render` und `quarto preview`), **Files-Pane** (zum Anlegen von Ordnern und Dateien), **Build-Pane** (Knopf „Render Book") und **Console** (für R-Pakete) auf einem Schirm. Daneben brauchen Sie nur **GitHub Desktop** zum Versionieren und einen Browser-Tab mit dem **Tutor**.
+
+[**Tutor öffnen — „Interaktive Skripte"** →](https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte){target="_blank"}
+:::
+
+## Ordnerstruktur Ihres Skripts
+
+Damit Sie immer wissen, wo etwas hingehört (folgt dem Aufbau bei Daniel Lakens):
+
+| Ordner          | Was kommt rein?                                         |
+|-----------------------|-------------------------------------------------|
+| `parts/`        | Ihre Kapiteldateien (`.qmd`)                            |
+| `images/`       | Logos, Screenshots, statische Grafiken (PNG, JPG, SVG)  |
+| `interactions/` | HTML-Widgets ohne Backend (Lernspiel, Memory, Quiz)     |
+| `include/`      | Wiederverwendbare qmd-Schnipsel (per `{{< include >}}`) |
+| `data/`         | CSV/JSON-Daten für interaktive Charts                   |
+| `appendix/`     | Quickstart, Troubleshooting, Tutor-Prompt               |
+
+## Voraussetzungen
+
+Wenn Sie noch nichts installiert haben, springen Sie zuerst in den [Quick-Starter Guide](appendix/quickstart.qmd). Dort steht, welche Werkzeuge Sie pro Phase brauchen — Phase 1 fordert nur Quarto, R, RStudio und einen ChatGPT-Tutor-Tab; Zotero und GitHub kommen erst später.
+
+## Vorlage-Skript zum Download
+
+Wer den graduellen Aufbau überspringen oder absichern möchte, lädt sich die **fertige Vorlage** herunter — ein vollständiges Quarto-Buchprojekt mit Platzhaltern für alle wichtigen Elemente (Bilder mit Caption und Label, Tabellen mit Cross-Reference, interaktive Charts, iFrames, Zitate mit Hover-Tooltip, Tutor-Link). Im RStudio öffnen, Inhalte ersetzen, fertig.
+
+::: callout-tip
+## Fertige Vorlage holen
+
+[**vorlage-skript.zip herunterladen** →](downloads/vorlage-skript-v3.zip)
+
+Im ZIP enthalten: `_quarto.yml`, `_brand.yml`, `styles.scss`, `references.bib`, ein Beispielkapitel mit allen Element-Typen (Bild, Tabelle, Chart, iFrame, Zitat, Cross-Refs), ein leeres Kapitel zum Befüllen, ein Beispiel-Quiz als HTML-Widget, ein Beispieldatensatz und die Bibliographie. Eine `README.md` erklärt, was wo liegt und wie der Einstieg läuft.
+:::
+
+## Komplette Literaturliste
+
+Alle Quellen, die im Skript zitiert werden, plus Empfehlungen zur Vertiefung — APA-7-Format mit deutscher Lokalisierung. [Zur Literaturliste →](literatur.qmd)
+
+::: callout-tip
+## Transparenzhinweis zur KI-Nutzung
+Bei der Erstellung dieses Skriptes wurde Claude 4.7/Cowork zur Aufwertung der Inhalte (speziell für Beispiele und Interaktionen), als Reviewer (speziell Sprach- und Konsistenzchecks) und zur Gestaltung des Layouts genutzt. Alle Inhalte wurden von Roman Bartnik geprüft, überarbeitet und verantwortet.
+:::
+
+## Quellen
+
+Vier Vorbild-Skripte als Maßstab [@lakens2022; @healy2018; @bartnik2025; @bekes2025]; Constructive Alignment als didaktisches Rahmen [@biggs2011]; Multimedia-Lernen als Begründung für interaktive Elemente [@mayer2021].
+
+::: {#refs}
+:::

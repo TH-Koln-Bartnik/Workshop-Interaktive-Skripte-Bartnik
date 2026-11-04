@@ -1,11 +1,12 @@
 ---
 title: "Willkommen"
-subtitle: "Skript zum Workshop am 11.05.2026"
+subtitle: "Werkstatt-Skript zum Workshop, TH Köln"
 ---
 
 ::: th-color-bar
 :::
 
+<<<<<<< HEAD
 ::: {.callout-tip appearance="minimal"}
 ## Auftakt-Folien zum Workshop
 
@@ -18,62 +19,50 @@ Sechs Folien für den Einstieg: Titelfolie, Vorstellung & Motivation, Vorstellun
 
 Ihr eigenes interaktives Skript live im Netz.
 
+=======
+>>>>>>> 4ee90cba7e52a7df21f523ff45595995d2a51394
 ::: lernziel-box
-#### Am Ende des Tages können Sie …
+#### Ziele des Workshops
 
-1.  Ein leicht pflegbares **Online-Skript erstellen** (ein Quarto-Projekt lokal in RStudio anlegen, rendern und über GitHub Pages veröffentlichen),
-2.  ...das verschiedene **Formatierungen automatisch erzeugt** (etwa ein automatisches Inhaltsverzeichnis erzeugen und Quellen aus Zotero zitieren),
-3.  ...**Stilelemente** an Ihre Vorlieben **anpasst** (das Skript im TH-Köln-Stil formatieren (`_brand.yml`, CSS)),
-4.  ...und den Lernenden erlaubt, mit den Inhalten zu **interagieren** (ein interaktives Diagramm und ein iFrame-Spiel einbauen),
-5.  **...**und **Hilfe durch KI** bereitzustellen (einen KI-Tutor verlinken, der die Lernenden im Skript begleitet).
+Am Ende des Workshops können Sie …
+
+1.  ein leicht pflegbares **Online-Skript erstellen**: ein Quarto-Projekt lokal in RStudio anlegen, rendern und über GitHub Pages veröffentlichen,
+2.  **Formatierungen automatisch erzeugen** lassen: Inhaltsverzeichnis, Querverweise und Zitate samt Literaturliste aus Zotero,
+3.  das Skript im **TH-Köln-Stil** gestalten,
+4.  Lernende mit den Inhalten **interagieren** lassen: mit einem interaktiven Diagramm, einem eingebetteten Spiel, einem eigenen Widget oder einem Colab-Arbeitsblatt,
+5.  **KI als Hilfe** einsetzen: als Tutor für die Lernenden und als agentische Hilfskraft, die mit Ihnen am Skript arbeitet.
 :::
 
-## Vier Referenzen
+Im Workshop bauen Sie Ihr eigenes interaktives Online-Skript: lokal in RStudio geschrieben, mit Quarto in eine Webseite verwandelt, mit Zotero zitiert, mit KI angereichert und über GitHub Pages veröffentlicht. Damit die gemeinsame Zeit dem Bauen gehört und nicht dem Installieren, richten Sie die Werkzeuge vorher zu Hause ein. Wie das geht, steht in [Teil 0](parts/00-vorbereitung.qmd).
 
-Bevor wir bauen, schauen wir, was möglich ist. Vier Skripte zeigen die Bandbreite — vom Kapitel zum Buch zum Kurs, alle mit Quarto erstellt.
+## Der Workflow auf einen Blick
 
-:::::::: benchmark-grid
-::: benchmark-card
-### Lakens — Statistical Inferences
+Die Animation zeigt, welches Werkzeug welche Aufgabe übernimmt und in welcher Phase es dazukommt. Mit „▶ Start“ oben rechts oder der Leiste unten gehen Sie durch die sechs Schritte; die Pfeiltasten funktionieren, sobald Sie einmal in die Animation geklickt haben. Ein Klick auf ein Werkzeug öffnet eine kurze Erklärung. In Schritt 0 können Sie Ihre Installationen abhaken.
 
-Ein vollständiges Open-Access-Lehrbuch zur Statistik mit Quizzen, Code-Demos und Videos. Maßstab für „so gut kann ein Skript werden". Daniel Lakens ist Professor an der Eindhoven University of Technology, Experte für statistische Methoden und ein führender Vertreter der Open Science Bewegung und Bemühungen methodischer Neuorientierung in der Wissenschaft.
-
-[Zum Lehrbuch →](https://lakens.github.io/statistical_inferences/){target="_blank"}
+::: {.column-page}
+<iframe src="interactions/workflow-animation.html" width="100%" height="880px" frameborder="0" loading="lazy" allow="fullscreen" allowfullscreen title="Animation: Vom Manuskript zur Website, der Workflow für interaktive Skripte"></iframe>
 :::
 
-::: benchmark-card
-### Healy — Data Visualization
+[Animation in eigenem Fenster öffnen ↗](interactions/workflow-animation.html){target="_blank"}
 
-Lehrbuch zur Datenvisualisierung in R [@healy2018], als Web-Edition kostenlos lesbar und unabhängig vom gedruckten Princeton-Band gepflegt. Maßstab für „klassisches Lehrbuch im Web". (Kieran Healy, ein Professor an der Duke University, hat eine Gabe für knackige Titel, wie er 2017 mit seinem Artikel "Fuck Nuance" [@healy2017] im Journal of Sociological Theory bewies.)
+## Ablauf
 
-[Zum Lehrbuch →](https://socviz.co/){target="_blank"}
-:::
+Der Workshop ist so geschnitten, dass Sie nicht alle Werkzeuge gleichzeitig lernen müssen: In jeder Phase kommt höchstens ein neues Werkzeug dazu. Die Dauern sind Richtwerte ohne Pausen; sie gelten für jeden Termin, gleich wann er beginnt.
 
-::: benchmark-card
-### Békés — Data Analysis with AI
-
-Ein vollständiger Kurs samt Folien, Notebooks und Übungen. Maßstab für „Skript plus Slides plus Code". Schön ist hier die starke Verbindung von Datenanalyse mit GenAI Methoden.
-
-[Zum Kurs →](https://gabors-data-analysis.com/ai-course/){target="_blank"}
-:::
-
-::: benchmark-card
-### Bartnik — KI als Hilfe zum Lehren und Lernen
-
-Mein eigenes Skript, im Vergleich zu den schon publizierten Werken noch etwas unfertig, mit interaktiven Widgets, eingebetteten Tutor-Bots und kleinen Lernspielen.
-
-[Zum Skript →](https://th-koln-bartnik.github.io/genai4teaching/){target="_blank"}
-:::
-
-::: benchmark-card
-:::
-::::::::
+| Teil | Dauer | Inhalt | Kapitel |
+|------------------|------------------|------------------------------|------------|
+| **Teil 0 — Vorbereitung zu Hause** | ca. 2–3 h, vor dem Workshop | Werkzeuge installieren, Selbsttest mit drei Häkchen, Rohmaterial sammeln; die Galerie als Anregung | [0](parts/00-vorbereitung.qmd), [Galerie](parts/galerie.qmd) |
+| **Phase 1 — Schreiben und Rendern (lokal)** | ca. 3 h | Setup-Check (15 min), didaktische Verortung, erstes Quarto-Buch im Browser, Bilder, Tabellen und Verweise | 1–3 |
+| **Phase 2 — Quellen mit Zotero** | ca. 45 min | `references.bib`, automatische Zitate und Literaturliste | 4 |
+| **Phase 3 — Stil, Interaktion, Veröffentlichung** | ca. 2,5 h | Auswahl aus TH-Köln-Stil, interaktiven Diagrammen, Spielen und Tutor, Widgets und Colab; danach GitHub Pages live und kurzer Rundgang durch die Ergebnisse | 5–9, 10 optional |
+| **Kür — nach dem Workshop** | nach Bedarf | einen Kurs mit einem KI-Agenten bauen; öffentliches und internes Material trennen | 11–12 |
 
 ## Wählen Sie Ihren Beispielstrang
 
-Damit Sie nicht auch noch Inhalte erfinden müssen, nutzen wir ein durchgehendes Mini-Thema: eine **kurze Einführung ins wissenschaftliche Arbeiten**. Wählen Sie einen der drei Stränge.
+Damit Sie nicht auch noch Inhalte erfinden müssen, nutzen wir ein durchgehendes Mini-Thema: eine **kurze Einführung ins wissenschaftliche Arbeiten**. Wählen Sie einen der drei Stränge, oder bringen Sie eigenes Material mit (siehe [Mitbringliste](parts/00-vorbereitung.qmd#mitbringen)).
 
 | Strang | Worum es geht | Quelle |
+<<<<<<< HEAD
 |----|----|----|
 | **A — Wissenschaftliche Einstellung** | Skepsis, Belege, intellektuelle Demut | [Bartnik & Palmer (2024), Kap. „Wissenschaftliche Einstellung"](https://publish.obsidian.md/wagp-calling-bullshit/wissenschaftliche+Einstellung){target="_blank"} |
 | **B — Recherche und Quellenqualität** | Suchen, prüfen, Quellen einordnen | [Bartnik & Palmer (2024), Kap. „Kritische Informationssuche"](https://publish.obsidian.md/wagp-calling-bullshit/Kritische+Informationssuche){target="_blank"} |
@@ -90,23 +79,34 @@ Der Workshop ist so geschnitten, dass Sie nicht alle Werkzeuge gleichzeitig lern
 | **Phase 1 — RStudio + KI-Tutor (lokal)** | Vormittag, ca. 09:00–12:30 (inkl. Pause) | Auftakt und Strangwahl, kurze didaktische Verortung, RStudio-Cockpit, erstes Quarto-Buch lokal anlegen und im Browser sehen, Bilder/Tabellen/Verweise einbauen |
 | **Phase 2 — Zotero hinzu (immer noch lokal)** | Früher Nachmittag, ca. 13:15–14:00 | Better-BibTeX, `references.bib`, automatische Zitate und Literaturliste |
 | **Phase 3 — Kür plus Veröffentlichung** | Nachmittag, ca. 14:00–16:00 | Auswahl aus TH-Köln-Stil, interaktiven Charts, iFrames + KI-Tutor; dann GitHub Pages live; Showcase |
+=======
+|------------------------|------------------------|------------------------|
+| **A — Wissenschaftliche Einstellung** | Skepsis, Belege, intellektuelle Demut | [Bartnik & Palmer (2024), Kap. „Wissenschaftliche Einstellung“](https://publish.obsidian.md/wagp-calling-bullshit/wissenschaftliche+Einstellung){target="_blank"} |
+| **B — Recherche und Quellenqualität** | Suchen, prüfen, Quellen einordnen | [Bartnik & Palmer (2024), Kap. „Kritische Informationssuche“](https://publish.obsidian.md/wagp-calling-bullshit/Kritische+Informationssuche){target="_blank"} |
+| **C — Transparent schreiben** | Methoden offenlegen, Reproduzierbarkeit | [Bartnik & Palmer (2024), Kap. „Transparent schreiben“](https://publish.obsidian.md/wagp-calling-bullshit/Transparent+schreiben){target="_blank"} |
+
+Die technischen Schritte sind in jedem Strang identisch.
+>>>>>>> 4ee90cba7e52a7df21f523ff45595995d2a51394
 
 ## Wie Sie dieses Skript benutzen
 
-Jedes Kapitel öffnet mit einem Lernziel-Kasten („Was Sie nach diesem Kapitel können"), gefolgt von einem **„Mach mit"**-Block — das ist die eigentliche Übung. Dazwischen steht so wenig Text wie möglich. Am Ende jedes Kapitels finden Sie einen Trouble-Shooting-Kasten („Was, wenn …") und einen fertigen **Tutor-Prompt** zum Kopieren.
+Jedes Kapitel öffnet mit einem Lernziel-Kasten („Was Sie nach diesem Kapitel können“), gefolgt von einem **„Mach mit“**-Block, der eigentlichen Übung. Dazwischen steht so wenig Text wie möglich. Am Ende jedes Kapitels finden Sie einen Kasten „Was, wenn …“ mit den häufigsten Stolpersteinen und einen fertigen **Tutor-Prompt** zum Kopieren. Die Lernziele und Übungen sind aufeinander abgestimmt, wie es Constructive Alignment verlangt [@biggs2011]; die interaktiven Elemente haben einen lerntheoretischen Grund, keinen dekorativen [@mayer2021].
 
-::: callout-tip
-## RStudio ist Ihre Arbeitszentrale
+:::::: benchmark-grid
+::: benchmark-card
+### Teil 0 — Vorbereitung
 
-Innerhalb von RStudio haben Sie **Editor**, **Terminal** (für `quarto render` und `quarto preview`), **Files-Pane** (zum Anlegen von Ordnern und Dateien), **Build-Pane** (Knopf „Render Book") und **Console** (für R-Pakete) auf einem Schirm. Daneben brauchen Sie nur **GitHub Desktop** zum Versionieren und einen Browser-Tab mit dem **Tutor**.
+Was Sie vor dem Workshop installieren und testen, und was Sie mitbringen.
 
-[**Tutor öffnen — „Interaktive Skripte"** →](https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte){target="_blank"}
+[Zum Quick-Start →](parts/00-vorbereitung.qmd)
 :::
 
-## Ordnerstruktur Ihres Skripts
+::: benchmark-card
+### Galerie
 
-Damit Sie immer wissen, wo etwas hingehört (folgt dem Aufbau bei Daniel Lakens):
+Was mit KI-Unterstützung möglich wird: Begriffsspiel, Prozesslinie, Fall-Teaser, Colab-Arbeitsblatt, Lern-Song, Vokabel-App und zwei Beispiele von Ethan Mollick.
 
+<<<<<<< HEAD
 | Ordner          | Was kommt rein?                                         |
 |-----------------|---------------------------------------------------------|
 | `parts/`        | Ihre Kapiteldateien (`.qmd`)                            |
@@ -130,21 +130,38 @@ Wer den graduellen Aufbau überspringen oder absichern möchte, lädt sich die *
 [**vorlage-skript.zip herunterladen** →](downloads/vorlage-skript-v3.zip)
 
 Im ZIP enthalten: `_quarto.yml`, `_brand.yml`, `styles.scss`, `references.bib`, ein Beispielkapitel mit allen Element-Typen (Bild, Tabelle, Chart, iFrame, Zitat, Cross-Refs), ein leeres Kapitel zum Befüllen, ein Beispiel-Quiz als HTML-Widget, ein Beispieldatensatz und die Bibliographie. Eine `README.md` erklärt, was wo liegt und wie der Einstieg läuft.
+=======
+[Zur Galerie →](parts/galerie.qmd)
+>>>>>>> 4ee90cba7e52a7df21f523ff45595995d2a51394
 :::
 
-## Komplette Literaturliste
+::: benchmark-card
+### Phase 1 — Loslegen
 
-Alle Quellen, die im Skript zitiert werden, plus Empfehlungen zur Vertiefung — APA-7-Format mit deutscher Lokalisierung. [Zur Literaturliste →](literatur.qmd)
+Warum interaktiv, und wie aus einer Textdatei die erste Webseite wird.
 
-::: callout-tip
+[Zu Kapitel 1 →](parts/01-didaktik.qmd)
+:::
+::::::
+
+::: {.callout-tip}
+## KI-Tutor für Fragen zwischendurch
+Wenn bei der Installation oder im Workshop etwas hakt, beschreiben Sie dem Tutor, was Sie getan haben und was Sie sehen (gern mit Screenshot der Fehlermeldung).
+
+[**Tutor öffnen — „Interaktive Skripte“** →](https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte){target="_blank"}
+:::
+
+::: callout-note
 ## Transparenzhinweis zur KI-Nutzung
+<<<<<<< HEAD
 
 Bei der Erstellung dieses Skriptes wurde Claude 4.7/Cowork zur Aufwertung der Inhalte (speziell für Beispiele und Interaktionen), als Reviewer (speziell Sprach- und Konsistenzchecks) und zur Gestaltung des Layouts genutzt. Alle Inhalte wurden von Roman Bartnik geprüft, überarbeitet und verantwortet.
+=======
+Bei der Erstellung dieses Skriptes wurde Claude (Opus 4.7 und Opus 5.5, Claude Cowork) zur Aufwertung der Inhalte (speziell für Beispiele und Interaktionen), als Reviewer (speziell Sprach- und Konsistenzchecks) und zur Gestaltung des Layouts genutzt. Alle Inhalte wurden von Roman Bartnik geprüft, überarbeitet und verantwortet.
+>>>>>>> 4ee90cba7e52a7df21f523ff45595995d2a51394
 :::
 
 ## Quellen
-
-Vier Vorbild-Skripte als Maßstab [@lakens2022; @healy2018; @bartnik2025; @bekes2025]; Constructive Alignment als didaktisches Rahmen [@biggs2011]; Multimedia-Lernen als Begründung für interaktive Elemente [@mayer2021].
 
 ::: {#refs}
 :::
