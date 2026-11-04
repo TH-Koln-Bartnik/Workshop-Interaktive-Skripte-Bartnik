@@ -6,6 +6,12 @@ subtitle: "Werkstatt-Skript zum Workshop, hdw"
 ::: th-color-bar
 :::
 
+::: {.column-margin .qr-box}
+[![](images/qr-startseite.svg){fig-alt="QR-Code mit dem Link zur Startseite dieses Skripts: th-koln-bartnik.github.io/Workshop-Interaktive-Skripte-Bartnik/"}](images/qr-startseite.svg){target="_blank" title="QR-Code vergrößern"}
+
+**Skript auf dem Handy öffnen:** Code scannen. Ein Klick vergrößert ihn für den Beamer. [PNG für Folien](images/qr-startseite.png){download="qr-startseite.png"}
+:::
+
 ::: lernziel-box
 #### Ziele des Workshops
 
