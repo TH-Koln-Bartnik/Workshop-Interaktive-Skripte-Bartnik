@@ -1,0 +1,337 @@
+{
+  "config": {
+    "id": "36a3b0b5-bad0-4a04-b79b-441c7cef77db",
+    "label": "BetterBibTeX JSON",
+    "preferences": {
+      "ascii": "",
+      "asciiBibLaTeX": false,
+      "asciiBibTeX": true,
+      "autoAbbrev": false,
+      "autoExport": "immediate",
+      "autoExportDelay": 5,
+      "autoExportIdleWait": 10,
+      "autoExportPathReplaceDiacritics": false,
+      "autoExportPathReplaceDirSep": "-",
+      "autoExportPathReplaceSpace": " ",
+      "automaticTags": true,
+      "auxImport": false,
+      "baseAttachmentPath": "C:\\Users\\roman\\My Tresors\\0_Roman Arbeit\\0_GenAI\\1-Research\\00-library\\01-academic-papers",
+      "biblatexExtendedDateFormat": true,
+      "biblatexExtendedNameFormat": true,
+      "biblatexExtractEprint": true,
+      "biblatexUsePrefix": true,
+      "bibtexEditionOrdinal": false,
+      "bibtexParticleNoOp": false,
+      "bibtexURL": "off",
+      "cache": true,
+      "cacheDelete": false,
+      "charmap": "",
+      "chinese": false,
+      "chineseSplitName": true,
+      "citeCommand": "cite",
+      "citekeyCaseInsensitive": true,
+      "citekeyFold": true,
+      "citekeyFormat": "auth.lower + year",
+      "citekeySearch": true,
+      "citekeyUnsafeChars": "\\\"#%'(),={}~",
+      "csquotes": "",
+      "DOIandURL": "both",
+      "exportBibTeXStrings": "off",
+      "exportBraceProtection": true,
+      "exportSort": "citekey",
+      "exportTitleCase": true,
+      "extraMergeCitekeys": false,
+      "extraMergeCSL": false,
+      "extraMergeTeX": false,
+      "fillKeyAfter": 1,
+      "git": "config",
+      "import": true,
+      "importBibTeXStrings": true,
+      "importCaseProtection": "as-needed",
+      "importCitationKey": true,
+      "importDetectURLs": true,
+      "importExtra": true,
+      "importJabRefAbbreviations": true,
+      "importJabRefStrings": true,
+      "importNoteToExtra": "",
+      "importPlaceEvent": "inproceedings,conference,presentation,talk",
+      "importSentenceCase": "on+guess",
+      "importSentenceCaseQuoted": true,
+      "importUnknownTexCommand": "ignore",
+      "itemObserverDelay": 5,
+      "jabrefFormat": 0,
+      "japanese": false,
+      "keyScope": "library",
+      "language": "langid",
+      "mapMath": "",
+      "mapText": "",
+      "packages": "",
+      "parseParticles": true,
+      "patchDates": "dateadded=dateAdded, date-added=dateAdded, datemodified=dateModified, date-modified=dateModified",
+      "postscript": "",
+      "postscriptOverride": "",
+      "preferencesOverride": "",
+      "qualityReport": false,
+      "quickCopyEta": "",
+      "quickCopyMode": "latex",
+      "quickCopyOrgMode": "zotero",
+      "quickCopyPandocBrackets": false,
+      "quickCopySelectLink": "zotero",
+      "rawImports": false,
+      "rawLaTag": "#LaTeX",
+      "relativeFilePaths": false,
+      "remigrate": false,
+      "resetKeyOnChange": false,
+      "separatorList": "and",
+      "separatorNames": "and",
+      "skipFields": "",
+      "skipWords": "a,ab,aboard,about,above,across,after,against,al,along,amid,among,an,and,anti,around,as,at,before,behind,below,beneath,beside,besides,between,beyond,but,by,d,da,das,de,del,dell,dello,dei,degli,della,dell,delle,dem,den,der,des,despite,die,do,down,du,during,ein,eine,einem,einen,einer,eines,el,en,et,except,for,from,gli,i,il,in,inside,into,is,l,la,las,le,les,like,lo,los,near,nor,of,off,on,onto,or,over,past,per,plus,round,save,since,so,some,sur,than,the,through,to,toward,towards,un,una,unas,under,underneath,une,unlike,uno,unos,until,up,upon,versus,via,von,while,with,within,without,yet,zu,zum",
+      "startupProgress": "popup",
+      "strings": "",
+      "stringsOverride": "",
+      "verbatimFields": "url,doi,file,pdf,ids,eprint,/^verb[a-z]$/,groups,/^citeulike-linkout-[0-9]+$/, /^bdsk-url-[0-9]+$/, keywords",
+      "warnBulkModify": 10,
+      "warnTitleCased": false
+    },
+    "options": {
+      "Items": true,
+      "Normalize": false,
+      "Preferences": true,
+      "biblatexAPA": false,
+      "biblatexChicago": false,
+      "exportFileData": false,
+      "exportNotes": true,
+      "keepUpdated": false,
+      "worker": true,
+      "exportDir": "C:\\Users\\roman\\My Tresors\\0_Roman Arbeit\\0_GenAI\\2-Teach\\31-Workshop-Interaktive-Skripte-2026-05-11",
+      "exportPath": "C:\\Users\\roman\\My Tresors\\0_Roman Arbeit\\0_GenAI\\2-Teach\\31-Workshop-Interaktive-Skripte-2026-05-11\\references2.bib"
+    }
+  },
+  "version": {
+    "zotero": "9.0.3",
+    "bbt": "9.0.25"
+  },
+  "collections": {},
+  "items": [
+    {
+      "key": "SEUCS2FN",
+      "version": 0,
+      "itemType": "preprint",
+      "title": "The QUATRO Application Suite: Quantum Computing for Models of Human Cognition",
+      "abstractNote": "Research progress in quantum computing has, thus far, focused on a narrow set of application domains. Expanding the suite of quantum application domains is vital for the discovery of new software toolchains and architectural abstractions. In this work, we unlock a new class of applications ripe for quantum computing research -- computational cognitive modeling. Cognitive models are critical to understanding and replicating human intelligence. Our work connects computational cognitive models to quantum computer architectures for the first time. We release QUATRO, a collection of quantum computing applications from cognitive models. The development and execution of QUATRO shed light on gaps in the quantum computing stack that need to be closed to ease programming and drive performance. Among several contributions, we propose and study ideas pertaining to quantum cloud scheduling (using data from gate- and annealing-based quantum computers), parallelization, and more. In the long run, we expect our research to lay the groundwork for more versatile quantum computer systems in the future.",
+      "date": "2023-12-08",
+      "shortTitle": "The QUATRO Application Suite",
+      "libraryCatalog": "arXiv.org",
+      "url": "http://arxiv.org/abs/2309.00597",
+      "accessDate": "2026-05-11T12:35:07Z",
+      "extra": "arXiv:2309.00597 [cs]",
+      "DOI": "10.48550/arXiv.2309.00597",
+      "repository": "arXiv",
+      "citationKey": "pothukuchi2023",
+      "archiveID": "arXiv:2309.00597",
+      "creators": [
+        {
+          "firstName": "Raghavendra Pradyumna",
+          "lastName": "Pothukuchi",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Leon",
+          "lastName": "Lufkin",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Yu Jun",
+          "lastName": "Shen",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Alejandro",
+          "lastName": "Simon",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Rome",
+          "lastName": "Thorstenson",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Bernardo Eilert",
+          "lastName": "Trevisan",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Michael",
+          "lastName": "Tu",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Mudi",
+          "lastName": "Yang",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Ben",
+          "lastName": "Foxman",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Viswanatha Srinivas",
+          "lastName": "Pothukuchi",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Gunnar",
+          "lastName": "Epping",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Thi Ha",
+          "lastName": "Kyaw",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Bryant J.",
+          "lastName": "Jongkees",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Yongshan",
+          "lastName": "Ding",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Jerome R.",
+          "lastName": "Busemeyer",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Jonathan D.",
+          "lastName": "Cohen",
+          "creatorType": "author"
+        },
+        {
+          "firstName": "Abhishek",
+          "lastName": "Bhattacharjee",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [
+        {
+          "tag": "Computer Science - Computational Engineering, Finance, and Science",
+          "type": 1
+        },
+        {
+          "tag": "Computer Science - Distributed, Parallel, and Cluster Computing",
+          "type": 1
+        },
+        {
+          "tag": "Computer Science - Emerging Technologies",
+          "type": 1
+        },
+        {
+          "tag": "Quantitative Biology - Neurons and Cognition",
+          "type": 1
+        },
+        {
+          "tag": "Quantum Physics",
+          "type": 1
+        }
+      ],
+      "relations": {},
+      "dateAdded": "2026-05-11T12:35:07Z",
+      "dateModified": "2026-05-11T12:35:07Z",
+      "uri": "http://zotero.org/users/5190201/items/SEUCS2FN",
+      "itemID": 16899,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Pothukuchi et al.-2023-The QUATRO Application Suite.pdf",
+          "url": "http://arxiv.org/pdf/2309.00597v2",
+          "path": "C:\\Users\\roman\\My Tresors\\0_Roman Arbeit\\99_Library\\1-academic-papers\\Pothukuchi et al.-2023-The QUATRO Application Suite.pdf",
+          "tags": [
+            {
+              "tag": "zotmoov"
+            }
+          ],
+          "relations": {},
+          "dateAdded": "2026-05-11T12:35:09Z",
+          "dateModified": "2026-05-11T12:35:18Z",
+          "uri": "http://zotero.org/users/5190201/items/DBFM9Q3F",
+          "select": "zotero://select/library/items/DBFM9Q3F"
+        },
+        {
+          "itemType": "attachment",
+          "title": "Snapshot",
+          "url": "http://arxiv.org/abs/2309.00597",
+          "tags": [],
+          "relations": {},
+          "dateAdded": "2026-05-11T12:35:12Z",
+          "dateModified": "2026-05-11T12:35:12Z",
+          "uri": "http://zotero.org/users/5190201/items/TA8ZIM7G",
+          "path": "C:\\Users\\roman\\Zotero\\storage\\TA8ZIM7G\\2309.html",
+          "select": "zotero://select/library/items/TA8ZIM7G"
+        }
+      ],
+      "notes": [],
+      "itemKey": "SEUCS2FN",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/SEUCS2FN"
+    },
+    {
+      "key": "WMUN5ATN",
+      "version": 0,
+      "itemType": "journalArticle",
+      "title": "Role of Artificial Intelligence in Future of Education",
+      "abstractNote": "Purpose: The purpose of this study is to examine that Globalization has radically altered human society in the previous 150 years. With the internet of things, energy, and the cyber-physical systems governed by it coming to an end, conventional education faces an immense challenge. That will associate this tension with internet usage and reward students and teachers alike. It can be claimed that future education is entirely built on the internet of things, energy, and the cyber-physical systems ruled by it. As these systems end, traditional education confronts a massive challenge. This moves increases students' screening time, which influences their mental health.   Theoretical Framework: The paper speculates on the near future of research in Artificial Intelligence and Education (AIED), on the basis of three uses of models of educational processes with also evaluating literature available.   Design/Methodology/Approach: The classification algorithms SVM, Naive Bayes, and Random Forest benefit from 5-fold Cross-Validation with 206 students from Delhi NCR and outside. Researcher is finding for how are the ages distributed? How many students got mental health care? So, what did they do? Their ages? How many meals did they eat? After the COVID-19 virus spread in Delhi, India, the study looked at factors that led to an increased mental health burden for undergraduate students in the city. The dataset is constructed by combining data from several domains such as age, time, medium meals etc. Thus, researcher pre-processed the data and classified it into four categories based on their location within the Delhi NCR and outside the NCR. The suggested model is evaluated using a K field fold cross-validation test.   Findings: The findings have shown that practical implications of technology will positively impact education in the future, but it may also have severe implications. Teachers and students should grasp this chance to encourage greatness and break down the hurdles that keep many children and schools from reaching it. As a result, all countries must develop a more technologically advanced education system in the future.   Research, Practical and social implications: The study in advances in technology will have major distractions in the workforce as automation might replace more than fifty percent of jobs. It is crucial to teach students skills to thrive in digital workplace, engage positively with technology to explore its full potential. The contribution of this study about AI systems are technically feasible for instructor-learner interaction. It is important to foster AI literacy in students to break the barrier of misconceptions and make way for imagination, innovation with new perspectives in society.   Originality/Value: The value of the study is to educational institutions and related organizations seeking for role of artificial intelligence in education.",
+      "date": "2023",
+      "language": "eng",
+      "libraryCatalog": "dialnet.unirioja.es",
+      "url": "https://dialnet.unirioja.es/servlet/articulo?codigo=8789502",
+      "accessDate": "2026-05-11T12:36:01Z",
+      "volume": "8",
+      "publisher": "Universidade da Coruña",
+      "section": "International Journal of Professional Business Review: Int. J. Prof.Bus. Rev.",
+      "pages": "2",
+      "publicationTitle": "International Journal of Professional Business Review: Int. J. Prof.Bus. Rev.",
+      "citationKey": "shrivastava2023",
+      "issue": "1",
+      "ISSN": "2525-3654, 2525-3654",
+      "creators": [
+        {
+          "firstName": "Roopal",
+          "lastName": "Shrivastava",
+          "creatorType": "author"
+        }
+      ],
+      "tags": [],
+      "relations": {},
+      "dateAdded": "2026-05-11T12:36:01Z",
+      "dateModified": "2026-05-11T12:36:01Z",
+      "uri": "http://zotero.org/users/5190201/items/WMUN5ATN",
+      "itemID": 16903,
+      "attachments": [
+        {
+          "itemType": "attachment",
+          "title": "Shrivastava-2023-Role of Artificial Intelligenc.pdf",
+          "url": "https://dialnet.unirioja.es/descarga/articulo/8789502.pdf",
+          "path": "C:\\Users\\roman\\My Tresors\\0_Roman Arbeit\\99_Library\\1-academic-papers\\Shrivastava-2023-Role of Artificial Intelligenc.pdf",
+          "tags": [
+            {
+              "tag": "zotmoov"
+            }
+          ],
+          "relations": {},
+          "dateAdded": "2026-05-11T12:36:02Z",
+          "dateModified": "2026-05-11T12:36:07Z",
+          "uri": "http://zotero.org/users/5190201/items/3IR356JG",
+          "select": "zotero://select/library/items/3IR356JG"
+        }
+      ],
+      "notes": [],
+      "itemKey": "WMUN5ATN",
+      "libraryID": 1,
+      "select": "zotero://select/library/items/WMUN5ATN"
+    }
+  ]
+}

@@ -8,6 +8,7 @@ subtitle: "Skript zum Workshop am 11.05.2026"
 
 ::: {.callout-tip appearance="minimal"}
 ## Auftakt-Folien zum Workshop
+
 [**Zur Intro-Slideshow →**](slides/intro-vorstellung.html){target="_blank"}
 
 Sechs Folien für den Einstieg: Titelfolie, Vorstellung & Motivation, Vorstellungsrunde, Drei Phasen, Workflow, „Los geht's" mit der Live-URL.
@@ -73,7 +74,7 @@ Mein eigenes Skript, im Vergleich zu den schon publizierten Werken noch etwas un
 Damit Sie nicht auch noch Inhalte erfinden müssen, nutzen wir ein durchgehendes Mini-Thema: eine **kurze Einführung ins wissenschaftliche Arbeiten**. Wählen Sie einen der drei Stränge.
 
 | Strang | Worum es geht | Quelle |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | **A — Wissenschaftliche Einstellung** | Skepsis, Belege, intellektuelle Demut | [Bartnik & Palmer (2024), Kap. „Wissenschaftliche Einstellung"](https://publish.obsidian.md/wagp-calling-bullshit/wissenschaftliche+Einstellung){target="_blank"} |
 | **B — Recherche und Quellenqualität** | Suchen, prüfen, Quellen einordnen | [Bartnik & Palmer (2024), Kap. „Kritische Informationssuche"](https://publish.obsidian.md/wagp-calling-bullshit/Kritische+Informationssuche){target="_blank"} |
 | **C — Transparent schreiben** | Methoden offenlegen, Reproduzierbarkeit | [Bartnik & Palmer (2024), Kap. „Transparent schreiben"](https://publish.obsidian.md/wagp-calling-bullshit/Transparent+schreiben){target="_blank"} |
@@ -85,7 +86,7 @@ Sie können natürlich auch eigene Inhalte einfügen. Die Wahl ist Geschmackssac
 Der Workshop ist so geschnitten, dass Sie nicht alle Werkzeuge gleichzeitig lernen müssen. Drei Phasen, in jeder kommt höchstens ein neues Werkzeug dazu.
 
 | Phase | Zeitrahmen | Inhalt |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | **Phase 1 — RStudio + KI-Tutor (lokal)** | Vormittag, ca. 09:00–12:30 (inkl. Pause) | Auftakt und Strangwahl, kurze didaktische Verortung, RStudio-Cockpit, erstes Quarto-Buch lokal anlegen und im Browser sehen, Bilder/Tabellen/Verweise einbauen |
 | **Phase 2 — Zotero hinzu (immer noch lokal)** | Früher Nachmittag, ca. 13:15–14:00 | Better-BibTeX, `references.bib`, automatische Zitate und Literaturliste |
 | **Phase 3 — Kür plus Veröffentlichung** | Nachmittag, ca. 14:00–16:00 | Auswahl aus TH-Köln-Stil, interaktiven Charts, iFrames + KI-Tutor; dann GitHub Pages live; Showcase |
@@ -107,7 +108,7 @@ Innerhalb von RStudio haben Sie **Editor**, **Terminal** (für `quarto render` u
 Damit Sie immer wissen, wo etwas hingehört (folgt dem Aufbau bei Daniel Lakens):
 
 | Ordner          | Was kommt rein?                                         |
-|-----------------------|-------------------------------------------------|
+|-----------------|---------------------------------------------------------|
 | `parts/`        | Ihre Kapiteldateien (`.qmd`)                            |
 | `images/`       | Logos, Screenshots, statische Grafiken (PNG, JPG, SVG)  |
 | `interactions/` | HTML-Widgets ohne Backend (Lernspiel, Memory, Quiz)     |
@@ -137,6 +138,7 @@ Alle Quellen, die im Skript zitiert werden, plus Empfehlungen zur Vertiefung —
 
 ::: callout-tip
 ## Transparenzhinweis zur KI-Nutzung
+
 Bei der Erstellung dieses Skriptes wurde Claude 4.7/Cowork zur Aufwertung der Inhalte (speziell für Beispiele und Interaktionen), als Reviewer (speziell Sprach- und Konsistenzchecks) und zur Gestaltung des Layouts genutzt. Alle Inhalte wurden von Roman Bartnik geprüft, überarbeitet und verantwortet.
 :::
 
