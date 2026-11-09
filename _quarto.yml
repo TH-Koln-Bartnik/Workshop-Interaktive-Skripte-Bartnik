@@ -8,6 +8,7 @@ project:
     - index.qmd
     - parts/00-vorbereitung.qmd
     - parts/galerie.qmd
+    - parts/best-practice.qmd
     - parts/w1-erstes-spiel.qmd
     - parts/w2-interaktionstypen.qmd
     - parts/w3-interaktionen.qmd
@@ -60,6 +61,7 @@ book:
       chapters:
         - parts/00-vorbereitung.qmd
         - parts/galerie.qmd
+        - parts/best-practice.qmd
     - part: "Workshop — KI-first in sechs Blöcken"
       chapters:
         - parts/w1-erstes-spiel.qmd

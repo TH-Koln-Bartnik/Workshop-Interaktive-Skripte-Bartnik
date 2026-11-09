@@ -42,7 +42,7 @@ Der Workshop beginnt mit einem Lernspiel, das nach 45 Minuten in Ihrer eigenen L
 
 | Teil | Dauer | Inhalt | Kapitel |
 |------------------|------------------|------------------------------|------------|
-| **Teil 0 — Vorbereitung zu Hause** | ca. 2–3 h, vor dem Workshop | Werkzeuge installieren, Starter-Vorlage einmal rendern (Selbsttest), Rohmaterial sammeln | [0](parts/00-vorbereitung.qmd), [Galerie](parts/galerie.qmd) |
+| **Teil 0 — Vorbereitung zu Hause** | ca. 2–3 h, vor dem Workshop | Werkzeuge installieren, Starter-Vorlage einmal rendern (Selbsttest), Rohmaterial sammeln | [0](parts/00-vorbereitung.qmd), [Galerie](parts/galerie.qmd), [Best Practice](parts/best-practice.qmd) |
 | **Block 1 — Das erste Spiel** | 45 min | Vorlage öffnen, Grundbegriffe per Multiple Choice sammeln, Memory bauen lassen und einbauen | [Block 1](parts/w1-erstes-spiel.qmd) |
 | **Block 2 — Was wirkt?** | 20 min | Fünf Prinzipien und eine Palette von Interaktionstypen; KI schlägt passende Interaktionen vor | [Block 2](parts/w2-interaktionstypen.qmd) |
 | **Block 3 — Zwei Interaktionen** | 45 min | Konzeptkarte, zwei weitere Spiele bauen lassen, wie eine Studentin testen | [Block 3](parts/w3-interaktionen.qmd) |
@@ -85,6 +85,14 @@ Was Sie vor dem Workshop installieren und testen, und was Sie mitbringen.
 Was mit KI-Unterstützung möglich wird: Begriffsspiel, Prozesslinie, Fall-Teaser, Colab-Arbeitsblatt, Lern-Song, Vokabel-App und zwei Beispiele von Ethan Mollick.
 
 [Zur Galerie →](parts/galerie.qmd)
+:::
+
+::: benchmark-card
+### Best-Practice Beispiele
+
+Simulationen, Animationen und interaktive Essays anderer Autorinnen und Autoren, von PhET über 3Blue1Brown bis zu Chatbots, die selbst Grafiken bauen.
+
+[Zu den Beispielen →](parts/best-practice.qmd)
 :::
 
 ::: benchmark-card

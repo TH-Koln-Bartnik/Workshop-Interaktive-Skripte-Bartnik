@@ -6,7 +6,7 @@ subtitle: "Was KI-gestützte Lernmedien in einem Skript leisten können"
 ::: th-color-bar
 :::
 
-Alle Beispiele auf dieser Seite sind mit generativer KI entstanden. Die ersten sechs stammen aus meiner eigenen Lehre und laufen in gewöhnlichen Online-Skripten: als eingebettetes Spiel, als Animation, als Video oder als Link in ein Rechenblatt. Zwei Beispiele von Ethan Mollick zeigen, was jenseits davon schon geht. Zusammen zeigen sie die Spannweite dessen, was Sie im Workshop für Ihr eigenes Fach bauen können. Schauen Sie bei jedem Beispiel weniger auf die Technik als auf die Frage, was die Lernenden *tun*, während sie es benutzen.
+Alle Beispiele auf dieser Seite sind mit generativer KI entstanden. Die ersten sechs stammen aus meiner eigenen Lehre und laufen in gewöhnlichen Online-Skripten: als eingebettetes Spiel, als Animation, als Video oder als Link in ein Rechenblatt. Zwei Beispiele von Ethan Mollick zeigen, was jenseits davon schon geht. Zusammen zeigen sie die Spannweite dessen, was Sie im Workshop für Ihr eigenes Fach bauen können. Schauen Sie bei jedem Beispiel weniger auf die Technik als auf die Frage, was die Lernenden *tun*, während sie es benutzen. Arbeiten anderer Autorinnen und Autoren, nach Fächern geordnet, finden Sie auf der nächsten Seite unter [Best-Practice Beispiele für visuelle Erklärungen](best-practice.qmd).
 
 ## 1. Begriffe raten: Was ist ein Token, was ein Agent?
 
