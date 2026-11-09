@@ -38,13 +38,13 @@ Die Animation zeigt, welches Werkzeug welche Aufgabe übernimmt und in welcher P
 
 ## Ablauf
 
-Der Workshop beginnt mit etwas Interaktivem und arbeitet sich von dort zur ganzen Lehreinheit vor. Die KI übernimmt von Anfang an das Programmieren; Code von Hand schreiben Sie nicht. Alles läuft zunächst auf Ihrem eigenen Rechner. Die Dauern sind Richtwerte ohne Pausen.
+Der Workshop beginnt mit einem Lernspiel, das nach 45 Minuten in Ihrer eigenen Lehreinheit läuft, und arbeitet sich von dort zur ganzen Einheit vor. Die KI übernimmt von Anfang an das Programmieren; Code von Hand schreiben Sie nicht. Alles läuft zunächst auf Ihrem eigenen Rechner. Die Dauern sind Richtwerte ohne Pausen.
 
 | Teil | Dauer | Inhalt | Kapitel |
 |------------------|------------------|------------------------------|------------|
 | **Teil 0 — Vorbereitung zu Hause** | ca. 2–3 h, vor dem Workshop | Werkzeuge installieren, Starter-Vorlage einmal rendern (Selbsttest), Rohmaterial sammeln | [0](parts/00-vorbereitung.qmd), [Galerie](parts/galerie.qmd) |
-| **Block 1 — Was wirkt?** | 20 min | Fünf Prinzipien und eine Palette von Interaktionstypen; KI schlägt passende Interaktionen vor | [Block 1](parts/w1-interaktionstypen.qmd) |
-| **Block 2 — Das erste Spiel** | 45 min | Vorlage öffnen, Grundbegriffe per Multiple Choice sammeln, Memory bauen lassen und einbauen | [Block 2](parts/w2-erstes-spiel.qmd) |
+| **Block 1 — Das erste Spiel** | 45 min | Vorlage öffnen, Grundbegriffe per Multiple Choice sammeln, Memory bauen lassen und einbauen | [Block 1](parts/w1-erstes-spiel.qmd) |
+| **Block 2 — Was wirkt?** | 20 min | Fünf Prinzipien und eine Palette von Interaktionstypen; KI schlägt passende Interaktionen vor | [Block 2](parts/w2-interaktionstypen.qmd) |
 | **Block 3 — Zwei Interaktionen** | 45 min | Konzeptkarte, zwei weitere Spiele bauen lassen, wie eine Studentin testen | [Block 3](parts/w3-interaktionen.qmd) |
 | **Block 4 — Die Einheit rahmen** | 45 min | Szene, Vorab-Check, Lernziele, Kernaussagen und Lernfragen per KI | [Block 4](parts/w4-lehreinheit.qmd) |
 | **Block 5 — Feinschliff** | 90 min | eigene Texte, Bilder tauschen, Zotero-Quellen, KI als kritische Erstleserin | [Block 5](parts/w5-feinschliff.qmd) |
@@ -90,9 +90,9 @@ Was mit KI-Unterstützung möglich wird: Begriffsspiel, Prozesslinie, Fall-Tease
 ::: benchmark-card
 ### Workshop — Block 1
 
-Was wirkt? Fünf Prinzipien, eine Palette von Interaktionstypen und ein Prompt, der Ihnen passende Vorschläge macht.
+Das erste Spiel: Grundbegriffe Ihres Fachs per KI sammeln, ein Memory bauen lassen und in die Vorlage einbauen.
 
-[Zu Block 1 →](parts/w1-interaktionstypen.qmd)
+[Zu Block 1 →](parts/w1-erstes-spiel.qmd)
 :::
 ::::::
 

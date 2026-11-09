@@ -13,11 +13,11 @@ subtitle: "45 Minuten · auswählen, Konzeptkarte, bauen lassen, testen"
 
 ## Worum es im Kern geht
 
-Das Memory aus Block 2 übt Begriffe. Die meisten Lernziele verlangen mehr: Zusammenhänge erkennen, Fälle einordnen, Ergebnisse vorhersagen. Dafür wählen Sie jetzt zwei Interaktionen aus der [Palette in Block 1](w1-interaktionstypen.qmd#tbl-palette) und lassen sie bauen. Die KI programmiert, Sie entscheiden, was die Lernenden tun und welche Fehlvorstellung sichtbar werden soll. Interaktionen, bei denen Lernende etwas erzeugen oder begründen, fördern das Lernen stärker als bloßes Klicken [@chi2014].
+Das Memory aus Block 1 übt Begriffe. Die meisten Lernziele verlangen mehr: Zusammenhänge erkennen, Fälle einordnen, Ergebnisse vorhersagen. Dafür wählen Sie jetzt zwei Interaktionen aus der [Palette in Block 2](w2-interaktionstypen.qmd#tbl-palette) und lassen sie bauen. Die KI programmiert, Sie entscheiden, was die Lernenden tun und welche Fehlvorstellung sichtbar werden soll. Interaktionen, bei denen Lernende etwas erzeugen oder begründen, fördern das Lernen stärker als bloßes Klicken [@chi2014].
 
 ## Schritt 1 — Vorschläge holen (10 min)
 
-Haben Sie den Auswahl-Prompt in Block 1 schon genutzt, nehmen Sie Ihre zwei Favoriten. Sonst jetzt:
+Haben Sie den Auswahl-Prompt in Block 2 schon genutzt, nehmen Sie Ihre zwei Favoriten. Sonst jetzt:
 
 {{< include _prompts/p3-auswahl.md >}}
 
@@ -44,7 +44,7 @@ Die Vorlage hat zwei weitere Plätze: `spiel-02.html` im zweiten Abschnitt und `
 
 ::: {.panel-tabset}
 ## Chat (jede KI)
-Die Konzeptkarte in die eckigen Klammern übertragen. Den Code danach wie in [Block 2, Schritt 3](w2-erstes-spiel.qmd) in `interactions/spiel-02.html` einfügen.
+Die Konzeptkarte in die eckigen Klammern übertragen. Den Code danach wie in [Block 1, Schritt 3](w1-erstes-spiel.qmd) in `interactions/spiel-02.html` einfügen.
 
 {{< include _prompts/p4-spiel-chat.md >}}
 

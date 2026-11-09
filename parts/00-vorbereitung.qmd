@@ -113,7 +113,7 @@ Die Checkliste oben prüft jedes Werkzeug einzeln. Der Selbsttest prüft die dre
 | ☐ | **Zotero-Export klappt** (Zotero → Better BibTeX → Datei) | Ihre Sammlung rechtsklicken → *Sammlung exportieren…* → Format *Better BibTeX* → *Speichern* als `references.bib` in den Ordner der Starter-Vorlage | Sie die Datei in RStudio öffnen und Einträge sehen, die mit `@article{` oder `@book{` beginnen |
 | ☐ | **GitHub-Anmeldung klappt** (GitHub Desktop → github.com) | in GitHub Desktop *File → Options → Accounts* | dort Ihr Benutzername mit Profilbild steht |
 
-Sind alle drei Häkchen gesetzt, beginnt der Workshop für Sie mit dem kurzen [Setup-Check](w2-erstes-spiel.qmd#setup-check) in Block 2 statt mit einer Installation. Fehlt eines, ist das kein Beinbruch: Notieren Sie, wo es hängt (siehe [Wenn etwas hakt](#hakt)).
+Sind alle drei Häkchen gesetzt, beginnt der Workshop für Sie mit dem kurzen [Setup-Check](w1-erstes-spiel.qmd#setup-check) in Block 1 statt mit einer Installation. Fehlt eines, ist das kein Beinbruch: Notieren Sie, wo es hängt (siehe [Wenn etwas hakt](#hakt)).
 
 ## Was Sie in den Workshop mitbringen {#mitbringen}
 
@@ -132,7 +132,7 @@ Sind alle drei Häkchen gesetzt, beginnt der Workshop für Sie mit dem kurzen [S
 - **Fünf bis zehn Literaturangaben** in einer Zotero-Sammlung
 :::
 
-Wer kein eigenes Material mitbringt, arbeitet mit einem vorbereiteten Beispielthema zum wissenschaftlichen Arbeiten. Die technischen Schritte sind identisch. Wer mag, liest [Block 1](w1-interaktionstypen.qmd) schon zu Hause; er dauert 20 Minuten und spart im Workshop Zeit für das Bauen.
+Wer kein eigenes Material mitbringt, arbeitet mit einem vorbereiteten Beispielthema zum wissenschaftlichen Arbeiten. Die technischen Schritte sind identisch. Wer mag, liest [Block 2](w2-interaktionstypen.qmd) schon zu Hause; er dauert 20 Minuten und spart im Workshop Zeit für das Bauen.
 
 ## Wenn etwas hakt {#hakt}
 

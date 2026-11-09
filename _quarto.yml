@@ -8,8 +8,8 @@ project:
     - index.qmd
     - parts/00-vorbereitung.qmd
     - parts/galerie.qmd
-    - parts/w1-interaktionstypen.qmd
-    - parts/w2-erstes-spiel.qmd
+    - parts/w1-erstes-spiel.qmd
+    - parts/w2-interaktionstypen.qmd
     - parts/w3-interaktionen.qmd
     - parts/w4-lehreinheit.qmd
     - parts/w5-feinschliff.qmd
@@ -62,8 +62,8 @@ book:
         - parts/galerie.qmd
     - part: "Workshop — KI-first in sechs Blöcken"
       chapters:
-        - parts/w1-interaktionstypen.qmd
-        - parts/w2-erstes-spiel.qmd
+        - parts/w1-erstes-spiel.qmd
+        - parts/w2-interaktionstypen.qmd
         - parts/w3-interaktionen.qmd
         - parts/w4-lehreinheit.qmd
         - parts/w5-feinschliff.qmd

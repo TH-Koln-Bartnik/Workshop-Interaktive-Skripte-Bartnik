@@ -2,7 +2,7 @@
 
 Kurzfassung für Lehrende und für KI-Assistenten, die Interaktionen für ein Quarto-Skript vorschlagen.
 Stand: November 2026. Quelle: Workshop „Interaktive Skripte mit KI erstellen“ (R. Bartnik),
-https://th-koln-bartnik.github.io/Workshop-Interaktive-Skripte-Bartnik/parts/w1-interaktionstypen.html
+https://th-koln-bartnik.github.io/Workshop-Interaktive-Skripte-Bartnik/parts/w2-interaktionstypen.html
 
 ## Fünf Prinzipien
 

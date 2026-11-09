@@ -1,5 +1,5 @@
 ---
-title: "Block 1 — Was wirkt? Interaktionstypen und ihre Evidenz"
+title: "Block 2 — Was wirkt? Interaktionstypen und ihre Evidenz"
 subtitle: "20 Minuten · kann vorab zu Hause gelesen werden"
 ---
 
@@ -13,7 +13,7 @@ subtitle: "20 Minuten · kann vorab zu Hause gelesen werden"
 
 ## Worum es im Kern geht
 
-Ein Skript wird nicht dadurch besser, dass man etwas anklicken kann. Es wird besser, wenn die Lernenden an den richtigen Stellen etwas *tun*, das ihr Gedächtnis fordert: abrufen, vorhersagen, begründen. Die Lernforschung kennt dafür wenige, gut belegte Prinzipien. Wer sie kennt, wählt in wenigen Minuten die richtige Interaktion und lässt den Rest weg.
+Ein Skript wird nicht dadurch besser, dass man etwas anklicken kann. Es wird besser, wenn die Lernenden an den richtigen Stellen etwas *tun*, das ihr Gedächtnis fordert: abrufen, vorhersagen, begründen. Die Lernforschung kennt dafür wenige, gut belegte Prinzipien. Wer sie kennt, wählt in wenigen Minuten die richtige Interaktion und lässt den Rest weg. Ihr Memory aus Block 1 nutzt bereits das erste davon: Es lässt die Lernenden Definitionen abrufen, statt sie nur zu lesen.
 
 ::: {.callout-note appearance="minimal"}
 *Interaktion* kommt vom lateinischen *inter* („zwischen“) und *agere* („handeln, treiben“): ein Handeln, das zwischen zwei Seiten hin- und hergeht. Im Skript sind die beiden Seiten das Material und die Lernenden. Eine Interaktion verdient ihren Namen erst, wenn das Material auf das Handeln antwortet.

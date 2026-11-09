@@ -12,7 +12,7 @@ title: "2 — RStudio + erstes Skript (lokal)"
 
 ::: {.callout-note}
 ## Im Workshop starten Sie mit der Vorlage
-Im Präsenz-Workshop arbeiten Sie in der fertig eingerichteten [Starter-Vorlage](w2-erstes-spiel.qmd). Dieses Kapitel zeigt den Weg ohne Vorlage: wie ein Quarto-Projekt von null entsteht. Lesen Sie es, wenn Sie später ein eigenes Projekt neu anlegen wollen.
+Im Präsenz-Workshop arbeiten Sie in der fertig eingerichteten [Starter-Vorlage](w1-erstes-spiel.qmd). Dieses Kapitel zeigt den Weg ohne Vorlage: wie ein Quarto-Projekt von null entsteht. Lesen Sie es, wenn Sie später ein eigenes Projekt neu anlegen wollen.
 :::
 
 ## Setup-Check: 15 Minuten zum Start {#setup-check}
