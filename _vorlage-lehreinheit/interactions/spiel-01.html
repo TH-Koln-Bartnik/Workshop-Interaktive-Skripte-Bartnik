@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Memory: Begriffe und Definitionen</title>
+<!--
+  BEISPIEL-SPIEL der Vorlage. Im Workshop ersetzen Sie diese Datei durch Ihr eigenes Spiel
+  (gleicher Dateiname: interactions/spiel-01.html). Wer nur die Inhalte tauschen will,
+  ändert ausschließlich den DATEN-Block unten.
+-->
+<style>
+  :root { --akzent: #1f5f8b; --ok: #2e7d32; --rand: #d0d7de; }
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; margin: 0; padding: 12px; color: #1b1f24; line-height: 1.4; }
+  h1 { font-size: 1.1rem; margin: 0 0 4px; }
+  .hinweis { font-size: 0.9rem; color: #57606a; margin: 0 0 10px; }
+  .feld { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(150px, 42%), 1fr)); gap: 8px; }
+  .karte { min-height: 86px; border: 1px solid var(--rand); border-radius: 8px; background: var(--akzent); color: #fff;
+           font: inherit; font-size: 0.88rem; padding: 8px; cursor: pointer; text-align: center; }
+  .karte.offen { background: #fff; color: #1b1f24; }
+  .karte.paar { background: #e8f5e9; color: #1b1f24; border-color: var(--ok); cursor: default; }
+  .karte:focus-visible { outline: 3px solid #e0a400; outline-offset: 2px; }
+  .leiste { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; gap: 8px; flex-wrap: wrap; }
+  .rueckmeldung { min-height: 1.4em; font-size: 0.92rem; margin-top: 8px; }
+  button.neu { font: inherit; padding: 6px 12px; border-radius: 6px; border: 1px solid var(--akzent); background: #fff; color: var(--akzent); cursor: pointer; }
+</style>
+</head>
+<body>
+<h1 id="titel"></h1>
+<p class="hinweis" id="hinweis"></p>
+<div class="feld" id="feld" role="group" aria-label="Memory-Karten"></div>
+<div class="rueckmeldung" id="rueckmeldung" aria-live="polite"></div>
+<div class="leiste"><span id="stand"></span><button class="neu" id="neu" type="button">Neu mischen</button></div>
+
+<script>
+/* ===== DATEN: Nur diesen Block ändern ===================================== */
+const DATEN = {
+  titel: "Memory: Lernen mit Tests",
+  hinweis: "Decken Sie zwei Karten auf. Finden Sie zu jedem Begriff die passende Definition.",
+  paare: [
+    ["Testing-Effekt", "Wer Gelerntes abruft, behält es länger als durch erneutes Lesen."],
+    ["Vortest-Effekt", "Schon ein Rateversuch vor dem Lernen erleichtert das spätere Lernen."],
+    ["Elaboriertes Feedback", "Rückmeldung, die erklärt, warum eine Antwort stimmt oder nicht."],
+    ["Selbsterklären", "Lernende erklären sich Zusammenhänge mit eigenen Worten."],
+    ["Verführerisches Detail", "Interessante, aber irrelevante Zutat, die vom Lernstoff ablenkt."],
+    ["Verteiltes Lernen", "Wiederholungen über mehrere Tage verteilt statt am Stück."]
+  ]
+};
+/* ===== ENDE DATEN ========================================================== */
+
+(function () {
+  const feld = document.getElementById("feld");
+  const rm = document.getElementById("rueckmeldung");
+  const stand = document.getElementById("stand");
+  document.getElementById("titel").textContent = DATEN.titel;
+  document.getElementById("hinweis").textContent = DATEN.hinweis;
+  let offen = [], versuche = 0, gefunden = 0, sperre = false;
+
+  function mische(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+  function zeigeStand() { stand.textContent = "Paare: " + gefunden + " von " + DATEN.paare.length + " · Versuche: " + versuche; meldeHoehe(); }
+
+  function start() {
+    feld.innerHTML = ""; offen = []; versuche = 0; gefunden = 0; rm.textContent = "";
+    const karten = [];
+    DATEN.paare.forEach((p, i) => { karten.push({ paar: i, text: p[0] }); karten.push({ paar: i, text: p[1] }); });
+    mische(karten).forEach((k) => {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "karte"; b.textContent = "?";
+      b.setAttribute("aria-label", "verdeckte Karte");
+      b.dataset.paar = k.paar; b.dataset.text = k.text;
+      b.addEventListener("click", () => klick(b));
+      feld.appendChild(b);
+    });
+    zeigeStand();
+  }
+
+  function klick(b) {
+    if (sperre || b.classList.contains("offen") || b.classList.contains("paar")) return;
+    b.classList.add("offen"); b.textContent = b.dataset.text; b.setAttribute("aria-label", b.dataset.text);
+    offen.push(b);
+    if (offen.length < 2) return;
+    versuche++;
+    const [a, c] = offen;
+    if (a.dataset.paar === c.dataset.paar) {
+      [a, c].forEach((x) => { x.classList.remove("offen"); x.classList.add("paar"); });
+      gefunden++;
+      const p = DATEN.paare[+a.dataset.paar];
+      rm.textContent = "Richtig: " + p[0] + " – " + p[1];
+      offen = [];
+      if (gefunden === DATEN.paare.length) rm.textContent = "Geschafft! Alle " + gefunden + " Paare in " + versuche + " Versuchen.";
+      zeigeStand();
+    } else {
+      rm.textContent = "Kein Paar. Merken Sie sich, wo die Karten liegen.";
+      sperre = true;
+      setTimeout(() => {
+        [a, c].forEach((x) => { x.classList.remove("offen"); x.textContent = "?"; x.setAttribute("aria-label", "verdeckte Karte"); });
+        offen = []; sperre = false; zeigeStand();
+      }, 1300);
+    }
+  }
+
+  function meldeHoehe() {
+    try { window.parent.postMessage({ typ: "iframe-hoehe", hoehe: document.documentElement.scrollHeight }, "*"); } catch (e) {}
+  }
+  window.addEventListener("load", meldeHoehe);
+  window.addEventListener("resize", meldeHoehe);
+  document.getElementById("neu").addEventListener("click", start);
+  start();
+})();
+</script>
+</body>
+</html>

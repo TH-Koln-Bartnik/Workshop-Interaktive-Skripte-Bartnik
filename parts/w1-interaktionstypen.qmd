@@ -1,0 +1,88 @@
+---
+title: "Block 1 — Was wirkt? Interaktionstypen und ihre Evidenz"
+subtitle: "20 Minuten · kann vorab zu Hause gelesen werden"
+---
+
+::: {.lernziel-box}
+#### Was Sie nach diesem Block können
+
+- fünf Prinzipien nennen, nach denen Interaktionen in einem Skript das Lernen fördern, und für jedes eine Studie;
+- aus einer Palette von Interaktionstypen den passenden für Ihr Lernziel auswählen;
+- eine KI so beauftragen, dass sie Ihnen begründete Vorschläge macht, die sich in Quarto einbauen lassen.
+:::
+
+## Worum es im Kern geht
+
+Ein Skript wird nicht dadurch besser, dass man etwas anklicken kann. Es wird besser, wenn die Lernenden an den richtigen Stellen etwas *tun*, das ihr Gedächtnis fordert: abrufen, vorhersagen, begründen. Die Lernforschung kennt dafür wenige, gut belegte Prinzipien. Wer sie kennt, wählt in wenigen Minuten die richtige Interaktion und lässt den Rest weg.
+
+::: {.callout-note appearance="minimal"}
+*Interaktion* kommt vom lateinischen *inter* („zwischen“) und *agere* („handeln, treiben“): ein Handeln, das zwischen zwei Seiten hin- und hergeht. Im Skript sind die beiden Seiten das Material und die Lernenden. Eine Interaktion verdient ihren Namen erst, wenn das Material auf das Handeln antwortet.
+:::
+
+## Fünf Prinzipien
+
+**1. Abrufen statt Wiederlesen.** Wiederlesen ist wie das Betrachten eines Trampelpfads, Abrufen wie das Gehen darauf: Nur Gehen tritt den Pfad aus. Roediger und Karpicke ließen Studierende Texte entweder mehrmals lesen oder einmal lesen und dann aus dem Gedächtnis aufschreiben; nach einer Woche lag die Abrufgruppe vorn, obwohl die Lesenden sich sicherer fühlten [@roediger2006]. Übungstests schlagen Wiederlesen und alle anderen untersuchten Vergleichsbedingungen [@adesope2017]. Auch im normalen Hörsaal und Klassenzimmer erhöhen Quizze die Leistung im mittleren Umfang, g = 0,50 über 222 Studien [@yang2021].
+
+**2. Fragen vor dem Stoff.** Ein Vortest verbessert das spätere Lernen, und zwar auch für die Fragen, die im Vortest falsch beantwortet wurden [@richland2009]. Eine eigene Vorhersage wirkt ähnlich: Wer sich vorher festlegt, ist überrascht, wenn das Ergebnis anders ausfällt, und die Überraschung stärkt das Behalten [@brod2018]. Erst ein Problem versuchen und dann die Erklärung bekommen, wirkt im Mittel besser als die umgekehrte Reihenfolge [@sinha2021].
+
+**3. Erzeugen schlägt Klicken.** Das ICAP-Modell ordnet Lernaktivitäten in vier Stufen: passiv (zusehen), aktiv (markieren, klicken), konstruktiv (etwas erzeugen, das über das Material hinausgeht) und interaktiv (gemeinsam erzeugen); mit jeder Stufe steigt der Lernerfolg [@chi2014]. Aufforderungen, sich einen Zusammenhang selbst zu erklären, wirken mit g = 0,55 [@bisra2018]. Concept Maps selbst zu bauen wirkt stärker als fertige zu studieren [@schroeder2018].
+
+**4. Rückmeldung, die erklärt.** Feedback wirkt im Mittel mittelstark, aber je nach Inhalt sehr unterschiedlich [@wisniewski2020]. In computergestützten Übungen bringt die bloße Angabe „richtig“ oder „falsch“ fast nichts; eine kurze Erklärung, warum eine Antwort stimmt, wirkt deutlich stärker [@vanderkleij2015].
+
+**5. Spiel ja, Dekoration nein.** Lernspiele wirken besser als konventioneller Unterricht, vor allem in Kombination mit anderer Instruktion und über mehrere Sitzungen [@wouters2013]. Gamification hat kleine positive Effekte, die aber stark schwanken [@sailer2020]. Interessante, aber irrelevante Zutaten senken dagegen Behalten und Transfer [@rey2012]. Animationen lohnen sich vor allem dort, wo sich etwas bewegt oder abläuft, etwa bei Prozessen und Handgriffen [@hoeffler2007].
+
+| Prinzip | Wirkung (Auswahl) | Was es für Ihr Skript heißt |
+|---|---|---|
+| Abrufen | Quizze im Unterricht g = 0,50 [@yang2021] | Nach jedem Abschnitt eine kurze Abrufübung |
+| Fragen vorher | Lerngewinn auch bei falschen Vortest-Antworten [@richland2009] | Vorab-Check am Anfang, Auflösung im Text |
+| Erzeugen | Selbsterklären g = 0,55 [@bisra2018] | Begründen lassen, nicht nur ankreuzen |
+| Erklärendes Feedback | 0,49 statt 0,05 für „richtig/falsch“ [@vanderkleij2015] | Zu jeder Antwortoption ein erklärender Satz |
+| Keine Dekoration | Verführerische Details schaden [@rey2012] | Keine Punkte, Abzeichen, Animationen als Selbstzweck |
+
+: Fünf Prinzipien auf einen Blick. Eigene Darstellung. {#tbl-prinzipien-interaktion}
+
+## Die Palette
+
+Die folgende Palette orientiert sich an den Inhaltstypen von H5P, einem freien Baukasten für Lerninteraktionen, der in Moodle und ILIAS eingebaut ist [@h5ptypes2026]. Für das Quarto-Skript gibt es vier Einbauwege: **Q** ist ein Quarto-Kasten ohne Code, **H** eine eigene HTML-Datei, die die KI baut und die per iFrame eingebettet wird, **H5P** ein H5P-Inhalt mit Einbettungscode und **S** eine fremde Simulation wie PhET. Ein iFrame ist ein Fenster in der Webseite, durch das eine andere Seite hindurchscheint.
+
+| Typ (H5P-Name) | Lernende tun | Prinzip | Einbau |
+|---|---|---|---|
+| Vorab-Check mit Skala | Aussagen vor dem Lesen einschätzen, Auflösung im Text | 2 | Q (in der Vorlage) |
+| Vorhersage mit Auflösung (*Guess the Answer*) | Ergebnis vorhersagen, dann aufdecken | 2, 3 | Q oder H |
+| Multiple Choice mit Erklärung (*Question Set*) | Antwort wählen, Erklärung zu jeder Option lesen | 1, 4 | H oder H5P |
+| Memory, Karteikarten (*Memory Game*, *Dialog Cards*) | Begriff und Definition abrufen | 1 | H oder H5P |
+| Zuordnen mit Begründung (*Drag and Drop*) | Fälle Kategorien zuordnen, Begründung lesen | 1, 3, 4 | H oder H5P |
+| Lückentext (*Fill in the Blanks*) | Fachbegriff im Satz abrufen | 1 | H oder H5P |
+| Reihenfolge (*Sort the Paragraphs*) | Prozessschritte ordnen | 1, 3 | H oder H5P |
+| Fehler finden (*Mark the Words*) | Fehler in Text oder Rechnung markieren und erklären | 3, 4 | H oder H5P |
+| Bild erkunden (*Image Hotspots*) | Teile einer Abbildung finden und benennen | 1 | H oder H5P |
+| Video mit Haltepunkten (*Interactive Video*) | Video, unterbrochen von Fragen | 1, 5 | H5P |
+| Simulation mit Vorhersage | Parameter ändern, vorher das Ergebnis schätzen | 2, 5 | S oder H |
+| Selbsterklären mit KI-Tutor | Zusammenhang erklären, Rückfrage erhalten | 3 | Q (Prompt-Kasten) |
+| Problem zuerst | Aufgabe versuchen, bevor die Lösung kommt | 2 | Q (aufklappbarer Kasten) |
+
+: Palette der Interaktionstypen mit Einbauweg. Eigene Darstellung nach den H5P-Inhaltstypen. {#tbl-palette}
+
+Zehn ausgearbeitete Spielideen mit Bauplan stehen im Werkzeugkasten in [Kapitel 7](05-iframes-tutor.qmd). Fertige Simulationen für Mathematik und Physik liefert PhET.
+
+## Mach mit — die KI wählen lassen (10 min)
+
+Der folgende Prompt gibt der KI die Zusammenfassung dieses Blocks als Grundlage mit. So stützen sich die Vorschläge auf die Studien oben und nicht auf das, was im Netz am häufigsten steht. Die Zusammenfassung liegt auch als [Textdatei](../downloads/interaktionstypen-forschung.md){download="interaktionstypen-forschung.md"} vor, falls Ihre KI keine Webseiten öffnen kann; dann laden Sie die Datei hoch.
+
+{{< include _prompts/p3-auswahl.md >}}
+
+Füllen Sie die eckigen Klammern aus, schicken Sie den Prompt ab und wählen Sie zwei Vorschläge. Notieren Sie sie: Sie bauen sie in [Block 3](w3-interaktionen.qmd).
+
+## Was, wenn …
+
+::: {.callout-warning}
+## Was, wenn …
+- **die KI die Zusammenfassung nicht öffnen kann?** → Textdatei herunterladen und hochladen oder den Inhalt einfügen.
+- **die KI Studien nennt, die nicht in der Zusammenfassung stehen?** → nachfragen: „Aus welcher Quelle der Zusammenfassung stammt das?“ Nicht belegte Angaben streichen.
+- **alle Vorschläge Multiple Choice sind?** → nachschieben: „Mindestens zwei Vorschläge sollen konstruktiv sein: vorhersagen, begründen oder erklären.“
+:::
+
+# Literatur {.unnumbered}
+
+::: {#refs}
+:::

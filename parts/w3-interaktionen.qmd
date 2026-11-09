@@ -1,0 +1,102 @@
+---
+title: "Block 3 — Fünf Ideen, zwei Interaktionen"
+subtitle: "45 Minuten · auswählen, Konzeptkarte, bauen lassen, testen"
+---
+
+::: {.lernziel-box}
+#### Was Sie nach diesem Block können
+
+- für ein Lernziel Ihrer Einheit eine passende Interaktion auswählen und begründen;
+- eine Konzeptkarte ausfüllen, die der KI sagt, was die Interaktion leisten soll;
+- das Ergebnis der KI gegen didaktische und technische Kriterien prüfen.
+:::
+
+## Worum es im Kern geht
+
+Das Memory aus Block 2 übt Begriffe. Die meisten Lernziele verlangen mehr: Zusammenhänge erkennen, Fälle einordnen, Ergebnisse vorhersagen. Dafür wählen Sie jetzt zwei Interaktionen aus der [Palette in Block 1](w1-interaktionstypen.qmd#tbl-palette) und lassen sie bauen. Die KI programmiert, Sie entscheiden, was die Lernenden tun und welche Fehlvorstellung sichtbar werden soll. Interaktionen, bei denen Lernende etwas erzeugen oder begründen, fördern das Lernen stärker als bloßes Klicken [@chi2014].
+
+## Schritt 1 — Vorschläge holen (10 min)
+
+Haben Sie den Auswahl-Prompt in Block 1 schon genutzt, nehmen Sie Ihre zwei Favoriten. Sonst jetzt:
+
+{{< include _prompts/p3-auswahl.md >}}
+
+## Schritt 2 — Die Konzeptkarte (10 min)
+
+Eine Konzeptkarte ist der Bauplan in sechs Zeilen. Sie zwingt zu der Entscheidung, die keine KI für Sie treffen kann: Welchen Denkfehler sollen Ihre Studierenden an dieser Stelle machen dürfen, damit die Rückmeldung ihn auflöst?
+
+| Feld | Leitfrage | Beispiel (Kostenrechnung) |
+|---|---|---|
+| Lernziel | Was können die Lernenden danach? | fixe und variable Kosten unterscheiden |
+| Fehlvorstellung | Woran scheitern sie typischerweise? | „Fixkosten sind Kosten, die sich nie ändern.“ |
+| Interaktionstyp | Welcher Typ aus der Palette? | Zuordnen mit Begründung |
+| Was Lernende tun | Welche Handlung genau? | acht Kostenarten fix oder variabel zuordnen |
+| Rückmeldung | Was erklärt das Spiel nach jeder Antwort? | warum Miete fix ist, auch wenn sie nächstes Jahr steigt |
+| Inhalte | Wer liefert sie? | KI entwirft, ich prüfe die Tabelle zuerst |
+
+: Konzeptkarte für eine Interaktion. {#tbl-konzeptkarte}
+
+Rückmeldungen, die erklären, warum eine Antwort stimmt, wirken deutlich stärker als ein bloßes „richtig“ oder „falsch“ [@vanderkleij2015]. Das Feld *Rückmeldung* ist deshalb das wichtigste der Karte.
+
+## Schritt 3 — Bauen lassen und einbauen (15 min)
+
+Die Vorlage hat zwei weitere Plätze: `spiel-02.html` im zweiten Abschnitt und `spiel-03.html` als Lern-Check am Ende. Ihre erste neue Interaktion kommt auf Platz 2. Passt die zweite eher als Abschlussübung, kommt sie auf Platz 3; sonst ergänzen Sie einen weiteren Platz (siehe *Variieren Sie*).
+
+::: {.panel-tabset}
+## Chat (jede KI)
+Die Konzeptkarte in die eckigen Klammern übertragen. Den Code danach wie in [Block 2, Schritt 3](w2-erstes-spiel.qmd) in `interactions/spiel-02.html` einfügen.
+
+{{< include _prompts/p4-spiel-chat.md >}}
+
+## Agent (Claude Desktop, Codex)
+{{< include _prompts/p4-spiel-agent.md >}}
+:::
+
+### Ohne Code: Vorhersage als aufklappbarer Kasten
+
+Manche Interaktionen brauchen gar kein Spiel. Eine Vorhersage mit Auflösung schreiben Sie direkt in `lehreinheit.qmd`; Quarto macht daraus einen Kasten, der sich erst auf Klick öffnet:
+
+```markdown
+**Ihre Vorhersage:** Ein Betrieb verdoppelt seine Produktionsmenge.
+Was passiert mit den Stückkosten? Legen Sie sich fest, bevor Sie aufklappen.
+
+::: {.callout-tip collapse="true" title="Auflösung"}
+Sie sinken, weil sich die Fixkosten auf mehr Stück verteilen.
+:::
+```
+
+## Schritt 4 — Testen wie eine Studentin (10 min)
+
+Spielen Sie Ihre Interaktion zweimal: einmal richtig, einmal absichtlich falsch. Dann tauschen Sie mit Ihrer Nachbarin und testen deren Spiel.
+
+| Prüffrage | Ja? |
+|---|---|
+| Ist jede Lösung fachlich richtig? | ☐ |
+| Erklärt die Rückmeldung bei falscher Antwort, *warum* sie falsch ist? | ☐ |
+| Verrät eine Frage die Antwort auf eine andere? | ☐ |
+| Läuft das Spiel in der Handy-Ansicht (Browserfenster schmal ziehen)? | ☐ |
+| Gibt es etwas, das nur blinkt, klingelt oder Punkte zählt, ohne dem Lernziel zu dienen? | ☐ |
+
+: Prüfliste für KI-gebaute Interaktionen. {#tbl-pruefliste}
+
+Die letzte Frage ist kein Geschmacksurteil. Interessante, aber irrelevante Zutaten lenken nachweislich ab und senken das Behalten [@rey2012].
+
+## Variieren Sie
+
+- **Einen vierten Platz anlegen:** In `lehreinheit.qmd` einen Lernspiel-Kasten kopieren und `spiel-02.html` durch `spiel-04.html` ersetzen. Dann der KI sagen, sie soll unter diesem Namen speichern.
+- **Schwierigkeit staffeln:** „Bauen Sie zwei Stufen: Stufe 1 mit Hinweisen, Stufe 2 ohne.“
+- **Fremde Simulation statt eigenem Spiel:** Für Physik und Mathematik einen PhET-Link als iFrame einbauen, mit einer Vorhersagefrage davor ([Kapitel 7](05-iframes-tutor.qmd)).
+
+## Was, wenn …
+
+::: {.callout-warning}
+## Was, wenn …
+- **die KI eine Datei mit mehreren Teilen (HTML, CSS, JS) liefert?** → „Bitte alles in eine einzige HTML-Datei, wie in den Abnahmekriterien.“
+- **das Spiel Inhalte aus dem Netz nachlädt?** → Im Lehrraum ohne WLAN bleibt es dann leer. Nachschieben: „Ohne externe Bibliotheken und Schriften.“
+- **Ihnen das Ergebnis didaktisch nicht gefällt?** → Nicht neu anfangen, sondern gezielt ändern lassen: „Die Rückmeldung bei Antwort B soll den Denkfehler benennen, nicht nur die richtige Lösung.“
+:::
+
+# Literatur {.unnumbered}
+
+::: {#refs}
+:::

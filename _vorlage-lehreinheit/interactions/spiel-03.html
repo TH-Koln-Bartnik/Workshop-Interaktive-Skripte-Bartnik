@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lern-Check</title>
+<!--
+  BEISPIEL-SPIEL der Vorlage: Lern-Check am Ende der Einheit, Multiple Choice mit erklärender
+  Rückmeldung zu jeder Antwortoption. Ersetzen Sie die Datei oder nur den DATEN-Block.
+-->
+<style>
+  :root { --akzent: #1f5f8b; --ok: #2e7d32; --nok: #b3261e; --rand: #d0d7de; }
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; margin: 0; padding: 12px; color: #1b1f24; line-height: 1.45; }
+  h1 { font-size: 1.1rem; margin: 0 0 4px; }
+  .hinweis { font-size: 0.9rem; color: #57606a; margin: 0 0 10px; }
+  .frage { border: 1px solid var(--rand); border-radius: 8px; padding: 10px; margin-bottom: 10px; }
+  .frage > p { margin: 0 0 8px; font-weight: 600; }
+  .opt { display: block; width: 100%; text-align: left; font: inherit; font-size: 0.92rem; margin: 4px 0; padding: 7px 10px;
+         border: 1px solid var(--rand); border-radius: 6px; background: #fff; cursor: pointer; }
+  .opt:focus-visible { outline: 3px solid #e0a400; outline-offset: 2px; }
+  .opt.ok { border: 2px solid var(--ok); background: #e8f5e9; }
+  .opt.nok { border: 2px solid var(--nok); background: #fdecea; }
+  .fb { font-size: 0.9rem; margin-top: 6px; }
+  #summe { font-weight: 600; }
+</style>
+</head>
+<body>
+<h1 id="titel"></h1>
+<p class="hinweis" id="hinweis"></p>
+<div id="fragen"></div>
+<p id="summe" aria-live="polite"></p>
+
+<script>
+/* ===== DATEN: Nur diesen Block ändern ===================================== */
+const DATEN = {
+  titel: "Lern-Check: Was ist hängen geblieben?",
+  hinweis: "Eine Antwort pro Frage. Die Rückmeldung erklärt jede Option, auch die falschen.",
+  fragen: [
+    { frage: "Was hilft beim Behalten nach einer Woche am meisten?",
+      optionen: [
+        { text: "Den Text dreimal lesen", richtig: false, warum: "Wiederholtes Lesen fühlt sich sicher an, hält aber kürzer." },
+        { text: "Einmal lesen, danach aus dem Gedächtnis aufschreiben", richtig: true, warum: "Abrufen stärkt die Erinnerung: der Testing-Effekt." },
+        { text: "Wichtige Stellen farbig markieren", richtig: false, warum: "Markieren ist aktiv, erzeugt aber keinen Abruf." } ] },
+    { frage: "Warum steht vor der Einheit ein Vorab-Check, obwohl die Lernenden die Antworten noch nicht kennen?",
+      optionen: [
+        { text: "Um das Vorwissen zu benoten", richtig: false, warum: "Ein Vorab-Check zählt nicht für die Note, sonst wirkt er abschreckend." },
+        { text: "Weil schon der Versuch, zu antworten, das spätere Lernen erleichtert", richtig: true, warum: "Das ist der Vortest-Effekt: Auch falsche Antworten lenken die Aufmerksamkeit." },
+        { text: "Damit schnelle Lernende Abschnitte überspringen", richtig: false, warum: "Möglich, aber nicht der Hauptgrund." } ] },
+    { frage: "Welche Rückmeldung wirkt in digitalen Übungen am stärksten?",
+      optionen: [
+        { text: "Nur „richtig“ oder „falsch“", richtig: false, warum: "Reine Richtig/Falsch-Rückmeldung bringt fast nichts." },
+        { text: "Die richtige Lösung anzeigen", richtig: false, warum: "Hilft, aber weniger als eine Erklärung." },
+        { text: "Eine kurze Erklärung, warum die Antwort stimmt oder nicht", richtig: true, warum: "Erklärende Rückmeldung wirkt am stärksten, besonders bei Verständnisfragen." } ] }
+  ]
+};
+/* ===== ENDE DATEN ========================================================== */
+
+(function () {
+  document.getElementById("titel").textContent = DATEN.titel;
+  document.getElementById("hinweis").textContent = DATEN.hinweis;
+  const box = document.getElementById("fragen");
+  let beantwortet = 0, punkte = 0;
+
+  DATEN.fragen.forEach((f, i) => {
+    const d = document.createElement("div"); d.className = "frage";
+    const p = document.createElement("p"); p.textContent = (i + 1) + ". " + f.frage; d.appendChild(p);
+    const fb = document.createElement("div"); fb.className = "fb"; fb.setAttribute("aria-live", "polite");
+    const knoepfe = f.optionen.map((o) => {
+      const b = document.createElement("button"); b.type = "button"; b.className = "opt"; b.textContent = o.text;
+      b.addEventListener("click", () => {
+        if (d.dataset.fertig) return;
+        d.dataset.fertig = "1"; beantwortet++; if (o.richtig) punkte++;
+        knoepfe.forEach((k, j) => { if (f.optionen[j].richtig) k.classList.add("ok"); });
+        if (!o.richtig) b.classList.add("nok");
+        fb.innerHTML = "";
+        f.optionen.forEach((x) => {
+          const z = document.createElement("div");
+          z.textContent = (x.richtig ? "✓ " : "✗ ") + x.text + ": " + x.warum; fb.appendChild(z);
+        });
+        if (beantwortet === DATEN.fragen.length)
+          document.getElementById("summe").textContent = "Ergebnis: " + punkte + " von " + DATEN.fragen.length + " richtig.";
+        meldeHoehe();
+      });
+      d.appendChild(b); return b;
+    });
+    d.appendChild(fb); box.appendChild(d);
+  });
+
+  function meldeHoehe() {
+    try { window.parent.postMessage({ typ: "iframe-hoehe", hoehe: document.documentElement.scrollHeight }, "*"); } catch (e) {}
+  }
+  window.addEventListener("load", meldeHoehe);
+  window.addEventListener("resize", meldeHoehe);
+})();
+</script>
+</body>
+</html>

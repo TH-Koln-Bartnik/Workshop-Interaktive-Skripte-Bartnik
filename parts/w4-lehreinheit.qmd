@@ -1,0 +1,67 @@
+---
+title: "Block 4 — Die Einheit rahmen: vom Vorab-Check zu den Lernfragen"
+subtitle: "45 Minuten · Szene, Einschätzungen, Lernziele, Kernaussagen und Lernfragen per KI"
+---
+
+::: {.lernziel-box}
+#### Was Sie nach diesem Block können
+
+- erklären, warum eine Lehreinheit mit einem Vorab-Check beginnt und mit einem Lern-Check endet;
+- Szene, Vorab-Check, Lernziele, Auflösungen, Kernaussagen und Lernfragen von der KI im Quarto-Format entwerfen lassen;
+- die Entwürfe in die feste Struktur der Vorlage einfügen, ohne die Technik zu beschädigen.
+:::
+
+## Worum es im Kern geht
+
+Ihre Spiele stehen. Jetzt bekommt die Einheit ihren Rahmen. Die Vorlage folgt dem Aufbau der Kapitel im Lehrbuch *Generative KI als Hilfe zum Lehren und Lernen* [@bartnik2025]: Eine Szene stellt ein offenes Problem, ein Vorab-Check legt die Lernenden auf eine Meinung fest, im Text wird jede Aussage aufgelöst, und am Ende prüfen Lern-Check, Kernaussagen und Lernfragen, was hängen geblieben ist.
+
+## Warum diese Reihenfolge?
+
+| Baustein | Was er bewirkt | Beleg |
+|---|---|---|
+| Szene | Ein konkreter Fall gibt dem Stoff ein Problem, das gelöst werden will | @willingham2009 |
+| Vorab-Check | Die Festlegung vorher lenkt die Aufmerksamkeit beim Lesen, auch bei falscher Einschätzung | @richland2009 |
+| Prüfkasten im Text | Die Auflösung an der passenden Stelle erzeugt Überraschung, und Überraschung stärkt das Behalten | @brod2018 |
+| Lern-Check und Lernfragen | Abrufen am Ende festigt mehr als eine Zusammenfassung zum Nachlesen | @roediger2006 |
+
+: Die Bausteine der Lehreinheit und ihre Begründung. {#tbl-bausteine}
+
+Die Lernfragen am Ende folgen drei Stufen: *Wiederholen* fragt nach dem Stoff, *Anwenden* nach einem neuen Fall, *Beurteilen* nach einer Abwägung. So wächst der Anspruch von der Erinnerung zum Urteil.
+
+## Mach mit — die KI entwirft den Rahmen (20 min)
+
+::: {.panel-tabset}
+## Chat (jede KI)
+Fügen Sie Ihr Rohmaterial in den Prompt ein. Die Antwort enthält fertige Quarto-Blöcke; Sie kopieren sie in `lehreinheit.qmd` an die Stelle des passenden gelben ERSETZEN-Kastens.
+
+{{< include _prompts/p5-rahmen-chat.md >}}
+
+## Agent (Claude Desktop, Codex)
+Der Agent ersetzt die Blöcke direkt in `lehreinheit.qmd` und lässt Ihre Abschnittstexte stehen.
+
+{{< include _prompts/p5-rahmen-agent.md >}}
+:::
+
+## Die drei Regeln beim Einfügen (Chat-Weg)
+
+1. **Kennungen bleiben.** `#ez-1` in der Aussage und `data-ez="ez-1"` im Prüfkasten gehören zusammen wie Schlüssel und Schloss. Stimmen sie nicht überein, zeigt der Prüfkasten „Sie haben vorab keine Einschätzung abgegeben“.
+2. **iFrame-Zeilen bleiben.** Die Zeilen mit `<iframe … src="interactions/spiel-0…">` fassen Sie nicht an.
+3. **Gelbe Kästen weg.** Löschen Sie jeden `::: ersetzen`-Block samt seinen beiden `:::`-Zeilen, sobald Sie ihn erledigt haben. Was gelb bleibt, ist noch offen.
+
+## Prüfen (10 min)
+
+Klicken Sie im Browser im Vorab-Check eine Einschätzung an und scrollen Sie zum passenden Prüfkasten: Dort muss Ihre Wahl wieder erscheinen. Dann lesen Sie Szene und Aussagen mit der Frage: Würde eine Studentin hier wirklich zögern? Eine Aussage, der alle sofort zustimmen, verschenkt den Vortest-Effekt. Jede Stelle, an der die KI `[QUELLE?]` geschrieben hat, belegen Sie in Block 5 mit einer echten Quelle oder streichen den Satz.
+
+## Was, wenn …
+
+::: {.callout-warning}
+## Was, wenn …
+- **die Skala im Vorab-Check fehlt?** → Die Aussage steht nicht in einem Block `::: {.einschaetzung #ez-…}` oder der Block ist nicht mit `:::` geschlossen. Doppelpunkte zählen: Jeder öffnende Block braucht einen schließenden.
+- **nach dem Einfügen die halbe Seite fehlt?** → Ein `:::` zu wenig. Die KI fragen: „Hier ist meine lehreinheit.qmd. Finden Sie den nicht geschlossenen Block.“
+- **die Szene klingt nach Werbetext?** → „Schreiben Sie die Szene nüchtern, mit einer konkreten Person, einer Zahl und einem offenen Problem, ohne Adjektive wie spannend oder faszinierend.“
+:::
+
+# Literatur {.unnumbered}
+
+::: {#refs}
+:::

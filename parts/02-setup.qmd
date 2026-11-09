@@ -10,6 +10,11 @@ title: "2 — RStudio + erstes Skript (lokal)"
 - den **KI-Tutor** als ständigen Begleiter im zweiten Browser-Tab nutzen — drei konkrete Anlässe sitzen am Ende dieses Kapitels.
 :::
 
+::: {.callout-note}
+## Im Workshop starten Sie mit der Vorlage
+Im Präsenz-Workshop arbeiten Sie in der fertig eingerichteten [Starter-Vorlage](w2-erstes-spiel.qmd). Dieses Kapitel zeigt den Weg ohne Vorlage: wie ein Quarto-Projekt von null entsteht. Lesen Sie es, wenn Sie später ein eigenes Projekt neu anlegen wollen.
+:::
+
 ## Setup-Check: 15 Minuten zum Start {#setup-check}
 
 Installiert haben Sie zu Hause, in [Teil 0](00-vorbereitung.qmd). Bevor es losgeht, prüfen wir gemeinsam, ob alle Werkzeuge auf jedem Laptop laufen. Das ist der Rundgang vor dem Abflug: Niemand baut das Flugzeug neu, aber alle schauen, ob Tank, Klappen und Funk funktionieren.

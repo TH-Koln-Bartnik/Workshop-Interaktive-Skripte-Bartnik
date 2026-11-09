@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Block 1 — Was wirkt? Interaktionstypen und ihre Evidenz – Interaktive Skripte mit KI erstellen</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../parts/w2-erstes-spiel.html" rel="next">
+<link href="../parts/galerie.html" rel="prev">
+<link href="../images/th-koeln-logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-0861763118d5a1705fb58884858b93f8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-0861763118d5a1705fb58884858b93f8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0861763118d5a1705fb58884858b93f8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/w1-interaktionstypen.html">Workshop — KI-first in sechs Blöcken</a></li><li class="breadcrumb-item"><a href="../parts/w1-interaktionstypen.html"><span class="chapter-title">Block 1 — Was wirkt? Interaktionstypen und ihre Evidenz</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Interaktive Skripte mit KI erstellen</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Willkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Teil 0 — Vorbereitung zu Hause</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/00-vorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">0 — Quick-Start: Vorbereitung zu Hause</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/galerie.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Galerie</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Workshop — KI-first in sechs Blöcken</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/w1-interaktionstypen.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Block 1 — Was wirkt? Interaktionstypen und ihre Evidenz</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/w2-erstes-spiel.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Block 2 — Das erste Spiel: von der Begriffsliste zum Memory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/w3-interaktionen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Block 3 — Fünf Ideen, zwei Interaktionen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/w4-lehreinheit.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Block 4 — Die Einheit rahmen: vom Vorab-Check zu den Lernfragen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/w5-feinschliff.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Block 5 — Feinschliff im Fließtext</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/w6-rundgang.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Block 6 — Rundgang und Veröffentlichen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Werkzeugkasten — zum Nachschlagen</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/01-didaktik.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1 — Warum interaktiv?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/02-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2 — RStudio + erstes Skript (lokal)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/03b-bilder-tabellen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3 — Bilder, Tabellen und Verweise</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/03a-uebersicht.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4 — Quellen mit Zotero</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/03c-style.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">5 — Stil Ihrer Hochschule einbauen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/04-charts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">6 — Interaktive Diagramme</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/05-iframes-tutor.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7 — iFrames, Spiele und KI-Tutor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/07-widgets-colab.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8 — Widgets und Colab</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/08-github-pages.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9 — Veröffentlichen mit GitHub und Pages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/06-slides-optional.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10 — Slides mit Quarto (optional)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Kür — nach dem Workshop</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/11-kurs-mit-agent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">11 — Einen Kurs mit einem KI-Agenten bauen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/12-oeffentlich-intern.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">12 — Öffentlich und intern trennen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/13-lms-einbinden.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">13 — Primer: Das Skript in ILIAS und Moodle einbinden</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Anhänge</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/troubleshooting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Trouble-Shooting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/tutor-prompt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">KI-Tutor: Link und System-Prompt</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/reviewer-prompt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reviewer-Prompt: KI als kritische Erstleserin</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../literatur.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Literatur</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhalt</h2>
+   
+  <ul>
+  <li><a href="#worum-es-im-kern-geht" id="toc-worum-es-im-kern-geht" class="nav-link active" data-scroll-target="#worum-es-im-kern-geht">Worum es im Kern geht</a></li>
+  <li><a href="#fünf-prinzipien" id="toc-fünf-prinzipien" class="nav-link" data-scroll-target="#fünf-prinzipien">Fünf Prinzipien</a></li>
+  <li><a href="#die-palette" id="toc-die-palette" class="nav-link" data-scroll-target="#die-palette">Die Palette</a></li>
+  <li><a href="#mach-mit-die-ki-wählen-lassen-10-min" id="toc-mach-mit-die-ki-wählen-lassen-10-min" class="nav-link" data-scroll-target="#mach-mit-die-ki-wählen-lassen-10-min">Mach mit — die KI wählen lassen (10 min)</a></li>
+  <li><a href="#was-wenn" id="toc-was-wenn" class="nav-link" data-scroll-target="#was-wenn">Was, wenn …</a></li>
+  <li><a href="#literatur" id="toc-literatur" class="nav-link" data-scroll-target="#literatur">Literatur</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/edit/main/parts/w1-interaktionstypen.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/w1-interaktionstypen.html">Workshop — KI-first in sechs Blöcken</a></li><li class="breadcrumb-item"><a href="../parts/w1-interaktionstypen.html"><span class="chapter-title">Block 1 — Was wirkt? Interaktionstypen und ihre Evidenz</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Block 1 — Was wirkt? Interaktionstypen und ihre Evidenz</span></h1>
+<p class="subtitle lead">20 Minuten · kann vorab zu Hause gelesen werden</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="was-sie-nach-diesem-block-können" class="level4 lernziel-box">
+<h4 class="anchored" data-anchor-id="was-sie-nach-diesem-block-können">Was Sie nach diesem Block können</h4>
+<ul>
+<li>fünf Prinzipien nennen, nach denen Interaktionen in einem Skript das Lernen fördern, und für jedes eine Studie;</li>
+<li>aus einer Palette von Interaktionstypen den passenden für Ihr Lernziel auswählen;</li>
+<li>eine KI so beauftragen, dass sie Ihnen begründete Vorschläge macht, die sich in Quarto einbauen lassen.</li>
+</ul>
+</section>
+<section id="worum-es-im-kern-geht" class="level2">
+<h2 class="anchored" data-anchor-id="worum-es-im-kern-geht">Worum es im Kern geht</h2>
+<p>Ein Skript wird nicht dadurch besser, dass man etwas anklicken kann. Es wird besser, wenn die Lernenden an den richtigen Stellen etwas <em>tun</em>, das ihr Gedächtnis fordert: abrufen, vorhersagen, begründen. Die Lernforschung kennt dafür wenige, gut belegte Prinzipien. Wer sie kennt, wählt in wenigen Minuten die richtige Interaktion und lässt den Rest weg.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><em>Interaktion</em> kommt vom lateinischen <em>inter</em> („zwischen“) und <em>agere</em> („handeln, treiben“): ein Handeln, das zwischen zwei Seiten hin- und hergeht. Im Skript sind die beiden Seiten das Material und die Lernenden. Eine Interaktion verdient ihren Namen erst, wenn das Material auf das Handeln antwortet.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="fünf-prinzipien" class="level2">
+<h2 class="anchored" data-anchor-id="fünf-prinzipien">Fünf Prinzipien</h2>
+<p><strong>1. Abrufen statt Wiederlesen.</strong> Wiederlesen ist wie das Betrachten eines Trampelpfads, Abrufen wie das Gehen darauf: Nur Gehen tritt den Pfad aus. Roediger und Karpicke ließen Studierende Texte entweder mehrmals lesen oder einmal lesen und dann aus dem Gedächtnis aufschreiben; nach einer Woche lag die Abrufgruppe vorn, obwohl die Lesenden sich sicherer fühlten <span class="citation" data-cites="roediger2006">(<a href="../index.html#ref-roediger2006" role="doc-biblioref">Roediger &amp; Karpicke, 2006</a>)</span>. Übungstests schlagen Wiederlesen und alle anderen untersuchten Vergleichsbedingungen <span class="citation" data-cites="adesope2017">(<a href="../index.html#ref-adesope2017" role="doc-biblioref">Adesope et al., 2017</a>)</span>. Auch im normalen Hörsaal und Klassenzimmer erhöhen Quizze die Leistung im mittleren Umfang, g = 0,50 über 222 Studien <span class="citation" data-cites="yang2021">(<a href="../index.html#ref-yang2021" role="doc-biblioref">Yang et al., 2021</a>)</span>.</p>
+<p><strong>2. Fragen vor dem Stoff.</strong> Ein Vortest verbessert das spätere Lernen, und zwar auch für die Fragen, die im Vortest falsch beantwortet wurden <span class="citation" data-cites="richland2009">(<a href="../index.html#ref-richland2009" role="doc-biblioref">Richland et al., 2009</a>)</span>. Eine eigene Vorhersage wirkt ähnlich: Wer sich vorher festlegt, ist überrascht, wenn das Ergebnis anders ausfällt, und die Überraschung stärkt das Behalten <span class="citation" data-cites="brod2018">(<a href="../index.html#ref-brod2018" role="doc-biblioref">Brod et al., 2018</a>)</span>. Erst ein Problem versuchen und dann die Erklärung bekommen, wirkt im Mittel besser als die umgekehrte Reihenfolge <span class="citation" data-cites="sinha2021">(<a href="../index.html#ref-sinha2021" role="doc-biblioref">Sinha &amp; Kapur, 2021</a>)</span>.</p>
+<p><strong>3. Erzeugen schlägt Klicken.</strong> Das ICAP-Modell ordnet Lernaktivitäten in vier Stufen: passiv (zusehen), aktiv (markieren, klicken), konstruktiv (etwas erzeugen, das über das Material hinausgeht) und interaktiv (gemeinsam erzeugen); mit jeder Stufe steigt der Lernerfolg <span class="citation" data-cites="chi2014">(<a href="../index.html#ref-chi2014" role="doc-biblioref">Chi &amp; Wylie, 2014</a>)</span>. Aufforderungen, sich einen Zusammenhang selbst zu erklären, wirken mit g = 0,55 <span class="citation" data-cites="bisra2018">(<a href="../index.html#ref-bisra2018" role="doc-biblioref">Bisra et al., 2018</a>)</span>. Concept Maps selbst zu bauen wirkt stärker als fertige zu studieren <span class="citation" data-cites="schroeder2018">(<a href="../index.html#ref-schroeder2018" role="doc-biblioref">Schroeder et al., 2018</a>)</span>.</p>
+<p><strong>4. Rückmeldung, die erklärt.</strong> Feedback wirkt im Mittel mittelstark, aber je nach Inhalt sehr unterschiedlich <span class="citation" data-cites="wisniewski2020">(<a href="../index.html#ref-wisniewski2020" role="doc-biblioref">Wisniewski et al., 2020</a>)</span>. In computergestützten Übungen bringt die bloße Angabe „richtig“ oder „falsch“ fast nichts; eine kurze Erklärung, warum eine Antwort stimmt, wirkt deutlich stärker <span class="citation" data-cites="vanderkleij2015">(<a href="../index.html#ref-vanderkleij2015" role="doc-biblioref">Van der Kleij et al., 2015</a>)</span>.</p>
+<p><strong>5. Spiel ja, Dekoration nein.</strong> Lernspiele wirken besser als konventioneller Unterricht, vor allem in Kombination mit anderer Instruktion und über mehrere Sitzungen <span class="citation" data-cites="wouters2013">(<a href="../index.html#ref-wouters2013" role="doc-biblioref">Wouters et al., 2013</a>)</span>. Gamification hat kleine positive Effekte, die aber stark schwanken <span class="citation" data-cites="sailer2020">(<a href="../index.html#ref-sailer2020" role="doc-biblioref">Sailer &amp; Homner, 2020</a>)</span>. Interessante, aber irrelevante Zutaten senken dagegen Behalten und Transfer <span class="citation" data-cites="rey2012">(<a href="../index.html#ref-rey2012" role="doc-biblioref">Rey, 2012</a>)</span>. Animationen lohnen sich vor allem dort, wo sich etwas bewegt oder abläuft, etwa bei Prozessen und Handgriffen <span class="citation" data-cites="hoeffler2007">(<a href="../index.html#ref-hoeffler2007" role="doc-biblioref">Höffler &amp; Leutner, 2007</a>)</span>.</p>
+<div id="tbl-prinzipien-interaktion" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-prinzipien-interaktion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;4.1: Fünf Prinzipien auf einen Blick. Eigene Darstellung.
+</figcaption>
+<div aria-describedby="tbl-prinzipien-interaktion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Prinzip</th>
+<th>Wirkung (Auswahl)</th>
+<th>Was es für Ihr Skript heißt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Abrufen</td>
+<td>Quizze im Unterricht g = 0,50 <span class="citation" data-cites="yang2021">(<a href="../index.html#ref-yang2021" role="doc-biblioref">Yang et al., 2021</a>)</span></td>
+<td>Nach jedem Abschnitt eine kurze Abrufübung</td>
+</tr>
+<tr class="even">
+<td>Fragen vorher</td>
+<td>Lerngewinn auch bei falschen Vortest-Antworten <span class="citation" data-cites="richland2009">(<a href="../index.html#ref-richland2009" role="doc-biblioref">Richland et al., 2009</a>)</span></td>
+<td>Vorab-Check am Anfang, Auflösung im Text</td>
+</tr>
+<tr class="odd">
+<td>Erzeugen</td>
+<td>Selbsterklären g = 0,55 <span class="citation" data-cites="bisra2018">(<a href="../index.html#ref-bisra2018" role="doc-biblioref">Bisra et al., 2018</a>)</span></td>
+<td>Begründen lassen, nicht nur ankreuzen</td>
+</tr>
+<tr class="even">
+<td>Erklärendes Feedback</td>
+<td>0,49 statt 0,05 für „richtig/falsch“ <span class="citation" data-cites="vanderkleij2015">(<a href="../index.html#ref-vanderkleij2015" role="doc-biblioref">Van der Kleij et al., 2015</a>)</span></td>
+<td>Zu jeder Antwortoption ein erklärender Satz</td>
+</tr>
+<tr class="odd">
+<td>Keine Dekoration</td>
+<td>Verführerische Details schaden <span class="citation" data-cites="rey2012">(<a href="../index.html#ref-rey2012" role="doc-biblioref">Rey, 2012</a>)</span></td>
+<td>Keine Punkte, Abzeichen, Animationen als Selbstzweck</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="die-palette" class="level2">
+<h2 class="anchored" data-anchor-id="die-palette">Die Palette</h2>
+<p>Die folgende Palette orientiert sich an den Inhaltstypen von H5P, einem freien Baukasten für Lerninteraktionen, der in Moodle und ILIAS eingebaut ist <span class="citation" data-cites="h5ptypes2026">(<a href="../index.html#ref-h5ptypes2026" role="doc-biblioref">H5P Group, 2026</a>)</span>. Für das Quarto-Skript gibt es vier Einbauwege: <strong>Q</strong> ist ein Quarto-Kasten ohne Code, <strong>H</strong> eine eigene HTML-Datei, die die KI baut und die per iFrame eingebettet wird, <strong>H5P</strong> ein H5P-Inhalt mit Einbettungscode und <strong>S</strong> eine fremde Simulation wie PhET. Ein iFrame ist ein Fenster in der Webseite, durch das eine andere Seite hindurchscheint.</p>
+<div id="tbl-palette" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-palette-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;4.2: Palette der Interaktionstypen mit Einbauweg. Eigene Darstellung nach den H5P-Inhaltstypen.
+</figcaption>
+<div aria-describedby="tbl-palette-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Typ (H5P-Name)</th>
+<th>Lernende tun</th>
+<th>Prinzip</th>
+<th>Einbau</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Vorab-Check mit Skala</td>
+<td>Aussagen vor dem Lesen einschätzen, Auflösung im Text</td>
+<td>2</td>
+<td>Q (in der Vorlage)</td>
+</tr>
+<tr class="even">
+<td>Vorhersage mit Auflösung (<em>Guess the Answer</em>)</td>
+<td>Ergebnis vorhersagen, dann aufdecken</td>
+<td>2, 3</td>
+<td>Q oder H</td>
+</tr>
+<tr class="odd">
+<td>Multiple Choice mit Erklärung (<em>Question Set</em>)</td>
+<td>Antwort wählen, Erklärung zu jeder Option lesen</td>
+<td>1, 4</td>
+<td>H oder H5P</td>
+</tr>
+<tr class="even">
+<td>Memory, Karteikarten (<em>Memory Game</em>, <em>Dialog Cards</em>)</td>
+<td>Begriff und Definition abrufen</td>
+<td>1</td>
+<td>H oder H5P</td>
+</tr>
+<tr class="odd">
+<td>Zuordnen mit Begründung (<em>Drag and Drop</em>)</td>
+<td>Fälle Kategorien zuordnen, Begründung lesen</td>
+<td>1, 3, 4</td>
+<td>H oder H5P</td>
+</tr>
+<tr class="even">
+<td>Lückentext (<em>Fill in the Blanks</em>)</td>
+<td>Fachbegriff im Satz abrufen</td>
+<td>1</td>
+<td>H oder H5P</td>
+</tr>
+<tr class="odd">
+<td>Reihenfolge (<em>Sort the Paragraphs</em>)</td>
+<td>Prozessschritte ordnen</td>
+<td>1, 3</td>
+<td>H oder H5P</td>
+</tr>
+<tr class="even">
+<td>Fehler finden (<em>Mark the Words</em>)</td>
+<td>Fehler in Text oder Rechnung markieren und erklären</td>
+<td>3, 4</td>
+<td>H oder H5P</td>
+</tr>
+<tr class="odd">
+<td>Bild erkunden (<em>Image Hotspots</em>)</td>
+<td>Teile einer Abbildung finden und benennen</td>
+<td>1</td>
+<td>H oder H5P</td>
+</tr>
+<tr class="even">
+<td>Video mit Haltepunkten (<em>Interactive Video</em>)</td>
+<td>Video, unterbrochen von Fragen</td>
+<td>1, 5</td>
+<td>H5P</td>
+</tr>
+<tr class="odd">
+<td>Simulation mit Vorhersage</td>
+<td>Parameter ändern, vorher das Ergebnis schätzen</td>
+<td>2, 5</td>
+<td>S oder H</td>
+</tr>
+<tr class="even">
+<td>Selbsterklären mit KI-Tutor</td>
+<td>Zusammenhang erklären, Rückfrage erhalten</td>
+<td>3</td>
+<td>Q (Prompt-Kasten)</td>
+</tr>
+<tr class="odd">
+<td>Problem zuerst</td>
+<td>Aufgabe versuchen, bevor die Lösung kommt</td>
+<td>2</td>
+<td>Q (aufklappbarer Kasten)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Zehn ausgearbeitete Spielideen mit Bauplan stehen im Werkzeugkasten in <a href="../parts/05-iframes-tutor.html">Kapitel 7</a>. Fertige Simulationen für Mathematik und Physik liefert PhET.</p>
+</section>
+<section id="mach-mit-die-ki-wählen-lassen-10-min" class="level2">
+<h2 class="anchored" data-anchor-id="mach-mit-die-ki-wählen-lassen-10-min">Mach mit — die KI wählen lassen (10 min)</h2>
+<p>Der folgende Prompt gibt der KI die Zusammenfassung dieses Blocks als Grundlage mit. So stützen sich die Vorschläge auf die Studien oben und nicht auf das, was im Netz am häufigsten steht. Die Zusammenfassung liegt auch als <a href="../downloads/interaktionstypen-forschung.md" download="interaktionstypen-forschung.md">Textdatei</a> vor, falls Ihre KI keine Webseiten öffnen kann; dann laden Sie die Datei hoch.</p>
+<pre class="text"><code>Lesen Sie zuerst diese Zusammenfassung der Forschung zu Interaktionstypen und stützen Sie Ihre Vorschläge darauf: https://th-koln-bartnik.github.io/Workshop-Interaktive-Skripte-Bartnik/downloads/interaktionstypen-forschung.md
+Falls Sie die Seite nicht öffnen können, sagen Sie es; dann füge ich den Text ein.
+
+Meine Lehreinheit:
+- Fach und Thema: [ … ]
+- Lernziel dieser Einheit: [ … ]
+- Eine typische Fehlvorstellung der Studierenden: [ … ]
+- Niveau: [ erstes Semester / Bachelor / Master / Weiterbildung ]
+
+Schlagen Sie mir fünf Interaktionen vor, die sich gut in ein Quarto-Skript einbauen lassen. Für jede:
+1. Typ aus der Palette der Zusammenfassung;
+2. konkrete Umsetzung zu meinem Thema in zwei Sätzen;
+3. welches Lernprinzip sie nutzt, mit der Quelle aus der Zusammenfassung;
+4. Einbauweg: Quarto-Kasten ohne Code, eigene HTML-Datei per iframe, H5P-Inhalt oder fremde Simulation;
+5. Aufwand: klein, mittel oder groß.
+
+Bevorzugen Sie Interaktionen, bei denen Lernende etwas erzeugen (vorhersagen, begründen, zuordnen mit Begründung), vor bloßem Klicken. Mindestens eine Option kommt ohne Programmierung aus. Sagen Sie offen, wenn eine Idee vor allem Dekoration wäre.
+Fragen Sie mich am Ende per Multiple Choice, welche zwei Interaktionen ich umsetzen will.</code></pre>
+<p>Füllen Sie die eckigen Klammern aus, schicken Sie den Prompt ab und wählen Sie zwei Vorschläge. Notieren Sie sie: Sie bauen sie in <a href="../parts/w3-interaktionen.html">Block 3</a>.</p>
+</section>
+<section id="was-wenn" class="level2">
+<h2 class="anchored" data-anchor-id="was-wenn">Was, wenn …</h2>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warnung</span>Was, wenn …
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>die KI die Zusammenfassung nicht öffnen kann?</strong> → Textdatei herunterladen und hochladen oder den Inhalt einfügen.</li>
+<li><strong>die KI Studien nennt, die nicht in der Zusammenfassung stehen?</strong> → nachfragen: „Aus welcher Quelle der Zusammenfassung stammt das?“ Nicht belegte Angaben streichen.</li>
+<li><strong>alle Vorschläge Multiple Choice sind?</strong> → nachschieben: „Mindestens zwei Vorschläge sollen konstruktiv sein: vorhersagen, begründen oder erklären.“</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="literatur" class="level1 unnumbered">
+<h1 class="unnumbered">Literatur</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-adesope2017" class="csl-entry" role="listitem">
+Adesope, O. O., Trevisan, D. A., &amp; Sundararajan, N. (2017). Rethinking the Use of Tests: A Meta-Analysis of Practice Testing. <em>Review of Educational Research</em>, <em>87</em>(3), 659–701. <a href="https://doi.org/10.3102/0034654316689306">https://doi.org/10.3102/0034654316689306</a>
+</div>
+<div id="ref-bisra2018" class="csl-entry" role="listitem">
+Bisra, K., Liu, Q., Nesbit, J. C., Salimi, F., &amp; Winne, P. H. (2018). Inducing Self-Explanation: a Meta-Analysis. <em>Educational Psychology Review</em>, <em>30</em>(3), 703–725. <a href="https://doi.org/10.1007/s10648-018-9434-x">https://doi.org/10.1007/s10648-018-9434-x</a>
+</div>
+<div id="ref-brod2018" class="csl-entry" role="listitem">
+Brod, G., Hasselhorn, M., &amp; Bunge, S. A. (2018). When generating a prediction boosts learning: The element of surprise. <em>Learning and Instruction</em>, <em>55</em>, 22–31. <a href="https://doi.org/10.1016/j.learninstruc.2018.01.013">https://doi.org/10.1016/j.learninstruc.2018.01.013</a>
+</div>
+<div id="ref-chi2014" class="csl-entry" role="listitem">
+Chi, M. T. H., &amp; Wylie, R. (2014). The ICAP Framework: Linking Cognitive Engagement to Active Learning Outcomes. <em>Educational Psychologist</em>, <em>49</em>(4), 219–243. <a href="https://doi.org/10.1080/00461520.2014.965823">https://doi.org/10.1080/00461520.2014.965823</a>
+</div>
+<div id="ref-h5ptypes2026" class="csl-entry" role="listitem">
+H5P Group. (2026). <em>Examples and Downloads: Content Types</em>. H5P. <a href="https://h5p.org/content-types-and-applications">https://h5p.org/content-types-and-applications</a>
+</div>
+<div id="ref-hoeffler2007" class="csl-entry" role="listitem">
+Höffler, T. N., &amp; Leutner, D. (2007). Instructional animation versus static pictures: A meta-analysis. <em>Learning and Instruction</em>, <em>17</em>(6), 722–738. <a href="https://doi.org/10.1016/j.learninstruc.2007.09.013">https://doi.org/10.1016/j.learninstruc.2007.09.013</a>
+</div>
+<div id="ref-rey2012" class="csl-entry" role="listitem">
+Rey, G. D. (2012). A review of research and a meta-analysis of the seductive detail effect. <em>Educational Research Review</em>, <em>7</em>(3), 216–237. <a href="https://doi.org/10.1016/j.edurev.2012.05.003">https://doi.org/10.1016/j.edurev.2012.05.003</a>
+</div>
+<div id="ref-richland2009" class="csl-entry" role="listitem">
+Richland, L. E., Kornell, N., &amp; Kao, L. S. (2009). The pretesting effect: Do unsuccessful retrieval attempts enhance learning? <em>Journal of Experimental Psychology: Applied</em>, <em>15</em>(3), 243–257. <a href="https://doi.org/10.1037/a0016496">https://doi.org/10.1037/a0016496</a>
+</div>
+<div id="ref-roediger2006" class="csl-entry" role="listitem">
+Roediger, H. L., &amp; Karpicke, J. D. (2006). Test-Enhanced Learning: Taking Memory Tests Improves Long-Term Retention. <em>Psychological Science</em>, <em>17</em>(3), 249–255. <a href="https://doi.org/10.1111/j.1467-9280.2006.01693.x">https://doi.org/10.1111/j.1467-9280.2006.01693.x</a>
+</div>
+<div id="ref-sailer2020" class="csl-entry" role="listitem">
+Sailer, M., &amp; Homner, L. (2020). The Gamification of Learning: a Meta-analysis. <em>Educational Psychology Review</em>, <em>32</em>(1), 77–112. <a href="https://doi.org/10.1007/s10648-019-09498-w">https://doi.org/10.1007/s10648-019-09498-w</a>
+</div>
+<div id="ref-schroeder2018" class="csl-entry" role="listitem">
+Schroeder, N. L., Nesbit, J. C., Anguiano, C. J., &amp; Adesope, O. O. (2018). Studying and Constructing Concept Maps: a Meta-Analysis. <em>Educational Psychology Review</em>, <em>30</em>(2), 431–455. <a href="https://doi.org/10.1007/s10648-017-9403-9">https://doi.org/10.1007/s10648-017-9403-9</a>
+</div>
+<div id="ref-sinha2021" class="csl-entry" role="listitem">
+Sinha, T., &amp; Kapur, M. (2021). When Problem Solving Followed by Instruction Works: Evidence for Productive Failure. <em>Review of Educational Research</em>, <em>91</em>(5), 761–798. <a href="https://doi.org/10.3102/00346543211019105">https://doi.org/10.3102/00346543211019105</a>
+</div>
+<div id="ref-vanderkleij2015" class="csl-entry" role="listitem">
+Van der Kleij, F. M., Feskens, R. C. W., &amp; Eggen, T. J. H. M. (2015). Effects of Feedback in a Computer-Based Learning Environment on Students’ Learning Outcomes: A Meta-Analysis. <em>Review of Educational Research</em>, <em>85</em>(4), 475–511. <a href="https://doi.org/10.3102/0034654314564881">https://doi.org/10.3102/0034654314564881</a>
+</div>
+<div id="ref-wisniewski2020" class="csl-entry" role="listitem">
+Wisniewski, B., Zierer, K., &amp; Hattie, J. (2020). The Power of Feedback Revisited: A Meta-Analysis of Educational Feedback Research. <em>Frontiers in Psychology</em>, <em>10</em>. <a href="https://doi.org/10.3389/fpsyg.2019.03087">https://doi.org/10.3389/fpsyg.2019.03087</a>
+</div>
+<div id="ref-wouters2013" class="csl-entry" role="listitem">
+Wouters, P., Nimwegen, C. van, Oostendorp, H. van, &amp; Spek, E. D. van der. (2013). A meta-analysis of the cognitive and motivational effects of serious games. <em>Journal of Educational Psychology</em>, <em>105</em>(2), 249–265. <a href="https://doi.org/10.1037/a0031311">https://doi.org/10.1037/a0031311</a>
+</div>
+<div id="ref-yang2021" class="csl-entry" role="listitem">
+Yang, C., Luo, L., Vadillo, M. A., Yu, R., &amp; Shanks, D. R. (2021). Testing (quizzing) boosts classroom learning: A systematic and meta-analytic review. <em>Psychological Bulletin</em>, <em>147</em>(4), 399–435. <a href="https://doi.org/10.1037/bul0000309">https://doi.org/10.1037/bul0000309</a>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../parts/galerie.html" class="pagination-link" aria-label="Galerie">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Galerie</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../parts/w2-erstes-spiel.html" class="pagination-link" aria-label="Block 2 — Das erste Spiel: von der Begriffsliste zum Memory">
+        <span class="nav-page-text"><span class="chapter-title">Block 2 — Das erste Spiel: von der Begriffsliste zum Memory</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Roman Bartnik · CC BY-SA 4.0</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/edit/main/parts/w1-interaktionstypen.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Erstellt mit <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

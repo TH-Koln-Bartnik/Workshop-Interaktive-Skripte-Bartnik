@@ -336,3 +336,16 @@ table th, table td {
   .column-margin > .qr-box,
   .column-margin:has(> .qr-box) { display: none !important; }
 }
+
+/* Prompts zum Kopieren (Codeblöcke mit Sprache „text“): Zeilen umbrechen statt seitlich scrollen */
+div.sourceCode pre.text,
+pre.text,
+div.sourceCode:has(> pre code.language-text) pre {
+  white-space: pre-wrap !important;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+div.sourceCode pre.text code,
+pre.text code {
+  white-space: pre-wrap !important;
+}

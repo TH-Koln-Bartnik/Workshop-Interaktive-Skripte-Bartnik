@@ -8,6 +8,12 @@ project:
     - index.qmd
     - parts/00-vorbereitung.qmd
     - parts/galerie.qmd
+    - parts/w1-interaktionstypen.qmd
+    - parts/w2-erstes-spiel.qmd
+    - parts/w3-interaktionen.qmd
+    - parts/w4-lehreinheit.qmd
+    - parts/w5-feinschliff.qmd
+    - parts/w6-rundgang.qmd
     - parts/01-didaktik.qmd
     - parts/02-setup.qmd
     - parts/03b-bilder-tabellen.qmd
@@ -54,16 +60,20 @@ book:
       chapters:
         - parts/00-vorbereitung.qmd
         - parts/galerie.qmd
-    - part: "Phase 1 — Schreiben und Rendern (lokal)"
+    - part: "Workshop — KI-first in sechs Blöcken"
+      chapters:
+        - parts/w1-interaktionstypen.qmd
+        - parts/w2-erstes-spiel.qmd
+        - parts/w3-interaktionen.qmd
+        - parts/w4-lehreinheit.qmd
+        - parts/w5-feinschliff.qmd
+        - parts/w6-rundgang.qmd
+    - part: "Werkzeugkasten — zum Nachschlagen"
       chapters:
         - parts/01-didaktik.qmd
         - parts/02-setup.qmd
         - parts/03b-bilder-tabellen.qmd
-    - part: "Phase 2 — Quellen mit Zotero"
-      chapters:
         - parts/03a-uebersicht.qmd
-    - part: "Phase 3 — Stil, Interaktion, Veröffentlichung"
-      chapters:
         - parts/03c-style.qmd
         - parts/04-charts.qmd
         - parts/05-iframes-tutor.qmd

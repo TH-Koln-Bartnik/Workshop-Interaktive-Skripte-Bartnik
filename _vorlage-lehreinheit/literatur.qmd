@@ -1,0 +1,6 @@
+# Literatur {.unnumbered}
+
+Alle zitierten Quellen des Skripts, automatisch aus `references.bib` erzeugt.
+
+::: {#refs}
+:::

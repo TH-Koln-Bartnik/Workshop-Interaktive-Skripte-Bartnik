@@ -17,14 +17,14 @@ subtitle: "Werkstatt-Skript zum Workshop, hdw"
 
 Am Ende des Workshops können Sie …
 
-1.  ein leicht pflegbares **Online-Skript erstellen**: ein Quarto-Projekt lokal in RStudio anlegen, rendern und über GitHub Pages veröffentlichen,
-2.  **Formatierungen automatisch erzeugen** lassen: Inhaltsverzeichnis, Querverweise und Zitate samt Literaturliste aus Zotero,
-3.  das Skript im **Stil Ihrer Hochschule** gestalten,
-4.  Lernende mit den Inhalten **interagieren** lassen: mit einem interaktiven Diagramm, einem eingebetteten Spiel, einem eigenen Widget oder einem Colab-Arbeitsblatt,
-5.  **KI als Hilfe** einsetzen: als Tutor für die Lernenden und als agentische Hilfskraft, die mit Ihnen am Skript arbeitet.
+1.  in einer **fertig eingerichteten Vorlage** eine interaktive Lehreinheit bauen: vom Vorab-Check über Lernspiele bis zum Lern-Check,
+2.  **Interaktionstypen begründet auswählen**, gestützt auf die Lernforschung,
+3.  **KI als Hilfskraft** einsetzen: Grundbegriffe sammeln, Lernspiele programmieren, den Rahmen der Einheit entwerfen lassen und die Ergebnisse prüfen,
+4.  eigene **Texte, Bilder und Zotero-Quellen** in die Struktur einbauen,
+5.  die Einheit auf dem eigenen Rechner rendern und auf Wunsch **veröffentlichen**.
 :::
 
-Im Workshop bauen Sie Ihr eigenes interaktives Online-Skript: lokal in RStudio geschrieben, mit Quarto in eine Webseite verwandelt, mit Zotero zitiert, mit KI angereichert und über GitHub Pages veröffentlicht. Damit die gemeinsame Zeit dem Bauen gehört und nicht dem Installieren, richten Sie die Werkzeuge vorher zu Hause ein. Wie das geht, steht in [Teil 0](parts/00-vorbereitung.qmd).
+Im Workshop bauen Sie eine eigene interaktive Lehreinheit, und zwar vom ersten Block an mit KI: Sie arbeiten in einer Vorlage, in der Ordner, Platzhalter für Bilder und Spiele und der Rahmen der Einheit schon angelegt sind. Die KI programmiert die Lernspiele, Sie entscheiden über Inhalte und Didaktik. Damit die gemeinsame Zeit dem Bauen gehört und nicht dem Installieren, richten Sie die Werkzeuge vorher zu Hause ein. Wie das geht, steht in [Teil 0](parts/00-vorbereitung.qmd).
 
 ## Der Workflow auf einen Blick
 
@@ -38,19 +38,25 @@ Die Animation zeigt, welches Werkzeug welche Aufgabe übernimmt und in welcher P
 
 ## Ablauf
 
-Der Workshop ist so geschnitten, dass Sie nicht alle Werkzeuge gleichzeitig lernen müssen: In jeder Phase kommt höchstens ein neues Werkzeug dazu. Die Dauern sind Richtwerte ohne Pausen; sie gelten für jeden Termin, gleich wann er beginnt.
+Der Workshop beginnt mit etwas Interaktivem und arbeitet sich von dort zur ganzen Lehreinheit vor. Die KI übernimmt von Anfang an das Programmieren; Code von Hand schreiben Sie nicht. Alles läuft zunächst auf Ihrem eigenen Rechner. Die Dauern sind Richtwerte ohne Pausen.
 
 | Teil | Dauer | Inhalt | Kapitel |
 |------------------|------------------|------------------------------|------------|
-| **Teil 0 — Vorbereitung zu Hause** | ca. 2–3 h, vor dem Workshop | Werkzeuge installieren, Selbsttest mit drei Häkchen, Rohmaterial sammeln; die Galerie als Anregung | [0](parts/00-vorbereitung.qmd), [Galerie](parts/galerie.qmd) |
-| **Phase 1 — Schreiben und Rendern (lokal)** | ca. 3 h | Setup-Check (15 min), didaktische Verortung, erstes Quarto-Buch im Browser, Bilder, Tabellen und Verweise | 1–3 |
-| **Phase 2 — Quellen mit Zotero** | ca. 45 min | `references.bib`, automatische Zitate und Literaturliste | 4 |
-| **Phase 3 — Stil, Interaktion, Veröffentlichung** | ca. 2,5 h | Auswahl aus dem Stil Ihrer Hochschule, interaktiven Diagrammen, Spielen und Tutor, Widgets und Colab; danach GitHub Pages live und kurzer Rundgang durch die Ergebnisse | 5–9, 10 optional |
+| **Teil 0 — Vorbereitung zu Hause** | ca. 2–3 h, vor dem Workshop | Werkzeuge installieren, Starter-Vorlage einmal rendern (Selbsttest), Rohmaterial sammeln | [0](parts/00-vorbereitung.qmd), [Galerie](parts/galerie.qmd) |
+| **Block 1 — Was wirkt?** | 20 min | Fünf Prinzipien und eine Palette von Interaktionstypen; KI schlägt passende Interaktionen vor | [Block 1](parts/w1-interaktionstypen.qmd) |
+| **Block 2 — Das erste Spiel** | 45 min | Vorlage öffnen, Grundbegriffe per Multiple Choice sammeln, Memory bauen lassen und einbauen | [Block 2](parts/w2-erstes-spiel.qmd) |
+| **Block 3 — Zwei Interaktionen** | 45 min | Konzeptkarte, zwei weitere Spiele bauen lassen, wie eine Studentin testen | [Block 3](parts/w3-interaktionen.qmd) |
+| **Block 4 — Die Einheit rahmen** | 45 min | Szene, Vorab-Check, Lernziele, Kernaussagen und Lernfragen per KI | [Block 4](parts/w4-lehreinheit.qmd) |
+| **Block 5 — Feinschliff** | 90 min | eigene Texte, Bilder tauschen, Zotero-Quellen, KI als kritische Erstleserin | [Block 5](parts/w5-feinschliff.qmd) |
+| **Block 6 — Rundgang** | 30–45 min | Einheiten gegenseitig testen, optional veröffentlichen | [Block 6](parts/w6-rundgang.qmd) |
+| **Werkzeugkasten** | zum Nachschlagen | Grundlagen und Vertiefungen: Setup, Bilder, Zotero, Hochschulstil, Diagramme, iFrames und Tutor, Widgets, GitHub Pages, Slides | 1–10 |
 | **Kür — nach dem Workshop** | nach Bedarf | einen Kurs mit einem KI-Agenten bauen; öffentliches und internes Material trennen; das Skript in ILIAS oder Moodle einbinden | 11–13 |
 
-## Wählen Sie Ihren Beispielstrang
+Jeder Prompt steht in zwei Fassungen: für einen **Chat** (ChatGPT, Claude, Gemini, Academiccloud), aus dem Sie die Antwort kopieren, und für einen **Agenten** (Claude Desktop, Codex), der die Dateien selbst in Ihren Ordner schreibt. Alle Prompts gibt es auch [als Textdatei](downloads/prompts-workshop.txt){download="prompts-workshop.txt"}.
 
-Damit Sie nicht auch noch Inhalte erfinden müssen, nutzen wir ein durchgehendes Mini-Thema: eine **kurze Einführung ins wissenschaftliche Arbeiten**. Wählen Sie einen der drei Stränge, oder bringen Sie eigenes Material mit (siehe [Mitbringliste](parts/00-vorbereitung.qmd#mitbringen)).
+## Kein eigenes Thema? Wählen Sie einen Beispielstrang
+
+Am meisten lohnt sich der Workshop mit einem Thema aus Ihrer eigenen Lehre. Wer keines mitbringt, nutzt ein durchgehendes Mini-Thema: eine **kurze Einführung ins wissenschaftliche Arbeiten**. Wählen Sie einen der drei Stränge, oder bringen Sie eigenes Material mit (siehe [Mitbringliste](parts/00-vorbereitung.qmd#mitbringen)).
 
 | Strang | Worum es geht | Quelle |
 |------------------------|------------------------|------------------------|
@@ -62,7 +68,7 @@ Die technischen Schritte sind in jedem Strang identisch.
 
 ## Wie Sie dieses Skript benutzen
 
-Jedes Kapitel öffnet mit einem Lernziel-Kasten („Was Sie nach diesem Kapitel können“), gefolgt von einem **„Mach mit“**-Block, der eigentlichen Übung. Dazwischen steht so wenig Text wie möglich. Am Ende jedes Kapitels finden Sie einen Kasten „Was, wenn …“ mit den häufigsten Stolpersteinen und einen fertigen **Tutor-Prompt** zum Kopieren. Die Lernziele und Übungen sind aufeinander abgestimmt, wie es Constructive Alignment verlangt [@biggs2011]; die interaktiven Elemente haben einen lerntheoretischen Grund, keinen dekorativen [@mayer2021].
+Jeder Block und jedes Kapitel öffnet mit einem Lernziel-Kasten („Was Sie nach diesem Block können“), gefolgt von der eigentlichen Übung. Dazwischen steht so wenig Text wie möglich. Am Ende jedes Kapitels finden Sie einen Kasten „Was, wenn …“ mit den häufigsten Stolpersteinen und einen fertigen **Tutor-Prompt** zum Kopieren. Die Lernziele und Übungen sind aufeinander abgestimmt, wie es Constructive Alignment verlangt [@biggs2011]; die interaktiven Elemente haben einen lerntheoretischen Grund, keinen dekorativen [@mayer2021].
 
 :::::: benchmark-grid
 ::: benchmark-card
@@ -82,11 +88,11 @@ Was mit KI-Unterstützung möglich wird: Begriffsspiel, Prozesslinie, Fall-Tease
 :::
 
 ::: benchmark-card
-### Phase 1 — Loslegen
+### Workshop — Block 1
 
-Warum interaktiv, und wie aus einer Textdatei die erste Webseite wird.
+Was wirkt? Fünf Prinzipien, eine Palette von Interaktionstypen und ein Prompt, der Ihnen passende Vorschläge macht.
 
-[Zu Kapitel 1 →](parts/01-didaktik.qmd)
+[Zu Block 1 →](parts/w1-interaktionstypen.qmd)
 :::
 ::::::
 

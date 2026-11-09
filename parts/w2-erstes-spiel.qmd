@@ -1,0 +1,103 @@
+---
+title: "Block 2 — Das erste Spiel: von der Begriffsliste zum Memory"
+subtitle: "45 Minuten · Vorlage öffnen, Begriffe sammeln, Spiel bauen, einbauen"
+---
+
+::: {.lernziel-box}
+#### Was Sie nach diesem Block können
+
+- die Starter-Vorlage öffnen, rendern und die vier wichtigen Stellen darin finden;
+- mit KI in zehn Minuten eine geprüfte Liste von Grundbegriffen Ihres Fachs erstellen;
+- daraus ein Memory-Spiel bauen lassen und es in Ihre Lehreinheit einbauen.
+:::
+
+## Worum es im Kern geht
+
+In diesem Block schreiben Sie keine Zeile Code. Die KI baut das Spiel, die Vorlage hat den Platz dafür schon reserviert, und Sie tauschen eine Datei aus. Nach 45 Minuten läuft in Ihrer eigenen Lehreinheit ein Spiel mit Ihren Fachbegriffen. Die Arbeit, die bleibt, ist die eigentlich didaktische: prüfen, ob die Begriffe stimmen und die Definitionen sich nicht gegenseitig verraten.
+
+## Setup-Check: Läuft die Vorlage? (5 min) {#setup-check}
+
+Wer in Teil 0 den [Selbsttest](00-vorbereitung.qmd#selbsttest) bestanden hat, hat die Vorlage schon einmal gerendert. Alle anderen holen das jetzt nach:
+
+1. [**Starter-Vorlage herunterladen** (ZIP)](../downloads/starter-lehreinheit.zip){download="starter-lehreinheit.zip"} und entpacken, am besten in einen Ordner ohne Leerzeichen und Umlaute im Pfad, etwa `Dokumente/skripte/`.
+2. In RStudio *File → Open Project…* → `starter-lehreinheit.Rproj` wählen.
+3. Im Reiter *Terminal* eingeben: `quarto preview`
+
+Im Browser erscheint eine Lehreinheit „Lernen mit Tests“ mit Vorab-Check, Memory, Zuordnungsspiel und Lern-Check. Die Vorschau bleibt offen und aktualisiert sich bei jedem Speichern.
+
+## Rundgang: vier Stellen (5 min)
+
+Ein Quarto-Projekt ist wie ein Setzkasten in einer Druckerei: Jede Sorte Teil hat ihr Fach, und der Setzer greift blind hinein. Sie müssen nur vier Fächer kennen.
+
+| Stelle | Was dort liegt | Was Sie dort tun |
+|---|---|---|
+| `lehreinheit.qmd` | der Text Ihrer Einheit | Text schreiben, gelbe ERSETZEN-Kästen abarbeiten |
+| `images/` | `abb-01.png` bis `abb-03.png` | eigene Bilder unter gleichem Namen speichern |
+| `interactions/` | `spiel-01.html` bis `spiel-03.html` | KI-Spiele unter gleichem Namen speichern |
+| `material/` | Ihr Rohmaterial für die KI | Folien, Texte, Begriffslisten ablegen |
+
+: Die vier Stellen der Starter-Vorlage. {#tbl-vier-stellen}
+
+Alles andere ist fertig eingerichtet. Die Datei `PROMPTS.md` enthält alle Prompts dieses Workshops zum Kopieren.
+
+## Schritt 1 — Grundbegriffe per Multiple Choice sammeln (10 min)
+
+Die KI fragt Sie viermal per Multiple Choice nach Fach, Quelle, Niveau und Anzahl und baut daraus eine Tabelle. Sie tippen also kaum, sondern wählen. Haben Sie Vorlesungsfolien oder ein Skriptkapitel, wählen Sie bei der Quellenfrage die eigene Quelle: Dann kommen nur Begriffe vor, die Ihre Studierenden auch im Material finden.
+
+::: {.panel-tabset}
+## Chat (jede KI)
+Neuen Chat öffnen, Prompt einfügen, abschicken. Bei der Quellenfrage die Datei hochladen oder den Text einfügen.
+
+{{< include _prompts/p1-grundbegriffe-chat.md >}}
+
+## Agent (Claude Desktop, Codex)
+Den Ordner der Starter-Vorlage verbinden (in Claude Desktop: *Ordner auswählen*). Eigene Quellen vorher nach `material/` legen.
+
+{{< include _prompts/p1-grundbegriffe-agent.md >}}
+:::
+
+**Prüfen, bevor es weitergeht (Discernment):** Lesen Sie jede Definition einmal so, wie es eine Studentin im ersten Semester täte. Stimmt sie fachlich? Verrät sie einen anderen Begriff? Steht bei Fundstelle „bitte prüfen“, haben Sie die Prüfung noch vor sich.
+
+## Schritt 2 — Das Memory bauen lassen (10 min)
+
+Der Prompt bestellt das Spiel wie einen Werkvertrag: Ziel, Material und die Kriterien, an denen Sie es abnehmen. Die technischen Kriterien sorgen dafür, dass das Spiel ohne Internet läuft, mit der Tastatur bedienbar ist und seine Höhe selbst an die Seite meldet, damit nichts abgeschnitten wird.
+
+::: {.panel-tabset}
+## Chat (jede KI)
+Im selben Chat wie Schritt 1 weiterschreiben, damit die KI die Tabelle kennt.
+
+{{< include _prompts/p2-memory-chat.md >}}
+
+## Agent (Claude Desktop, Codex)
+Der Agent speichert das Spiel selbst und rendert danach. Sie können Schritt 3 überspringen.
+
+{{< include _prompts/p2-memory-agent.md >}}
+:::
+
+## Schritt 3 — Einbauen und rendern (10 min, nur Chat-Weg)
+
+1. Den Code aus der Antwort der KI kopieren (Knopf *Copy* oben rechts am Codeblock).
+2. In RStudio unten rechts im Reiter *Files* den Ordner `interactions/` öffnen und auf `spiel-01.html` klicken. Die Datei öffnet sich im Editor.
+3. Alles markieren (**Strg+A**), den neuen Code einfügen (**Strg+V**), speichern (**Strg+S**).
+4. Die Vorschau im Browser lädt neu. Ihr Memory steht jetzt im ersten Abschnitt.
+5. In `lehreinheit.qmd` den Titel des Kastens „Lernspiel: …“ an Ihr Thema anpassen.
+
+Das ist der Kern des ganzen Workshops: Die Vorlage hält einen Platz frei, die KI liefert die Datei, Sie tauschen sie aus. Die iFrame-Zeile im Text, also das Fenster, durch das das Spiel in die Seite scheint, fassen Sie nie an.
+
+## Variieren Sie
+
+- **Memory zur Syntax:** Lassen Sie ein zweites Memory mit Paaren aus Quarto-Schreibweise und Wirkung bauen, etwa `**fett**` ↔ „Text erscheint fett“ oder `@fig-abb-01` ↔ „Verweis auf Abbildung 1“. So üben Sie und Ihre Kolleginnen die Syntax, die Sie gleich brauchen.
+- **Nur die Inhalte tauschen:** Öffnen Sie `spiel-01.html` und ändern Sie im Block zwischen `DATEN` und `ENDE DATEN` ein Begriffspaar von Hand. Speichern, Vorschau ansehen.
+- **Anderer Spieltyp, gleiche Tabelle:** „Bauen Sie aus derselben Tabelle einen Lückentext statt eines Memorys.“ Die technischen Kriterien bleiben gleich.
+
+## Was, wenn …
+
+::: {.callout-warning}
+## Was, wenn …
+- **die Antwort der KI mitten im Code abbricht?** → „Bitte geben Sie die vollständige Datei noch einmal in einem einzigen Codeblock aus.“ Teilstücke nicht zusammenkleben.
+- **das Spiel leer bleibt?** → Die Datei im Browser direkt öffnen (Doppelklick auf `spiel-01.html`). Bleibt sie leer, der KI schreiben: „Die Datei zeigt im Browser nichts an. Bitte prüfen und korrigieren.“
+- **unter Windows eine Datei `spiel-01.html.txt` entsteht?** → Im Explorer *Ansicht → Dateinamenerweiterungen* einschalten und `.txt` entfernen. Mit dem Weg über RStudio (Schritt 3) passiert das nicht.
+- **das Spiel abgeschnitten ist?** → Die KI hat die Höhenmeldung vergessen. Nachschieben: „Ergänzen Sie die Höhenmeldung per postMessage wie in den Abnahmekriterien.“
+- **`quarto preview` meldet „port already in use“?** → Es läuft noch eine Vorschau. Im Terminal **Strg+C**, dann neu starten.
+:::
+

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zuordnen: Wie aktiv ist diese Lernaktivität?</title>
+<!--
+  BEISPIEL-SPIEL der Vorlage (Zuordnen mit Begründung). Ersetzen Sie die Datei durch Ihr
+  eigenes Spiel oder ändern Sie nur den DATEN-Block.
+-->
+<style>
+  :root { --akzent: #1f5f8b; --ok: #2e7d32; --nok: #b3261e; --rand: #d0d7de; }
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; margin: 0; padding: 12px; color: #1b1f24; line-height: 1.4; }
+  h1 { font-size: 1.1rem; margin: 0 0 4px; }
+  .hinweis { font-size: 0.9rem; color: #57606a; margin: 0 0 10px; }
+  .aufgabe { border: 1px solid var(--rand); border-radius: 8px; padding: 10px; margin-bottom: 8px; }
+  .aufgabe p { margin: 0 0 6px; font-weight: 600; }
+  .wahl { display: flex; flex-wrap: wrap; gap: 6px; }
+  .wahl button { font: inherit; font-size: 0.88rem; padding: 5px 10px; border: 1px solid var(--rand); border-radius: 16px; background: #fff; cursor: pointer; }
+  .wahl button[aria-pressed="true"] { border: 2px solid var(--akzent); font-weight: 600; }
+  .wahl button:focus-visible { outline: 3px solid #e0a400; outline-offset: 2px; }
+  .erkl { font-size: 0.9rem; margin-top: 6px; }
+  .erkl.ok { color: var(--ok); } .erkl.nok { color: var(--nok); }
+  .leiste { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .leiste button { font: inherit; padding: 6px 14px; border-radius: 6px; border: 1px solid var(--akzent); cursor: pointer; }
+  #pruefen { background: var(--akzent); color: #fff; } #zurueck { background: #fff; color: var(--akzent); }
+</style>
+</head>
+<body>
+<h1 id="titel"></h1>
+<p class="hinweis" id="hinweis"></p>
+<div id="liste"></div>
+<div class="leiste"><button id="pruefen" type="button">Prüfen</button><button id="zurueck" type="button">Zurücksetzen</button><span id="ergebnis" aria-live="polite"></span></div>
+
+<script>
+/* ===== DATEN: Nur diesen Block ändern ===================================== */
+const DATEN = {
+  titel: "Zuordnen: Wie aktiv ist diese Lernaktivität?",
+  hinweis: "Ordnen Sie jede Aktivität einer Stufe des ICAP-Modells zu (Chi & Wylie, 2014). Dann „Prüfen“.",
+  kategorien: ["passiv", "aktiv", "konstruktiv", "interaktiv"],
+  aufgaben: [
+    { text: "Ein Lernvideo ansehen, ohne etwas zu tun.", loesung: "passiv",
+      warum: "Die Lernenden nehmen auf, verändern aber nichts am Material." },
+    { text: "Wichtige Sätze im Skript markieren.", loesung: "aktiv",
+      warum: "Es wird etwas getan, aber nichts Neues erzeugt, was über den Text hinausgeht." },
+    { text: "Eine Vorhersage aufschreiben und begründen, bevor die Animation startet.", loesung: "konstruktiv",
+      warum: "Die Begründung geht über das Material hinaus: Hier entsteht eigenes Wissen." },
+    { text: "Zu zweit die Vorhersagen vergleichen und einen gemeinsamen Grund finden.", loesung: "interaktiv",
+      warum: "Beide bauen auf den Beiträgen des anderen auf, das ist die höchste Stufe." }
+  ]
+};
+/* ===== ENDE DATEN ========================================================== */
+
+(function () {
+  document.getElementById("titel").textContent = DATEN.titel;
+  document.getElementById("hinweis").textContent = DATEN.hinweis;
+  const liste = document.getElementById("liste");
+  const wahl = {};
+
+  function baue() {
+    liste.innerHTML = "";
+    DATEN.aufgaben.forEach((a, i) => {
+      const box = document.createElement("div"); box.className = "aufgabe";
+      const p = document.createElement("p"); p.textContent = (i + 1) + ". " + a.text; box.appendChild(p);
+      const w = document.createElement("div"); w.className = "wahl"; w.setAttribute("role", "group");
+      DATEN.kategorien.forEach((k) => {
+        const b = document.createElement("button"); b.type = "button"; b.textContent = k; b.setAttribute("aria-pressed", "false");
+        b.addEventListener("click", () => {
+          wahl[i] = k;
+          w.querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
+        });
+        w.appendChild(b);
+      });
+      box.appendChild(w);
+      const e = document.createElement("div"); e.className = "erkl"; e.id = "erkl-" + i; e.setAttribute("aria-live", "polite"); box.appendChild(e);
+      liste.appendChild(box);
+    });
+    meldeHoehe();
+  }
+
+  document.getElementById("pruefen").addEventListener("click", () => {
+    let richtig = 0;
+    DATEN.aufgaben.forEach((a, i) => {
+      const e = document.getElementById("erkl-" + i);
+      if (!wahl[i]) { e.className = "erkl"; e.textContent = "Noch nicht zugeordnet."; return; }
+      const ok = wahl[i] === a.loesung; if (ok) richtig++;
+      e.className = "erkl " + (ok ? "ok" : "nok");
+      e.textContent = (ok ? "Richtig. " : "Nicht ganz, gemeint ist „" + a.loesung + "“. ") + a.warum;
+    });
+    document.getElementById("ergebnis").textContent = richtig + " von " + DATEN.aufgaben.length + " richtig.";
+    meldeHoehe();
+  });
+  document.getElementById("zurueck").addEventListener("click", () => {
+    for (const k in wahl) delete wahl[k];
+    document.getElementById("ergebnis").textContent = ""; baue();
+  });
+
+  function meldeHoehe() {
+    try { window.parent.postMessage({ typ: "iframe-hoehe", hoehe: document.documentElement.scrollHeight }, "*"); } catch (e) {}
+  }
+  window.addEventListener("load", meldeHoehe);
+  window.addEventListener("resize", meldeHoehe);
+  baue();
+})();
+</script>
+</body>
+</html>

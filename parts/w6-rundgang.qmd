@@ -1,0 +1,42 @@
+---
+title: "Block 6 — Rundgang und Veröffentlichen"
+subtitle: "30–45 Minuten · zeigen, ausprobieren, optional online stellen"
+---
+
+::: {.lernziel-box}
+#### Was Sie nach diesem Block können
+
+- die Lehreinheit einer Kollegin ausprobieren und ihr eine nützliche Rückmeldung geben;
+- entscheiden, wie Ihre Einheit zu den Studierenden kommt: als Webseite, über das Lernmanagementsystem oder als Datei;
+- benennen, welche Kapitel des Werkzeugkastens Sie als Nächstes brauchen.
+:::
+
+## Rundgang (20 min)
+
+Lassen Sie Ihre Vorschau im Browser offen und tauschen Sie die Plätze. Jede Person spielt die Einheit einer anderen einmal durch, vom Vorab-Check bis zum Lern-Check, und hinterlässt drei Notizen: Wo habe ich gezögert? Welche Rückmeldung hat mir etwas erklärt? Was würde ich streichen?
+
+## Veröffentlichen (optional, 20 min)
+
+Wer fertig ist, stellt die Einheit online. Die Vorlage ist dafür schon eingerichtet: Sie schreibt die fertige Webseite in den Ordner `docs/`, und genau diesen Ordner kann GitHub Pages veröffentlichen. Die Schritte von *GitHub Desktop* bis zur Adresse Ihrer Seite stehen in [Kapitel 9](08-github-pages.qmd). Wer die Einheit lieber in Moodle oder ILIAS anbietet, findet die Wege in [Kapitel 13](13-lms-einbinden.qmd).
+
+Vor dem Veröffentlichen: Alle gelben ERSETZEN-Kästen sind gelöscht, und jede Quelle ist geprüft. Der Ordner `material/` mit Ihrem Rohmaterial steht in der Datei `.gitignore` der Vorlage und wird deshalb nicht zu GitHub hochgeladen. Wer ihn umbenennt, muss den Eintrag dort anpassen.
+
+## Wie es weitergeht: der Werkzeugkasten
+
+Die Kapitel 1 bis 10 im Werkzeugkasten vertiefen, was Sie heute in Kurzform gemacht haben.
+
+| Wenn Sie … | dann lesen Sie |
+|---|---|
+| das Projekt von null aufbauen wollen | [Kapitel 2](02-setup.qmd) |
+| mit Tabellen und Bildgrößen arbeiten | [Kapitel 3](03b-bilder-tabellen.qmd) |
+| Zotero und Zitate vertiefen | [Kapitel 4](03a-uebersicht.qmd) |
+| die Farben Ihrer Hochschule übernehmen | [Kapitel 5](03c-style.qmd) |
+| interaktive Diagramme aus Daten bauen | [Kapitel 6](04-charts.qmd) |
+| H5P, PhET und einen KI-Tutor einbinden | [Kapitel 7](05-iframes-tutor.qmd) |
+| Widgets und Colab-Arbeitsblätter nutzen | [Kapitel 8](07-widgets-colab.qmd) |
+| aus dem Skript Folien machen | [Kapitel 10](06-slides-optional.qmd) |
+| einen ganzen Kurs mit einem Agenten bauen | [Kapitel 11](11-kurs-mit-agent.qmd) |
+
+: Wegweiser in den Werkzeugkasten und die Kür. {#tbl-wegweiser}
+
+Für die nächste Einheit kopieren Sie `lehreinheit.qmd`, benennen die Kopie um (etwa `lehreinheit-02.qmd`) und tragen sie in `_quarto.yml` unter `chapters:` ein. Die Spiele der zweiten Einheit legen Sie als `spiel-04.html`, `spiel-05.html` usw. ab.

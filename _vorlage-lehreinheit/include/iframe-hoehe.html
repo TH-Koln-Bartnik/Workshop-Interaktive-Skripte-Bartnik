@@ -1,0 +1,38 @@
+<!-- Passt die Höhe eingebetteter Lernspiele automatisch an, damit nichts abgeschnitten wird.
+     Weg 1: Das Spiel meldet seine Höhe selbst (postMessage {typ: "iframe-hoehe", hoehe: …}).
+     Weg 2: Läuft die Seite über quarto preview, misst die Seite das Spiel direkt.
+     Gelingt beides nicht, bleibt die Höhe aus dem iframe-Tag stehen. -->
+<script>
+(function () {
+  "use strict";
+  function setze(iframe, h) {
+    if (h && h > 50) iframe.style.height = Math.ceil(h + 8) + "px";
+  }
+  window.addEventListener("message", function (e) {
+    var d = e.data;
+    if (!d || d.typ !== "iframe-hoehe") return;
+    Array.prototype.forEach.call(document.querySelectorAll("iframe"), function (f) {
+      if (f.contentWindow === e.source) setze(f, d.hoehe);
+    });
+  });
+  function miss(f) {
+    try {
+      var doc = f.contentDocument;
+      if (!doc || !doc.documentElement) return;
+      setze(f, doc.documentElement.scrollHeight);
+      if (window.ResizeObserver && !f._beobachtet) {
+        new ResizeObserver(function () { setze(f, doc.documentElement.scrollHeight); }).observe(doc.body);
+        f._beobachtet = true;
+      }
+    } catch (err) { /* andere Herkunft: Spiel muss selbst melden */ }
+  }
+  function init() {
+    Array.prototype.forEach.call(document.querySelectorAll("iframe"), function (f) {
+      f.addEventListener("load", function () { miss(f); });
+      miss(f);
+    });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
