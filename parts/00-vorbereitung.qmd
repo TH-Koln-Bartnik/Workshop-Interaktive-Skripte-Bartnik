@@ -92,15 +92,16 @@ Wer lieber bei OpenAI bleibt, installiert die **Codex-App** (Windows und macOS) 
 Geben Sie nur Ordner frei, die nichts Sensibles enthalten: keine Prüfungsunterlagen mit Namen, keine Personalakten, keine Passwörter oder Zugangsschlüssel. Behandeln Sie die KI wie eine Hilfskraft mit Schreibrechten: enger Auftrag („Ändere nichts außer …", „Lösche keine Dateien"), danach Ergebnis prüfen, dann erst übernehmen. Commits und Veröffentlichung machen Sie selbst über GitHub Desktop; so bleibt jede Fassung wiederherstellbar.
 :::
 
-## Generalprobe: Ihr erstes Quarto-Buch
+## Generalprobe: die Starter-Vorlage rendern
 
-Wenn alle Werkzeuge installiert sind, prüft eine kurze Generalprobe, ob sie zusammenspielen.
+Wenn alle Werkzeuge installiert sind, prüft eine kurze Generalprobe, ob sie zusammenspielen. Sie arbeiten dabei schon mit der Vorlage, in der Sie im Workshop Ihre Lehreinheit bauen.
 
-1. In RStudio: **File → New Project → New Directory → Quarto Book → Create Project**.
-2. Im Reiter *Terminal* eingeben: `quarto preview`
-3. Ein Browserfenster öffnet sich mit einem Beispielbuch. **Strg+C** im Terminal beendet die Vorschau.
+1. [**Starter-Vorlage herunterladen** (ZIP)](../downloads/starter-lehreinheit.zip){download="starter-lehreinheit.zip"} und entpacken, am besten in einen Ordner ohne Leerzeichen und Umlaute im Pfad, etwa `Dokumente/skripte/`.
+2. In RStudio: **File → Open Project…** → die Datei `starter-lehreinheit.Rproj` im entpackten Ordner wählen.
+3. Im Reiter *Terminal* eingeben: `quarto preview`
+4. Ein Browserfenster öffnet sich mit der Beispiel-Lehreinheit „Lernen mit Tests“. Klicken Sie im Memory zwei Karten an. **Strg+C** im Terminal beendet die Vorschau.
 
-Sehen Sie das Beispielbuch im Browser, ist Ihre Werkstatt einsatzbereit. Den Ordner dürfen Sie behalten oder löschen; im Workshop starten wir mit einer eigenen Vorlage.
+Sehen Sie die Lehreinheit mit Memory, Zuordnungsspiel und Lern-Check im Browser, ist Ihre Werkstatt einsatzbereit. Bringen Sie den Ordner mit in den Workshop.
 
 ## Selbsttest: drei Häkchen {#selbsttest}
 
@@ -108,11 +109,11 @@ Die Checkliste oben prüft jedes Werkzeug einzeln. Der Selbsttest prüft die dre
 
 | | Übergabe | So prüfen Sie es | Bestanden, wenn … |
 |---|---|---|---|
-| ☐ | **Rendern klappt** (RStudio → Quarto → Browser) | die Generalprobe oben | das Beispielbuch im Browser erscheint |
-| ☐ | **Zotero-Export klappt** (Zotero → Better BibTeX → Datei) | Ihre Sammlung rechtsklicken → *Sammlung exportieren…* → Format *Better BibTeX* → *Speichern* als `references.bib` in den Ordner der Generalprobe | Sie die Datei in RStudio öffnen und Einträge sehen, die mit `@article{` oder `@book{` beginnen |
+| ☐ | **Rendern klappt** (RStudio → Quarto → Browser) | die Generalprobe oben | die Beispiel-Lehreinheit im Browser erscheint und das Memory reagiert |
+| ☐ | **Zotero-Export klappt** (Zotero → Better BibTeX → Datei) | Ihre Sammlung rechtsklicken → *Sammlung exportieren…* → Format *Better BibTeX* → *Speichern* als `references.bib` in den Ordner der Starter-Vorlage | Sie die Datei in RStudio öffnen und Einträge sehen, die mit `@article{` oder `@book{` beginnen |
 | ☐ | **GitHub-Anmeldung klappt** (GitHub Desktop → github.com) | in GitHub Desktop *File → Options → Accounts* | dort Ihr Benutzername mit Profilbild steht |
 
-Sind alle drei Häkchen gesetzt, beginnt der Workshop für Sie mit dem kurzen [Setup-Check](02-setup.qmd#setup-check) in Kapitel 2 statt mit einer Installation. Fehlt eines, ist das kein Beinbruch: Notieren Sie, wo es hängt (siehe [Wenn etwas hakt](#hakt)).
+Sind alle drei Häkchen gesetzt, beginnt der Workshop für Sie mit einem kurzen Setup-Check statt mit einer Installation. Fehlt eines, ist das kein Beinbruch: Notieren Sie, wo es hängt (siehe [Wenn etwas hakt](#hakt)).
 
 ## Was Sie in den Workshop mitbringen {#mitbringen}
 
@@ -124,11 +125,11 @@ Sind alle drei Häkchen gesetzt, beginnt der Workshop für Sie mit dem kurzen [S
 :::
 
 ::: {.callout-tip}
-## Rohmaterial für Ihr Skript
-- **Einen Textbaustein**: ein bis zwei Seiten aus einer Lehrveranstaltung, die Sie online stellen möchten (Word, PDF oder Markdown; Text, den Sie veröffentlichen dürfen)
-- **Zwei bis drei Bilder** (eigene Fotos, Grafiken oder Abbildungen mit klarer Lizenz) und **eine Tabelle**
+## Rohmaterial für Ihre Lehreinheit
+- **Ein Thema für eine Lehreinheit** von etwa 30 Minuten Lernzeit, mit **einem Lernziel** und **einer typischen Fehlvorstellung** Ihrer Studierenden („Viele denken, dass …“)
+- **Material, aus dem die KI arbeiten darf**: Folien als PDF, ein Skriptkapitel oder eine Begriffsliste, die Sie veröffentlichen dürfen. Es kommt in den Ordner `material/` der Vorlage.
+- **Zwei bis drei Bilder** (eigene Fotos, Grafiken oder Abbildungen mit klarer Lizenz)
 - **Fünf bis zehn Literaturangaben** in einer Zotero-Sammlung
-- **Eine Idee für eine Interaktion**: Was sollen Studierende an Ihrer Stelle *tun* statt nur lesen? Ein Quiz, ein Zuordnungsspiel, eine Animation, ein kleiner Rechner? Die [Galerie](galerie.qmd) liefert Anregungen.
 :::
 
 Wer kein eigenes Material mitbringt, arbeitet mit einem vorbereiteten Beispielthema zum wissenschaftlichen Arbeiten. Die technischen Schritte sind identisch.

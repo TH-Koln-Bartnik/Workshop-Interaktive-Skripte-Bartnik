@@ -1,0 +1,350 @@
+---
+title: "Block 7 — iFrames, Spiele und KI-Tutor"
+subtitle: "Workshop „Interaktive Skripte mit KI erstellen" · TH Köln · 11.05.2026"
+author: "Prof. Dr. Roman Bartnik"
+date: "2026-05-11"
+date-format: "DD.MM.YYYY"
+format:
+  revealjs:
+    theme: [default, ../styles.scss]
+    slide-number: c/t
+    chalkboard: true
+    incremental: false
+    logo: ../images/th-koeln-logo.png
+    footer: 'Workshop „Interaktive Skripte mit KI erstellen" · TH Köln'
+    transition: fade
+    width: 1280
+    height: 720
+    title-slide-attributes:
+      data-background-color: "#ffffff"
+lang: de
+---
+
+# Aktivität schlägt Konsum — auch im Skript {background-color="#ffffff"}
+
+::: {.columns}
+
+::: {.column width="55%"}
+::: incremental
+- **Lesen** allein hält rund 30 % nach einer Woche
+- **Selbst aufschreiben** verdoppelt das nahezu (Karpicke & Blunt, 2011)
+- **Eigene Beispiele konstruieren** liegt nochmal darüber (Fiorella & Mayer, 2016)
+- **iFrame** und **KI-Tutor** sind die Werkzeuge, die das in einem statischen Skript möglich machen
+:::
+:::
+
+::: {.column width="45%"}
+::: {.fragment}
+![](../images/kap07-aktivitaet.png){fig-align="center" width="95%"}
+:::
+:::
+
+::::
+
+::: notes
+Hier ist der didaktische Anker für den ganzen Block. Die Behauptung „Aktivität schlägt Konsum" ist nicht meine, sondern die der Generative-Learning-Forschung — Karpicke und Fiorella sind die zwei Säulen. Der Sprung zum Werkzeug erfolgt im letzten Punkt: iFrames sind Aktivität, der Tutor ist Aktivität, beides läuft im Skript. Pause vor dem letzten Punkt — die Verbindung zur Toolwelt soll spürbar werden, nicht nur logisch.
+:::
+
+# Ein iFrame ist ein Mini-Browser in Ihrer Seite {background-color="#ffffff"}
+
+::: {.columns}
+
+::: {.column width="55%"}
+::: incremental
+- **iFrame** = *inline frame*, eine eingebettete Webseite *in* der Seite
+- Fünf Attribute, die zählen:
+  - `src` — woher der Inhalt kommt
+  - `width` / `height` — wie groß
+  - `frameborder="0"` — kein 3D-Rahmen
+  - `style="border:…"` — eigener dezenter Rand
+- Lokale Spiele liegen in `interactions/`, Pfad aus dem Kapitel: `../interactions/datei.html`
+:::
+:::
+
+::: {.column width="45%"}
+::: {.fragment}
+![](../images/kap07-iframe-konzept.png){fig-align="center" width="95%"}
+:::
+:::
+
+::::
+
+::: notes
+Den Begriff „iFrame" einmal langsam aussprechen — die meisten haben ihn schon gesehen, aber selten benannt. Die Mini-Browser-Metapher hilft: in Ihrem Browser-Fenster sitzt nochmal ein kleines Browser-Fenster. Was darin läuft, läuft unabhängig vom umgebenden Skript. Bei den Attributen lege ich besonderen Wert auf `height` — das ist die einzige Zahl, die man fast immer anpassen muss.
+:::
+
+# Live: drei Prinzipien per Drag-and-Drop {background-color="#ffffff"}
+
+::: {.columns}
+
+::: {.column width="55%"}
+**Sehen Sie es selbst — im Skript:**
+
+::: incremental
+- Kapitel 7 öffnen
+- Live-Beispiel 1 ausprobieren
+- *Auflösung anzeigen* klicken
+- Code-Block direkt darunter ist zum Mitnehmen
+:::
+
+::: {.fragment}
+**Mechanik:** drei Prinzipien werden auf drei Beispiele gezogen — eine HTML-Datei, kein Backend, kein Login.
+:::
+:::
+
+::: {.column width="45%"}
+::: {.fragment}
+![](../images/kap07-live-spiel.png){fig-align="center" width="95%"}
+:::
+:::
+
+::::
+
+::: notes
+Hier wechsle ich vom Folienmodus in den Browser. Die Folie dient nur als Erinnerung — die echte Information ist das Spiel selbst. Drei Minuten Zeit lassen, bis alle gezogen haben, dann gemeinsam Auflösung anzeigen. Anschließend zurück zur nächsten Folie.
+:::
+
+# Drei Wege ein Spiel einzubauen — eine Empfehlung für heute {background-color="#ffffff"}
+
+| Variante | Aufwand | Vorteil | Nachteil |
+|---|---|---|---|
+| **A — Statisches HTML** | hoch zu Beginn, dann niedrig | volle Kontrolle, kein Konto, offline-tauglich | HTML/JS oder KI-Hilfe nötig |
+| **B — H5P** | mittel | viele fertige Vorlagen | Konto, externe Abhängigkeit |
+| **C — externer Editor** (Genially, Kahoot) | niedrig | schnell, hübsch, kollaborativ | Werbung, Login, externe Datenhaltung |
+
+::: {.fragment}
+**Heute nehmen wir A** — die Bausteine liegen in `interactions/` schon bereit.
+:::
+
+::: notes
+Die Tabelle ist die einzige Folie ohne Bild — die Vergleichsstruktur trägt selbst. Beim Vortrag jede Zeile kurz mit einem realen Hochschulbeispiel füttern: H5P läuft in vielen Moodle-Installationen mit, Kahoot kennen die Lernenden aus der Schule. Die Empfehlung am Ende ist explizit: heute Variante A, in der eigenen Praxis ist B oft die richtige Wahl.
+:::
+
+# Der KI-Tutor läuft im zweiten Tab — nicht im iFrame {background-color="#ffffff"}
+
+::: {.columns}
+
+::: {.column width="55%"}
+::: incremental
+- Tutor = adaptiver Gesprächspartner (Mollick & Mollick, 2023)
+- Eingebunden als **Markdown-Link**, nicht als iFrame
+- Lernende klicken → ChatGPT öffnet → Tutor antwortet im Workshop-Kontext
+- Trennung: **iFrame** für *Übung*, **Tab** für *Gespräch*
+:::
+
+::: {.fragment}
+``` markdown
+[Fragen Sie den Skript-Tutor →](https://chatgpt.com/g/...){target="_blank"}
+```
+:::
+:::
+
+::: {.column width="45%"}
+::: {.fragment}
+![](../images/centaur-genai.png){fig-align="center" width="90%"}
+:::
+:::
+
+::::
+
+::: notes
+Centaur-Metapher (Mollick): die Lernende reitet, die KI trägt — beide kommen weiter, weil sie unterschiedliche Dinge gut können. Der Architektur-Punkt ist wichtig: Wer den Tutor in einen iFrame zwingt, kollidiert mit ChatGPT-Einbettungssperren und mit dem Login-Flow. Der zweite Tab ist nicht Notlösung, sondern saubere Trennung der Rollen.
+:::
+
+# Drei Hosting-Varianten — heute reicht Option 1 {background-color="#ffffff"}
+
+::: {.columns}
+
+::: {.column width="55%"}
+::: incremental
+- **Option 1 — Custom GPT in ChatGPT**
+  - Niedrigste Schwelle, kein Hochschul-Login
+  - US-Server: für offene Lehre ohne PII unkritisch
+- **Option 2 — Custom GPT in der AcademicCloud**
+  - Europäische Datenhaltung, Hochschul-Login
+- **Option 3 — Eigenes Widget oder Web-App**
+  - Volle Kontrolle, RAG über eigene Skriptinhalte möglich
+:::
+:::
+
+::: {.column width="45%"}
+::: {.fragment}
+![](../images/kap07-tutor-optionen.png){fig-align="center" width="95%"}
+:::
+:::
+
+::::
+
+::: notes
+Die Reihenfolge ist nach Eintrittsschwelle sortiert, nicht nach Qualität. Option 1 ist heute die richtige Wahl, weil wir keine personenbezogenen Daten haben und alle in zwei Klicks loslegen sollen. Option 2 passt für die meisten Pflicht-Lehre-Szenarien. Option 3 ist für Lehrende mit RAG-Bedarf — etwa, wenn der Tutor ausschließlich auf das eigene Skript antworten soll. Beispiel zum Verlinken: BWL1-Tutor an meiner Hochschule.
+:::
+
+# Live: Tutor öffnen, Frage stellen, Antwort lesen {background-color="#ffffff"}
+
+::: {.columns}
+
+::: {.column width="55%"}
+**Beispiel-Prompt für jetzt:**
+
+> Ich will ein iFrame-Quiz in mein Quarto-Skript einbauen. Mein Stand: Quarto installiert, RStudio läuft. Schlagen Sie mir den einfachsten ersten Schritt vor und schreiben Sie den Code-Schnipsel dazu. Erklären Sie vorher in zwei Sätzen, was ich da eigentlich tue.
+
+::: {.fragment}
+**Beobachten Sie:** Tonfall, Schrittgröße, ob der Tutor *zwei Sätze* einhält.
+:::
+:::
+
+::: {.column width="45%"}
+::: {.fragment}
+![](../images/kap07-tutor-demo.png){fig-align="center" width="95%"}
+:::
+:::
+
+::::
+
+::: notes
+Wechsel in den Tab mit dem vorbereiteten Workshop-Tutor. Die Frage live stellen, die Antwort gemeinsam lesen. Wichtig ist nicht, dass die Antwort perfekt ist — wichtig ist, dass die Teilnehmenden sehen, *wie* der Tutor antwortet: schrittweise, didaktisch, mit Code. Hier kann eine Pause helfen, in der Teilnehmende ihre eigene erste Frage tippen.
+:::
+
+# Drei Situationen, in denen Sie es lassen sollten {background-color="#ffffff"}
+
+::: {.columns}
+
+::: {.column width="55%"}
+::: incremental
+- **Klar definierte Faktenfragen**
+  - Quiz schlägt Gespräch
+- **Sensible persönliche Themen**
+  - Begleitung, kein Ersatz für Beratung
+- **Zeitkritisches Pflichtwissen**
+  - Frontalanleitung in zehn Minuten ist effizienter (Kasneci et al., 2023)
+:::
+:::
+
+::: {.column width="45%"}
+::: {.fragment}
+![](../images/jagged-frontier-genai.png){fig-align="center" width="95%"}
+:::
+:::
+
+::::
+
+::: notes
+„Jagged Frontier" (Dell'Acqua et al., 2023) als Bild: KI ist nicht überall gleich gut — die Grenze ist zerklüftet, nicht glatt. Diese drei Negativ-Fälle stammen aus der Lehrerfahrung, die Forschung ist jünger. Den Punkt zur Beratung sehr ernst aussprechen, kurze Pause hinterher.
+:::
+
+# Zehn Spiele, eine Progression: Verstehen → Prüfen {background-color="#ffffff"}
+
+::: {.columns}
+
+::: {.column width="55%"}
+::: incremental
+- **Verstehen** — Didaktik-Bingo, Misskonzept-Detektiv
+- **Entscheiden** — Embed-Entscheidung, Kursdesigner-Sim
+- **Umsetzen** — Pfad-Puzzle, Debug-Escape-Room
+- **Gestalten** — Tutor-Klinik, Feedback-Spiel
+- **Prüfen** — Widget-Generator, Publish-Readiness
+:::
+
+::: {.fragment}
+*Diese Progression ist gleichzeitig die Architektur Ihres eigenen Skripts.*
+:::
+:::
+
+::: {.column width="45%"}
+::: {.fragment}
+![](../images/kap07-progression.png){fig-align="center" width="95%"}
+:::
+:::
+
+::::
+
+::: notes
+Die Galerie ist der größte Block des Kapitels — auf der Folie zeige ich nur die Architektur, nicht die zehn Spiele einzeln. Der Punkt am Ende ist der eigentlich wichtige: Wer ein eigenes Skript baut, kann diese Fünf-Stufen-Progression als Bauplan übernehmen. Die einzelnen Spiele werden im Skript live ausprobiert, hier auf der Folie geht es um das Meta-Muster.
+:::
+
+# Mach mit — eines der zehn als Bauplan übernehmen {background-color="#ffffff"}
+
+::: {.columns}
+
+::: {.column width="55%"}
+**Drei-Schritte-Workflow:**
+
+::: incremental
+- Spiel auswählen, das zum eigenen Strang passt
+- HTML-Datei in `interactions/` öffnen (RStudio Files-Pane → *Open in editor*)
+- Daten-Array am Anfang des `<script>`-Blocks gegen eigene Inhalte tauschen
+- Render → Browser-Vorschau → fertig
+:::
+:::
+
+::: {.column width="45%"}
+::: {.fragment}
+![](../images/teaching-new-genai-processes.png){fig-align="center" width="95%"}
+:::
+:::
+
+::::
+
+::: notes
+Konkrete Handlungsanweisung. Hier zehn Minuten arbeiten lassen, ich gehe von Tisch zu Tisch. Die häufigste Verwirrung: Teilnehmende suchen das Daten-Array tief unten in der Datei — es steht aber meistens ganz oben. Vor der Übung explizit darauf hinweisen.
+:::
+
+# Reaktivierung: fünf Behauptungen, Wahr oder Falsch? {background-color="#ffffff"}
+
+<iframe src="../interactions/wahr-falsch-kap07.html" width="100%" height="540" frameborder="0" style="border: 1px solid #e6e6ea;"></iframe>
+
+::: notes
+Aktiv auslaufen statt zusammenfassen. Die Begründungen erscheinen sofort nach dem Klick — das ist der Misskonzept-Check, der den Block schließt. Ich klicke einmal vor, dann übergebe ich den Klick an die Teilnehmenden im Raum.
+:::
+
+# Aktivität schlägt Konsum {background-color="#c81e0f"}
+
+::: {style="text-align:center; color: white; margin-top: 2.5em;"}
+::: {style="font-size: 1.4em;"}
+**Eine iFrame, ein Tutor-Link — Ihr Skript wird interaktiv.**
+:::
+
+::: {style="font-size: 0.85em; margin-top: 1.2em; word-break: break-all;"}
+[Tutor öffnen →](https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte){style="color: white; text-decoration: underline;"}
+:::
+:::
+
+::: notes
+Schluss-Geste in TH-Rot, gleicher Stil wie das Intro-Deck. Ein Satz zum Mitnehmen, dann der Link zum Tutor. Pause aushalten, bis alle den Link entweder geklickt oder bewusst verworfen haben.
+:::
+
+# Bild-Generierungs-Prompts {background-color="#ffffff" visibility="hidden"}
+
+::: {style="font-size: 0.7em;"}
+
+Diese Folie ist nicht Teil des Vortrags. Sie sammelt die sechs Bild-Prompts zum späteren Generieren mit DALL·E, Midjourney, Imagen oder ähnlichem. Die generierten PNGs als `images/kap07-aktivitaet.png`, `images/kap07-iframe-konzept.png`, `images/kap07-live-spiel.png`, `images/kap07-tutor-optionen.png`, `images/kap07-tutor-demo.png` und `images/kap07-progression.png` ablegen.
+
+## Folie 2 — Aktivität schlägt Konsum (`kap07-aktivitaet.png`)
+
+> A clean editorial vector illustration in two opposing scenes, side by side. Left scene: a single figure slumped in an armchair, passively staring at an open book whose pages float gently away as small forgotten letters; the figure has no facial features, just a silhouette. Right scene: the same figure now upright at a desk, actively writing in a notebook, with three small paper cards being moved by hand into matching slots — the cards represent active recall and elaboration. A subtle arrow of momentum flows from left to right between the scenes. Color palette: warm reds (#c81e0f), magenta (#b43092), orange accents (#ea5a00), charcoal grays, on a paper-white background. Style: editorial illustration in the spirit of *The New York Times Sunday Review*, no photographic textures, no realistic faces. 16:9 aspect ratio, high contrast, suitable as keynote-slide companion image, transparent or white background.
+
+## Folie 3 — iFrame als Mini-Browser (`kap07-iframe-konzept.png`)
+
+> A clean diagrammatic vector illustration showing a stylized browser window viewed from the front. Inside that browser window sits a smaller, nested browser window with rounded corners and its own thin border, clearly distinguishable as a window-within-a-window. The inner window contains a tiny abstract interactive game scene: three small draggable cards above three labeled drop zones, with one card mid-motion to suggest interactivity. A subtle thin connecting line points from the inner window to a small file icon labeled `.html`, suggesting that the inner window's content comes from a separate file. Color palette: warm reds (#c81e0f) for the outer browser frame, magenta (#b43092) for the inner frame, orange (#ea5a00) for the moving card, charcoal grays for borders and text, paper-white background. Style: clean, technical-illustrative, in the spirit of Tufte's information design — every element carries meaning, no decorative clutter. 16:9 aspect ratio.
+
+## Folie 4 — Live-Spiel (`kap07-live-spiel.png`)
+
+> A clean editorial vector illustration of a workshop participant's hand using a computer mouse to drag a small labeled card across the screen toward a target zone. Three labeled drop zones are visible at the top of the screen with subtle highlight on one of them, indicating the target. Three pickup cards rest at the bottom; one is currently floating mid-drag, lifted slightly with a soft drop-shadow to suggest motion. The hand and mouse are in the foreground at lower right, rendered as a flat silhouette. The atmosphere is energetic but controlled — this is focused work, not chaos. Color palette: warm reds (#c81e0f), magenta (#b43092), orange accents (#ea5a00) on the active card, charcoal grays, paper-white background. Style: editorial illustration, NYT-style, no photographic textures. 16:9 aspect ratio.
+
+## Folie 7 — Drei Hosting-Varianten (`kap07-tutor-optionen.png`)
+
+> A clean diagrammatic vector illustration of three vertically stacked horizontal bands, each representing one hosting option for an AI tutor. Top band: a stylized chat-bubble icon connected by a dotted line to a small generic cloud labeled abstractly with three letters "G P T", representing ChatGPT — labeled visually as the lowest-effort option with a small upward-pointing checkmark. Middle band: the same chat-bubble, now connected to a stylized European castle silhouette with a small lock icon, representing AcademicCloud and European data residency. Bottom band: the chat-bubble connected to a small workshop tool icon (a wrench plus a code bracket symbol) and a small bookshelf icon, representing self-hosted widget with RAG. Each band has a faint progressive background tint from pale red through magenta to pale orange. No text inside the illustration, only icons. Color palette: warm reds (#c81e0f), magenta (#b43092), orange (#ea5a00), charcoal grays, paper-white background. Style: clean, modern, editorial-diagrammatic, in the spirit of Edward Tufte. 16:9 aspect ratio.
+
+## Folie 8 — Tutor-Demo (`kap07-tutor-demo.png`)
+
+> A clean editorial vector illustration of a desktop scene with two browser tabs visible, side by side. Left tab: a stylized academic script page with a small chart and a code block visible. Right tab: a stylized chat interface with three message bubbles — the topmost shows a question mark icon (the user's question), the middle shows a small lightbulb icon (the tutor's first response), and the bottom shows a tiny code bracket icon (the tutor's code suggestion). A thin curving arrow flows from the left tab to the right tab and back, suggesting fluid movement between script and tutor. Atmosphere: focused, modern, friendly. Color palette: warm reds (#c81e0f), magenta (#b43092), orange accents (#ea5a00), charcoal grays, paper-white background. Style: editorial illustration, NYT-style, clean and dignified. 16:9 aspect ratio.
+
+## Folie 10 — Progression (`kap07-progression.png`)
+
+> A clean diagrammatic vector illustration of a five-step ascending staircase, each step labeled abstractly with a single icon representing a stage of learning progression. Step 1 (lowest): a small lightbulb icon — *understand*. Step 2: a balance scale icon — *decide*. Step 3: a wrench-and-cogwheel icon — *implement*. Step 4: a paint-palette-and-brush icon — *design*. Step 5 (highest): a checkmark inside a small badge icon — *verify*. The staircase rises gently from lower-left to upper-right with subtle motion lines suggesting upward progression. Each step has a faint progressive tint moving from pale red through magenta to pale orange. No text on the illustration itself, only icons. Color palette: warm reds (#c81e0f), magenta (#b43092), orange (#ea5a00), charcoal grays, paper-white background. Style: clean, technical-illustrative, in the spirit of Tufte. 16:9 aspect ratio.
+
+:::
+
+::: notes
+Diese „Hidden Slide" für mich selbst — beim Vortrag mit „o" vom Folienlauf ausgeschlossen oder einfach nicht durchgeklickt. Nach dem Bild-Generieren die sechs PNGs in `images/` ablegen, dann zeigen die Folien automatisch die Bilder rechts neben den Bullets.
+:::

@@ -28,7 +28,7 @@ Aus dem Modul *Sustainable Supply Chain Management*. Vier Freunde wollen 24 Pizz
 
 [Widget im eigenen Fenster öffnen →](https://th-koln-bartnik.github.io/sscm-2026-student/widgets/02_line_widget.html){target="_blank"}
 
-Wie Sie ein solches Widget für Ihr Fach von der KI bauen lassen, zeigt [Kapitel 8](07-widgets-colab.qmd).
+Wie Sie ein solches Widget für Ihr Fach von der KI bauen lassen, zeigen wir im Workshop.
 
 ## 3. Fall-Teaser: Backhaus Kaya
 
@@ -59,7 +59,7 @@ Google Colab ist ein Dokument im Browser, in dem Text und kleine Programmstücke
 Colab öffnet eine Kopie nur für Sie; Sie können nichts kaputt machen. Zellen führen Sie mit dem Play-Knopf links daneben aus.
 :::
 
-Wie ein solches Arbeitsblatt aufgebaut ist und wie Sie eines für Ihr Fach entwerfen lassen, zeigt ebenfalls [Kapitel 8](07-widgets-colab.qmd#colab).
+Wie ein solches Arbeitsblatt aufgebaut ist und wie Sie eines für Ihr Fach entwerfen lassen, zeigen wir ebenfalls im Workshop.
 
 ## 5. Lern-Song: Every Forecast Is Wrong
 
