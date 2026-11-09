@@ -10,6 +10,7 @@ project:
     - index.qmd
     - parts/00-vorbereitung.qmd
     - parts/galerie.qmd
+    - parts/best-practice.qmd
     - appendix/troubleshooting.qmd
   resources:
     - "interactions/*"
@@ -40,6 +41,7 @@ book:
       chapters:
         - parts/00-vorbereitung.qmd
         - parts/galerie.qmd
+        - parts/best-practice.qmd
     - part: "Anhang"
       chapters:
         - appendix/troubleshooting.qmd

@@ -24,7 +24,7 @@
     "href": "index.html#ablauf",
     "title": "Interaktive Skripte mit KI erstellen",
     "section": "Ablauf",
-    "text": "Ablauf\nDer Workshop beginnt mit einem Lernspiel, das nach 45 Minuten in Ihrer eigenen Lehreinheit läuft, und arbeitet sich von dort zur ganzen Einheit vor. Die KI übernimmt von Anfang an das Programmieren; Code von Hand schreiben Sie nicht. Alles läuft zunächst auf Ihrem eigenen Rechner. Die Dauern sind Richtwerte ohne Pausen.\n\n\n\nTeil\nDauer\nInhalt\nKapitel\n\n\n\n\nTeil 0 — Vorbereitung zu Hause\nca. 2–3 h, vor dem Workshop\nWerkzeuge installieren, Starter-Vorlage einmal rendern (Selbsttest), Rohmaterial sammeln\n0, Galerie\n\n\nBlock 1 — Das erste Spiel\n45 min\nVorlage öffnen, Grundbegriffe per Multiple Choice sammeln, Memory bauen lassen und einbauen\nim Workshop\n\n\nBlock 2 — Was wirkt?\n20 min\nFünf Prinzipien und eine Palette von Interaktionstypen; KI schlägt passende Interaktionen vor\nim Workshop\n\n\nBlock 3 — Zwei Interaktionen\n45 min\nKonzeptkarte, zwei weitere Spiele bauen lassen, wie eine Studentin testen\nim Workshop\n\n\nBlock 4 — Die Einheit rahmen\n45 min\nSzene, Vorab-Check, Lernziele, Kernaussagen und Lernfragen per KI\nim Workshop\n\n\nBlock 5 — Feinschliff\n90 min\neigene Texte, Bilder tauschen, Zotero-Quellen, KI als kritische Erstleserin\nim Workshop\n\n\nBlock 6 — Rundgang\n30–45 min\nEinheiten gegenseitig testen, optional veröffentlichen\nim Workshop\n\n\nWerkzeugkasten\nzum Nachschlagen\nGrundlagen und Vertiefungen: Setup, Bilder, Zotero, Hochschulstil, Diagramme, iFrames und Tutor, Widgets, GitHub Pages, Slides\nfolgt\n\n\nKür — nach dem Workshop\nnach Bedarf\neinen Kurs mit einem KI-Agenten bauen; öffentliches und internes Material trennen; das Skript in ILIAS oder Moodle einbinden\nfolgt\n\n\n\nJeder Prompt steht in zwei Fassungen: für einen Chat (ChatGPT, Claude, Gemini, Academiccloud), aus dem Sie die Antwort kopieren, und für einen Agenten (Claude Desktop, Codex), der die Dateien selbst in Ihren Ordner schreibt.",
+    "text": "Ablauf\nDer Workshop beginnt mit einem Lernspiel, das nach 45 Minuten in Ihrer eigenen Lehreinheit läuft, und arbeitet sich von dort zur ganzen Einheit vor. Die KI übernimmt von Anfang an das Programmieren; Code von Hand schreiben Sie nicht. Alles läuft zunächst auf Ihrem eigenen Rechner. Die Dauern sind Richtwerte ohne Pausen.\n\n\n\nTeil\nDauer\nInhalt\nKapitel\n\n\n\n\nTeil 0 — Vorbereitung zu Hause\nca. 2–3 h, vor dem Workshop\nWerkzeuge installieren, Starter-Vorlage einmal rendern (Selbsttest), Rohmaterial sammeln\n0, Galerie, Best Practice\n\n\nBlock 1 — Das erste Spiel\n45 min\nVorlage öffnen, Grundbegriffe per Multiple Choice sammeln, Memory bauen lassen und einbauen\nim Workshop\n\n\nBlock 2 — Was wirkt?\n20 min\nFünf Prinzipien und eine Palette von Interaktionstypen; KI schlägt passende Interaktionen vor\nim Workshop\n\n\nBlock 3 — Zwei Interaktionen\n45 min\nKonzeptkarte, zwei weitere Spiele bauen lassen, wie eine Studentin testen\nim Workshop\n\n\nBlock 4 — Die Einheit rahmen\n45 min\nSzene, Vorab-Check, Lernziele, Kernaussagen und Lernfragen per KI\nim Workshop\n\n\nBlock 5 — Feinschliff\n90 min\neigene Texte, Bilder tauschen, Zotero-Quellen, KI als kritische Erstleserin\nim Workshop\n\n\nBlock 6 — Rundgang\n30–45 min\nEinheiten gegenseitig testen, optional veröffentlichen\nim Workshop\n\n\nWerkzeugkasten\nzum Nachschlagen\nGrundlagen und Vertiefungen: Setup, Bilder, Zotero, Hochschulstil, Diagramme, iFrames und Tutor, Widgets, GitHub Pages, Slides\nfolgt\n\n\nKür — nach dem Workshop\nnach Bedarf\neinen Kurs mit einem KI-Agenten bauen; öffentliches und internes Material trennen; das Skript in ILIAS oder Moodle einbinden\nfolgt\n\n\n\nJeder Prompt steht in zwei Fassungen: für einen Chat (ChatGPT, Claude, Gemini, Academiccloud), aus dem Sie die Antwort kopieren, und für einen Agenten (Claude Desktop, Codex), der die Dateien selbst in Ihren Ordner schreibt.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Willkommen</span>"
     ]
@@ -44,7 +44,7 @@
     "href": "index.html#wie-sie-dieses-skript-benutzen",
     "title": "Interaktive Skripte mit KI erstellen",
     "section": "Wie Sie dieses Skript benutzen",
-    "text": "Wie Sie dieses Skript benutzen\nJeder Block und jedes Kapitel öffnet mit einem Lernziel-Kasten („Was Sie nach diesem Block können“), gefolgt von der eigentlichen Übung. Dazwischen steht so wenig Text wie möglich. Am Ende jedes Kapitels finden Sie einen Kasten „Was, wenn …“ mit den häufigsten Stolpersteinen und einen fertigen Tutor-Prompt zum Kopieren. Die Lernziele und Übungen sind aufeinander abgestimmt, wie es Constructive Alignment verlangt (Biggs & Tang, 2011); die interaktiven Elemente haben einen lerntheoretischen Grund, keinen dekorativen (Mayer, 2021).\n\n\nTeil 0 — Vorbereitung\nWas Sie vor dem Workshop installieren und testen, und was Sie mitbringen.\nZum Quick-Start →\n\n\nGalerie\nWas mit KI-Unterstützung möglich wird: Begriffsspiel, Prozesslinie, Fall-Teaser, Colab-Arbeitsblatt, Lern-Song, Vokabel-App und zwei Beispiele von Ethan Mollick.\nZur Galerie →\n\n\nWenn etwas hakt\nTypische Fehler bei der Installation und ihre Lösung, nach Werkzeug sortiert.\nZum Trouble-Shooting →\n\n\n\n\n\n\n\n\nTippKI-Tutor für Fragen zwischendurch\n\n\n\nWenn bei der Installation oder im Workshop etwas hakt, beschreiben Sie dem Tutor, was Sie getan haben und was Sie sehen (gern mit Screenshot der Fehlermeldung).\nTutor öffnen — „Interaktive Skripte“ →\n\n\n\n\n\n\n\n\nHinweisTransparenzhinweis zur KI-Nutzung\n\n\n\nBei der Erstellung dieses Skriptes wurde Claude (Opus 4.7 und Opus 5.5, Claude Cowork) zur Aufwertung der Inhalte (speziell für Beispiele und Interaktionen), als Reviewer (speziell Sprach- und Konsistenzchecks) und zur Gestaltung des Layouts genutzt. Alle Inhalte wurden von Roman Bartnik geprüft, überarbeitet und verantwortet.",
+    "text": "Wie Sie dieses Skript benutzen\nJeder Block und jedes Kapitel öffnet mit einem Lernziel-Kasten („Was Sie nach diesem Block können“), gefolgt von der eigentlichen Übung. Dazwischen steht so wenig Text wie möglich. Am Ende jedes Kapitels finden Sie einen Kasten „Was, wenn …“ mit den häufigsten Stolpersteinen und einen fertigen Tutor-Prompt zum Kopieren. Die Lernziele und Übungen sind aufeinander abgestimmt, wie es Constructive Alignment verlangt (Biggs & Tang, 2011); die interaktiven Elemente haben einen lerntheoretischen Grund, keinen dekorativen (Mayer, 2021).\n\n\nTeil 0 — Vorbereitung\nWas Sie vor dem Workshop installieren und testen, und was Sie mitbringen.\nZum Quick-Start →\n\n\nGalerie\nWas mit KI-Unterstützung möglich wird: Begriffsspiel, Prozesslinie, Fall-Teaser, Colab-Arbeitsblatt, Lern-Song, Vokabel-App und zwei Beispiele von Ethan Mollick.\nZur Galerie →\n\n\nBest-Practice Beispiele\nSimulationen, Animationen und interaktive Essays anderer Autorinnen und Autoren, von PhET über 3Blue1Brown bis zu Chatbots, die selbst Grafiken bauen.\nZu den Beispielen →\n\n\nWenn etwas hakt\nTypische Fehler bei der Installation und ihre Lösung, nach Werkzeug sortiert.\nZum Trouble-Shooting →\n\n\n\n\n\n\n\n\nTippKI-Tutor für Fragen zwischendurch\n\n\n\nWenn bei der Installation oder im Workshop etwas hakt, beschreiben Sie dem Tutor, was Sie getan haben und was Sie sehen (gern mit Screenshot der Fehlermeldung).\nTutor öffnen — „Interaktive Skripte“ →\n\n\n\n\n\n\n\n\nHinweisTransparenzhinweis zur KI-Nutzung\n\n\n\nBei der Erstellung dieses Skriptes wurde Claude (Opus 4.7 und Opus 5.5, Claude Cowork) zur Aufwertung der Inhalte (speziell für Beispiele und Interaktionen), als Reviewer (speziell Sprach- und Konsistenzchecks) und zur Gestaltung des Layouts genutzt. Alle Inhalte wurden von Roman Bartnik geprüft, überarbeitet und verantwortet.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Willkommen</span>"
     ]
@@ -54,7 +54,7 @@
     "href": "index.html#quellen",
     "title": "Interaktive Skripte mit KI erstellen",
     "section": "Quellen",
-    "text": "Quellen\n\n\nBiggs, J., & Tang, C. (2011). Teaching for quality learning at\nuniversity (4th ed.). Open University Press.\n\n\nFiorella, L., & Mayer, R. E. (2016). Eight ways to promote\ngenerative learning. Educational Psychology Review,\n28(4), 717–741. https://doi.org/10.1007/s10648-015-9348-9\n\n\nMayer, R. E. (2021). Multimedia learning (3rd ed.). Cambridge\nUniversity Press. https://doi.org/10.1017/9781316941355\n\n\nMollick, E. (2026). The overhang. One Useful Thing. https://www.oneusefulthing.org/p/the-overhang\n\n\nRoediger, H. L., & Karpicke, J. D. (2006). Test-enhanced learning:\nTaking memory tests improves long-term retention. Psychological\nScience, 17(3), 249–255. https://doi.org/10.1111/j.1467-9280.2006.01693.x\n\n\nWillingham, D. T. (2009). Why don’t students like school? A\ncognitive scientist answers questions about how the mind works and what\nit means for the classroom. Jossey-Bass.",
+    "text": "Quellen\n\n\nBiggs, J., & Tang, C. (2011). Teaching for quality learning at\nuniversity (4th ed.). Open University Press.\n\n\nCho, A., Kim, G. C., Karpekov, A., Helbling, A., Wang, Z. J., Lee, S.,\nHoover, B., & Chau, D. H. (2025). Transformer explainer: Interactive\nlearning of text-generative models. Proceedings of the AAAI\nConference on Artificial Intelligence, 39, 29625–29627. https://doi.org/10.1609/aaai.v39i28.35347\n\n\nDobson, G., & Shumsky, R. A. (2006). Web-based simulations for\nteaching queueing, Little’s law, and\ninventory management. INFORMS Transactions on Education,\n7(1), 106–124. https://doi.org/10.1287/ited.7.1.106\n\n\nFiorella, L., & Mayer, R. E. (2016). Eight ways to promote\ngenerative learning. Educational Psychology Review,\n28(4), 717–741. https://doi.org/10.1007/s10648-015-9348-9\n\n\nGoh, G. (2017). Why momentum really works. Distill,\n2(4), e6. https://doi.org/10.23915/distill.00006\n\n\nMayer, R. E. (2021). Multimedia learning (3rd ed.). Cambridge\nUniversity Press. https://doi.org/10.1017/9781316941355\n\n\nMollick, E. (2026). The overhang. One Useful Thing. https://www.oneusefulthing.org/p/the-overhang\n\n\nRoediger, H. L., & Karpicke, J. D. (2006). Test-enhanced learning:\nTaking memory tests improves long-term retention. Psychological\nScience, 17(3), 249–255. https://doi.org/10.1111/j.1467-9280.2006.01693.x\n\n\nSalmen, F., Roepke, R., & Schroeder, U. (2023).\nWebWriter: A system to author and remix explorables –\nrequirements & first prototype. Proceedings of DELFI Workshops\n2023, 39–48. https://doi.org/10.18420/wsdelfi2023-13\n\n\nWieman, C. E., Adams, W. K., & Perkins, K. K. (2008).\nPhET: Simulations that enhance learning. Science,\n322(5902), 682–683. https://doi.org/10.1126/science.1161948\n\n\nWillingham, D. T. (2009). Why don’t students like school? A\ncognitive scientist answers questions about how the mind works and what\nit means for the classroom. Jossey-Bass.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Willkommen</span>"
     ]
@@ -163,7 +163,7 @@
     "href": "parts/galerie.html",
     "title": "Galerie",
     "section": "",
-    "text": "1. Begriffe raten: Was ist ein Token, was ein Agent?\nAlle Beispiele auf dieser Seite sind mit generativer KI entstanden. Die ersten sechs stammen aus meiner eigenen Lehre und laufen in gewöhnlichen Online-Skripten: als eingebettetes Spiel, als Animation, als Video oder als Link in ein Rechenblatt. Zwei Beispiele von Ethan Mollick zeigen, was jenseits davon schon geht. Zusammen zeigen sie die Spannweite dessen, was Sie im Workshop für Ihr eigenes Fach bauen können. Schauen Sie bei jedem Beispiel weniger auf die Technik als auf die Frage, was die Lernenden tun, während sie es benutzen.\nEin Zuordnungsspiel aus dem Skript „KI als Hilfe zum Lehren und Lernen”: Begriffe aus der Welt der Sprachmodelle werden den passenden Definitionen zugeordnet, auf Wunsch im Level Fortgeschritten mit Agenten-Begriffen und einer Diagnose-Runde zu typischen Problemen. Wer rät und danach die Auflösung sieht, ruft Wissen ab, statt es nur wiederzuerkennen, und behält es dadurch länger (Roediger & Karpicke, 2006).\nSpiel im eigenen Fenster öffnen →",
+    "text": "1. Begriffe raten: Was ist ein Token, was ein Agent?\nAlle Beispiele auf dieser Seite sind mit generativer KI entstanden. Die ersten sechs stammen aus meiner eigenen Lehre und laufen in gewöhnlichen Online-Skripten: als eingebettetes Spiel, als Animation, als Video oder als Link in ein Rechenblatt. Zwei Beispiele von Ethan Mollick zeigen, was jenseits davon schon geht. Zusammen zeigen sie die Spannweite dessen, was Sie im Workshop für Ihr eigenes Fach bauen können. Schauen Sie bei jedem Beispiel weniger auf die Technik als auf die Frage, was die Lernenden tun, während sie es benutzen. Arbeiten anderer Autorinnen und Autoren, nach Fächern geordnet, finden Sie auf der nächsten Seite unter Best-Practice Beispiele für visuelle Erklärungen.\nEin Zuordnungsspiel aus dem Skript „KI als Hilfe zum Lehren und Lernen”: Begriffe aus der Welt der Sprachmodelle werden den passenden Definitionen zugeordnet, auf Wunsch im Level Fortgeschritten mit Agenten-Begriffen und einer Diagnose-Runde zu typischen Problemen. Wer rät und danach die Auflösung sieht, ruft Wissen ab, statt es nur wiederzuerkennen, und behält es dadurch länger (Roediger & Karpicke, 2006).\nSpiel im eigenen Fenster öffnen →",
     "crumbs": [
       "Teil 0 — Vorbereitung zu Hause",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Galerie</span>"
@@ -258,6 +258,116 @@
     ]
   },
   {
+    "objectID": "parts/best-practice.html",
+    "href": "parts/best-practice.html",
+    "title": "Best-Practice Beispiele für visuelle Erklärungen",
+    "section": "",
+    "text": "1. Mathematik und Statistik\nDie Galerie zeigt, was in meinen eigenen Skripten läuft. Diese Seite blickt nach außen: auf Simulationen, Animationen und interaktive Essays anderer Leute, die zeigen, wie eine gute visuelle Erklärung aussieht. Die Beispiele gehen drei Wege, und alle drei stehen Ihnen im Workshop offen. Man kann eine fertige Simulation ins eigene Skript einbetten, einen Gedankengang Schritt für Schritt animieren oder die Visualisierung von der KI bauen lassen.\nSchauen Sie sich vor dem Workshop zwei oder drei Beispiele an, die zu Ihrem Fach passen. Halten Sie bei einem davon fest, was die Lernenden darin tun, und bringen Sie eine Idee mit, die Sie auf Ihr eigenes Thema übertragen möchten.\nPhET-Simulationen (University of Colorado Boulder). Das sind fertige, didaktisch erforschte Simulationen (Wieman et al., 2008), alle auf Deutsch und per iFrame einbettbar. Ein iFrame ist ein Fenster in der eigenen Seite, das eine fremde Website zeigt. Für die nicht-kommerzielle Lehre ist die Nutzung frei, solange PhET genannt wird. Die Links unten sind auf eine Version festgelegt, damit sich eine Simulation nicht unbemerkt ändert.\nSeeing Theory (Daniel Kunin, Brown University) erklärt Wahrscheinlichkeit und Statistik in sechs Kapiteln, vom Münzwurf bis zur Regression. Die Seite ist archiviert, ihre Gestaltung ist aber bis heute ein Vorbild: Jede Formel hat ein Bild, an dem man drehen kann.\nExplained Visually (Victor Powell und Lewis Lehe) bietet kurze Erklärseiten zu Matrizen, Eigenvektoren, Markow-Ketten und anderem. Jede Seite trägt einen einzigen Gedanken und hat eine Grafik zum Ziehen und Verschieben.\nImmersive Linear Algebra (Ström, Åström und Akenine-Möller) ist ein ganzes Lehrbuch zur linearen Algebra mit interaktiven Abbildungen. Daran sieht man gut, wie sich Text und Interaktion in einem Skript abwechseln können.\nWhy Momentum Really Works ist ein Artikel aus der Fachzeitschrift Distill über ein Optimierungsverfahren (Goh, 2017). Schieberegler für Schrittweite und Momentum verändern die Konvergenz sofort sichtbar. Das Beispiel zeigt, dass interaktive Erklärungen auch in der Forschungskommunikation funktionieren.\nGeoGebra und Desmos sind die Klassiker für Funktionen und Geometrie. Zu beiden gibt es große Sammlungen fertiger Materialien, und viele davon lassen sich ebenfalls einbetten.",
+    "crumbs": [
+      "Teil 0 — Vorbereitung zu Hause",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Best-Practice Beispiele für visuelle Erklärungen</span>"
+    ]
+  },
+  {
+    "objectID": "parts/best-practice.html#mathematik-und-statistik",
+    "href": "parts/best-practice.html#mathematik-und-statistik",
+    "title": "Best-Practice Beispiele für visuelle Erklärungen",
+    "section": "",
+    "text": "Ableitung und Integral: Eine Kurve zeichnen und zusehen, wie Ableitung und Integral mitwandern. Ideal für die Aufgabe „Skizzieren Sie erst die Ableitung, dann blenden Sie sie ein“.\nKurvenanpassung: Messpunkte setzen und Polynome verschiedenen Grades anpassen, samt Bestimmtheitsmaß. Daran zeigt sich, wann ein Modell zu gut passt.\nLineare Regression: Erst die Gerade von Hand legen, dann gegen die Methode der kleinsten Quadrate antreten.\nFourier: Wellen erzeugen: Ein Rechtecksignal aus Sinustermen aufbauen. Der Überschwinger an den Kanten (Gibbs-Phänomen) bleibt, egal wie viele Terme man hinzufügt.\nVektoraddition, Trigonometrie-Tour und Plinko-Nagelbrett (Binomialverteilung): Grundlagen zum Anfassen.",
+    "crumbs": [
+      "Teil 0 — Vorbereitung zu Hause",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Best-Practice Beispiele für visuelle Erklärungen</span>"
+    ]
+  },
+  {
+    "objectID": "parts/best-practice.html#technik-und-naturwissenschaften",
+    "href": "parts/best-practice.html#technik-und-naturwissenschaften",
+    "title": "Best-Practice Beispiele für visuelle Erklärungen",
+    "section": "2. Technik und Naturwissenschaften",
+    "text": "2. Technik und Naturwissenschaften\nPhET für Mechanik und Elektrotechnik. Drei Beispiele sind Normalmoden (gekoppelte Schwingungen als anschauliches Eigenwertproblem), Massen und Federn und Stromkreise: Wechselstrom. Alle weiteren Simulationen finden Sie im deutschen PhET-Katalog.\nBartosz Ciechanowski schreibt interaktive Essays über mechanische Uhren, Zahnräder, GPS, Kameras und den Mond. Sie sind der Qualitätsmaßstab des Genres: Jede Abbildung lässt sich drehen oder bewegen, und der Text führt Schritt für Schritt von der Alltagsbeobachtung zum Prinzip. Zum Nachbauen sind sie nicht gedacht, wohl aber zum Staunen und Abschauen.\nHow the Internet Works begleitet ein Datenpaket auf seinem Weg durchs Netz, von der Adresse bis zur Antwort des Servers. Die Seite passt zu jeder Einführung in Informatik und erklärt nebenbei, was beim Veröffentlichen eines Skripts auf GitHub Pages technisch passiert.",
+    "crumbs": [
+      "Teil 0 — Vorbereitung zu Hause",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Best-Practice Beispiele für visuelle Erklärungen</span>"
+    ]
+  },
+  {
+    "objectID": "parts/best-practice.html#sprachmodelle-von-innen-sehen",
+    "href": "parts/best-practice.html#sprachmodelle-von-innen-sehen",
+    "title": "Best-Practice Beispiele für visuelle Erklärungen",
+    "section": "3. Sprachmodelle von innen sehen",
+    "text": "3. Sprachmodelle von innen sehen\nTransformer Explainer lässt ein kleines Sprachmodell (GPT-2) direkt im Browser laufen (Cho et al., 2025). Man gibt einen Satz ein und verfolgt, wie daraus Wahrscheinlichkeiten für das nächste Wort werden. Ein Regler für die „Temperatur“ zeigt, warum dieselbe Frage verschiedene Antworten bekommt. Für Mathematik ist das ein unerwartet guter Anwendungsfall von Matrizenrechnung und Wahrscheinlichkeit.\nLLM Visualization (Brendan Bycroft) zeigt dasselbe Prinzip als begehbares 3D-Modell, Rechenschritt für Rechenschritt. Es ist anspruchsvoller als der Transformer Explainer und eignet sich gut als Vertiefung.",
+    "crumbs": [
+      "Teil 0 — Vorbereitung zu Hause",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Best-Practice Beispiele für visuelle Erklärungen</span>"
+    ]
+  },
+  {
+    "objectID": "parts/best-practice.html#wirtschaft-entscheidungen-systeme",
+    "href": "parts/best-practice.html#wirtschaft-entscheidungen-systeme",
+    "title": "Best-Practice Beispiele für visuelle Erklärungen",
+    "section": "4. Wirtschaft, Entscheidungen, Systeme",
+    "text": "4. Wirtschaft, Entscheidungen, Systeme\nThe Evolution of Trust (Nicky Case) ist ein Spiel zum wiederholten Gefangenendilemma. Wer mitspielt, entdeckt selbst, warum Vertrauen entsteht oder zerfällt. Erst danach kommt die Theorie. Das Spiel zeigt, wie Spieltheorie fast ohne Formeln auskommt.\nCan you manage a supply chain? (Open University) ist eine zehnminütige Variante des Beer Game, gespielt mit Dosen voller Bohnen. Man bestellt für eine Stufe der Lieferkette und erlebt den Bullwhip-Effekt am eigenen Lager. Webbasierte Simulationen dieser Art haben sich in der Lehre zu Warteschlangen und Lagerhaltung bewährt (Dobson & Shumsky, 2006).\nExplorable Explanations ist eine Sammelseite, die eine lose Gemeinschaft aus Gestalterinnen, Programmierern und Lehrenden pflegt. Dort finden sich Explorables aus vielen Fächern, nach Themen geordnet, und Hinweise zum Selbermachen. Sie ist ein guter Startpunkt, wenn Ihr Fach oben nicht vorkommt.",
+    "crumbs": [
+      "Teil 0 — Vorbereitung zu Hause",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Best-Practice Beispiele für visuelle Erklärungen</span>"
+    ]
+  },
+  {
+    "objectID": "parts/best-practice.html#scrollytelling-text-führt-durch-ein-bild",
+    "href": "parts/best-practice.html#scrollytelling-text-führt-durch-ein-bild",
+    "title": "Best-Practice Beispiele für visuelle Erklärungen",
+    "section": "5. Scrollytelling: Text führt durch ein Bild",
+    "text": "5. Scrollytelling: Text führt durch ein Bild\nBeim Scrollytelling bleibt eine Grafik stehen, während der Text daneben vorbeiläuft. Wie ein Museumsführer zeigt der Text nacheinander auf einzelne Stellen, und die Grafik zoomt, markiert oder wechselt. Mit der Quarto-Erweiterung Closeread geht das ohne Webentwicklung, also mit demselben Werkzeug, das Sie im Workshop nutzen.\n\nCloseread-Galerie: alle prämierten Beispiele auf einen Blick.\nMinards Karte von Napoleons Russlandfeldzug: die berühmte Grafik, Schicht für Schicht erklärt.\nGemeindebau in Wien (Matthias Schnetzer): Stadtgeschichte und Sozialpolitik mit Karten und Daten.\nPictures of Pensions: Rentenrechnung, Schritt für Schritt aufgebaut.\nLearn Closeread (Gaston Sanchez): eine Anleitung zum Selbstlernen, falls Sie es ausprobieren möchten.",
+    "crumbs": [
+      "Teil 0 — Vorbereitung zu Hause",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Best-Practice Beispiele für visuelle Erklärungen</span>"
+    ]
+  },
+  {
+    "objectID": "parts/best-practice.html#animation-schritt-für-schritt-herleiten",
+    "href": "parts/best-practice.html#animation-schritt-für-schritt-herleiten",
+    "title": "Best-Practice Beispiele für visuelle Erklärungen",
+    "section": "6. Animation: Schritt für Schritt herleiten",
+    "text": "6. Animation: Schritt für Schritt herleiten\n3Blue1Brown (Grant Sanderson) ist eine Reihe von Mathematik-Videos zu linearer Algebra, Analysis und neuronalen Netzen. Formeln und Kurven entstehen darin vor den Augen der Zuschauer. Die Videos zeigen, wie viel eine gut getaktete Animation erklären kann: Jeder neue Schritt erscheint genau dann, wenn der Sprecher ihn braucht.\nManim ist das Werkzeug hinter diesen Videos, eine Python-Bibliothek, die mathematische Animationen Bild für Bild zeichnet. Mit Manim Slides wird daraus eine Präsentation im Browser, die man Klick für Klick weiterschaltet. So kann man in der Vorlesung bei jeder Umformung anhalten. Python müssen Sie dafür nicht lernen. Die KI schreibt den Code, Sie prüfen die Mathematik.\nRemotion erzeugt Erklärvideos als Programmcode und arbeitet gut mit KI-Agenten zusammen. Vor dem Einsatz an einer Hochschule sollten Sie die Lizenz prüfen, denn die kostenlose Nutzung gilt nur für Einzelpersonen, kleine Firmen und gemeinnützige Organisationen.",
+    "crumbs": [
+      "Teil 0 — Vorbereitung zu Hause",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Best-Practice Beispiele für visuelle Erklärungen</span>"
+    ]
+  },
+  {
+    "objectID": "parts/best-practice.html#die-ki-baut-die-visualisierung-selbst",
+    "href": "parts/best-practice.html#die-ki-baut-die-visualisierung-selbst",
+    "title": "Best-Practice Beispiele für visuelle Erklärungen",
+    "section": "7. Die KI baut die Visualisierung selbst",
+    "text": "7. Die KI baut die Visualisierung selbst\nSeit 2026 erzeugen die großen Chatbots auf Zuruf eigene interaktive Grafiken. Für Ihr Skript sind sie ein schneller Entwurf. Was dabei entsteht, lässt sich oft als HTML-Datei übernehmen und dann im Skript verfeinern.\n\nClaude: Visualisierungen im Chat (März 2026): Diagramme und Grafiken direkt in der Antwort, zum Beispiel eine Zinseszins-Kurve zum Verschieben. Die Funktion ist auf allen Tarifen aktiv.\nChatGPT: dynamische visuelle Erklärungen (März 2026): über 70 Konzepte aus Mathematik und Naturwissenschaften als interaktives Modul, vom Satz des Pythagoras bis zum ohmschen Gesetz. Eine gute Probe aufs Exempel: Wie weit kommt man damit in zehn Sekunden, und was fehlt dann noch?\nGemini: interaktive Simulationen und 3D-Modelle (April 2026): etwa ein Doppelpendel oder die Mondbahn mit Reglern für Geschwindigkeit und Schwerkraft. Zum Start war die Funktion für Education- und Workspace-Konten nicht freigeschaltet. Prüfen Sie das bei einem Hochschulkonto.\nGoogle Learn Your Way: ein Forschungsprojekt, das Lehrbuchtexte mit KI in Quiz, Mindmap und Audio-Lektion umbaut. In einer kleinen randomisierten Studie mit 60 Jugendlichen lag das Behalten nach drei bis fünf Tagen bei 78 % gegenüber 67 % mit einem gewöhnlichen PDF-Leser.\nSimon Willison: Useful patterns for building HTML tools: wie man sich von der KI kleine Werkzeuge bauen lässt, jedes eine einzelne HTML-Datei. Seine Sammlung zeigt viele Beispiele dafür. Der Text taugt als Vorlage für eigene Prompts.",
+    "crumbs": [
+      "Teil 0 — Vorbereitung zu Hause",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Best-Practice Beispiele für visuelle Erklärungen</span>"
+    ]
+  },
+  {
+    "objectID": "parts/best-practice.html#werkzeuge-zum-selberbauen",
+    "href": "parts/best-practice.html#werkzeuge-zum-selberbauen",
+    "title": "Best-Practice Beispiele für visuelle Erklärungen",
+    "section": "8. Werkzeuge zum Selberbauen",
+    "text": "8. Werkzeuge zum Selberbauen\nquarto-live lässt R oder Python im Browser der Lernenden laufen, wie einen Taschenrechner, der ins Skript eingebaut ist. Dazu gehören Übungen mit Tipps, Musterlösung und automatischer Prüfung. Das Ganze braucht keinen Server und läuft auch auf GitHub Pages. Das Paket learnr2 erleichtert den Einstieg aus RStudio heraus.\nWebWriter (RWTH Aachen) ist ein Autorenwerkzeug für interaktive Arbeitsblätter, das ohne Programmierung auskommt (Salmen et al., 2023). Es ist eine Alternative für alle, denen Quarto zu technisch ist.",
+    "crumbs": [
+      "Teil 0 — Vorbereitung zu Hause",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Best-Practice Beispiele für visuelle Erklärungen</span>"
+    ]
+  },
+  {
+    "objectID": "parts/best-practice.html#quellen",
+    "href": "parts/best-practice.html#quellen",
+    "title": "Best-Practice Beispiele für visuelle Erklärungen",
+    "section": "Quellen",
+    "text": "Quellen\n\n\nCho, A., Kim, G. C., Karpekov, A., Helbling, A., Wang, Z. J., Lee, S., Hoover, B., & Chau, D. H. (2025). Transformer Explainer: Interactive Learning of Text-Generative Models. Proceedings of the AAAI Conference on Artificial Intelligence, 39, 29625–29627. https://doi.org/10.1609/aaai.v39i28.35347\n\n\nDobson, G., & Shumsky, R. A. (2006). Web-Based Simulations for Teaching Queueing, Little’s Law, and Inventory Management. INFORMS Transactions on Education, 7(1), 106–124. https://doi.org/10.1287/ited.7.1.106\n\n\nFiorella, L., & Mayer, R. E. (2016). Eight Ways to Promote Generative Learning. Educational Psychology Review, 28(4), 717–741. https://doi.org/10.1007/s10648-015-9348-9\n\n\nGoh, G. (2017). Why Momentum Really Works. Distill, 2(4), e6. https://doi.org/10.23915/distill.00006\n\n\nSalmen, F., Roepke, R., & Schroeder, U. (2023). WebWriter: A System to Author and Remix Explorables – Requirements & First Prototype. Proceedings of DELFI Workshops 2023, 39–48. https://doi.org/10.18420/wsdelfi2023-13\n\n\nWieman, C. E., Adams, W. K., & Perkins, K. K. (2008). PhET: Simulations That Enhance Learning. Science, 322(5902), 682–683. https://doi.org/10.1126/science.1161948",
+    "crumbs": [
+      "Teil 0 — Vorbereitung zu Hause",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Best-Practice Beispiele für visuelle Erklärungen</span>"
+    ]
+  },
+  {
     "objectID": "appendix/troubleshooting.html",
     "href": "appendix/troubleshooting.html",
     "title": "Trouble-Shooting",
@@ -265,7 +375,7 @@
     "text": "1. YAML-Fehler beim Rendern\nJeder Punkt: Symptom → Ursache → Lösung. Wenn nichts hilft: Tutor fragen mit dem Prompt am Ende.\nSymptom: Error: Failed to load YAML metadata. Ursache: Einrückung mit Tabs statt Leerzeichen, oder fehlender Doppelpunkt. Lösung: YAML-Block prüfen, immer zwei Leerzeichen einrücken, keine Tabs. Online-Validator: https://www.yamllint.com.",
     "crumbs": [
       "Anhang",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Trouble-Shooting</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Trouble-Shooting</span>"
     ]
   },
   {
@@ -276,7 +386,7 @@
     "text": "2. GitHub Pages zeigt 404\nSymptom: Ihr Skript ist online, aber die URL liefert „404 — File not found”. Ursache: output-dir: docs fehlt in _quarto.yml, oder der Pages-Branch ist falsch eingestellt. Lösung: In _quarto.yml output-dir: docs setzen, render, push. In Settings → Pages: Branch main, Folder /docs.",
     "crumbs": [
       "Anhang",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Trouble-Shooting</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Trouble-Shooting</span>"
     ]
   },
   {
@@ -287,7 +397,7 @@
     "text": "3. docs/ wird nicht committet\nSymptom: Nach Push fehlt der docs/-Ordner auf GitHub. Ursache: .gitignore schließt /docs/ aus. Lösung: Zeile /docs/ aus .gitignore entfernen, dann commit und push.",
     "crumbs": [
       "Anhang",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Trouble-Shooting</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Trouble-Shooting</span>"
     ]
   },
   {
@@ -298,7 +408,7 @@
     "text": "4. Zotero-Zitat erscheint als [?]\nSymptom: Zitate werden mit Fragezeichen statt Autor und Jahr gerendert. Ursache: Citation Key in der .bib-Datei stimmt nicht mit dem Key im Text überein. Lösung: references.bib öffnen, Schlüssel nachsehen, im Text exakt so verwenden. Better BibTeX in Zotero exportiert stabile Keys (z. B. mayer2021).",
     "crumbs": [
       "Anhang",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Trouble-Shooting</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Trouble-Shooting</span>"
     ]
   },
   {
@@ -309,7 +419,7 @@
     "text": "5. iFrame ist leer\nSymptom: Der iFrame-Bereich ist sichtbar, aber leer oder zeigt eine Fehlermeldung. Ursache: Die externe Seite verbietet Einbettung (HTTP-Header X-Frame-Options). Lösung: Statt iFrame einen normalen Markdown-Link verwenden, oder eine andere Quelle wählen.",
     "crumbs": [
       "Anhang",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Trouble-Shooting</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Trouble-Shooting</span>"
     ]
   },
   {
@@ -320,7 +430,7 @@
     "text": "6. CSV lässt sich nicht laden\nSymptom: read_csv() wirft CORS error oder Forbidden. Ursache: Der Server der Datenquelle erlaubt keinen Cross-Origin-Zugriff aus dem Browser. Lösung: Datei lokal in data/ speichern und von dort laden.",
     "crumbs": [
       "Anhang",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Trouble-Shooting</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Trouble-Shooting</span>"
     ]
   },
   {
@@ -331,7 +441,7 @@
     "text": "7. R-Paket fehlt\nSymptom: Error in library(plotly): there is no package called 'plotly'. Ursache: Paket nicht installiert. Lösung: In der R-Konsole install.packages(\"plotly\"). Bei mehreren: install.packages(c(\"plotly\", \"dplyr\", \"readr\")).",
     "crumbs": [
       "Anhang",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Trouble-Shooting</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Trouble-Shooting</span>"
     ]
   },
   {
@@ -342,7 +452,7 @@
     "text": "8. Quarto-Version zu alt\nSymptom: Neue Features (z. B. _brand.yml) funktionieren nicht. Ursache: Lokale Quarto-Installation ist älter als 1.5. Lösung: quarto --version prüfen, von https://quarto.org/docs/get-started/ aktualisieren.",
     "crumbs": [
       "Anhang",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Trouble-Shooting</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Trouble-Shooting</span>"
     ]
   },
   {
@@ -353,7 +463,7 @@
     "text": "9. GitHub Desktop fragt immer nach Anmeldung\nSymptom: Bei jedem Push wird das Passwort erneut verlangt. Ursache: Personal Access Token läuft ab oder Kontostatus inkonsistent. Lösung: In GitHub Desktop File → Options → Accounts → Sign Out, dann neu anmelden via Browser.",
     "crumbs": [
       "Anhang",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Trouble-Shooting</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Trouble-Shooting</span>"
     ]
   },
   {
@@ -364,7 +474,7 @@
     "text": "10. Logo wird nicht angezeigt\nSymptom: Im gerenderten Skript erscheint kein Logo. Ursache: Pfad in _brand.yml stimmt nicht, oder Datei fehlt im images/-Ordner. Lösung: Pfad relativ zur Projektwurzel (images/logo.png), Datei dort tatsächlich ablegen.",
     "crumbs": [
       "Anhang",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Trouble-Shooting</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Trouble-Shooting</span>"
     ]
   },
   {
@@ -375,7 +485,7 @@
     "text": "Wenn nichts hilft — Tutor fragen\n\n\n\n\n\n\nTippTutor öffnen\n\n\n\nTutor „Interaktive Skripte” →\nVorschlag-Prompt:\n\nIch versuche, ein Quarto-Skript zu rendern. Folgender Fehler tritt auf:\n[Fehlermeldung kopieren]\nMein Setup: [Betriebssystem], Quarto-Version [X.X.X], R-Version [X.X.X], RStudio-Version [X.X.X]. Ich habe schon versucht: […].\nSchreiben Sie mir die wahrscheinlichste Ursache in einem Satz, dann den nächsten Schritt zum Beheben. Wenn Sie mehr wissen müssen, fragen Sie nach.",
     "crumbs": [
       "Anhang",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Trouble-Shooting</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Trouble-Shooting</span>"
     ]
   }
 ]
