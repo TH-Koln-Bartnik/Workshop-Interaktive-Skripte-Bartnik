@@ -90,7 +90,7 @@ Was mit KI-Unterstützung möglich wird: Begriffsspiel, Prozesslinie, Fall-Tease
 ::: benchmark-card
 ### Best-Practice Beispiele
 
-Simulationen, Animationen und interaktive Essays anderer Autorinnen und Autoren, von PhET über 3Blue1Brown bis zu Chatbots, die selbst Grafiken bauen.
+Simulationen, Animationen und interaktive Essays anderer Autorinnen und Autoren, von PhET über ein Quanten-Lernspiel und 3Blue1Brown bis zu Chatbots, die selbst Grafiken bauen.
 
 [Zu den Beispielen →](parts/best-practice.qmd)
 :::

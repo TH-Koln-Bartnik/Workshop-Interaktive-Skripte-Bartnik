@@ -45,6 +45,8 @@ Schauen Sie sich vor dem Workshop zwei oder drei Beispiele an, die zu Ihrem Fach
 
 **[How the Internet Works](https://tkjaer.github.io/how-the-internet-works/){target="_blank"}** begleitet ein Datenpaket auf seinem Weg durchs Netz, von der Adresse bis zur Antwort des Servers. Die Seite passt zu jeder Einführung in Informatik und erklärt nebenbei, was beim Veröffentlichen eines Skripts auf GitHub Pages technisch passiert.
 
+**[The Last Lab Assistant](https://pcerf.github.io/edu_games/games/last-lab-assistant/){target="_blank"}** ist ein Lernspiel zur Quanteninformatik für Hochschulkurse, auf Deutsch und Englisch spielbar. Ein Lichtblitz im Keller, ein leeres Labor, ein Roboter namens M0 und ein Funkgerät, das noch funktioniert: Aus dieser Ausgangslage führt das Spiel in Episoden vom einzelnen Qubit bis zu Dichtematrizen und Quantenschaltkreisen. Das Beispiel zeigt, wie eine Rahmengeschichte selbst sehr abstrakten Stoff trägt, weil Figur und Konflikt die Aufmerksamkeit binden [@willingham2009]. Der Spielstand lässt sich speichern, sodass man über mehrere Sitzungen spielen kann. Autorschaft und Lizenz nennt die Seite nicht. Fragen Sie deshalb vor dem Einbetten nach und verlinken Sie das Spiel bis dahin nur.
+
 ## 3. Sprachmodelle von innen sehen
 
 **[Transformer Explainer](https://poloclub.github.io/transformer-explainer/){target="_blank"}** lässt ein kleines Sprachmodell (GPT-2) direkt im Browser laufen [@cho2025transformer]. Man gibt einen Satz ein und verfolgt, wie daraus Wahrscheinlichkeiten für das nächste Wort werden. Ein Regler für die „Temperatur“ zeigt, warum dieselbe Frage verschiedene Antworten bekommt. Für Mathematik ist das ein unerwartet guter Anwendungsfall von Matrizenrechnung und Wahrscheinlichkeit.
