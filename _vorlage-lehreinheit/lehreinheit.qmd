@@ -1,0 +1,142 @@
+---
+title: "Lernen mit Tests"
+---
+
+::: ersetzen
+**ERSETZEN:** Titel oben (Zeile 2) und die Szene darunter. Die Szene erzählt in vier bis fünf Sätzen eine typische Situation aus Ihrem Fach, an der das Thema der Einheit hängt. Gelbe Kästen wie dieser löschen Sie, sobald der Block erledigt ist.
+:::
+
+Dr. Lea Sommer hat ihr Skript zur Kostenrechnung dreimal überarbeitet, damit es noch klarer wird. In der Klausur scheitern trotzdem viele an Aufgaben, die im Skript Schritt für Schritt erklärt sind. Ihre Studierenden sagen, sie hätten alles gelesen, manche sogar zweimal. Sommer fragt sich, ob ein klarerer Text überhaupt das Problem löst oder ob die Studierenden mit dem Skript etwas anderes *tun* müssten.
+
+::: {.callout-note .ez-block title="Bevor Sie weiterlesen: Wie sehen Sie das?"}
+*Wie sehr stimmen Sie den drei Aussagen zu? Jede Aussage wird an der Stelle aufgelöst, die sie beantwortet. Wer sich vorher festlegt, liest gezielter.*
+
+::: ersetzen
+**ERSETZEN:** drei Aussagen zu typischen Fehlvorstellungen in Ihrem Thema. Die Kennung (`#ez-1`) und den Link (`#sec-abschnitt-1`) lassen Sie stehen.
+:::
+
+::: {.einschaetzung #ez-1}
+Wer einen Text zweimal liest, behält ihn nach einer Woche besser als jemand, der ihn einmal liest und dann aus dem Gedächtnis zusammenfasst.
+
+[Auflösung im ersten Abschnitt](#sec-abschnitt-1){.ez-verweis}
+:::
+
+::: {.einschaetzung #ez-2}
+Fragen zu stellen, bevor der Stoff erklärt wurde, ist Zeitverschwendung, weil die Lernenden die Antworten noch nicht wissen können.
+
+[Auflösung im zweiten Abschnitt](#sec-abschnitt-2){.ez-verweis}
+:::
+
+::: {.einschaetzung #ez-3}
+Bei Online-Übungen genügt es, anzuzeigen, ob eine Antwort richtig oder falsch war.
+
+[Auflösung im dritten Abschnitt](#sec-abschnitt-3){.ez-verweis}
+:::
+:::
+
+::: {.callout-note .lernziele title="Lernziele: Nach dieser Einheit können Sie …"}
+::: ersetzen
+**ERSETZEN:** drei Lernziele, jedes mit einem beobachtbaren Verb (erklären, berechnen, unterscheiden, beurteilen …).
+:::
+
+1. erklären, warum Abrufen besser wirkt als Wiederlesen;
+2. begründen, wozu ein Vorab-Check vor dem Stoff dient;
+3. Rückmeldungen in digitalen Übungen so formulieren, dass sie Lernen unterstützen.
+:::
+
+## Abrufen schlägt Wiederlesen {#sec-abschnitt-1}
+
+::: ersetzen
+**ERSETZEN:** Text des ersten Abschnitts. Ein Verweis auf die Abbildung steht schon im Text (`@fig-abb-01`). Tauschen Sie das Bild aus, indem Sie Ihre Datei unter demselben Namen `images/abb-01.png` speichern; dann bleibt der Verweis gültig.
+:::
+
+Roediger und Karpicke ließen Studierende kurze Sachtexte lernen. Die eine Gruppe las den Text mehrmals, die andere las ihn einmal und schrieb dann aus dem Gedächtnis auf, was sie behalten hatte. Fünf Minuten später lag die Lesegruppe vorn, eine Woche später die Abrufgruppe, obwohl die Lesenden sich ihrer Sache sicherer waren [@roediger2006]. @fig-abb-01 zeigt das Muster.
+
+![Wiederlesen hilft kurzfristig, Abrufen hilft langfristig. Platzhalter: eigene Grafik als `images/abb-01.png` speichern.](images/abb-01.png){#fig-abb-01 width="85%"}
+
+::: {.callout-tip title="Lernspiel: Begriffe und Definitionen"}
+Finden Sie die Paare. Jedes gefundene Paar zeigt die Definition noch einmal ganz.
+
+<iframe class="lernspiel" src="interactions/spiel-01.html" height="560" loading="lazy" title="Memory: Begriffe und Definitionen"></iframe>
+:::
+
+::: {.callout-tip .ez-pruefen title="Ihre Einschätzung prüfen"}
+*„Wer einen Text zweimal liest, behält ihn nach einer Woche besser als jemand, der ihn einmal liest und dann aus dem Gedächtnis zusammenfasst.“* []{.ez-ihre data-ez="ez-1"}
+
+**Auflösung: nein.** Nach einer Woche liegt die Gruppe vorn, die abgerufen hat. Das Wiederlesen erzeugt ein Gefühl von Vertrautheit, das mit Können verwechselt wird.
+:::
+
+## Fragen vor dem Stoff {#sec-abschnitt-2}
+
+::: ersetzen
+**ERSETZEN:** Text des zweiten Abschnitts, Abbildung `images/abb-02.png`, Lernspiel `interactions/spiel-02.html`.
+:::
+
+Ein Vorab-Check wirkt, auch wenn die Antworten falsch sind. In den Versuchen von Richland, Kornell und Kao behielten Lernende Inhalte besser, zu denen sie vorher eine Frage beantworten mussten, und zwar gerade auch bei den Fragen, die sie im Vortest nicht lösen konnten [@richland2009]. Die Frage lenkt die Aufmerksamkeit beim Lesen auf die Stelle, die sie beantwortet. Wie viel die Lernenden dabei selbst tun, ordnet das ICAP-Modell in vier Stufen [@chi2014], die @fig-abb-02 zeigt.
+
+![Vier Stufen der Aktivität nach dem ICAP-Modell. Platzhalter: eigene Grafik als `images/abb-02.png` speichern.](images/abb-02.png){#fig-abb-02 width="85%"}
+
+::: {.callout-tip title="Lernspiel: Wie aktiv ist diese Lernaktivität?"}
+<iframe class="lernspiel" src="interactions/spiel-02.html" height="620" loading="lazy" title="Zuordnen: Stufen des ICAP-Modells"></iframe>
+:::
+
+::: {.callout-tip .ez-pruefen title="Ihre Einschätzung prüfen"}
+*„Fragen zu stellen, bevor der Stoff erklärt wurde, ist Zeitverschwendung, weil die Lernenden die Antworten noch nicht wissen können.“* []{.ez-ihre data-ez="ez-2"}
+
+**Auflösung: nein.** Schon der Versuch, zu antworten, bereitet das Lernen vor. Wichtig ist nur, dass der Vorab-Check nicht benotet wird.
+:::
+
+## Rückmeldung, die erklärt {#sec-abschnitt-3}
+
+::: ersetzen
+**ERSETZEN:** Text des dritten Abschnitts, Abbildung `images/abb-03.png`, Lern-Check `interactions/spiel-03.html`.
+:::
+
+Van der Kleij, Feskens und Eggen haben 40 Studien zu Rückmeldungen in computergestützten Übungen ausgewertet. Eine Rückmeldung, die erklärt, warum eine Antwort stimmt, wirkte deutlich stärker als die bloße Angabe „richtig“ oder „falsch“, die fast nichts bewirkte [@vanderkleij2015]. @fig-abb-03 stellt die drei Formen nebeneinander. Bunte Zutaten ohne Bezug zum Stoff, etwa Animationen nur zur Dekoration, lenken dagegen ab und senken das Behalten [@rey2012].
+
+![Drei Formen der Rückmeldung im Vergleich. Platzhalter: eigene Grafik als `images/abb-03.png` speichern.](images/abb-03.png){#fig-abb-03 width="85%"}
+
+::: {.callout-tip .ez-pruefen title="Ihre Einschätzung prüfen"}
+*„Bei Online-Übungen genügt es, anzuzeigen, ob eine Antwort richtig oder falsch war.“* []{.ez-ihre data-ez="ez-3"}
+
+**Auflösung: nein.** Die bloße Angabe „richtig/falsch“ bringt kaum etwas. Erst die Erklärung macht aus der Übung eine Lerngelegenheit.
+:::
+
+## Lern-Check {#sec-lerncheck}
+
+::: {.callout-tip title="Lern-Check: Was ist hängen geblieben?"}
+<iframe class="lernspiel" src="interactions/spiel-03.html" height="720" loading="lazy" title="Lern-Check mit erklärender Rückmeldung"></iframe>
+:::
+
+::: {.callout-tip title="Kernaussagen"}
+::: ersetzen
+**ERSETZEN:** eine Kernaussage pro Lernziel, je ein bis zwei Sätze.
+:::
+
+1. Abrufen wirkt langfristig stärker als Wiederlesen, auch wenn es sich unsicherer anfühlt.
+2. Ein unbenoteter Vorab-Check bereitet das Lernen vor, selbst wenn die Antworten falsch sind.
+3. Rückmeldungen sollen erklären, warum eine Antwort stimmt oder nicht.
+:::
+
+::: {.callout-note title="Lernfragen"}
+::: ersetzen
+**ERSETZEN:** je eine bis drei Fragen pro Stufe.
+:::
+
+**Wiederholen**
+
+1. Was haben Roediger und Karpicke nach fünf Minuten und nach einer Woche gemessen?
+
+**Anwenden**
+
+2. Formulieren Sie für eine Ihrer Lehrveranstaltungen drei Aussagen für einen Vorab-Check.
+
+**Beurteilen**
+
+3. Ein Kollege möchte jede Übung mit einer Animation aufwerten. Wann lohnt das, wann schadet es?
+:::
+
+## Quellen {.unnumbered}
+
+::: {#refs}
+:::

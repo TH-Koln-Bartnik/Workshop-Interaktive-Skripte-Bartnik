@@ -1,0 +1,68 @@
+---
+title: "Block 5 — Feinschliff im Fließtext"
+subtitle: "90 Minuten · eigene Texte, eigene Bilder, echte Quellen, kritische Erstleserin"
+---
+
+::: {.lernziel-box}
+#### Was Sie nach diesem Block können
+
+- die Abschnittstexte der Vorlage durch eigene ersetzen und dabei Verweise auf Abbildungen setzen;
+- Bilder austauschen, ohne Verweise zu beschädigen;
+- Quellen aus Zotero zitieren und eine KI als kritische Erstleserin einsetzen.
+:::
+
+## Worum es im Kern geht
+
+Bis hierhin hat die KI viel gebaut. Jetzt wird die Einheit zu *Ihrer*: Sie schreiben die Abschnittstexte, tauschen die Platzhalterbilder aus und belegen jede Behauptung mit einer Quelle. Das ist die Arbeit, die sich nicht delegieren lässt, weil nur Sie wissen, was Ihre Studierenden an dieser Stelle brauchen. Planen Sie drei Runden zu je etwa 25 Minuten, eine pro Abschnitt, und am Ende 15 Minuten für die kritische Lektüre.
+
+## Texte schreiben
+
+Ersetzen Sie in `lehreinheit.qmd` den Beispieltext jedes Abschnitts. Die Überschrift samt Kennung (`{#sec-abschnitt-1}`) bleibt stehen; sie ist das Ziel des Links aus dem Vorab-Check. Wer aus vorhandenem Material schreibt, kann die KI um einen Rohentwurf bitten, etwa: „Schreiben Sie aus meinen Folien in `material/` einen Abschnittstext von 150 Wörtern, sachlich, in ganzen Sätzen, ohne Aufzählungen.“ Den Entwurf überarbeiten Sie dann selbst.
+
+Die häufigsten Schreibweisen in Quarto stehen in @tbl-syntax.
+
+| Sie schreiben | Es erscheint |
+|---|---|
+| `**wichtig**` | **wichtig** |
+| `*Fachbegriff*` | *Fachbegriff* |
+| `@fig-abb-01 zeigt …` | „Abbildung 1.1 zeigt …“ mit Vorschau beim Darüberfahren |
+| `[@roediger2006]` | „(Roediger & Karpicke, 2006)“, Eintrag in der Literaturliste |
+| `@roediger2006 zeigen …` | „Roediger und Karpicke (2006) zeigen …“ |
+| Leerzeile | neuer Absatz |
+
+: Die sechs Schreibweisen, die Sie heute brauchen. {#tbl-syntax}
+
+## Bilder tauschen
+
+Die einfachste Regel: **gleicher Name, neues Bild.** Speichern Sie Ihre Grafik als `images/abb-01.png` und überschreiben Sie damit den Platzhalter. Der Verweis `@fig-abb-01` im Text und die Bildunterschrift bleiben gültig; Sie passen nur die Unterschrift an. Querformat passt am besten, etwa 1600 × 900 Pixel.
+
+Ist Ihr Bild ein JPG, ändern Sie in der Bildzeile nur die Endung (`images/abb-01.jpg`). Brauchen Sie ein viertes Bild, kopieren Sie eine Bildzeile und vergeben einen neuen Namen und eine neue Kennung, etwa `{#fig-abb-04}`. Wie Tabellen, Bildgrößen und Verweise im Detail funktionieren, zeigt [Kapitel 3](03b-bilder-tabellen.qmd) im Werkzeugkasten.
+
+::: {.callout-note appearance="minimal"}
+Bildrechte: Eigene Fotos und Grafiken sind unproblematisch. Bei fremden Bildern brauchen Sie eine freie Lizenz und eine Quellenangabe in der Bildunterschrift. KI-erzeugte Bilder kennzeichnen Sie mit „Erstellt mit [Werkzeug]“.
+:::
+
+## Quellen aus Zotero
+
+1. In Zotero Ihre Sammlung rechtsklicken → *Sammlung exportieren…* → Format *Better BibTeX* → als `references.bib` in den Ordner der Vorlage speichern und die Beispieldatei überschreiben.
+2. Den Zitierschlüssel eines Eintrags finden Sie in Zotero in der Spalte *Citation Key* oder oben im Eintrag.
+3. Im Text `[@schluessel]` schreiben, speichern, Vorschau prüfen.
+
+Wer lieber klickt: In RStudio oben links auf *Visual* umschalten, dann *Insert → Citation*; dort lässt sich direkt in der Zotero-Bibliothek suchen. Alles Weitere zu Zotero steht in [Kapitel 4](03a-uebersicht.qmd).
+
+Jede Stelle, an der die KI in Block 4 `[QUELLE?]` geschrieben hat, bekommt jetzt eine echte Quelle oder wird gestrichen.
+
+## Die KI als kritische Erstleserin (15 min)
+
+Zum Schluss liest eine KI Ihre Einheit so, wie es eine Studentin täte, die das Thema noch nicht kennt. Der [Reviewer-Prompt](../appendix/reviewer-prompt.qmd) im Anhang lässt sie Stolperstellen markieren statt reparieren. Fügen Sie den Inhalt von `lehreinheit.qmd` unten an den Prompt an, oder lassen Sie den Agenten die Datei direkt lesen. Entscheiden Sie dann selbst, welche Hinweise Sie übernehmen.
+
+Zum Abschluss ersetzen Sie den Transparenzhinweis auf der Startseite (`index.qmd`) durch einen Satz darüber, wofür Sie KI genutzt haben.
+
+## Was, wenn …
+
+::: {.callout-warning}
+## Was, wenn …
+- **im Text `?@fig-abb-01` steht?** → Die Kennung am Bild fehlt oder ist falsch geschrieben. Bildzeile prüfen: `{#fig-abb-01}`.
+- **statt eines Zitats `?roediger2006` erscheint?** → Der Schlüssel steht nicht in `references.bib`. Groß- und Kleinschreibung prüfen, Export wiederholen.
+- **das neue Bild nicht erscheint, obwohl es gespeichert ist?** → Der Browser zeigt noch das alte aus seinem Zwischenspeicher. **Strg+Umschalt+R** lädt neu.
+:::

@@ -1,0 +1,23 @@
+/*-- scss:defaults --*/
+// Farben Ihrer Hochschule hier eintragen (siehe Workshop-Skript, Kapitel 5).
+$primary: #1f5f8b !default;
+$link-color: $primary !default;
+
+/*-- scss:rules --*/
+// Lernspiele: dezenter Rahmen, volle Breite
+iframe.lernspiel {
+  width: 100%;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  min-height: 320px;
+  display: block;
+}
+
+// Platzhalter-Hinweise aus der Vorlage sichtbar machen, solange sie noch da sind
+.ersetzen {
+  background: #fff4d6;
+  border-left: 4px solid #e0a400;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9em;
+  margin: 0.6rem 0;
+}

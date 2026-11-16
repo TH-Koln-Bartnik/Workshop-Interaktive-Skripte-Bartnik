@@ -1,0 +1,23 @@
+# Willkommen {.unnumbered}
+
+::: ersetzen
+**ERSETZEN:** zwei bis drei Sätze, worum es in Ihrem Skript geht und für wen es gedacht ist.
+:::
+
+Dieses Skript enthält eine Lehreinheit, in der Sie nicht nur lesen, sondern an mehreren Stellen etwas tun: vorab einschätzen, zuordnen, abrufen. Die Einheit beginnt mit einem kurzen Vorab-Check und endet mit einem Lern-Check.
+
+## So arbeiten Sie mit diesem Skript
+
+::: ersetzen
+**ERSETZEN:** Hinweise für Ihre Lernenden, zum Beispiel wie lange die Einheit dauert und ob sie zu einer Präsenzsitzung gehört.
+:::
+
+Planen Sie für die Einheit etwa 30 Minuten ein. Ihre Antworten im Vorab-Check speichert nur Ihr eigener Browser; niemand sonst sieht sie.
+
+## Transparenzhinweis
+
+::: ersetzen
+**ERSETZEN:** Wofür haben Sie KI genutzt? Ein Satz genügt.
+:::
+
+Bei der Erstellung dieses Skripts wurde KI genutzt, um Lernspiele zu programmieren und Entwürfe für Fragen vorzuschlagen. Alle Inhalte wurden von der Autorin oder dem Autor geprüft und verantwortet.

@@ -1,0 +1,7 @@
+/.quarto/
+/docs/
+*_files/
+.Rproj.user/
+.DS_Store
+# Rohmaterial bleibt auf Ihrem Rechner und wird nicht zu GitHub hochgeladen:
+/material/

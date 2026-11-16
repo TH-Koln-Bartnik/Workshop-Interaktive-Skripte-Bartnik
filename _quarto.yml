@@ -5,13 +5,33 @@ project:
   # hier UND unten unter book: chapters: ein. Die Fassungen vom Mai und vom
   # Online-Auftakt (28.10.2026) liegen unter _archiv/ bzw. in der Git-Historie.
   render:
-    # Vorübergehend nur Teil 0 sichtbar (Einführung 09.11.2026). Die volle
-    # Kapitelliste steht im Branch ki-first-umbau bzw. in der Git-Historie.
     - index.qmd
     - parts/00-vorbereitung.qmd
     - parts/galerie.qmd
     - parts/best-practice.qmd
+    - parts/w1-erstes-spiel.qmd
+    - parts/w2-interaktionstypen.qmd
+    - parts/w3-interaktionen.qmd
+    - parts/w4-lehreinheit.qmd
+    - parts/w5-feinschliff.qmd
+    - parts/w6-rundgang.qmd
+    - parts/01-didaktik.qmd
+    - parts/02-setup.qmd
+    - parts/03b-bilder-tabellen.qmd
+    - parts/03a-uebersicht.qmd
+    - parts/03c-style.qmd
+    - parts/04-charts.qmd
+    - parts/05-iframes-tutor.qmd
+    - parts/07-widgets-colab.qmd
+    - parts/08-github-pages.qmd
+    - parts/06-slides-optional.qmd
+    - parts/11-kurs-mit-agent.qmd
+    - parts/12-oeffentlich-intern.qmd
+    - parts/13-lms-einbinden.qmd
     - appendix/troubleshooting.qmd
+    - appendix/tutor-prompt.qmd
+    - appendix/reviewer-prompt.qmd
+    - literatur.qmd
   resources:
     - "interactions/*"
     - "images/*"
@@ -42,9 +62,39 @@ book:
         - parts/00-vorbereitung.qmd
         - parts/galerie.qmd
         - parts/best-practice.qmd
-    - part: "Anhang"
+    - part: "Workshop — KI-first in sechs Blöcken"
+      chapters:
+        - parts/w1-erstes-spiel.qmd
+        - parts/w2-interaktionstypen.qmd
+        - parts/w3-interaktionen.qmd
+        - parts/w4-lehreinheit.qmd
+        - parts/w5-feinschliff.qmd
+        - parts/w6-rundgang.qmd
+    - part: "Werkzeugkasten — zum Nachschlagen"
+      chapters:
+        - parts/01-didaktik.qmd
+        - parts/02-setup.qmd
+        - parts/03b-bilder-tabellen.qmd
+        - parts/03a-uebersicht.qmd
+        - parts/03c-style.qmd
+        - parts/04-charts.qmd
+        - parts/05-iframes-tutor.qmd
+        - parts/07-widgets-colab.qmd
+        - parts/08-github-pages.qmd
+        - parts/06-slides-optional.qmd
+    - part: "Kür — nach dem Workshop"
+      chapters:
+        - parts/11-kurs-mit-agent.qmd
+        - parts/12-oeffentlich-intern.qmd
+        - parts/13-lms-einbinden.qmd
+    - part: "Anhänge"
       chapters:
         - appendix/troubleshooting.qmd
+        - appendix/tutor-prompt.qmd
+        - appendix/reviewer-prompt.qmd
+        # - appendix/netlify.qmd   # TODO: neuer Anhang „Netlify als zweiter Weg ins Netz“
+        #                          # (Entwurf: _archiv/netlify-anhang-entwurf.qmd)
+        - literatur.qmd
   page-footer:
     left: "© 2026 Roman Bartnik · CC BY-SA 4.0"
     right: "Erstellt mit [Quarto](https://quarto.org)"

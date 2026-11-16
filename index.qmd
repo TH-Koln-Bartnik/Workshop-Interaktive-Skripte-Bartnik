@@ -43,16 +43,16 @@ Der Workshop beginnt mit einem Lernspiel, das nach 45 Minuten in Ihrer eigenen L
 | Teil | Dauer | Inhalt | Kapitel |
 |------------------|------------------|------------------------------|------------|
 | **Teil 0 — Vorbereitung zu Hause** | ca. 2–3 h, vor dem Workshop | Werkzeuge installieren, Starter-Vorlage einmal rendern (Selbsttest), Rohmaterial sammeln | [0](parts/00-vorbereitung.qmd), [Galerie](parts/galerie.qmd), [Best Practice](parts/best-practice.qmd) |
-| **Block 1 — Das erste Spiel** | 45 min | Vorlage öffnen, Grundbegriffe per Multiple Choice sammeln, Memory bauen lassen und einbauen | im Workshop |
-| **Block 2 — Was wirkt?** | 20 min | Fünf Prinzipien und eine Palette von Interaktionstypen; KI schlägt passende Interaktionen vor | im Workshop |
-| **Block 3 — Zwei Interaktionen** | 45 min | Konzeptkarte, zwei weitere Spiele bauen lassen, wie eine Studentin testen | im Workshop |
-| **Block 4 — Die Einheit rahmen** | 45 min | Szene, Vorab-Check, Lernziele, Kernaussagen und Lernfragen per KI | im Workshop |
-| **Block 5 — Feinschliff** | 90 min | eigene Texte, Bilder tauschen, Zotero-Quellen, KI als kritische Erstleserin | im Workshop |
-| **Block 6 — Rundgang** | 30–45 min | Einheiten gegenseitig testen, optional veröffentlichen | im Workshop |
-| **Werkzeugkasten** | zum Nachschlagen | Grundlagen und Vertiefungen: Setup, Bilder, Zotero, Hochschulstil, Diagramme, iFrames und Tutor, Widgets, GitHub Pages, Slides | folgt |
-| **Kür — nach dem Workshop** | nach Bedarf | einen Kurs mit einem KI-Agenten bauen; öffentliches und internes Material trennen; das Skript in ILIAS oder Moodle einbinden | folgt |
+| **Block 1 — Das erste Spiel** | 45 min | Vorlage öffnen, Grundbegriffe per Multiple Choice sammeln, Memory bauen lassen und einbauen | [Block 1](parts/w1-erstes-spiel.qmd) |
+| **Block 2 — Was wirkt?** | 20 min | Fünf Prinzipien und eine Palette von Interaktionstypen; KI schlägt passende Interaktionen vor | [Block 2](parts/w2-interaktionstypen.qmd) |
+| **Block 3 — Zwei Interaktionen** | 45 min | Konzeptkarte, zwei weitere Spiele bauen lassen, wie eine Studentin testen | [Block 3](parts/w3-interaktionen.qmd) |
+| **Block 4 — Die Einheit rahmen** | 45 min | Szene, Vorab-Check, Lernziele, Kernaussagen und Lernfragen per KI | [Block 4](parts/w4-lehreinheit.qmd) |
+| **Block 5 — Feinschliff** | 90 min | eigene Texte, Bilder tauschen, Zotero-Quellen, KI als kritische Erstleserin | [Block 5](parts/w5-feinschliff.qmd) |
+| **Block 6 — Rundgang** | 30–45 min | Einheiten gegenseitig testen, optional veröffentlichen | [Block 6](parts/w6-rundgang.qmd) |
+| **Werkzeugkasten** | zum Nachschlagen | Grundlagen und Vertiefungen: Setup, Bilder, Zotero, Hochschulstil, Diagramme, iFrames und Tutor, Widgets, GitHub Pages, Slides | 1–10 |
+| **Kür — nach dem Workshop** | nach Bedarf | einen Kurs mit einem KI-Agenten bauen; öffentliches und internes Material trennen; das Skript in ILIAS oder Moodle einbinden | 11–13 |
 
-Jeder Prompt steht in zwei Fassungen: für einen **Chat** (ChatGPT, Claude, Gemini, Academiccloud), aus dem Sie die Antwort kopieren, und für einen **Agenten** (Claude Desktop, Codex), der die Dateien selbst in Ihren Ordner schreibt.
+Jeder Prompt steht in zwei Fassungen: für einen **Chat** (ChatGPT, Claude, Gemini, Academiccloud), aus dem Sie die Antwort kopieren, und für einen **Agenten** (Claude Desktop, Codex), der die Dateien selbst in Ihren Ordner schreibt. Alle Prompts gibt es auch [als Textdatei](downloads/prompts-workshop.txt){download="prompts-workshop.txt"}.
 
 ## Kein eigenes Thema? Wählen Sie einen Beispielstrang
 
@@ -96,11 +96,11 @@ Simulationen, Animationen und interaktive Essays anderer Autorinnen und Autoren,
 :::
 
 ::: benchmark-card
-### Wenn etwas hakt
+### Workshop — Block 1
 
-Typische Fehler bei der Installation und ihre Lösung, nach Werkzeug sortiert.
+Das erste Spiel: Grundbegriffe Ihres Fachs per KI sammeln, ein Memory bauen lassen und in die Vorlage einbauen.
 
-[Zum Trouble-Shooting →](appendix/troubleshooting.qmd)
+[Zu Block 1 →](parts/w1-erstes-spiel.qmd)
 :::
 ::::::
 
