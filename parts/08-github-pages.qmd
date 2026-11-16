@@ -11,6 +11,11 @@ title: "9 — Veröffentlichen mit GitHub und Pages"
 - eine **erste Änderung publizieren** und im Browser nach einer Minute aktualisiert sehen.
 :::
 
+::: {.callout-tip}
+## Nur für den eigenen Moodle-Kurs? Dann geht es ohne GitHub.
+Soll Ihr Skript nur in Ihrem Moodle-Kurs erscheinen und nicht öffentlich im Netz, brauchen Sie dieses Kapitel nicht. [Kapitel 9b](09b-moodle-ohne-github.qmd) zeigt den einfacheren Weg: das Skript in RStudio als ZIP packen und in Moodle hochladen.
+:::
+
 ## Worum es im Kern geht
 
 Bis hier lebt Ihr Skript nur auf Ihrem Computer. Damit andere — Studierende, Kollegen, der Browser auf Ihrem Tablet — es ansehen können, brauchen Sie drei zusätzliche Dinge: einen Mechanismus, der Versionen Ihrer Dateien festhält (Git), einen Online-Speicher dafür (GitHub) und einen Webserver, der die fertige Webseite auch ausliefert (GitHub Pages). Alle drei sind kostenlos für offene Projekte. Bryan [-@bryan2018] beschreibt, warum Versionsverwaltung in der Forschung kein Nice-to-have ist; in der Lehre gilt das genauso.

@@ -69,7 +69,7 @@ In **ILIAS** ist dieser Weg seit Version 8 versperrt: Der Seiteneditor wertet HT
 
 Hier wandert das gerenderte Skript selbst ins LMS. Was Quarto in den Ordner `docs/` schreibt, ist eine vollständige Webseite aus HTML-, CSS- und JavaScript-Dateien, die ohne Server-Programm läuft. Jedes LMS, das HTML-Pakete annimmt, kann sie anzeigen.
 
-In **ILIAS** legen Sie ein **Lernmodul HTML** an, laden den Inhalt von `docs/` als ZIP-Datei hoch, entpacken ihn dort und bestimmen `index.html` als Startdatei. Damit alle Seiten einander finden, müssen die Verweise relativ sein, also `bilder/foo.jpg` statt einer vollständigen Webadresse [@bernilias]; Quarto erzeugt solche relativen Verweise von selbst. In **Moodle** laden Sie dieselbe ZIP-Datei als **Datei** hoch, entpacken sie und setzen `index.html` als Hauptdatei; wichtig ist, dass die Hauptdatei in der ZIP-Datei nicht in einem Unterordner liegt [@zhawmoodlezip]. Moodle kennt außerdem das **IMS-Content-Paket**, das eine eigene Navigation mitbringt, aber eine Manifestdatei verlangt [@moodleims].
+In **ILIAS** legen Sie ein **Lernmodul HTML** an, laden den Inhalt von `docs/` als ZIP-Datei hoch, entpacken ihn dort und bestimmen `index.html` als Startdatei. Damit alle Seiten einander finden, müssen die Verweise relativ sein, also `bilder/foo.jpg` statt einer vollständigen Webadresse [@bernilias]; Quarto erzeugt solche relativen Verweise von selbst. In **Moodle** laden Sie dieselbe ZIP-Datei als **Datei** hoch, entpacken sie und setzen `index.html` als Hauptdatei; wichtig ist, dass die Hauptdatei in der ZIP-Datei nicht in einem Unterordner liegt [@zhawmoodlezip]. Die ausführliche Klickfolge für Moodle, samt Erzeugen des ZIP in RStudio, steht in [Kapitel 9b](09b-moodle-ohne-github.qmd). Moodle kennt außerdem das **IMS-Content-Paket**, das eine eigene Navigation mitbringt, aber eine Manifestdatei verlangt [@moodleims].
 
 Für einzelne Seiten gibt es eine Abkürzung. Mit `embed-resources: true` schreibt Quarto alle Bilder, Stile und Skripte in **eine einzige HTML-Datei** [@quartopublishing2026]. Ihre Lernspiele aus dem Ordner `interactions/` sind ohnehin schon solche Einzeldateien. Eine einzelne Datei laden Sie in Moodle als „Datei“ hoch; in ILIAS packen Sie sie in ein Lernmodul HTML, damit sie angezeigt und nicht nur heruntergeladen wird.
 
@@ -126,11 +126,13 @@ Rechnen Sie mit zwanzig Minuten. Sie brauchen einen Testkurs in ILIAS oder Moodl
 4. **Mit den Augen der Lernenden prüfen.** Wechseln Sie in die Ansicht der Teilnehmenden: in ILIAS über die Mitgliederansicht, in Moodle über *Rolle wechseln → Studierende*. Funktionieren Navigation, Bilder, interaktive Diagramme und die Suche?
 5. **Eine Rücksprung-Frage bauen.** Legen Sie im Testkurs eine einzige Testfrage an und hinterlegen Sie im Feedback zur falschen Antwort den Ankerlink aus Schritt 1.
 
-Wer das ZIP lieber aus R heraus erzeugt, nimmt das Paket `zip`; die Zeile packt den Inhalt von `docs/` so, dass `index.html` oben liegt:
+Wer das ZIP lieber aus R heraus erzeugt, nimmt das Paket `zip`. Die Zeilen packen den Inhalt von `docs/` so, dass `index.html` oben liegt, und legen das Paket in den Projektordner, nicht in `docs/`. Die Dateiliste muss vorab in `dateien` stehen, sonst bleibt das Paket leer. Schritt für Schritt für Moodle erklärt das [Kapitel 9b](09b-moodle-ohne-github.qmd).
 
 ```r
 # einmalig: install.packages("zip")
-zip::zip("skript-fuer-lms.zip", files = list.files("docs", recursive = TRUE), root = "docs")
+dateien <- list.files("docs", recursive = TRUE)
+ziel    <- file.path(getwd(), paste0("fuer-moodle-", Sys.Date(), ".zip"))
+zip::zip(ziel, files = dateien, root = "docs")
 ```
 
 ::: {.callout-warning}

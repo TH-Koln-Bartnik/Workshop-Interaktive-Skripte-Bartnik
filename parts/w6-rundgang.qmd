@@ -34,6 +34,7 @@ Die Kapitel 1 bis 10 im Werkzeugkasten vertiefen, was Sie heute in Kurzform gema
 | interaktive Diagramme aus Daten bauen | [Kapitel 6](04-charts.qmd) |
 | H5P, PhET und einen KI-Tutor einbinden | [Kapitel 7](05-iframes-tutor.qmd) |
 | Widgets und Colab-Arbeitsblätter nutzen | [Kapitel 8](07-widgets-colab.qmd) |
+| das Skript ohne GitHub in Moodle stellen | [Kapitel 9b](09b-moodle-ohne-github.qmd) |
 | aus dem Skript Folien machen | [Kapitel 10](06-slides-optional.qmd) |
 | einen ganzen Kurs mit einem Agenten bauen | [Kapitel 11](11-kurs-mit-agent.qmd) |
 

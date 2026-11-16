@@ -24,6 +24,7 @@ project:
     - parts/05-iframes-tutor.qmd
     - parts/07-widgets-colab.qmd
     - parts/08-github-pages.qmd
+    - parts/09b-moodle-ohne-github.qmd
     - parts/06-slides-optional.qmd
     - parts/11-kurs-mit-agent.qmd
     - parts/12-oeffentlich-intern.qmd
@@ -81,6 +82,7 @@ book:
         - parts/05-iframes-tutor.qmd
         - parts/07-widgets-colab.qmd
         - parts/08-github-pages.qmd
+        - parts/09b-moodle-ohne-github.qmd
         - parts/06-slides-optional.qmd
     - part: "Kür — nach dem Workshop"
       chapters:

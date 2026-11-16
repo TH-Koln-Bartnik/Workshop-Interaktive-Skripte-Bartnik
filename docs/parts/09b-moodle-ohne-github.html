@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>9b — Ohne GitHub: das Skript direkt in Moodle – Interaktive Skripte mit KI erstellen</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../parts/06-slides-optional.html" rel="next">
+<link href="../parts/08-github-pages.html" rel="prev">
+<link href="../images/th-koeln-logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-0861763118d5a1705fb58884858b93f8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-0861763118d5a1705fb58884858b93f8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0861763118d5a1705fb58884858b93f8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/01-didaktik.html">Werkzeugkasten — zum Nachschlagen</a></li><li class="breadcrumb-item"><a href="../parts/09b-moodle-ohne-github.html"><span class="chapter-title">9b — Ohne GitHub: das Skript direkt in Moodle</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/th-koeln-logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Interaktive Skripte mit KI erstellen</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Willkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Teil 0 — Vorbereitung zu Hause</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/00-vorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">0 — Quick-Start: Vorbereitung zu Hause</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/galerie.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Galerie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/best-practice.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Best-Practice Beispiele für visuelle Erklärungen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Workshop — KI-first in sechs Blöcken</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/w1-erstes-spiel.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Block 1 — Das erste Spiel: von der Begriffsliste zum Memory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/w2-interaktionstypen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Block 2 — Was wirkt? Interaktionstypen und ihre Evidenz</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/w3-interaktionen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Block 3 — Fünf Ideen, zwei Interaktionen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/w4-lehreinheit.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Block 4 — Die Einheit rahmen: vom Vorab-Check zu den Lernfragen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/w5-feinschliff.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Block 5 — Feinschliff im Fließtext</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/w6-rundgang.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Block 6 — Rundgang und Veröffentlichen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Werkzeugkasten — zum Nachschlagen</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/01-didaktik.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1 — Warum interaktiv?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/02-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2 — RStudio + erstes Skript (lokal)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/03b-bilder-tabellen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3 — Bilder, Tabellen und Verweise</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/03a-uebersicht.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4 — Quellen mit Zotero</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/03c-style.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">5 — Stil Ihrer Hochschule einbauen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/04-charts.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">6 — Interaktive Diagramme</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/05-iframes-tutor.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7 — iFrames, Spiele und KI-Tutor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/07-widgets-colab.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8 — Widgets und Colab</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/08-github-pages.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9 — Veröffentlichen mit GitHub und Pages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/09b-moodle-ohne-github.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">9b — Ohne GitHub: das Skript direkt in Moodle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/06-slides-optional.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10 — Slides mit Quarto (optional)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Kür — nach dem Workshop</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/11-kurs-mit-agent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">11 — Einen Kurs mit einem KI-Agenten bauen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/12-oeffentlich-intern.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">12 — Öffentlich und intern trennen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../parts/13-lms-einbinden.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">13 — Primer: Das Skript in ILIAS und Moodle einbinden</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Anhänge</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/troubleshooting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Trouble-Shooting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/tutor-prompt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">KI-Tutor: Link und System-Prompt</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/reviewer-prompt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reviewer-Prompt: KI als kritische Erstleserin</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../literatur.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Literatur</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhalt</h2>
+   
+  <ul>
+  <li><a href="#worum-es-im-kern-geht" id="toc-worum-es-im-kern-geht" class="nav-link active" data-scroll-target="#worum-es-im-kern-geht">Worum es im Kern geht</a></li>
+  <li><a href="#option-1-das-ganze-skript-als-zip-paket-in-moodle" id="toc-option-1-das-ganze-skript-als-zip-paket-in-moodle" class="nav-link" data-scroll-target="#option-1-das-ganze-skript-als-zip-paket-in-moodle">Option 1 — Das ganze Skript als ZIP-Paket in Moodle</a>
+  <ul class="collapse">
+  <li><a href="#schritt-1-rendern" id="toc-schritt-1-rendern" class="nav-link" data-scroll-target="#schritt-1-rendern">Schritt 1 — Rendern</a></li>
+  <li><a href="#schritt-2-das-zip-paket-in-rstudio-erzeugen" id="toc-schritt-2-das-zip-paket-in-rstudio-erzeugen" class="nav-link" data-scroll-target="#schritt-2-das-zip-paket-in-rstudio-erzeugen">Schritt 2 — Das ZIP-Paket in RStudio erzeugen</a></li>
+  <li><a href="#schritt-3-das-paket-prüfen" id="toc-schritt-3-das-paket-prüfen" class="nav-link" data-scroll-target="#schritt-3-das-paket-prüfen">Schritt 3 — Das Paket prüfen</a></li>
+  <li><a href="#schritt-4-in-moodle-ein-material-datei-anlegen" id="toc-schritt-4-in-moodle-ein-material-datei-anlegen" class="nav-link" data-scroll-target="#schritt-4-in-moodle-ein-material-datei-anlegen">Schritt 4 — In Moodle ein Material „Datei“ anlegen</a></li>
+  <li><a href="#schritt-5-entpacken-und-hauptdatei-setzen" id="toc-schritt-5-entpacken-und-hauptdatei-setzen" class="nav-link" data-scroll-target="#schritt-5-entpacken-und-hauptdatei-setzen">Schritt 5 — Entpacken und Hauptdatei setzen</a></li>
+  <li><a href="#schritt-6-darstellung-wählen-und-speichern" id="toc-schritt-6-darstellung-wählen-und-speichern" class="nav-link" data-scroll-target="#schritt-6-darstellung-wählen-und-speichern">Schritt 6 — Darstellung wählen und speichern</a></li>
+  <li><a href="#schritt-7-mit-den-augen-der-studierenden-prüfen" id="toc-schritt-7-mit-den-augen-der-studierenden-prüfen" class="nav-link" data-scroll-target="#schritt-7-mit-den-augen-der-studierenden-prüfen">Schritt 7 — Mit den Augen der Studierenden prüfen</a></li>
+  <li><a href="#das-skript-aktualisieren" id="toc-das-skript-aktualisieren" class="nav-link" data-scroll-target="#das-skript-aktualisieren">Das Skript aktualisieren</a></li>
+  <li><a href="#was-dieser-weg-kann-und-was-nicht" id="toc-was-dieser-weg-kann-und-was-nicht" class="nav-link" data-scroll-target="#was-dieser-weg-kann-und-was-nicht">Was dieser Weg kann und was nicht</a></li>
+  </ul></li>
+  <li><a href="#option-2-ein-einzelnes-lernspiel-direkt-in-moodle" id="toc-option-2-ein-einzelnes-lernspiel-direkt-in-moodle" class="nav-link" data-scroll-target="#option-2-ein-einzelnes-lernspiel-direkt-in-moodle">Option 2 — Ein einzelnes Lernspiel direkt in Moodle</a></li>
+  <li><a href="#option-3-buch-und-h5p-das-skript-ganz-in-moodle" id="toc-option-3-buch-und-h5p-das-skript-ganz-in-moodle" class="nav-link" data-scroll-target="#option-3-buch-und-h5p-das-skript-ganz-in-moodle">Option 3 — Buch und H5P: das Skript ganz in Moodle</a></li>
+  <li><a href="#welche-option-für-wen" id="toc-welche-option-für-wen" class="nav-link" data-scroll-target="#welche-option-für-wen">Welche Option für wen?</a></li>
+  <li><a href="#tutor" id="toc-tutor" class="nav-link" data-scroll-target="#tutor">Tutor</a></li>
+  <li><a href="#literatur" id="toc-literatur" class="nav-link" data-scroll-target="#literatur">Literatur</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/edit/main/parts/09b-moodle-ohne-github.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/01-didaktik.html">Werkzeugkasten — zum Nachschlagen</a></li><li class="breadcrumb-item"><a href="../parts/09b-moodle-ohne-github.html"><span class="chapter-title">9b — Ohne GitHub: das Skript direkt in Moodle</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">9b — Ohne GitHub: das Skript direkt in Moodle</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="was-sie-nach-diesem-kapitel-können" class="level4 lernziel-box">
+<h4 class="anchored" data-anchor-id="was-sie-nach-diesem-kapitel-können">Was Sie nach diesem Kapitel können</h4>
+<ul>
+<li>Ihr gerendertes Skript in RStudio als <strong>ZIP-Paket</strong> packen und als Material „Datei“ in einen Moodle-Kurs stellen, Schritt für Schritt und ohne GitHub,</li>
+<li>ein <strong>einzelnes KI-Lernspiel</strong> als HTML-Datei in Moodle bereitstellen, wenn Sie kein ganzes Skript brauchen,</li>
+<li>mit <strong>Buch und H5P</strong> ein interaktives Skript ganz innerhalb von Moodle bauen und abwägen, wann dieser Weg der bessere ist.</li>
+</ul>
+</section>
+<section id="worum-es-im-kern-geht" class="level2">
+<h2 class="anchored" data-anchor-id="worum-es-im-kern-geht">Worum es im Kern geht</h2>
+<p>Kapitel 9 bringt Ihr Skript ins offene Netz. Viele Lehrende wollen aber gar nicht ins offene Netz. Sie wollen, dass ihre Studierenden das Skript dort finden, wo auch der Rest des Kurses liegt: im Moodle-Kurs hinter dem Login. Dafür brauchen Sie weder ein GitHub-Konto noch Git. Es genügen RStudio, mit dem Sie das Skript ohnehin bauen, und Ihre Rechte als Lehrperson in Moodle.</p>
+<p>Der Grund, warum das funktioniert, ist einfach. Was Quarto in den Ordner <code>docs/</code> schreibt, ist eine vollständige Webseite aus gewöhnlichen Dateien: HTML für den Text, CSS für das Aussehen, JavaScript für die Spiele. Diese Webseite braucht kein Programm auf einem Server, sie läuft in jedem Browser. Moodle kann solche Dateien ausliefern wie jede andere Webseite.</p>
+<p>Dieses Kapitel stellt drei Optionen vor, geordnet nach dem, was die meisten Teilnehmenden nach dem Workshop brauchen:</p>
+<table class="caption-top table">
+<caption>Drei Wege in den Moodle-Kurs ohne GitHub.</caption>
+<colgroup>
+<col style="width: 22%">
+<col style="width: 26%">
+<col style="width: 32%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Was Sie brauchen</th>
+<th>Was Studierende sehen</th>
+<th>Zeit beim ersten Mal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1 Skript als ZIP-Paket</strong></td>
+<td>RStudio, die Workshop-Vorlage</td>
+<td>das ganze Skript mit Navigation, Suche und Spielen</td>
+<td>20 Minuten</td>
+</tr>
+<tr class="even">
+<td><strong>2 Einzelnes Lernspiel</strong></td>
+<td>ein KI-Chat</td>
+<td>ein Spiel auf einer eigenen Seite</td>
+<td>10 Minuten</td>
+</tr>
+<tr class="odd">
+<td><strong>3 Buch und H5P</strong></td>
+<td>nur Moodle</td>
+<td>ein Moodle-Buch mit H5P-Übungen, bewertbar</td>
+<td>1 Stunde und mehr</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Woher die Namen kommen — Eselsbrücken zum Merken
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Option</strong> kommt vom lateinischen <em>optio</em>, „freie Wahl“, verwandt mit <em>optare</em>, „wünschen, wählen“. Die drei Optionen hier schließen einander nicht aus; Sie wählen, was zu Ihrem Kurs passt, und können später wechseln.</p>
+<p><strong>ZIP</strong> geht auf das Programm PKZIP von Phil Katz zurück (1989). Ein Freund schlug den Namen vor, weil <em>to zip</em> im Englischen „flitzen“ heißt: Das Packen sollte schnell gehen. Das Bild vom Reißverschluss (<em>zipper</em>) passt trotzdem, denn eine ZIP-Datei ist ein Umzugskarton mit Reißverschluss. Alle Dateien samt Ordnerstruktur reisen darin in einem Stück und werden am Ziel genauso wieder ausgepackt.</p>
+</div>
+</div>
+</section>
+<section id="option-1-das-ganze-skript-als-zip-paket-in-moodle" class="level2">
+<h2 class="anchored" data-anchor-id="option-1-das-ganze-skript-als-zip-paket-in-moodle">Option 1 — Das ganze Skript als ZIP-Paket in Moodle</h2>
+<p>Das ist der Weg für alle, die mit der Workshop-Vorlage ein Skript gebaut haben und es ihren Studierenden im Moodle-Kurs zeigen wollen. Sie packen den Ordner <code>docs/</code> in eine ZIP-Datei, laden sie als Material „Datei“ hoch, lassen Moodle sie auspacken und sagen Moodle, mit welcher Seite das Skript beginnt <span class="citation" data-cites="moodledateifaq zhawmoodlezip">(<a href="../index.html#ref-moodledateifaq" role="doc-biblioref">Moodle, o. J.a</a>; <a href="../index.html#ref-zhawmoodlezip" role="doc-biblioref">ZHAW Zürcher Hochschule für Angewandte Wissenschaften, o. J.</a>)</span>.</p>
+<p>Rechnen Sie beim ersten Mal mit zwanzig Minuten. Probieren Sie es zuerst in einem <strong>Testkurs</strong> aus. Viele Hochschulen stellen dafür eine Spielwiese bereit, oder Sie legen in Ihrem Kurs einen verborgenen Abschnitt an. Die Bezeichnungen der Schaltflächen können je nach Moodle-Version Ihrer Hochschule leicht abweichen.</p>
+<section id="schritt-1-rendern" class="level3">
+<h3 class="anchored" data-anchor-id="schritt-1-rendern">Schritt 1 — Rendern</h3>
+<p>Öffnen Sie Ihr Projekt in RStudio (Doppelklick auf die <code>.Rproj</code>-Datei) und rendern Sie das ganze Skript: im Bereich <strong>Build</strong> auf <strong>Render Book</strong> oder mit <strong>Strg+Shift+B</strong>. Quarto schreibt die fertige Webseite in den Ordner <code>docs/</code>.</p>
+<p>Prüfen Sie das Ergebnis, bevor Sie packen. Im <strong>Files</strong>-Bereich unten rechts öffnen Sie <code>docs/</code>, klicken auf <code>index.html</code> und wählen <strong>View in Web Browser</strong>. Was hier nicht funktioniert, funktioniert in Moodle auch nicht.</p>
+</section>
+<section id="schritt-2-das-zip-paket-in-rstudio-erzeugen" class="level3">
+<h3 class="anchored" data-anchor-id="schritt-2-das-zip-paket-in-rstudio-erzeugen">Schritt 2 — Das ZIP-Paket in RStudio erzeugen</h3>
+<p>Kopieren Sie die folgenden Zeilen in die <strong>Konsole</strong> von RStudio (das Fenster unten links, in dem <code>&gt;</code> steht) und drücken Sie Enter:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># einmalig: install.packages("zip")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>dateien <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">"docs"</span>, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ziel    <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="fu">getwd</span>(), <span class="fu">paste0</span>(<span class="st">"fuer-moodle-"</span>, <span class="fu">Sys.Date</span>(), <span class="st">".zip"</span>))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>zip<span class="sc">::</span><span class="fu">zip</span>(ziel, <span class="at">files =</span> dateien, <span class="at">root =</span> <span class="st">"docs"</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Die erste Zeile brauchen Sie nur beim allerersten Mal. Entfernen Sie dann das <code>#</code> am Anfang, damit R das Paket <code>zip</code> installiert. Ein <strong>Paket</strong> ist eine Erweiterung für R, so wie eine App für das Telefon. Die übrigen drei Zeilen tun Folgendes:</p>
+<table class="caption-top table">
+<caption>Was die Zeilen tun.</caption>
+<colgroup>
+<col style="width: 38%">
+<col style="width: 62%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Zeile</th>
+<th>In einfachen Worten</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>dateien &lt;- list.files(…)</code></td>
+<td>Schreibt eine Liste aller Dateien im Ordner <code>docs/</code>, auch in den Unterordnern.</td>
+</tr>
+<tr class="even">
+<td><code>ziel &lt;- file.path(…)</code></td>
+<td>Legt fest, wie das Paket heißt und wo es liegt: im Projektordner, mit dem heutigen Datum im Namen, z. B. <code>fuer-moodle-2026-11-16.zip</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>zip::zip(…, root = "docs")</code></td>
+<td>Packt die Dateien so, dass <code>index.html</code> im Paket <strong>ganz oben</strong> liegt und nicht im Unterordner <code>docs/</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Übernehmen Sie die Zeilen genau so, auch die Reihenfolge. Wer die Dateiliste direkt in die letzte Zeile schreibt, bekommt ein leeres Paket, weil R die Liste dann erst liest, nachdem es schon in den Ordner <code>docs/</code> gewechselt ist.</p>
+<p>Nach Enter erscheint die ZIP-Datei im <strong>Files</strong>-Bereich in Ihrem Projektordner. Ihre Größe liegt für die Workshop-Vorlage bei etwa einem halben Megabyte.</p>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Ohne Code: das ZIP mit dem Explorer packen
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Im <strong>Files</strong>-Bereich von RStudio den Ordner <code>docs/</code> öffnen.</li>
+<li>Über das Zahnrad <strong>More</strong> → <strong>Show Folder in New Window</strong> den Ordner im Datei-Explorer (Windows) bzw. Finder (Mac) öffnen.</li>
+<li><strong>Den Inhalt</strong> des Ordners markieren (<strong>Strg+A</strong> bzw. <strong>Cmd+A</strong>), nicht den Ordner selbst.</li>
+<li>Rechtsklick → <strong>In ZIP-Datei komprimieren</strong> (Windows 11) bzw. <strong>Senden an → ZIP-komprimierter Ordner</strong> (Windows 10) bzw. <strong>Komprimieren</strong> (Mac).</li>
+</ol>
+<p>Der häufigste Fehler ist, den Ordner <code>docs</code> als Ganzes zu packen. Dann liegt <code>index.html</code> im Paket eine Ebene zu tief, und Moodle zeigt eine leere Seite.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warnung</span>Das ZIP gehört nicht ins Repository
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Falls Sie zusätzlich mit GitHub arbeiten, tragen Sie die Zeile <code>fuer-moodle-*.zip</code> in die Datei <code>.gitignore</code> ein. Sonst lädt GitHub Desktop jedes Paket mit hoch.</p>
+</div>
+</div>
+</section>
+<section id="schritt-3-das-paket-prüfen" class="level3">
+<h3 class="anchored" data-anchor-id="schritt-3-das-paket-prüfen">Schritt 3 — Das Paket prüfen</h3>
+<p>Öffnen Sie die ZIP-Datei mit einem Doppelklick im Datei-Explorer. Ganz oben müssen <code>index.html</code> und die Ordner <code>images</code>, <code>interactions</code> und <code>site_libs</code> stehen. Sehen Sie dort nur einen Ordner <code>docs</code>, packen Sie neu.</p>
+</section>
+<section id="schritt-4-in-moodle-ein-material-datei-anlegen" class="level3">
+<h3 class="anchored" data-anchor-id="schritt-4-in-moodle-ein-material-datei-anlegen">Schritt 4 — In Moodle ein Material „Datei“ anlegen</h3>
+<ol type="1">
+<li>Öffnen Sie Ihren Kurs und schalten Sie oben rechts <strong>Bearbeiten</strong> ein.</li>
+<li>Klicken Sie im gewünschten Abschnitt auf <strong>Aktivität oder Material anlegen</strong> und wählen Sie <strong>Datei</strong>.</li>
+<li>Geben Sie einen Namen mit Datum ein, etwa „Skript Lehreinheit 1 (Stand 16.11.2026)“. Am Datum sehen Sie und Ihre Studierenden später auf einen Blick, welche Fassung online ist.</li>
+<li>Ziehen Sie die ZIP-Datei in das Feld <strong>Dateien auswählen</strong>.</li>
+</ol>
+<p>Abkürzung: Sie können die ZIP-Datei auch direkt auf die Kursseite ziehen und <strong>Als Datei einbinden</strong> wählen <span class="citation" data-cites="zhawmoodlezip">(<a href="../index.html#ref-zhawmoodlezip" role="doc-biblioref">ZHAW Zürcher Hochschule für Angewandte Wissenschaften, o. J.</a>)</span>. Die Einstellungen aus Schritt 5 und 6 öffnen Sie danach über <strong>Bearbeiten → Einstellungen bearbeiten</strong>.</p>
+</section>
+<section id="schritt-5-entpacken-und-hauptdatei-setzen" class="level3">
+<h3 class="anchored" data-anchor-id="schritt-5-entpacken-und-hauptdatei-setzen">Schritt 5 — Entpacken und Hauptdatei setzen</h3>
+<p>Noch liegt nur der verschlossene Karton in Moodle. Jetzt packen Sie ihn aus und zeigen Moodle die Eingangstür:</p>
+<ol type="1">
+<li>Klicken Sie im Dateibereich auf das Symbol der ZIP-Datei und wählen Sie <strong>Entpacken</strong>. Moodle legt alle Dateien und Ordner aus dem Paket daneben ab.</li>
+<li>Die ZIP-Datei selbst können Sie danach anklicken und <strong>löschen</strong>; sie wird nicht mehr gebraucht.</li>
+<li>Klicken Sie auf <code>index.html</code> und wählen Sie <strong>Hauptdatei setzen</strong>. Der Dateiname erscheint dann fett <span class="citation" data-cites="moodledateifaq">(<a href="../index.html#ref-moodledateifaq" role="doc-biblioref">Moodle, o. J.a</a>)</span>.</li>
+</ol>
+<p>Die <strong>Hauptdatei</strong> ist die Startseite: die Seite, die Moodle öffnet, wenn jemand auf das Material klickt. Alle anderen Seiten erreichen Studierende über die Navigation des Skripts, weil Quarto die Verweise zwischen den Seiten relativ anlegt („die Seite nebenan“ statt einer vollständigen Webadresse).</p>
+</section>
+<section id="schritt-6-darstellung-wählen-und-speichern" class="level3">
+<h3 class="anchored" data-anchor-id="schritt-6-darstellung-wählen-und-speichern">Schritt 6 — Darstellung wählen und speichern</h3>
+<p>Unter <strong>Darstellung → Anzeigen</strong> stellen Sie ein, wie das Skript erscheint:</p>
+<table class="caption-top table">
+<caption>Anzeigeoptionen für das Material „Datei“.</caption>
+<colgroup>
+<col style="width: 18%">
+<col style="width: 48%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Anzeige</th>
+<th>Was passiert</th>
+<th>Wann sinnvoll</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Öffnen</strong></td>
+<td>Das Skript füllt das ganze Browserfenster; die Moodle-Leisten verschwinden. Zurück geht es mit dem Zurück-Pfeil des Browsers.</td>
+<td>Empfehlung: Navigation und Inhaltsverzeichnis des Skripts haben vollen Platz, auch auf dem Tablet.</td>
+</tr>
+<tr class="even">
+<td><strong>Einbetten</strong></td>
+<td>Moodle zeigt seine Kopfzeile und darunter das Skript in einem Rahmen.</td>
+<td>wenn Studierende im Moodle-Rahmen bleiben sollen, eher am großen Bildschirm</td>
+</tr>
+<tr class="odd">
+<td><strong>Automatisch</strong></td>
+<td>Moodle entscheidet selbst.</td>
+<td>wenn Sie nicht festlegen wollen</td>
+</tr>
+</tbody>
+</table>
+<p>Die Optionen <strong>Im Frame</strong> und <strong>Neues Fenster</strong> sind in Moodle standardmäßig ausgeschaltet; ob sie bei Ihnen zur Wahl stehen, entscheidet die Administration <span class="citation" data-cites="moodlefilesettings">(<a href="../index.html#ref-moodlefilesettings" role="doc-biblioref">Moodle, o. J.b</a>)</span>. Klicken Sie zum Schluss auf <strong>Speichern und anzeigen</strong>.</p>
+</section>
+<section id="schritt-7-mit-den-augen-der-studierenden-prüfen" class="level3">
+<h3 class="anchored" data-anchor-id="schritt-7-mit-den-augen-der-studierenden-prüfen">Schritt 7 — Mit den Augen der Studierenden prüfen</h3>
+<p>Wechseln Sie über Ihr Profilmenü mit <strong>Rolle wechseln → Studierende</strong> in die Ansicht der Lernenden und gehen Sie das Skript einmal durch:</p>
+<ul>
+<li>Führt die Navigation links zu allen Seiten?</li>
+<li>Erscheinen Bilder und Abbildungen?</li>
+<li>Laufen die Lernspiele, und passt sich ihre Höhe an?</li>
+<li>Findet die Suche oben ein Stichwort aus Ihrem Text?</li>
+</ul>
+<p>Wenn alles funktioniert, ist Ihr Skript im Kurs. Sichtbar ist es nur für Personen, die in Ihren Kurs eingeschrieben sind.</p>
+</section>
+<section id="das-skript-aktualisieren" class="level3">
+<h3 class="anchored" data-anchor-id="das-skript-aktualisieren">Das Skript aktualisieren</h3>
+<p>Eine hochgeladene Fassung ist ein Schnappschuss: Ändern Sie das Skript in RStudio, ändert sich die Fassung in Moodle nicht von selbst. Für eine neue Fassung wiederholen Sie die Schritte 1 bis 3 und haben dann zwei Möglichkeiten:</p>
+<ul>
+<li><strong>Neues Material, altes weg.</strong> Sie legen ein zweites Material „Datei“ mit dem neuen Datum an und löschen oder verbergen das alte. Das ist der einfachste Weg.</li>
+<li><strong>Inhalt austauschen.</strong> Sie öffnen <strong>Einstellungen bearbeiten</strong> des bestehenden Materials, löschen im Dateibereich alle Einträge der alten Fassung (bei der unveränderten Vorlage sind es sieben: die drei <code>.html</code>-Seiten, <code>search.json</code> und die Ordner <code>images</code>, <code>interactions</code> und <code>site_libs</code>), laden das neue ZIP hoch, entpacken es und setzen <code>index.html</code> wieder als Hauptdatei. Diesen Weg nehmen Sie, wenn andere Stellen im Kurs auf genau dieses Material verweisen oder wenn Abschlussbedingungen daran hängen.</li>
+</ul>
+<p>Passen Sie in beiden Fällen das Datum im Namen an.</p>
+</section>
+<section id="was-dieser-weg-kann-und-was-nicht" class="level3">
+<h3 class="anchored" data-anchor-id="was-dieser-weg-kann-und-was-nicht">Was dieser Weg kann und was nicht</h3>
+<p>Das Skript liegt auf dem Server Ihrer Hochschule und ist nur für eingeschriebene Studierende sichtbar. Damit eignet sich dieser Weg auch für internes Material wie Lösungen oder Musterfassungen, die Sie nach einer Sitzung freischalten (siehe <a href="../parts/12-oeffentlich-intern.html">Kapitel 12</a>).</p>
+<p>Moodle erfährt aber nur, <strong>dass</strong> jemand das Skript geöffnet hat, nicht, was die Person darin getan hat. Ergebnisse aus den Lernspielen landen nicht im Notenbuch. Die Selbsteinschätzungen der Vorlage speichert der Browser der jeweiligen Person, nicht Moodle. Wer Leistungen erfassen will, setzt einen kurzen Moodle-Test hinter das Skript (siehe Option 3 und <a href="../parts/13-lms-einbinden.html">Kapitel 13</a>).</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Datenschutz: eine Zeile für ganz ohne Fremdserver
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Das Design <code>cosmo</code> der Vorlage lädt seine Schriftart beim Öffnen von Google Fonts. Damit fragt der Browser Ihrer Studierenden bei Google an, obwohl das Skript selbst in Moodle liegt. Eine Zeile im Abschnitt <code>scss:defaults</code> Ihrer <code>styles.scss</code> schaltet das ab; das Skript nutzt dann die Schrift des Betriebssystems:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode scss code-with-copy"><code class="sourceCode scss"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">$web-font-path</span>: <span class="dv">false</span><span class="op">;</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Danach neu rendern und neu packen. Prüfen Sie auch Ihre Lernspiele: Laden sie Bibliotheken oder Schriften aus dem Netz, gilt dasselbe. Ein Spiel, das bei ausgeschaltetem WLAN läuft, braucht keine fremden Server.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="option-2-ein-einzelnes-lernspiel-direkt-in-moodle" class="level2">
+<h2 class="anchored" data-anchor-id="option-2-ein-einzelnes-lernspiel-direkt-in-moodle">Option 2 — Ein einzelnes Lernspiel direkt in Moodle</h2>
+<p>Nicht jede Lehrperson braucht ein ganzes Skript. Oft reicht ein einziges Lernspiel neben den Folien: ein Zuordnungsspiel zu den Grundbegriffen der Woche oder ein Quiz mit Rückmeldung. Das Spiel, das Sie in Block 1 mit der KI gebaut haben, ist bereits eine vollständige Webseite in <strong>einer einzigen HTML-Datei</strong>. Diese Datei können Sie ohne Quarto, ohne RStudio und ohne Paket direkt in Moodle stellen.</p>
+<ol type="1">
+<li><strong>Spiel speichern.</strong> Liegt das Spiel schon in Ihrem Ordner <code>interactions/</code>, nehmen Sie die Datei von dort. Kommt es frisch aus dem Chat, speichern Sie den Code in einer Datei mit der Endung <code>.html</code>, etwa <code>begriffe-woche-03.html</code>. In Claude oder ChatGPT gibt es dafür meist eine Schaltfläche zum Herunterladen.</li>
+<li><strong>Offline testen.</strong> Schalten Sie WLAN aus und öffnen Sie die Datei per Doppelklick im Browser. Läuft das Spiel, braucht es keine fremden Server.</li>
+<li><strong>In Moodle anlegen.</strong> <strong>Bearbeiten</strong> einschalten → <strong>Aktivität oder Material anlegen</strong> → <strong>Datei</strong> → Namen eingeben → HTML-Datei in <strong>Dateien auswählen</strong> ziehen.</li>
+<li><strong>Anzeige wählen.</strong> Unter <strong>Darstellung</strong> wählen Sie <strong>Einbetten</strong>, damit das Spiel im Moodle-Rahmen erscheint, oder <strong>Öffnen</strong> für den vollen Bildschirm. Dann <strong>Speichern und anzeigen</strong>.</li>
+</ol>
+<p>Lädt Moodle die Datei herunter, statt sie anzuzeigen, steht die Anzeige auf <strong>Download erzwingen</strong>; stellen Sie sie um.</p>
+<p>Damit das Spiel diese Bedingungen erfüllt, hängen Sie an Ihren Spiel-Prompt einen Satz an:</p>
+<blockquote class="blockquote">
+<p>Liefere das Spiel als eine einzige HTML-Datei: alle Stile, Skripte und Daten in der Datei selbst, keine externen Bibliotheken, Schriften oder Bilder aus dem Netz. Das Spiel muss offline laufen und in einem Lernmanagementsystem als hochgeladene Datei funktionieren.</p>
+</blockquote>
+<p>Mehrere Spiele stellen Sie als mehrere Materialien „Datei“ in den Kurs. Werden es mehr als drei oder vier, lohnt sich Option 1: Dann bekommen die Spiele einen erklärenden Text, eine Reihenfolge und eine gemeinsame Navigation.</p>
+</section>
+<section id="option-3-buch-und-h5p-das-skript-ganz-in-moodle" class="level2">
+<h2 class="anchored" data-anchor-id="option-3-buch-und-h5p-das-skript-ganz-in-moodle">Option 3 — Buch und H5P: das Skript ganz in Moodle</h2>
+<p>Der dritte Weg verzichtet auf RStudio und Quarto ganz. Sie bauen das Skript mit Bordmitteln von Moodle: Den Text schreiben Sie in die Aktivität <strong>Buch</strong>, die Übungen bauen Sie mit <strong>H5P</strong>. H5P ist ein Baukasten für interaktive Übungen (Lückentext, Zuordnen, interaktives Video und vieles mehr), der in Moodle schon eingebaut ist. Kapitel 7 stellt die H5P-Inhaltstypen vor.</p>
+<p>So entsteht ein Moodle-Skript:</p>
+<ol type="1">
+<li><strong>Buch anlegen.</strong> <strong>Aktivität oder Material anlegen</strong> → <strong>Buch</strong>. Jedes Kapitel des Buchs ist eine Seite mit Text, Bildern und Links; Moodle erzeugt das Inhaltsverzeichnis selbst.</li>
+<li><strong>Übung im Inhaltsspeicher bauen.</strong> Der <strong>Inhaltsspeicher</strong> ist die Ablage für H5P-Inhalte in Ihrem Kurs; Sie finden ihn im Kursmenü unter <strong>Mehr</strong>. Dort klicken Sie auf <strong>Hinzufügen</strong> und wählen einen Inhaltstyp <span class="citation" data-cites="moodleinhaltsspeicher">(<a href="../index.html#ref-moodleinhaltsspeicher" role="doc-biblioref">Moodle, o. J.d</a>)</span>.</li>
+<li><strong>Übung ins Buch setzen.</strong> Im Texteditor eines Buchkapitels klicken Sie auf die Schaltfläche <strong>H5P</strong>, wählen über <strong>Repositories durchsuchen</strong> den Inhaltsspeicher und fügen die Übung mit <strong>H5P einfügen</strong> ein <span class="citation" data-cites="moodleh5pde">(<a href="../index.html#ref-moodleh5pde" role="doc-biblioref">Moodle, o. J.c</a>)</span>.</li>
+<li><strong>Bewertete Übungen.</strong> Soll eine Übung zählen, legen Sie sie zusätzlich als Aktivität <strong>H5P</strong> an. Dann trägt Moodle das Ergebnis ins Notenbuch ein <span class="citation" data-cites="h5pmoodle">(<a href="../index.html#ref-h5pmoodle" role="doc-biblioref">H5P Group, o. J.a</a>)</span>.</li>
+</ol>
+<p>Wer lieber alles in einem H5P-Inhalt hat, nimmt den Inhaltstyp <strong>Interactive Book</strong>: ein Buch mit mehreren Seiten, das interaktive Videos, Fragen und Präsentationen bündelt <span class="citation" data-cites="h5pinteractivebook">(<a href="../index.html#ref-h5pinteractivebook" role="doc-biblioref">H5P Group, o. J.b</a>)</span>.</p>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>KI-first auch hier: Fragen per Import
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die KI schreibt Ihnen nicht nur Texte für die Buchkapitel, sondern auch Testfragen in einem Format, das Moodle direkt einlesen kann. <strong>GIFT</strong> ist ein einfaches Textformat für Moodle-Fragen; Sie lesen es über den <strong>Import</strong> der Fragensammlung ein. Ein Prompt dafür:</p>
+<blockquote class="blockquote">
+<p>Schreibe zu folgendem Text [Text einfügen] fünf Multiple-Choice-Fragen im Moodle-GIFT-Format, je eine richtige und drei plausible falsche Antworten, mit kurzem Feedback zu jeder falschen Antwort. Gib nur den GIFT-Text aus.</p>
+</blockquote>
+<p>Prüfen Sie jede Frage, bevor Sie sie freischalten. Die KI erfindet gelegentlich falsche Antworten, die in Wahrheit richtig sind.</p>
+</div>
+</div>
+<p>Dieser Weg passt, wenn Sie Bewertungen im Notenbuch brauchen oder wenn Ihnen jede Installation zu viel ist. Er hat zwei Nachteile. Sie klicken Übungen im Editor zusammen, statt sie von der KI frei gestalten zu lassen, und das Skript lebt nur in diesem einen Moodle-Kurs. Ihre eigenen KI-Lernspiele fügen Sie hier nur als zusätzliches Material „Datei“ (Option 2) neben das Buch, nicht in das Buch hinein. Welche H5P-Inhaltstypen zur Verfügung stehen, legt zudem jede Hochschule selbst fest.</p>
+</section>
+<section id="welche-option-für-wen" class="level2">
+<h2 class="anchored" data-anchor-id="welche-option-für-wen">Welche Option für wen?</h2>
+<p>Die Wahl hängt weniger an der Technik als an der Frage, was Ihr Kurs braucht. Wer mit der Workshop-Vorlage ein Skript gebaut hat, nimmt <strong>Option 1</strong>. Wer nur ein Spiel braucht, nimmt <strong>Option 2</strong>. Wer Ergebnisse im Notenbuch sehen muss oder ohne jede Installation arbeiten will, nimmt <strong>Option 3</strong>. Später können Sie jederzeit zu Kapitel 9 wechseln, wenn Sie Ihr Skript zusätzlich öffentlich teilen wollen. Das ZIP aus Option 1 und die Webseite auf GitHub Pages entstehen aus demselben Ordner <code>docs/</code>.</p>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warnung</span>Was, wenn …
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Moodle zeigt eine leere Seite statt des Skripts?</strong> → <code>index.html</code> liegt im Paket in einem Unterordner, oder die Hauptdatei ist nicht gesetzt. Paket wie in Schritt 2 neu erzeugen, in Schritt 5 <code>index.html</code> als Hauptdatei setzen.</li>
+<li><strong>Das ZIP ist leer oder enthält nur wenige Kilobyte?</strong> → Die Dateiliste wurde nicht vorab in <code>dateien</code> gespeichert. Die drei Zeilen aus Schritt 2 genau so übernehmen.</li>
+<li><strong>Moodle lädt das Skript herunter, statt es anzuzeigen?</strong> → Unter <strong>Darstellung → Anzeigen</strong> von „Download erzwingen“ auf „Öffnen“ umstellen.</li>
+<li><strong>Der Upload bricht ab?</strong> → Das Paket ist größer als das Limit Ihrer Moodle-Installation; die Grenze steht im Feld <strong>Dateien auswählen</strong>. Große Videos gehören nicht ins Skript, sondern auf die Videoplattform Ihrer Hochschule und werden verlinkt.</li>
+<li><strong>Spiele oder Suche laufen in Moodle nicht, lokal aber schon?</strong> → Manche Installationen beschränken JavaScript in hochgeladenen Dateien. Fragen Sie die Moodle-Administration Ihrer Hochschule; bis dahin hilft ein Link auf eine öffentliche Fassung (Kapitel 9).</li>
+<li><strong>Die Studierenden sehen noch die alte Fassung?</strong> → Datum im Namen prüfen; eventuell wurde das neue Paket entpackt, aber <code>index.html</code> nicht wieder als Hauptdatei gesetzt.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="tutor" class="level2">
+<h2 class="anchored" data-anchor-id="tutor">Tutor</h2>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Tutor öffnen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://chatgpt.com/g/g-69fec93348108191af1ffb8ce0cf6712-tutor-interaktive-skripte" target="_blank">Tutor „Interaktive Skripte“ →</a></p>
+<p>Vorschlag-Prompt für dieses Kapitel:</p>
+<blockquote class="blockquote">
+<p>Ich möchte mein Quarto-Skript ohne GitHub in meinen Moodle-Kurs bringen. Meine Moodle-Version ist [Version, falls bekannt]. Ich habe [das ganze Skript / ein einzelnes Lernspiel / nur Texte und Übungsideen]. Erkläre mir in zwei Sätzen ohne Fachjargon, welche der drei Optionen aus Kapitel 9b für mich passt, und führe mich dann Schritt für Schritt hindurch. Frage nach jedem Schritt, was ich auf dem Bildschirm sehe, bevor du weitermachst.</p>
+</blockquote>
+</div>
+</div>
+</section>
+<section id="literatur" class="level1 unnumbered">
+<h1 class="unnumbered">Literatur</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-h5pmoodle" class="csl-entry" role="listitem">
+H5P Group. (o. J.a). <em><span>H5P</span> in <span>Moodle</span> documentation</em>. H5P. <a href="https://h5p.org/node/258172">https://h5p.org/node/258172</a>
+</div>
+<div id="ref-h5pinteractivebook" class="csl-entry" role="listitem">
+H5P Group. (o. J.b). <em>Interactive Book</em>. H5P. <a href="https://h5p.org/node/439596">https://h5p.org/node/439596</a>
+</div>
+<div id="ref-moodledateifaq" class="csl-entry" role="listitem">
+Moodle. (o. J.a). <em>Datei <span>FAQ</span></em>. MoodleDocs (deutsch). <a href="https://docs.moodle.org/de/Datei_FAQ">https://docs.moodle.org/de/Datei_FAQ</a>
+</div>
+<div id="ref-moodlefilesettings" class="csl-entry" role="listitem">
+Moodle. (o. J.b). <em>File module settings</em>. MoodleDocs, Version 5.1. <a href="https://docs.moodle.org/501/en/File_module_settings">https://docs.moodle.org/501/en/File_module_settings</a>
+</div>
+<div id="ref-moodleh5pde" class="csl-entry" role="listitem">
+Moodle. (o. J.c). <em><span>H5P</span></em>. MoodleDocs (deutsch), Version 5.0. <a href="https://docs.moodle.org/500/de/H5P">https://docs.moodle.org/500/de/H5P</a>
+</div>
+<div id="ref-moodleinhaltsspeicher" class="csl-entry" role="listitem">
+Moodle. (o. J.d). <em>Inhaltsspeicher</em>. MoodleDocs (deutsch). <a href="https://docs.moodle.org/de/Inhaltsspeicher">https://docs.moodle.org/de/Inhaltsspeicher</a>
+</div>
+<div id="ref-zhawmoodlezip" class="csl-entry" role="listitem">
+ZHAW Zürcher Hochschule für Angewandte Wissenschaften. (o. J.). <em>Moodle 4.5: Applikation als <span>ZIP</span>-Datei einbinden</em>. Anleitung. <a href="https://moodle.zhaw.ch/pluginfile.php/1767012/mod_resource/content/2/Moodle_45_Anleitung_Applikation%20als%20ZIP-Datei%20einbinden.pdf">https://moodle.zhaw.ch/pluginfile.php/1767012/mod_resource/content/2/Moodle_45_Anleitung_Applikation%20als%20ZIP-Datei%20einbinden.pdf</a>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../parts/08-github-pages.html" class="pagination-link" aria-label="9 — Veröffentlichen mit GitHub und Pages">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">9 — Veröffentlichen mit GitHub und Pages</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../parts/06-slides-optional.html" class="pagination-link" aria-label="10 — Slides mit Quarto (optional)">
+        <span class="nav-page-text"><span class="chapter-title">10 — Slides mit Quarto (optional)</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Roman Bartnik · CC BY-SA 4.0</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/edit/main/parts/09b-moodle-ohne-github.qmd" class="toc-action"><i class="bi bi-github"></i>Seite editieren</a></li><li><a href="https://github.com/TH-Koln-Bartnik/Workshop-Interaktive-Skripte-Bartnik/issues/new" class="toc-action"><i class="bi empty"></i>Problem melden</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Erstellt mit <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
