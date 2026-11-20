@@ -47,13 +47,26 @@ Schauen Sie sich vor dem Workshop zwei oder drei Beispiele an, die zu Ihrem Fach
 
 **[The Last Lab Assistant](https://pcerf.github.io/edu_games/games/last-lab-assistant/){target="_blank"}** ist ein Lernspiel zur Quanteninformatik für Hochschulkurse, auf Deutsch und Englisch spielbar. Ein Lichtblitz im Keller, ein leeres Labor, ein Roboter namens M0 und ein Funkgerät, das noch funktioniert: Aus dieser Ausgangslage führt das Spiel in Episoden vom einzelnen Qubit bis zu Dichtematrizen und Quantenschaltkreisen. Das Beispiel zeigt, wie eine Rahmengeschichte selbst sehr abstrakten Stoff trägt, weil Figur und Konflikt die Aufmerksamkeit binden [@willingham2009]. Der Spielstand lässt sich speichern, sodass man über mehrere Sitzungen spielen kann. Autorschaft und Lizenz nennt die Seite nicht. Fragen Sie deshalb vor dem Einbetten nach und verlinken Sie das Spiel bis dahin nur.
 
-## 3. Sprachmodelle von innen sehen
+## 3. Virtuelle Experimente {#virtuelle-experimente}
+
+Ein virtuelles Experiment ist ein Versuchsaufbau im Browser: Die Lernenden stellen Bauteile oder Werte ein, sagen das Ergebnis vorher und sehen dann, ob die Messung ihnen recht gibt. Früher brauchte man dafür ein Entwicklerteam wie bei PhET. Inzwischen bauen Lehrende solche Versuche mit KI selbst, meist als einzelne HTML-Datei, die sich per iFrame ins Skript setzen lässt. Simulationen ergänzen den Unterricht wirksam, besonders als Vorbereitung auf das echte Labor; eine aufwendigere Darstellung bringt aber nicht automatisch mehr Lernerfolg [@rutten2012]. Ein schlichter 2D-Versuch mit klarer Vorhersage-Aufgabe schlägt deshalb oft die prächtige 3D-Szene.
+
+**[Electronics 101](https://electronics-101-six.vercel.app/){target="_blank"}** (Dilum Sanjaya) ist ein Einführungskurs in die Elektronik mit 68 Lektionen in zehn Modulen, vom ohmschen Gesetz über Spannungsteiler und Kondensatoren bis zu Transistoren, Operationsverstärkern und Logikgattern. Jede Lektion ist ein Versuch auf einer 3D-Werkbank. Derselbe Aufbau erscheint als Schaltplan und als Steckbrett, und vier Reiter trennen Überblick, Bauteile, Schaltung und Mathematik. Der Autor, ein Software-Entwickler, hat den Kurs nach eigener Aussage mit Claude Opus 5.5 gebaut. Die vier Reiter taugen als Bauplan für eigene Versuche; den Umfang des ganzen Kurses erreicht man mit einem gewöhnlichen KI-Abo nicht. Lizenz und Quellcode nennt die Seite nicht, also bitte nur verlinken.
+
+Beispiele aus anderen Fächern, alle mit KI gebaut:
+
+- [Virtuelle Labore von Open Source Physics @ Singapore](https://iwant2study.moe.edu.sg/sg.iwant2study.org/ospsg/index.php/interactive-resources/biology/1291-p5planttranspiration2){target="_blank"} (Loo Kang Wee), etwa zur Wasseraufnahme von Pflanzen, gekennzeichnet als „AI generated“. Dazu gehört ein [Workshop mit Prompt-Vorlagen](https://iwant2study.moe.edu.sg/lookangejss/physicstjcsls/vibe-coding-workshop/){target="_blank"} für Lehrkräfte. Er arbeitet mit *Vibe Coding*: Man beschreibt der KI im Gespräch, was entstehen soll, und schreibt den Code nicht selbst.
+- [Wellen, Vogelschwärme, Schall](https://punyamishra.com/2025/06/24/making-waves-flocking-birdscreating-science-simulations-with-ai/){target="_blank"} (Punya Mishra, Arizona State University): Physik-Simulationen mit Claude, samt Bericht, wie sie entstanden sind.
+- [Klassenspiele zu Kreditrationierung und Bank-Run](https://www.economicsnetwork.ac.uk/showcase/strobel_ai_games){target="_blank"} (Frank Strobel, University of Birmingham): Volkswirtschaft zum Mitspielen, mit Claude gebaut. Seine Lehre daraus: Die didaktische Spezifikation bleibt Sache der Lehrenden, die KI setzt sie nur um.
+- [The Cell](https://kody-w.github.io/learnwithkody/examples/the-cell/){target="_blank"}: Molekularbiologie von der DNA über die mRNA zum Protein, mit fünf echten Sequenzen.
+
+## 4. Sprachmodelle von innen sehen
 
 **[Transformer Explainer](https://poloclub.github.io/transformer-explainer/){target="_blank"}** lässt ein kleines Sprachmodell (GPT-2) direkt im Browser laufen [@cho2025transformer]. Man gibt einen Satz ein und verfolgt, wie daraus Wahrscheinlichkeiten für das nächste Wort werden. Ein Regler für die „Temperatur“ zeigt, warum dieselbe Frage verschiedene Antworten bekommt. Für Mathematik ist das ein unerwartet guter Anwendungsfall von Matrizenrechnung und Wahrscheinlichkeit.
 
 **[LLM Visualization](https://bbycroft.net/llm){target="_blank"}** (Brendan Bycroft) zeigt dasselbe Prinzip als begehbares 3D-Modell, Rechenschritt für Rechenschritt. Es ist anspruchsvoller als der Transformer Explainer und eignet sich gut als Vertiefung.
 
-## 4. Wirtschaft, Entscheidungen, Systeme
+## 5. Wirtschaft, Entscheidungen, Systeme
 
 **[The Evolution of Trust](https://ncase.me/trust/){target="_blank"}** (Nicky Case) ist ein Spiel zum wiederholten Gefangenendilemma. Wer mitspielt, entdeckt selbst, warum Vertrauen entsteht oder zerfällt. Erst danach kommt die Theorie. Das Spiel zeigt, wie Spieltheorie fast ohne Formeln auskommt.
 
@@ -61,7 +74,13 @@ Schauen Sie sich vor dem Workshop zwei oder drei Beispiele an, die zu Ihrem Fach
 
 **[Explorable Explanations](https://explorabl.es/){target="_blank"}** ist eine Sammelseite, die eine lose Gemeinschaft aus Gestalterinnen, Programmierern und Lehrenden pflegt. Dort finden sich Explorables aus vielen Fächern, nach Themen geordnet, und Hinweise zum Selbermachen. Sie ist ein guter Startpunkt, wenn Ihr Fach oben nicht vorkommt.
 
-## 5. Scrollytelling: Text führt durch ein Bild
+## 6. Interaktive Aufsätze: eine Recherche zum Erkunden {#interaktive-aufsaetze}
+
+Ein interaktiver Aufsatz ist ein langer Sachtext, in dem die Abbildungen mitdenken: Grafiken wachsen beim Lesen, Regler lassen eine Annahme verändern, Quellen stehen gleich daneben. Das Format eignet sich für Themen, bei denen viele Zahlen erst im Zusammenhang Sinn ergeben. Den Maßstab setzt Bartosz Ciechanowski (siehe Abschnitt 2).
+
+**[The state of data centers](https://wondering.app/data-centers){target="_blank"}** (Wondering, 2026) baut beim Scrollen ein KI-Rechenzentrum in 3D auf, Bauteil für Bauteil. Die Kapitel folgen der Anlage: Standortwahl und Stromanschluss, Kühlung und Wasserverbrauch, Racks, Speicher und Glasfaser, dann die Frage, wer die Kosten trägt und was die Nachbarn und die Umwelt davon haben. Zum Schluss geht es um ungewöhnliche Standorte bis hin zu Rechenzentren unter Wasser und im Orbit. An zwei Stellen greifen die Lesenden ein: Ein Knopf schickt eine Frage durchs System, Schalter verändern die Anlage. 112 nummerierte Quellen, darunter Berichte der Internationalen Energieagentur, belegen die Zahlen. Für Fächer wie Supply Chain Management, Energietechnik oder Umweltökonomie ist das ein Vorbild, wie man eine eigene Recherche als Rundgang aufbereitet. Ob KI beim Bau geholfen hat, sagt die Seite nicht; eine Lizenz nennt sie ebenfalls nicht. Das Werkzeug für einen solchen Aufsatz im eigenen Skript stellt der nächste Abschnitt vor.
+
+## 7. Scrollytelling: Text führt durch ein Bild
 
 Beim Scrollytelling bleibt eine Grafik stehen, während der Text daneben vorbeiläuft. Wie ein Museumsführer zeigt der Text nacheinander auf einzelne Stellen, und die Grafik zoomt, markiert oder wechselt. Mit der Quarto-Erweiterung *Closeread* geht das ohne Webentwicklung, also mit demselben Werkzeug, das Sie im Workshop nutzen.
 
@@ -71,7 +90,7 @@ Beim Scrollytelling bleibt eine Grafik stehen, während der Text daneben vorbeil
 - [Pictures of Pensions](https://calcwithdec.dev/posts/pictures-pensions/){target="_blank"}: Rentenrechnung, Schritt für Schritt aufgebaut.
 - [Learn Closeread](https://www.gastonsanchez.com/learn-closeread/){target="_blank"} (Gaston Sanchez): eine Anleitung zum Selbstlernen, falls Sie es ausprobieren möchten.
 
-## 6. Animation: Schritt für Schritt herleiten
+## 8. Animation: Schritt für Schritt herleiten
 
 **[3Blue1Brown](https://www.3blue1brown.com/){target="_blank"}** (Grant Sanderson) ist eine Reihe von Mathematik-Videos zu linearer Algebra, Analysis und neuronalen Netzen. Formeln und Kurven entstehen darin vor den Augen der Zuschauer. Die Videos zeigen, wie viel eine gut getaktete Animation erklären kann: Jeder neue Schritt erscheint genau dann, wenn der Sprecher ihn braucht.
 
@@ -79,7 +98,7 @@ Beim Scrollytelling bleibt eine Grafik stehen, während der Text daneben vorbeil
 
 **[Remotion](https://www.remotion.dev/){target="_blank"}** erzeugt Erklärvideos als Programmcode und arbeitet gut mit KI-Agenten zusammen. Vor dem Einsatz an einer Hochschule sollten Sie die Lizenz prüfen, denn die kostenlose Nutzung gilt nur für Einzelpersonen, kleine Firmen und gemeinnützige Organisationen.
 
-## 7. Die KI baut die Visualisierung selbst
+## 9. Die KI baut die Visualisierung selbst
 
 Seit 2026 erzeugen die großen Chatbots auf Zuruf eigene interaktive Grafiken. Für Ihr Skript sind sie ein schneller Entwurf. Was dabei entsteht, lässt sich oft als HTML-Datei übernehmen und dann im Skript verfeinern.
 
@@ -89,7 +108,7 @@ Seit 2026 erzeugen die großen Chatbots auf Zuruf eigene interaktive Grafiken. F
 - [Google Learn Your Way](https://research.google/blog/learn-your-way-reimagining-textbooks-with-generative-ai/){target="_blank"}: ein Forschungsprojekt, das Lehrbuchtexte mit KI in Quiz, Mindmap und Audio-Lektion umbaut. In einer kleinen randomisierten Studie mit 60 Jugendlichen lag das Behalten nach drei bis fünf Tagen bei 78 % gegenüber 67 % mit einem gewöhnlichen PDF-Leser.
 - [Simon Willison: Useful patterns for building HTML tools](https://simonwillison.net/2025/Dec/10/html-tools/){target="_blank"}: wie man sich von der KI kleine Werkzeuge bauen lässt, jedes eine einzelne HTML-Datei. Seine [Sammlung](https://tools.simonwillison.net/){target="_blank"} zeigt viele Beispiele dafür. Der Text taugt als Vorlage für eigene Prompts.
 
-## 8. Werkzeuge zum Selberbauen
+## 10. Werkzeuge zum Selberbauen
 
 **[quarto-live](https://r-wasm.github.io/quarto-live/){target="_blank"}** lässt R oder Python im Browser der Lernenden laufen, wie einen Taschenrechner, der ins Skript eingebaut ist. Dazu gehören Übungen mit Tipps, Musterlösung und automatischer Prüfung. Das Ganze braucht keinen Server und läuft auch auf GitHub Pages. Das Paket [learnr2](https://ppbds.github.io/learnr2/){target="_blank"} erleichtert den Einstieg aus RStudio heraus.
 

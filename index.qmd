@@ -82,7 +82,7 @@ Was Sie vor dem Workshop installieren und testen, und was Sie mitbringen.
 ::: benchmark-card
 ### Galerie
 
-Was mit KI-Unterstützung möglich wird: Begriffsspiel, Prozesslinie, Fall-Teaser, Colab-Arbeitsblatt, Lern-Song, Vokabel-App und zwei Beispiele von Ethan Mollick.
+Was mit KI-Unterstützung möglich wird: Begriffsspiel, Prozesslinie, Fall-Teaser, Colab-Arbeitsblatt, Lern-Song, Vokabel-App, zwei Beispiele von Ethan Mollick sowie ein interaktiver Aufsatz und ein virtuelles Experiment.
 
 [Zur Galerie →](parts/galerie.qmd)
 :::
@@ -90,7 +90,7 @@ Was mit KI-Unterstützung möglich wird: Begriffsspiel, Prozesslinie, Fall-Tease
 ::: benchmark-card
 ### Best-Practice Beispiele
 
-Simulationen, Animationen und interaktive Essays anderer Autorinnen und Autoren, von PhET über ein Quanten-Lernspiel und 3Blue1Brown bis zu Chatbots, die selbst Grafiken bauen.
+Simulationen, virtuelle Experimente, Animationen und interaktive Aufsätze anderer Autorinnen und Autoren, von PhET über eine Elektronik-Werkbank und ein Quanten-Lernspiel bis zu Chatbots, die selbst Grafiken bauen.
 
 [Zu den Beispielen →](parts/best-practice.qmd)
 :::

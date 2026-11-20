@@ -6,7 +6,7 @@ subtitle: "Was KI-gestützte Lernmedien in einem Skript leisten können"
 ::: th-color-bar
 :::
 
-Alle Beispiele auf dieser Seite sind mit generativer KI entstanden. Die ersten sechs stammen aus meiner eigenen Lehre und laufen in gewöhnlichen Online-Skripten: als eingebettetes Spiel, als Animation, als Video oder als Link in ein Rechenblatt. Zwei Beispiele von Ethan Mollick zeigen, was jenseits davon schon geht. Zusammen zeigen sie die Spannweite dessen, was Sie im Workshop für Ihr eigenes Fach bauen können. Schauen Sie bei jedem Beispiel weniger auf die Technik als auf die Frage, was die Lernenden *tun*, während sie es benutzen. Arbeiten anderer Autorinnen und Autoren, nach Fächern geordnet, finden Sie auf der nächsten Seite unter [Best-Practice Beispiele für visuelle Erklärungen](best-practice.qmd).
+Die ersten sechs Beispiele stammen aus meiner eigenen Lehre und laufen in gewöhnlichen Online-Skripten: als eingebettetes Spiel, als Animation, als Video oder als Link in ein Rechenblatt. Zwei Beispiele von Ethan Mollick zeigen, was jenseits davon schon geht. Zwei Vorbilder aus dem Netz stehen für Formate, die sich gerade ausbreiten: den interaktiven Aufsatz und das virtuelle Experiment. Bis auf den Aufsatz über Rechenzentren, dessen Entstehung nicht offengelegt ist, sind alle Beispiele mit generativer KI entstanden. Zusammen zeigen sie die Spannweite dessen, was Sie im Workshop für Ihr eigenes Fach bauen können. Schauen Sie bei jedem Beispiel weniger auf die Technik als auf die Frage, was die Lernenden *tun*, während sie es benutzen. Arbeiten anderer Autorinnen und Autoren, nach Fächern geordnet, finden Sie auf der nächsten Seite unter [Best-Practice Beispiele für visuelle Erklärungen](best-practice.qmd).
 
 ## 1. Begriffe raten: Was ist ein Token, was ein Agent?
 
@@ -112,7 +112,29 @@ Ohne Grundriss rekonstruierte Claude Fable 5.1 Ecos Mailänder Bibliothek aus ru
 :::
 ::::::
 
-## 9. Ihr Beispiel vom Workshop-Tag
+## Zwei Vorbilder aus dem Netz: interaktiver Aufsatz und virtuelles Experiment
+
+Beide Beispiele stammen nicht von mir und nennen keine Lizenz. Ich verlinke sie deshalb nur, statt sie einzubetten. Sie stehen für zwei Formate, die Sie mit den Werkzeugen aus dem Workshop im kleineren Maßstab selbst bauen können: einen Aufsatz, der eine Recherche zum Erkunden aufbereitet, und einen Versuch, den die Lernenden im Browser selbst aufbauen. Weitere Beispiele sammelt die nächste Seite in den Abschnitten [Virtuelle Experimente](best-practice.qmd#virtuelle-experimente) und [Interaktive Aufsätze](best-practice.qmd#interaktive-aufsaetze).
+
+:::::: benchmark-grid
+::: benchmark-card
+### 9. Interaktiver Aufsatz: Was steckt in einem Rechenzentrum?
+
+*The state of data centers* (Wondering, 2026) baut beim Scrollen ein KI-Rechenzentrum in 3D auf, Bauteil für Bauteil: Standort und Netzanschluss, Stromversorgung, Kühlung und Wasser, Racks und Glasfaser, dann die Kosten für Anwohner und Umwelt. Der Text führt, die Szene wächst mit. An zwei Stellen greifen die Lesenden selbst ein: Ein Knopf schickt eine Frage durchs System, Schalter verändern die Anlage. 112 nummerierte Quellen belegen die Zahlen. Ob KI beim Bau geholfen hat, sagt die Seite nicht. Mit der Quarto-Erweiterung *Closeread* lässt sich das Format ohne Webentwicklung nachbauen.
+
+[Aufsatz lesen →](https://wondering.app/data-centers){target="_blank"}
+:::
+
+::: benchmark-card
+### 10. Virtuelles Experiment: Elektrotechnik auf der Werkbank
+
+*Electronics 101* (Dilum Sanjaya, 2026) ist ein Einführungskurs in die Elektronik mit 68 Lektionen in zehn Modulen, vom ohmschen Gesetz über Spannungsteiler und Kondensatoren bis zu Transistoren und Logikgattern. Jede Lektion ist ein kleiner Versuch auf einer 3D-Werkbank, die man drehen und zoomen kann. Derselbe Aufbau erscheint als Schaltplan und als Steckbrett, und vier Reiter trennen Überblick, Bauteile, Schaltung und Mathematik. Der Autor, ein Software-Entwickler, hat den Kurs nach eigener Aussage mit Claude Opus 5.5 gebaut. Ein einzelnes Experiment dieser Art liegt im Workshop in Reichweite, ein ganzer Kurs nicht.
+
+[Werkbank öffnen →](https://electronics-101-six.vercel.app/){target="_blank"}
+:::
+::::::
+
+## 11. Ihr Beispiel vom Workshop-Tag
 
 ::: {.callout-note}
 ## Platzhalter
