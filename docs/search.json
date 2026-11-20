@@ -163,7 +163,7 @@
     "href": "parts/galerie.html",
     "title": "Galerie",
     "section": "",
-    "text": "1. Begriffe raten: Was ist ein Token, was ein Agent?\nDie ersten sechs Beispiele stammen aus meiner eigenen Lehre und laufen in gewöhnlichen Online-Skripten: als eingebettetes Spiel, als Animation, als Video oder als Link in ein Rechenblatt. Zwei Beispiele von Ethan Mollick zeigen, was jenseits davon schon geht. Zwei Vorbilder aus dem Netz stehen für Formate, die sich gerade ausbreiten: den interaktiven Aufsatz und das virtuelle Experiment. Bis auf den Aufsatz über Rechenzentren, dessen Entstehung nicht offengelegt ist, sind alle Beispiele mit generativer KI entstanden. Zusammen zeigen sie die Spannweite dessen, was Sie im Workshop für Ihr eigenes Fach bauen können. Schauen Sie bei jedem Beispiel weniger auf die Technik als auf die Frage, was die Lernenden tun, während sie es benutzen. Arbeiten anderer Autorinnen und Autoren, nach Fächern geordnet, finden Sie auf der nächsten Seite unter Best-Practice Beispiele für visuelle Erklärungen.\nEin Zuordnungsspiel aus dem Skript „KI als Hilfe zum Lehren und Lernen”: Begriffe aus der Welt der Sprachmodelle werden den passenden Definitionen zugeordnet, auf Wunsch im Level Fortgeschritten mit Agenten-Begriffen und einer Diagnose-Runde zu typischen Problemen. Wer rät und danach die Auflösung sieht, ruft Wissen ab, statt es nur wiederzuerkennen, und behält es dadurch länger (Roediger & Karpicke, 2006).\nSpiel im eigenen Fenster öffnen →",
+    "text": "1. Begriffe raten: Was ist ein Token, was ein Agent?\nDie ersten sechs Beispiele stammen aus meiner eigenen Lehre und laufen in gewöhnlichen Online-Skripten: als eingebettetes Spiel, als Animation, als Video oder als Link in ein Rechenblatt. Die Beispiele 7 und 8 hat Ethan Mollick vorgestellt; sie zeigen, was jenseits davon schon geht. Die Beispiele 9 und 10 stammen von anderen Autoren und stehen für Formate, die sich gerade ausbreiten: den interaktiven Aufsatz und das virtuelle Experiment. Bis auf den Aufsatz über Rechenzentren, dessen Entstehung nicht offengelegt ist, sind alle Beispiele mit generativer KI entstanden. Zusammen zeigen sie die Spannweite dessen, was Sie im Workshop für Ihr eigenes Fach bauen können. Schauen Sie bei jedem Beispiel weniger auf die Technik als auf die Frage, was die Lernenden tun, während sie es benutzen. Arbeiten anderer Autorinnen und Autoren, nach Fächern geordnet, finden Sie auf der nächsten Seite unter Best-Practice Beispiele für visuelle Erklärungen.\nEin Zuordnungsspiel aus dem Skript „KI als Hilfe zum Lehren und Lernen”: Begriffe aus der Welt der Sprachmodelle werden den passenden Definitionen zugeordnet, auf Wunsch im Level Fortgeschritten mit Agenten-Begriffen und einer Diagnose-Runde zu typischen Problemen. Wer rät und danach die Auflösung sieht, ruft Wissen ab, statt es nur wiederzuerkennen, und behält es dadurch länger (Roediger & Karpicke, 2006).\nSpiel im eigenen Fenster öffnen →",
     "crumbs": [
       "Teil 0 — Vorbereitung zu Hause",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Galerie</span>"
@@ -2330,7 +2330,7 @@
     "href": "parts/best-practice.html#virtuelle-experimente",
     "title": "Best-Practice Beispiele für visuelle Erklärungen",
     "section": "3. Virtuelle Experimente",
-    "text": "3. Virtuelle Experimente\nEin virtuelles Experiment ist ein Versuchsaufbau im Browser: Die Lernenden stellen Bauteile oder Werte ein, sagen das Ergebnis vorher und sehen dann, ob die Messung ihnen recht gibt. Früher brauchte man dafür ein Entwicklerteam wie bei PhET. Inzwischen bauen Lehrende solche Versuche mit KI selbst, meist als einzelne HTML-Datei, die sich per iFrame ins Skript setzen lässt. Simulationen ergänzen den Unterricht wirksam, besonders als Vorbereitung auf das echte Labor; eine aufwendigere Darstellung bringt aber nicht automatisch mehr Lernerfolg (Rutten et al., 2012). Ein schlichter 2D-Versuch mit klarer Vorhersage-Aufgabe schlägt deshalb oft die prächtige 3D-Szene.\nElectronics 101 (Dilum Sanjaya) ist ein Einführungskurs in die Elektronik mit 68 Lektionen in zehn Modulen, vom ohmschen Gesetz über Spannungsteiler und Kondensatoren bis zu Transistoren, Operationsverstärkern und Logikgattern. Jede Lektion ist ein Versuch auf einer 3D-Werkbank. Derselbe Aufbau erscheint als Schaltplan und als Steckbrett, und vier Reiter trennen Überblick, Bauteile, Schaltung und Mathematik. Der Autor, ein Software-Entwickler, hat den Kurs nach eigener Aussage mit Claude Opus 5.5 gebaut. Die vier Reiter taugen als Bauplan für eigene Versuche; den Umfang des ganzen Kurses erreicht man mit einem gewöhnlichen KI-Abo nicht. Lizenz und Quellcode nennt die Seite nicht, also bitte nur verlinken.\nBeispiele aus anderen Fächern, alle mit KI gebaut:\n\nVirtuelle Labore von Open Source Physics @ Singapore (Loo Kang Wee), etwa zur Wasseraufnahme von Pflanzen, gekennzeichnet als „AI generated“. Dazu gehört ein Workshop mit Prompt-Vorlagen für Lehrkräfte. Er arbeitet mit Vibe Coding: Man beschreibt der KI im Gespräch, was entstehen soll, und schreibt den Code nicht selbst.\nWellen, Vogelschwärme, Schall (Punya Mishra, Arizona State University): Physik-Simulationen mit Claude, samt Bericht, wie sie entstanden sind.\nKlassenspiele zu Kreditrationierung und Bank-Run (Frank Strobel, University of Birmingham): Volkswirtschaft zum Mitspielen, mit Claude gebaut. Seine Lehre daraus: Die didaktische Spezifikation bleibt Sache der Lehrenden, die KI setzt sie nur um.\nThe Cell: Molekularbiologie von der DNA über die mRNA zum Protein, mit fünf echten Sequenzen.",
+    "text": "3. Virtuelle Experimente\nEin virtuelles Experiment ist ein Versuchsaufbau im Browser: Die Lernenden stellen Bauteile oder Werte ein, sagen das Ergebnis vorher und sehen dann, ob die Messung ihnen recht gibt. Früher brauchte man dafür ein Entwicklerteam wie bei PhET. Inzwischen bauen Lehrende solche Versuche mit KI selbst, meist als einzelne HTML-Datei, die sich per iFrame ins Skript setzen lässt. Simulationen ergänzen den Unterricht wirksam, besonders als Vorbereitung auf das echte Labor; eine aufwendigere Darstellung bringt aber nicht automatisch mehr Lernerfolg (Rutten et al., 2012). Ein schlichter 2D-Versuch mit klarer Vorhersage-Aufgabe schlägt deshalb oft die prächtige 3D-Szene.\nElectronics 101 (Dilum Sanjaya) ist ein Einführungskurs in die Elektronik mit 68 Lektionen in zehn Modulen, vom ohmschen Gesetz über Spannungsteiler und Kondensatoren bis zu Transistoren, Operationsverstärkern und Logikgattern. Jede Lektion ist ein Versuch auf einer 3D-Werkbank. Derselbe Aufbau erscheint als Schaltplan und als Steckbrett, und vier Reiter trennen Überblick, Bauteile, Schaltung und Mathematik. Der Autor, ein Software-Entwickler, hat den Kurs nach eigener Aussage mit Claude Opus 5.5 gebaut. Die vier Reiter taugen als Bauplan für eigene Versuche; den Umfang des ganzen Kurses erreicht man mit einem gewöhnlichen KI-Abo nicht. Lizenz und Quellcode nennt die Seite nicht. Einbetten per iFrame geht trotzdem, denn die Seite wird dabei weiter von ihrer eigenen Adresse geladen, wie in der Galerie; kopieren oder nachbauen sollte man sie nicht.\nBeispiele aus anderen Fächern, alle mit KI gebaut:\n\nVirtuelle Labore von Open Source Physics @ Singapore (Loo Kang Wee), etwa zur Wasseraufnahme von Pflanzen, gekennzeichnet als „AI generated“. Dazu gehört ein Workshop mit Prompt-Vorlagen für Lehrkräfte. Er arbeitet mit Vibe Coding: Man beschreibt der KI im Gespräch, was entstehen soll, und schreibt den Code nicht selbst.\nWellen, Vogelschwärme, Schall (Punya Mishra, Arizona State University): Physik-Simulationen mit Claude, samt Bericht, wie sie entstanden sind.\nKlassenspiele zu Kreditrationierung und Bank-Run (Frank Strobel, University of Birmingham): Volkswirtschaft zum Mitspielen, mit Claude gebaut. Seine Lehre daraus: Die didaktische Spezifikation bleibt Sache der Lehrenden, die KI setzt sie nur um.\nThe Cell: Molekularbiologie von der DNA über die mRNA zum Protein, mit fünf echten Sequenzen.",
     "crumbs": [
       "Teil 0 — Vorbereitung zu Hause",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Best-Practice Beispiele für visuelle Erklärungen</span>"
@@ -2345,6 +2345,50 @@
     "crumbs": [
       "Teil 0 — Vorbereitung zu Hause",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Best-Practice Beispiele für visuelle Erklärungen</span>"
+    ]
+  },
+  {
+    "objectID": "parts/galerie.html#umberto-ecos-bibliothek-in-3d",
+    "href": "parts/galerie.html#umberto-ecos-bibliothek-in-3d",
+    "title": "Galerie",
+    "section": "7. Umberto Ecos Bibliothek in 3D",
+    "text": "7. Umberto Ecos Bibliothek in 3D\nOhne Grundriss rekonstruierte Claude Fable 5.1 Ecos Mailänder Bibliothek aus rund einem Dutzend Filmen, den Regalfotos der Stiftung und zwei Bibliothekskatalogen. Das Modell las Buchrücken Bild für Bild, identifizierte etwa 5.000 Bücher und verteilte sie auf die Regalplätze. Man geht durch die Räume, klickt Bücher an, färbt die Regale nach Sprache, Jahrhundert oder Fachgebiet und folgt Führungen in Ecos eigenen Worten. Didaktisch bemerkenswert: Jedes Buch trägt eine Angabe, wie sicher seine Zuordnung ist. Die Rekonstruktion legt ihre eigene Unsicherheit offen. Ethan Mollick (Wharton School) nutzt das Projekt, um eine Lücke zu beschreiben: Die aktuellen Modelle können weit mehr, als die meisten Menschen ihnen abverlangen, und so etwas hätte früher Wochen menschlicher Arbeit gekostet (Mollick, 2026). Den größten Nutzen ziehen nach seiner Beobachtung diejenigen, die Fachwissen, Urteilsvermögen und Eigeninitiative mitbringen; genau das bringen Lehrende mit. Im Fenster unten bewegen Sie sich mit Maus und Tastatur, auf einem Rechner geht das am besten.\n\n\nBibliothek im eigenen Fenster öffnen →",
+    "crumbs": [
+      "Teil 0 — Vorbereitung zu Hause",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Galerie</span>"
+    ]
+  },
+  {
+    "objectID": "parts/galerie.html#zork-als-3d-spiel",
+    "href": "parts/galerie.html#zork-als-3d-spiel",
+    "title": "Galerie",
+    "section": "8. Zork als 3D-Spiel",
+    "text": "8. Zork als 3D-Spiel\nZork I ist ein reines Text-Abenteuer von 1977: Man tippt „go north” und liest, was passiert. Ethan Mollick ließ GPT-6 Astra daraus ein begehbares 3D-Spiel im Browser machen (Mollick, 2026). Weil das Original keine einzige Grafik hat, musste das Modell die ganze Bildwelt selbst entwerfen und Textszenen wie den Kampf mit dem Troll in Action-Sequenzen übersetzen. Das Beispiel zeigt, wie viel Übersetzungsarbeit zwischen Medien ein Modell inzwischen selbständig leistet, einschließlich vieler Gestaltungsentscheidungen, die früher ein Mensch hätte treffen müssen. Die Seite verbietet das Einbetten in andere Websites; das Spiel öffnet sich deshalb in einem eigenen Fenster.\nSpiel starten →",
+    "crumbs": [
+      "Teil 0 — Vorbereitung zu Hause",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Galerie</span>"
+    ]
+  },
+  {
+    "objectID": "parts/galerie.html#interaktiver-aufsatz-was-steckt-in-einem-rechenzentrum",
+    "href": "parts/galerie.html#interaktiver-aufsatz-was-steckt-in-einem-rechenzentrum",
+    "title": "Galerie",
+    "section": "9. Interaktiver Aufsatz: Was steckt in einem Rechenzentrum?",
+    "text": "9. Interaktiver Aufsatz: Was steckt in einem Rechenzentrum?\nThe state of data centers (Wondering, 2026) baut beim Scrollen ein KI-Rechenzentrum in 3D auf, Bauteil für Bauteil: Standort und Netzanschluss, Stromversorgung, Kühlung und Wasser, Racks und Glasfaser, dann die Kosten für Anwohner und Umwelt. Der Text führt, die Szene wächst mit. An zwei Stellen greifen die Lesenden selbst ein: Ein Knopf schickt eine Frage durchs System, Schalter verändern die Anlage. 112 nummerierte Quellen belegen die Zahlen. Ob KI beim Bau geholfen hat, sagt die Seite nicht. Mit der Quarto-Erweiterung Closeread lässt sich das Format ohne Webentwicklung nachbauen; weitere Beispiele stehen unter Interaktive Aufsätze. Scrollen Sie im Fenster unten, um die Szene wachsen zu lassen.\n\n\nAufsatz im eigenen Fenster öffnen →",
+    "crumbs": [
+      "Teil 0 — Vorbereitung zu Hause",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Galerie</span>"
+    ]
+  },
+  {
+    "objectID": "parts/galerie.html#virtuelles-experiment-elektrotechnik-auf-der-werkbank",
+    "href": "parts/galerie.html#virtuelles-experiment-elektrotechnik-auf-der-werkbank",
+    "title": "Galerie",
+    "section": "10. Virtuelles Experiment: Elektrotechnik auf der Werkbank",
+    "text": "10. Virtuelles Experiment: Elektrotechnik auf der Werkbank\nElectronics 101 (Dilum Sanjaya, 2026) ist ein Einführungskurs in die Elektronik mit 68 Lektionen in zehn Modulen, vom ohmschen Gesetz über Spannungsteiler und Kondensatoren bis zu Transistoren und Logikgattern. Jede Lektion ist ein kleiner Versuch auf einer 3D-Werkbank, die man drehen und zoomen kann. Derselbe Aufbau erscheint als Schaltplan und als Steckbrett, und vier Reiter trennen Überblick, Bauteile, Schaltung und Mathematik. Der Autor, ein Software-Entwickler, hat den Kurs nach eigener Aussage mit Claude Opus 5.5 gebaut. Ein einzelnes Experiment dieser Art liegt im Workshop in Reichweite, ein ganzer Kurs nicht. Weitere Beispiele aus anderen Fächern stehen unter Virtuelle Experimente.\n\n\nWerkbank im eigenen Fenster öffnen →",
+    "crumbs": [
+      "Teil 0 — Vorbereitung zu Hause",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Galerie</span>"
     ]
   }
 ]
